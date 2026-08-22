@@ -187,30 +187,30 @@ var ptx_lunr_docs = [
   "type": "Appendix",
   "number": "",
   "title": "AI Use Policy",
-  "body": " AI Use Policy  AI tools may be used in this course only according to the label attached to the activity or problem. The label text carries the meaning; colors or icons are only visual aids.   Course labels    AI Not Permitted : complete the marked work without AI assistance.    AI Not Permitted. Students must complete the marked work without AI assistance.      AI Debugging Only : AI may help you understand error messages or ask guiding questions, but it may not generate a full solution.    AI Debugging Only. Students may use AI to understand errors, diagnose problems, and ask guiding questions, but not generate a full solution.      AI Permitted with Disclosure : AI may be used as a tutor or coding assistant if you disclose its use and understand the submitted work.    AI Permitted with Disclosure. Students may use AI as a tutor or coding assistant, but must disclose its use and understand the submitted work.       Required disclosure Every submitted notebook must answer whether AI was used, what tool was used, what purpose it served, which problems were affected, the relevant prompt or conversation excerpt, and what you changed, verified, or rejected from the AI output.  Responsibility Disclosure does not excuse incorrect or poorly understood work. You are responsible for understanding and being able to explain every piece of code and writing that you submit.  "
+  "body": " AI Use Policy   AI tools may be used in this course only according to the label attached to the activity or problem. The label text carries the meaning; colors or icons are only visual aids.   Course labels    AI Not Permitted : complete the marked work without AI assistance.    AI Not Permitted. Students must complete the marked work without AI assistance.      AI Debugging Only : AI may help you understand error messages or ask guiding questions, but it may not generate a full solution.    AI Debugging Only. Students may use AI to understand errors, diagnose problems, and ask guiding questions, but not generate a full solution.      AI Permitted with Disclosure : AI may be used as a tutor or coding assistant if you disclose its use and understand the submitted work.    AI Permitted with Disclosure. Students may use AI as a tutor or coding assistant, but must disclose its use and understand the submitted work.       Required disclosure Every submitted notebook must answer whether AI was used, what tool was used, what purpose it served, which problems were affected, the relevant prompt or conversation excerpt, and what you changed, verified, or rejected from the AI output.  Responsibility Disclosure does not excuse incorrect or poorly understood work. You are responsible for understanding and being able to explain every piece of code and writing that you submit.  "
 },
 {
-  "id": "appendix-ai-use-policy-3-2-1-1",
+  "id": "appendix-ai-use-policy-4-2-1-1",
   "level": "2",
-  "url": "appendix-ai-use-policy.html#appendix-ai-use-policy-3-2-1-1",
+  "url": "appendix-ai-use-policy.html#appendix-ai-use-policy-4-2-1-1",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "AI Not Permitted "
 },
 {
-  "id": "appendix-ai-use-policy-3-2-2-1",
+  "id": "appendix-ai-use-policy-4-2-2-1",
   "level": "2",
-  "url": "appendix-ai-use-policy.html#appendix-ai-use-policy-3-2-2-1",
+  "url": "appendix-ai-use-policy.html#appendix-ai-use-policy-4-2-2-1",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "AI Debugging Only "
 },
 {
-  "id": "appendix-ai-use-policy-3-2-3-1",
+  "id": "appendix-ai-use-policy-4-2-3-1",
   "level": "2",
-  "url": "appendix-ai-use-policy.html#appendix-ai-use-policy-3-2-3-1",
+  "url": "appendix-ai-use-policy.html#appendix-ai-use-policy-4-2-3-1",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
