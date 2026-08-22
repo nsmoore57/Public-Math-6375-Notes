@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 768 768"
+   width="768"
+   height="768"
+   version="1.1"
+   id="svg60"
+   sodipodi:docname="ai-ml-venn.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs60" />
+  <sodipodi:namedview
+     id="namedview60"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.06375"
+     inkscape:cx="384.48884"
+     inkscape:cy="384.0188"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg60" />
+  <!-- Transparent Background is default in SVG when no background rectangle is defined -->
+  <!-- Outer Circle: Artificial Intelligence (Teal) -->
+  <circle
+     cx="384"
+     cy="384"
+     r="380"
+     fill="#158c99"
+     stroke="#ffffff"
+     stroke-width="8"
+     id="circle1" />
+  <!-- AI Text -->
+  <text
+     x="384"
+     y="124"
+     font-family="Arial, sans-serif"
+     font-size="42px"
+     font-weight="bold"
+     fill="#ffffff"
+     text-anchor="middle"
+     id="text1">Artificial</text>
+  <text
+     x="384"
+     y="174"
+     font-family="Arial, sans-serif"
+     font-size="42px"
+     font-weight="bold"
+     fill="#ffffff"
+     text-anchor="middle"
+     id="text2">Intelligence</text>
+  <!-- Inner Circle: Machine Learning (Orange) -->
+  <circle
+     cx="384"
+     cy="504"
+     r="230"
+     fill="#e87a27"
+     stroke="#f39c12"
+     stroke-width="4"
+     id="circle2" />
+  <!-- ML Text -->
+  <text
+     x="384"
+     y="364"
+     font-family="Arial, sans-serif"
+     font-size="34px"
+     font-weight="bold"
+     fill="#ffffff"
+     text-anchor="middle"
+     id="text3">Machine</text>
+  <text
+     x="384"
+     y="404"
+     font-family="Arial, sans-serif"
+     font-size="34px"
+     font-weight="bold"
+     fill="#ffffff"
+     text-anchor="middle"
+     id="text4">Learning</text>
+  <!-- ========================================== -->
+  <!-- AI ICONS (Teal Area)                       -->
+  <!-- ========================================== -->
+  <!-- Icon: AI Microchip (Center Left) -->
+  <g
+     transform="translate(34,384)"
+     stroke="#ffffff"
+     stroke-width="2"
+     fill="none"
+     id="g16">
+    <rect
+       x="30"
+       y="30"
+       width="60"
+       height="60"
+       rx="4"
+       id="rect4" />
+    <text
+       x="60"
+       y="68"
+       font-family="Arial, sans-serif"
+       font-size="20px"
+       font-weight="bold"
+       fill="#ffffff"
+       text-anchor="middle"
+       stroke="none"
+       id="text5">AI</text>
+    <!-- Top Pins -->
+    <line
+       x1="45"
+       y1="30"
+       x2="45"
+       y2="15"
+       id="line5" />
+    <line
+       x1="60"
+       y1="30"
+       x2="60"
+       y2="15"
+       id="line6" />
+    <line
+       x1="75"
+       y1="30"
+       x2="75"
+       y2="15"
+       id="line7" />
+    <!-- Bottom Pins -->
+    <line
+       x1="45"
+       y1="90"
+       x2="45"
+       y2="105"
+       id="line8" />
+    <line
+       x1="60"
+       y1="90"
+       x2="60"
+       y2="105"
+       id="line9" />
+    <line
+       x1="75"
+       y1="90"
+       x2="75"
+       y2="105"
+       id="line10" />
+    <!-- Left Pins -->
+    <line
+       x1="30"
+       y1="45"
+       x2="15"
+       y2="45"
+       id="line11" />
+    <line
+       x1="30"
+       y1="60"
+       x2="15"
+       y2="60"
+       id="line12" />
+    <line
+       x1="30"
+       y1="75"
+       x2="15"
+       y2="75"
+       id="line13" />
+    <!-- Right Pins -->
+    <line
+       x1="90"
+       y1="45"
+       x2="105"
+       y2="45"
+       id="line14" />
+    <line
+       x1="90"
+       y1="60"
+       x2="105"
+       y2="60"
+       id="line15" />
+    <line
+       x1="90"
+       y1="75"
+       x2="105"
+       y2="75"
+       id="line16" />
+  </g>
+  <!-- Icon: Robot Head (Top Right) -->
+  <g
+     transform="translate(544,204)"
+     stroke="#ffffff"
+     stroke-width="2"
+     fill="none"
+     id="g21">
+    <rect
+       x="30"
+       y="30"
+       width="60"
+       height="50"
+       rx="10"
+       id="rect16" />
+    <line
+       x1="60"
+       y1="30"
+       x2="60"
+       y2="10"
+       id="line17" />
+    <circle
+       cx="60"
+       cy="8"
+       r="4"
+       fill="#ffffff"
+       id="circle17" />
+    <!-- Eyes -->
+    <circle
+       cx="45"
+       cy="50"
+       r="5"
+       fill="#f1c40f"
+       stroke="none"
+       id="circle18" />
+    <circle
+       cx="75"
+       cy="50"
+       r="5"
+       fill="#f1c40f"
+       stroke="none"
+       id="circle19" />
+    <!-- Mouth -->
+    <line
+       x1="45"
+       y1="65"
+       x2="75"
+       y2="65"
+       id="line19" />
+    <!-- Ears -->
+    <line
+       x1="30"
+       y1="55"
+       x2="20"
+       y2="55"
+       id="line20" />
+    <line
+       x1="90"
+       y1="55"
+       x2="100"
+       y2="55"
+       id="line21" />
+  </g>
+  <!-- Icon: Brain Circuit (Top Left) -->
+  <g
+     transform="translate(64,214)"
+     stroke="#ffffff"
+     stroke-width="2"
+     fill="none"
+     id="g25">
+    <path
+       d="M 50,80 C 20,80 10,50 30,30 40,10 70,10 80,30 c 10,-20 40,-20 50,0 20,20 10,50 -20,50 20,20 0,40 -30,30 C 50,120 30,100 50,80 Z"
+       id="path21" />
+    <line
+       x1="80"
+       y1="20"
+       x2="80"
+       y2="110"
+       id="line22" />
+    <circle
+       cx="50"
+       cy="50"
+       r="3"
+       fill="#ffffff"
+       id="circle22" />
+    <circle
+       cx="110"
+       cy="50"
+       r="3"
+       fill="#ffffff"
+       id="circle23" />
+    <circle
+       cx="60"
+       cy="80"
+       r="3"
+       fill="#ffffff"
+       id="circle24" />
+    <line
+       x1="50"
+       y1="50"
+       x2="80"
+       y2="70"
+       id="line24" />
+    <line
+       x1="110"
+       y1="50"
+       x2="80"
+       y2="70"
+       id="line25" />
+  </g>
+  <!-- Icon: Autonomous Car (Center Right) -->
+  <g
+     transform="translate(614,374)"
+     stroke="#ffffff"
+     stroke-width="2"
+     fill="none"
+     id="g28">
+    <circle
+       cx="60"
+       cy="60"
+       r="45"
+       id="circle25" />
+    <path
+       d="M 30,70 V 60 C 30,50 40,45 50,45 h 20 c 10,0 20,5 20,15 v 10 z"
+       id="path25" />
+    <rect
+       x="25"
+       y="70"
+       width="70"
+       height="15"
+       rx="3"
+       id="rect25" />
+    <circle
+       cx="40"
+       cy="85"
+       r="6"
+       id="circle26" />
+    <circle
+       cx="80"
+       cy="85"
+       r="6"
+       id="circle27" />
+    <!-- Radar waves -->
+    <path
+       d="M 45,35 Q 60,25 75,35"
+       id="path27" />
+    <path
+       d="M 40,25 Q 60,10 80,25"
+       id="path28" />
+  </g>
+  <!-- ========================================== -->
+  <!-- ML ICONS (Orange Area)                     -->
+  <!-- ========================================== -->
+  <!-- Icon: Neural Network (Left) -->
+  <g
+     transform="translate(204,434)"
+     stroke="#ffffff"
+     stroke-width="1.5"
+     fill="none"
+     id="g45">
+    <!-- Layer 1 -->
+    <circle
+       cx="20"
+       cy="30"
+       r="5"
+       id="circle28" />
+    <circle
+       cx="20"
+       cy="60"
+       r="5"
+       id="circle29" />
+    <circle
+       cx="20"
+       cy="90"
+       r="5"
+       id="circle30" />
+    <!-- Layer 2 -->
+    <circle
+       cx="50"
+       cy="15"
+       r="5"
+       id="circle31" />
+    <circle
+       cx="50"
+       cy="45"
+       r="5"
+       id="circle32" />
+    <circle
+       cx="50"
+       cy="75"
+       r="5"
+       id="circle33" />
+    <circle
+       cx="50"
+       cy="105"
+       r="5"
+       id="circle34" />
+    <!-- Layer 3 -->
+    <circle
+       cx="80"
+       cy="45"
+       r="5"
+       id="circle35" />
+    <circle
+       cx="80"
+       cy="75"
+       r="5"
+       id="circle36" />
+    <!-- Connections -->
+    <line
+       x1="25"
+       y1="30"
+       x2="45"
+       y2="15"
+       id="line36" />
+    <line
+       x1="25"
+       y1="30"
+       x2="45"
+       y2="45"
+       id="line37" />
+    <line
+       x1="25"
+       y1="60"
+       x2="45"
+       y2="45"
+       id="line38" />
+    <line
+       x1="25"
+       y1="60"
+       x2="45"
+       y2="75"
+       id="line39" />
+    <line
+       x1="25"
+       y1="90"
+       x2="45"
+       y2="75"
+       id="line40" />
+    <line
+       x1="25"
+       y1="90"
+       x2="45"
+       y2="105"
+       id="line41" />
+    <line
+       x1="55"
+       y1="15"
+       x2="75"
+       y2="45"
+       id="line42" />
+    <line
+       x1="55"
+       y1="45"
+       x2="75"
+       y2="45"
+       id="line43" />
+    <line
+       x1="55"
+       y1="75"
+       x2="75"
+       y2="75"
+       id="line44" />
+    <line
+       x1="55"
+       y1="105"
+       x2="75"
+       y2="75"
+       id="line45" />
+  </g>
+  <!-- Icon: Scatter Plot (Right) -->
+  <g
+     transform="translate(464,444)"
+     stroke="#ffffff"
+     stroke-width="2"
+     fill="none"
+     id="g52">
+    <!-- Axes -->
+    <line
+       x1="10"
+       y1="10"
+       x2="10"
+       y2="80"
+       id="line46" />
+    <line
+       x1="10"
+       y1="80"
+       x2="90"
+       y2="80"
+       id="line47" />
+    <!-- Trend Line -->
+    <line
+       x1="20"
+       y1="70"
+       x2="80"
+       y2="20"
+       id="line48" />
+    <!-- Data Points -->
+    <circle
+       cx="30"
+       cy="60"
+       r="3"
+       fill="#ffffff"
+       id="circle48" />
+    <circle
+       cx="45"
+       cy="55"
+       r="3"
+       fill="#ffffff"
+       id="circle49" />
+    <circle
+       cx="40"
+       cy="40"
+       r="3"
+       fill="#ffffff"
+       id="circle50" />
+    <circle
+       cx="60"
+       cy="30"
+       r="3"
+       fill="#ffffff"
+       id="circle51" />
+    <circle
+       cx="75"
+       cy="35"
+       r="3"
+       fill="#ffffff"
+       id="circle52" />
+  </g>
+  <!-- Icon: Decision Tree Flowchart (Bottom Left) -->
+  <g
+     transform="translate(234,584)"
+     stroke="#ffffff"
+     stroke-width="2"
+     fill="none"
+     id="g56">
+    <rect
+       x="40"
+       y="10"
+       width="40"
+       height="20"
+       rx="3"
+       id="rect52" />
+    <line
+       x1="60"
+       y1="30"
+       x2="60"
+       y2="45"
+       id="line52" />
+    <polygon
+       points="60,75 40,60 60,45 80,60 "
+       id="polygon52" />
+    <line
+       x1="40"
+       y1="60"
+       x2="20"
+       y2="60"
+       id="line53" />
+    <line
+       x1="20"
+       y1="60"
+       x2="20"
+       y2="80"
+       id="line54" />
+    <circle
+       cx="20"
+       cy="85"
+       r="5"
+       id="circle54" />
+    <line
+       x1="80"
+       y1="60"
+       x2="100"
+       y2="60"
+       id="line55" />
+    <line
+       x1="100"
+       y1="60"
+       x2="100"
+       y2="80"
+       id="line56" />
+    <circle
+       cx="100"
+       cy="85"
+       r="5"
+       id="circle56" />
+  </g>
+  <!-- Icon: Data Analytics / Laptop (Bottom Center Right) -->
+  <g
+     transform="translate(404,594)"
+     stroke="#ffffff"
+     stroke-width="2"
+     fill="none"
+     id="g60">
+    <!-- Laptop Body -->
+    <rect
+       x="20"
+       y="20"
+       width="60"
+       height="40"
+       rx="2"
+       id="rect56" />
+    <line
+       x1="10"
+       y1="65"
+       x2="90"
+       y2="65"
+       id="line57" />
+    <line
+       x1="20"
+       y1="60"
+       x2="10"
+       y2="65"
+       id="line58" />
+    <line
+       x1="80"
+       y1="60"
+       x2="90"
+       y2="65"
+       id="line59" />
+    <!-- Charts -->
+    <rect
+       x="30"
+       y="35"
+       width="8"
+       height="15"
+       fill="#ffffff"
+       id="rect59" />
+    <rect
+       x="45"
+       y="25"
+       width="8"
+       height="25"
+       fill="#ffffff"
+       id="rect60" />
+    <!-- Trend -->
+    <polyline
+       points="25,40 40,20 60,10"
+       id="polyline60" />
+  </g>
+</svg>

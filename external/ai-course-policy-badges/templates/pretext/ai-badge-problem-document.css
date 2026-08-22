@@ -1,0 +1,80 @@
+/* AI badge problem-document styling for PreTeXt HTML output.
+   Copy or reference this as an extra stylesheet in a course PreTeXt target.
+   Example project.ptx string parameter:
+   <stringparams html.css.extra="external/ai-badge-problem-document.css" />
+*/
+
+/* Keep this stylesheet conservative: it should improve badge/problem examples
+   without fighting the full PreTeXt theme.
+
+   PreTeXt 2.43 does not preserve custom-class on every source element, so the
+   default selectors below target the stable xml:id values used in the template.
+   If your course theme preserves custom classes, the class selectors are also
+   included as a convenience.
+*/
+.ptx-content #ai-badge-intro,
+.ptx-content .ai-badge-intro,
+.ptx-content section[id^="problem-ai-"],
+.ptx-content .ai-problem-card {
+  border: 1px solid #d7dde6;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  padding: 1rem 1.15rem;
+  margin: 1.25rem 0;
+}
+
+.ptx-content #ai-badge-intro,
+.ptx-content .ai-badge-intro {
+  background: #f6f8fb;
+  border-left: 0.35rem solid #0078A3;
+}
+
+.ptx-content section[id^="problem-ai-"] > .heading:first-child,
+.ptx-content .ai-problem-card > .heading:first-child {
+  font-size: 1.16em;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.ptx-content section[id^="problem-ai-"] .image-box,
+.ptx-content .ai-policy-badge {
+  margin-top: 0.4rem;
+  margin-bottom: 0.65rem;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  text-align: left;
+}
+
+.ptx-content section[id^="problem-ai-"] .image-box img,
+.ptx-content .ai-policy-badge img,
+.ptx-content img.ai-policy-badge {
+  max-width: min(100%, 24rem);
+  height: auto;
+}
+
+.ptx-content section[id^="problem-ai-"] .image-box + .para,
+.ptx-content section[id^="problem-ai-"] > .para:nth-of-type(1),
+.ptx-content .ai-policy-note {
+  background: #fbfcfe;
+  border-left: 0.3rem solid #c9d0d8;
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  margin: 0.65rem 0 0.9rem;
+}
+
+.ptx-content section[id^="problem-ai-"] .image-box + .para .alert,
+.ptx-content section[id^="problem-ai-"] > .para:nth-of-type(1) .alert,
+.ptx-content .ai-policy-note .alert,
+.ptx-content .ai-policy-note strong {
+  font-weight: 700;
+}
+
+@media print {
+  .ptx-content #ai-badge-intro,
+  .ptx-content section[id^="problem-ai-"],
+  .ptx-content .ai-badge-intro,
+  .ptx-content .ai-problem-card,
+  .ptx-content .ai-policy-note {
+    break-inside: avoid;
+  }
+}

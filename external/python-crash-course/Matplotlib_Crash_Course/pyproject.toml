@@ -1,0 +1,18 @@
+[project]
+name = "Math4362_notebooks"
+version = "0.1.0"
+description = "A project for Math 4362 Jupyter notebooks"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyterlab>=4.6.2",
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.1",
+    "otter-grader>=6.1.6",
+    "plotly>=6.9.0",
+    "scikit-learn>=1.9.0",
+    "scipy>=1.18.0",
+    "seaborn>=0.13.2",
+]
+
+[tool.uv.workspace]

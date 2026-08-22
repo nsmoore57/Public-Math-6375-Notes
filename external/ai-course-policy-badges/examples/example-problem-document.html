@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example AI Badge Problem Document</title>
+  <style>
+    :root {
+      --wt-maroon: #7A1F2B;
+      --wt-blue: #0078A3;
+      --green: #006B54;
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --paper: #ffffff;
+      --soft: #f6f8fb;
+      --line: #d7dde6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eef2f6;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 24px auto;
+      background: var(--paper);
+      padding: 0.55in 0.65in;
+      box-shadow: 0 10px 30px rgba(17, 24, 39, 0.15);
+      border-top: 8px solid var(--wt-maroon);
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+    }
+    .course { color: var(--wt-maroon); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: 13px; }
+    h1 { margin: 4px 0 5px; font-size: 28px; line-height: 1.15; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .intro {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--wt-blue);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-bottom: 22px;
+    }
+    h2 { font-size: 19px; margin: 0 0 9px; }
+    h3 { font-size: 17px; margin: 0 0 8px; }
+    .problem {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background: #fff;
+      break-inside: avoid;
+    }
+    .problem-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .problem-title { flex: 1; }
+    .points { color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .badge { max-width: 320px; height: auto; display: block; margin: 4px 0 10px; }
+    .badge.long { max-width: 370px; }
+    .ai-note {
+      font-size: 14px;
+      color: #374151;
+      background: #fbfcfe;
+      border-left: 4px solid #c9d0d8;
+      padding: 9px 12px;
+      margin: 10px 0 14px;
+      border-radius: 8px;
+    }
+    ol { margin-top: 8px; padding-left: 22px; }
+    li { margin: 6px 0; }
+    code, .math { font-family: "Times New Roman", Times, serif; font-size: 1.03em; }
+    .submission {
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      font-size: 14px;
+    }
+    .checklist { columns: 2; margin-top: 8px; }
+    .checklist li { break-inside: avoid; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; width: auto; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="course">MATH 4362 · Introduction to Numerical Analysis</div>
+      <h1>Example Problem Set: Root-Finding and Error</h1>
+      <div class="meta">Nicholas S. Moore, PhD · Fall 2026 · Example showing AI-use badges in context</div>
+    </header>
+
+    <section class="intro">
+      <h2>How to read the AI-use badges</h2>
+      <p>Each activity below has its own AI-use policy. The badge gives the quick visual cue, but the written note below it is the authoritative instruction. When AI is permitted, you are still responsible for checking, understanding, and explaining your submitted work.</p>
+    </section>
+
+    <section class="problem">
+      <div class="problem-head">
+        <div class="problem-title">
+          <h3>Problem 1. Bisection by hand</h3>
+          <div class="points">10 points</div>
+        </div>
+      </div>
+      <img class="badge" src="https://nsmoore57.github.io/ai-course-policy-badges/badges/ai-not-permitted.svg" alt="AI Not Permitted. Students must complete the marked work without AI assistance.">
+      <div class="ai-note"><strong>AI Use: AI Not Permitted.</strong> Complete this problem without AI assistance. The goal is to assess your unaided understanding of interval bracketing and error bounds.</div>
+      <p>Let <span class="math">f(x) = x^3 - x - 2</span>. Starting with the interval <span class="math">[1,2]</span>, perform four iterations of the bisection method.</p>
+      <ol type="a">
+        <li>Record the midpoint, function value sign, and retained interval at each step.</li>
+        <li>Give the final midpoint approximation after four iterations.</li>
+        <li>State a valid upper bound for the absolute error.</li>
+      </ol>
+    </section>
+
+    <section class="problem">
+      <div class="problem-head">
+        <div class="problem-title">
+          <h3>Problem 2. Debugging a Newton iteration</h3>
+          <div class="points">15 points</div>
+        </div>
+      </div>
+      <img class="badge" src="https://nsmoore57.github.io/ai-course-policy-badges/badges/ai-debugging-only.svg" alt="AI Debugging Only. Students may use AI to understand errors, diagnose problems, and ask guiding questions, but not to generate a full solution.">
+      <div class="ai-note"><strong>AI Use: AI Debugging Only.</strong> You may use AI to interpret error messages, diagnose bugs, or ask guiding questions. Do not ask AI to write the full solution or complete the analysis for you.</div>
+      <p>The following Python function is intended to implement Newton's method, but it contains at least two bugs.</p>
+      <pre><code>def newton(f, df, x0, tol=1e-8, max_iter=20):
+    x = x0
+    for k in range(max_iter):
+        x_next = x - f(x) / df
+        if abs(x_next - x0) &lt; tol:
+            return x_next
+        x = x_next
+    return x</code></pre>
+      <ol type="a">
+        <li>Identify and fix the bugs.</li>
+        <li>Test the corrected function on <span class="math">f(x)=x^2-2</span>.</li>
+        <li>Briefly explain why your stopping condition is appropriate.</li>
+      </ol>
+    </section>
+
+    <section class="problem">
+      <div class="problem-head">
+        <div class="problem-title">
+          <h3>Problem 3. Method comparison reflection</h3>
+          <div class="points">15 points</div>
+        </div>
+      </div>
+      <img class="badge long" src="https://nsmoore57.github.io/ai-course-policy-badges/badges/ai-permitted-disclosure.svg" alt="AI Permitted with Disclosure. Students may use AI as a tutor, assistant, brainstorming partner, or reviewer, but must disclose its use and understand submitted work.">
+      <div class="ai-note"><strong>AI Use: AI Permitted with Disclosure.</strong> You may use AI as a tutor, coding assistant, brainstorming partner, or reviewer. Disclose how you used it, and be prepared to explain every part of your submission.</div>
+      <p>Compare bisection and Newton's method for solving nonlinear equations.</p>
+      <ol type="a">
+        <li>Describe one advantage and one limitation of each method.</li>
+        <li>Give an example of a situation where bisection is preferable.</li>
+        <li>Give an example of a situation where Newton's method is preferable.</li>
+        <li>If you used AI, include a short disclosure note summarizing what you asked and how you checked the response.</li>
+      </ol>
+    </section>
+
+    <section class="submission">
+      <h2>Submission checklist</h2>
+      <ul class="checklist">
+        <li>Show required hand calculations.</li>
+        <li>Include tested code where requested.</li>
+        <li>Use the stated AI policy for each problem.</li>
+        <li>Include AI disclosure where required.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

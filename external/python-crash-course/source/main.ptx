@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+  <docinfo>
+    <macros>
+      <!-- Add any required math macros here -->
+    </macros>
+  </docinfo>
+  <article xml:id="python-crash-course-preview">
+    <title>Preview: Python Crash Course</title>
+
+    <!-- Pull in your actual content files -->
+    <xi:include href="install-uv.ptx" />
+    <xi:include href="jupyter-basics.ptx" />
+    <xi:include href="python-basics.ptx" />
+    <xi:include href="numpy-basics.ptx" />
+    <xi:include href="numpy-matrices.ptx" />
+    <xi:include href="seaborn.ptx" />
+    <xi:include href="pandas.ptx" />
+    <xi:include href="scikit-learn.ptx" />
+    <xi:include href="plotly.ptx" />
+
+  </article>
+</pretext>

@@ -1,0 +1,24 @@
+<section xmlns="http://pretextbook.org/2020/pretext">
+  <title>Example AI Use Badge Set</title>
+<paragraphs>
+    <title>AI Not Permitted</title>
+    <image source="https://nsmoore57.github.io/ai-course-policy-badges/badges/ai-not-permitted.svg" width="45%">
+      <description>AI Not Permitted. Students must complete the marked work without AI assistance.</description>
+    </image>
+    <p><alert>AI Use: AI Not Permitted.</alert> Complete this marked work without AI assistance. Use this for unaided understanding, foundational skills, or individual reasoning.</p>
+  </paragraphs>
+  <paragraphs>
+    <title>AI Debugging Only</title>
+    <image source="https://nsmoore57.github.io/ai-course-policy-badges/badges/ai-debugging-only.svg" width="45%">
+      <description>AI Debugging Only. Students may use AI to understand errors, diagnose problems, and ask guiding questions, but not to generate a full solution.</description>
+    </image>
+    <p><alert>AI Use: AI Debugging Only.</alert> You may use AI to understand error messages, diagnose problems, or ask guiding questions, but not to generate the solution.</p>
+  </paragraphs>
+  <paragraphs>
+    <title>AI Permitted with Disclosure</title>
+    <image source="https://nsmoore57.github.io/ai-course-policy-badges/badges/ai-permitted-disclosure.svg" width="45%">
+      <description>AI Permitted with Disclosure. Students may use AI as a tutor, assistant, brainstorming partner, or reviewer, but must disclose its use and understand submitted work.</description>
+    </image>
+    <p><alert>AI Use: AI Permitted with Disclosure.</alert> You may use AI as a tutor, coding assistant, brainstorming partner, or reviewer, but you must disclose its use and understand everything you submit.</p>
+  </paragraphs>
+</section>

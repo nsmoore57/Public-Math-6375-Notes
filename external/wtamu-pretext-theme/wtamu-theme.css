@@ -1,0 +1,621 @@
+/*
+ * WTAMU accessible theme customizations for PreTeXt HTML output.
+ *
+ * Brand sources:
+ * - WTAMU Graphic Standards: https://www.wtamu.edu/news/identity-system/graphic-standards.html
+ * - Official web maroon: #450012 (RGB 69, 0, 18)
+ * - Official accent blue: #0078A3 (RGB 0, 120, 163)
+ * - Official logo colors: WTAMU maroon, white, black, and gray.
+ *
+ * Accessibility target: WCAG AAA contrast for normal text in light and dark modes.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  --wt-maroon: #450012;
+  --wt-maroon-print: #6a1a31;
+  --wt-accent-blue: #0078a3;
+  --wt-accent-blue-050: #d9f4ff;
+  --wt-accent-blue-100: #bfefff;
+  --wt-accent-blue-700: #005f82;
+  --wt-white: #ffffff;
+  --wt-black: #000000;
+  --wt-gray-950: #111111;
+  --wt-gray-900: #1c1c1c;
+  --wt-gray-800: #2a2a2a;
+  --wt-gray-700: #3a3a3a;
+  --wt-gray-050: #f7f7f7;
+  --wt-gray-100: #efedef;
+  --wt-gray-200: #d9d9d9;
+  --wt-charcoal-975: #151316;
+  --wt-charcoal-950: #1d181b;
+  --wt-charcoal-925: #242126;
+  --wt-charcoal-900: #2c272c;
+  --wt-maroon-950: #160006;
+  --wt-maroon-925: #1f0008;
+  --wt-maroon-900: #2b000c;
+  --wt-maroon-850: #350010;
+  --wt-maroon-800: #450012;
+  --wt-maroon-700: #6a1a31;
+  --wt-maroon-050: #fbf7f8;
+  --wt-maroon-100: #f4e8ec;
+  --wt-maroon-200: #e8cad2;
+
+  --wt-bg: var(--wt-white);
+  --wt-bg-soft: var(--wt-gray-050);
+  --wt-surface: var(--wt-white);
+  --wt-text: var(--wt-black);
+  --wt-heading: var(--wt-maroon);
+  --wt-link: var(--wt-maroon);
+  --wt-link-visited: #3d0010;
+  --wt-border: var(--wt-gray-200);
+  --wt-focus: var(--wt-black);
+  --tocitem-background: var(--wt-white);
+  --tocitem-active-background: var(--wt-gray-100);
+  --tocitem-active-text-color: var(--wt-maroon);
+  --tocitem-active-border-color: var(--wt-border);
+  --toclevel1-background: var(--wt-white);
+  --toclevel1-text-color: var(--wt-maroon);
+  --toclevel2-background: var(--wt-white);
+  --toclevel2-text-color: var(--wt-maroon);
+  --toclevel3-background: var(--wt-white);
+  --toclevel3-text-color: var(--wt-maroon);
+  --tocitem-highlight-background: var(--wt-maroon);
+  --tocitem-highlight-text-color: var(--wt-white);
+  --tocitem-highlight-border-color: var(--wt-maroon);
+}
+
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) {
+  color-scheme: light;
+  --wt-bg: var(--wt-white);
+  --wt-bg-soft: var(--wt-gray-050);
+  --wt-surface: var(--wt-white);
+  --wt-text: var(--wt-black);
+  --wt-heading: var(--wt-maroon);
+  --wt-link: var(--wt-maroon);
+  --wt-link-visited: #3d0010;
+  --wt-border: var(--wt-gray-200);
+  --wt-focus: var(--wt-black);
+  --wt-muted: #333333;
+  --tocitem-background: var(--wt-white);
+  --tocitem-active-background: var(--wt-gray-100);
+  --tocitem-active-text-color: var(--wt-maroon);
+  --tocitem-active-border-color: var(--wt-border);
+  --toclevel1-background: var(--wt-white);
+  --toclevel1-text-color: var(--wt-maroon);
+  --toclevel2-background: var(--wt-white);
+  --toclevel2-text-color: var(--wt-maroon);
+  --toclevel3-background: var(--wt-white);
+  --toclevel3-text-color: var(--wt-maroon);
+  --tocitem-highlight-background: var(--wt-maroon);
+  --tocitem-highlight-text-color: var(--wt-white);
+  --tocitem-highlight-border-color: var(--wt-maroon);
+}
+
+html[data-theme="dark"],
+html.dark-mode,
+html.dark,
+body.dark,
+.ptx-dark-mode {
+  color-scheme: dark;
+  --wt-bg: var(--wt-charcoal-975);
+  --wt-bg-soft: var(--wt-charcoal-950);
+  --wt-surface: var(--wt-charcoal-925);
+  --wt-text: #f7f4f5;
+  --wt-heading: var(--wt-white);
+  --wt-link: var(--wt-accent-blue-050);
+  --wt-link-visited: #f4e8ec;
+  --wt-border: var(--wt-charcoal-900);
+  --wt-focus: var(--wt-accent-blue-050);
+  --wt-muted: #d1d5db;
+  --tocitem-background: var(--wt-charcoal-925);
+  --tocitem-active-background: var(--wt-maroon-900);
+  --tocitem-active-text-color: var(--wt-white);
+  --tocitem-active-border-color: var(--wt-maroon-700);
+  --toclevel1-background: var(--wt-charcoal-925);
+  --toclevel1-text-color: var(--wt-text);
+  --toclevel2-background: var(--wt-charcoal-925);
+  --toclevel2-text-color: var(--wt-text);
+  --toclevel3-background: var(--wt-charcoal-925);
+  --toclevel3-text-color: var(--wt-text);
+  --tocitem-highlight-background: var(--wt-maroon-700);
+  --tocitem-highlight-text-color: var(--wt-white);
+  --tocitem-highlight-border-color: var(--wt-accent-blue-050);
+}
+
+body,
+.ptx-content,
+.ptx-page,
+.ptx-main {
+  background: var(--wt-bg);
+  color: var(--wt-text);
+}
+
+.ptx-content h1,
+.ptx-content h2,
+.ptx-content h3,
+.ptx-content h4,
+.ptx-content h5,
+.ptx-content h6,
+.ptx-page-title,
+.ptx-content .heading,
+.ptx-content .title,
+.ptx-content .subtitle {
+  color: var(--wt-heading);
+}
+
+.ptx-content h1,
+.ptx-page-title {
+  border-bottom: 0.08rem solid var(--wt-border);
+  box-shadow: inset 0 -0.18rem 0 rgb(0 120 163 / 0.18);
+  padding-bottom: 0.25em;
+}
+
+.ptx-content .heading,
+.ptx-content .title,
+.ptx-content .subtitle {
+  border-color: var(--wt-border) !important;
+}
+
+/* PreTeXt's modern theme resets inline headings for paragraph/example-like
+   blocks and born-hidden knowls to the surrounding text size. Make those
+   headings stand out so Example/Tip knowls are easier to notice. */
+.ptx-content .paragraphs > .heading:first-child,
+.ptx-content article > .heading:first-child,
+.ptx-content details.born-hidden-knowl > summary.knowl__link > .heading:first-child {
+  font-size: 1.16em;
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+.ptx-content a,
+.ptx-content a:link,
+.ptx-toc a,
+.ptx-navbar a {
+  color: var(--wt-link);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.ptx-content a:visited {
+  color: var(--wt-link-visited);
+}
+
+.ptx-content a:hover,
+.ptx-content a:focus-visible,
+.ptx-toc a:hover,
+.ptx-navbar a:hover,
+.ptx-toc a:focus-visible,
+.ptx-navbar a:focus-visible {
+  background: var(--wt-maroon);
+  color: var(--wt-white);
+  outline: 0.14rem solid var(--wt-focus);
+  outline-offset: 0.12rem;
+  text-decoration: none;
+}
+
+.ptx-content .titlepage,
+.ptx-content .frontmatter,
+.ptx-content .introduction,
+.ptx-content .objectives,
+.ptx-content .assemblage-like,
+.ptx-content .remark-like,
+.ptx-content .example-like,
+.ptx-content .theorem-like,
+.ptx-content .definition-like,
+.ptx-content .exercise-like,
+.ptx-content .project-like {
+  background-color: var(--wt-bg-soft);
+  border-color: var(--wt-border);
+  border-left: 0.22rem solid var(--wt-accent-blue);
+}
+
+.ptx-content .introduction,
+.ptx-content .exercise-like {
+  padding-left: 0.75rem;
+}
+
+.ptx-content .exercise-like .introduction,
+.ptx-content .exercise-like .statement,
+.ptx-content .exercise-like .task,
+.ptx-content .exercise-like .task-like,
+.ptx-content .exercise-like .task .statement,
+.ptx-content .exercise-like .task-like .statement {
+  border-left: 0;
+  padding-left: 0;
+}
+
+/* Keep PreTeXt's L-shaped rules for remark-like blocks in the official
+   WTAMU accent blue in both light and dark modes. PreTeXt draws the short
+   bottom rule with a generated :after pseudo-element, so override both the
+   left border on the article and the pseudo-element border. These are
+   decorative rules, not text, so the official accent blue can be used
+   directly. */
+.ptx-content .theorem-like:not(.knowl__content, .born-hidden-knowl),
+.ptx-content .definition-like:not(.knowl__content, .born-hidden-knowl),
+.ptx-content .example-like:not(.knowl__content, .born-hidden-knowl),
+.ptx-content .project-like:not(.knowl__content, .born-hidden-knowl),
+.ptx-content .remark-like:not(.knowl__content, .born-hidden-knowl),
+.ptx-content .openproblem-like:not(.knowl__content, .born-hidden-knowl),
+.ptx-content .computation-like:not(.knowl__content, .born-hidden-knowl) {
+  border-left-color: var(--wt-accent-blue) !important;
+}
+
+.ptx-content .theorem-like:not(.knowl__content, .born-hidden-knowl)::after,
+.ptx-content .definition-like:not(.knowl__content, .born-hidden-knowl)::after,
+.ptx-content .example-like:not(.knowl__content, .born-hidden-knowl)::after,
+.ptx-content .project-like:not(.knowl__content, .born-hidden-knowl)::after,
+.ptx-content .remark-like:not(.knowl__content, .born-hidden-knowl)::after,
+.ptx-content .openproblem-like:not(.knowl__content, .born-hidden-knowl)::after,
+.ptx-content .computation-like:not(.knowl__content, .born-hidden-knowl)::after {
+  border-bottom-color: var(--wt-accent-blue) !important;
+}
+
+/* Official WTAMU Spirit logo as a small corner brand mark, not as part of
+   the title slide. Light mode uses the standard maroon mark; dark mode swaps
+   to the white mark. */
+.ptx-masthead {
+  position: relative;
+}
+
+.ptx-masthead::after {
+  content: "";
+  display: inline-block;
+  width: clamp(4.25rem, 9vw, 6.25rem);
+  height: clamp(2.5rem, 5.2vw, 3.65rem);
+  margin-left: 1rem;
+  margin-top: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.18rem;
+  background: transparent url("SpiritWT-NewDigital.png") center / contain no-repeat;
+  border: 0;
+  vertical-align: middle;
+}
+
+html[data-theme="dark"] .ptx-masthead::after,
+html.dark-mode .ptx-masthead::after,
+html.dark .ptx-masthead::after,
+body.dark .ptx-masthead::after,
+.ptx-dark-mode .ptx-masthead::after {
+  background-color: transparent;
+  background-image: url("SpiritWT-white.png");
+}
+
+.ptx-content .titlepage,
+.ptx-content .frontmatter {
+  border-top: 0;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.3rem 1rem rgb(0 0 0 / 0.12);
+  padding: 1.5rem;
+  border-left: 0;
+}
+
+.ptx-content .frontmatter .heading,
+.ptx-content .frontmatter .author,
+.ptx-content .frontmatter .author-info,
+.ptx-content .frontmatter .date,
+.ptx-content .frontmatter .summary-links {
+  background: transparent !important;
+}
+
+.ptx-content blockquote,
+.ptx-content .knowl-output,
+.ptx-content .sagecell,
+.ptx-content pre,
+.ptx-content code {
+  background-color: var(--wt-surface);
+  color: var(--wt-text);
+  border-color: var(--wt-border);
+}
+
+.ptx-content table,
+.ptx-content th,
+.ptx-content td {
+  border-color: var(--wt-border);
+}
+
+.ptx-content th {
+  background: var(--wt-maroon);
+  color: var(--wt-white);
+}
+
+.ptx-content .proof .heading,
+.ptx-content .solution .heading,
+.ptx-content .answer .heading,
+.ptx-content .hint .heading {
+  color: var(--wt-heading);
+}
+
+.ptx-navbar,
+.ptx-sidebar,
+.ptx-toc,
+.ptx-masthead,
+.ptx-page-footer {
+  background-color: var(--wt-surface);
+  color: var(--wt-text);
+  border-color: var(--wt-border);
+}
+
+.ptx-toc .toc-item,
+.ptx-toc .toc-item > a,
+.ptx-sidebar .toc-item,
+.ptx-sidebar .toc-item > a {
+  background-color: var(--wt-surface) !important;
+  color: var(--wt-text) !important;
+  border-color: var(--wt-border) !important;
+}
+
+.ptx-toc .toc-item.active,
+.ptx-toc .toc-item.active:not(:has(.toc-item.active)),
+.ptx-toc .toc-item.active > a,
+.ptx-sidebar .toc-item.active,
+.ptx-sidebar .toc-item.active:not(:has(.toc-item.active)),
+.ptx-sidebar .toc-item.active > a {
+  background-color: var(--wt-maroon-100) !important;
+  color: var(--wt-maroon) !important;
+}
+
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-toc .toc-item,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-toc .toc-item > a,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-toc .toc-title-box a,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-sidebar .toc-item,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-sidebar .toc-item > a,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-sidebar .toc-title-box a {
+  color: var(--wt-maroon) !important;
+}
+
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-toc .toc-title-box a:hover,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-sidebar .toc-title-box a:hover,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-toc .toc-title-box a:focus-visible,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-sidebar .toc-title-box a:focus-visible {
+  background-color: var(--wt-maroon) !important;
+  color: var(--wt-white) !important;
+}
+
+html[data-theme="dark"] .ptx-toc .toc-item.active,
+html[data-theme="dark"] .ptx-toc .toc-item.active:not(:has(.toc-item.active)),
+html[data-theme="dark"] .ptx-toc .toc-item.active > a,
+html.dark-mode .ptx-toc .toc-item.active,
+html.dark-mode .ptx-toc .toc-item.active:not(:has(.toc-item.active)),
+html.dark-mode .ptx-toc .toc-item.active > a,
+html.dark .ptx-toc .toc-item.active,
+html.dark .ptx-toc .toc-item.active:not(:has(.toc-item.active)),
+html.dark .ptx-toc .toc-item.active > a,
+body.dark .ptx-toc .toc-item.active,
+body.dark .ptx-toc .toc-item.active:not(:has(.toc-item.active)),
+body.dark .ptx-toc .toc-item.active > a,
+.ptx-dark-mode .ptx-toc .toc-item.active,
+.ptx-dark-mode .ptx-toc .toc-item.active:not(:has(.toc-item.active)),
+.ptx-dark-mode .ptx-toc .toc-item.active > a {
+  background-color: var(--wt-maroon-900) !important;
+  color: var(--wt-white) !important;
+  border-left: 0.22rem solid var(--wt-accent-blue-050) !important;
+}
+
+html[data-theme="dark"] .ptx-toc .toc-title-box a:hover,
+html[data-theme="dark"] .ptx-sidebar .toc-title-box a:hover,
+html[data-theme="dark"] .ptx-toc .toc-title-box a:focus-visible,
+html[data-theme="dark"] .ptx-sidebar .toc-title-box a:focus-visible,
+html.dark-mode .ptx-toc .toc-title-box a:hover,
+html.dark-mode .ptx-sidebar .toc-title-box a:hover,
+html.dark-mode .ptx-toc .toc-title-box a:focus-visible,
+html.dark-mode .ptx-sidebar .toc-title-box a:focus-visible {
+  background-color: var(--wt-maroon-700) !important;
+  color: var(--wt-white) !important;
+  outline-color: var(--wt-accent-blue-050);
+}
+
+.ptx-navbar button,
+.ptx-sidebar button,
+.ptx-masthead button,
+.ptx-navbar .button,
+.ptx-content-footer .button,
+.ptx-content-footer a.button {
+  background-color: var(--wt-surface) !important;
+  color: var(--wt-text) !important;
+  border-color: var(--wt-border) !important;
+}
+
+html.dark-mode .ptx-navbar button,
+html.dark-mode .ptx-sidebar button,
+html.dark-mode .ptx-masthead button,
+html.dark-mode .ptx-navbar .button,
+html.dark-mode .ptx-content-footer .button,
+html.dark-mode .ptx-content-footer a.button,
+html[data-theme="dark"] .ptx-navbar button,
+html[data-theme="dark"] .ptx-sidebar button,
+html[data-theme="dark"] .ptx-masthead button,
+html[data-theme="dark"] .ptx-navbar .button,
+html[data-theme="dark"] .ptx-content-footer .button,
+html[data-theme="dark"] .ptx-content-footer a.button {
+  background-color: var(--wt-charcoal-925) !important;
+  color: var(--wt-text) !important;
+  border-color: var(--wt-charcoal-900) !important;
+}
+
+.ptx-navbar button:hover,
+.ptx-navbar button:focus-visible,
+.ptx-sidebar button:hover,
+.ptx-sidebar button:focus-visible,
+.ptx-masthead button:hover,
+.ptx-masthead button:focus-visible {
+  background-color: var(--wt-maroon);
+  color: var(--wt-white);
+  outline: 0.14rem solid var(--wt-focus);
+  outline-offset: 0.12rem;
+}
+
+/* Ensure SVG/math containers do not pick up low-contrast theme defaults. */
+.ptx-content .mjx-container,
+.ptx-content mjx-container,
+.ptx-content svg text {
+  color: var(--wt-text);
+}
+
+/* MathJax v4 expression explorer marks the active sub-expression with
+   `.mjx-selected` and `data-sre-highlight-1` inside a `.mjx-explorer-active`
+   container. Its default is a pale translucent blue, which fails contrast in
+   our dark theme because selected math inherits light text. Use WTAMU maroon
+   with white text instead. */
+.ptx-content mjx-container.mjx-explorer-active,
+.ptx-content mjx-container:has(.mjx-selected) {
+  --mjx-bg1-color: var(--wt-maroon);
+  --mjx-fg1-color: var(--wt-white);
+}
+
+.ptx-content mjx-container.mjx-explorer-active .mjx-selected,
+.ptx-content mjx-container .mjx-selected,
+.ptx-content mjx-container [data-sre-highlight-1]:not([data-sre-enclosed], rect),
+.ptx-content .mjx-selected {
+  background: var(--wt-maroon) !important;
+  background-color: var(--wt-maroon) !important;
+  color: var(--wt-white) !important;
+  outline: 0.08rem solid var(--wt-accent-blue-050);
+  outline-offset: 0.03rem;
+}
+
+.ptx-content mjx-container.mjx-explorer-active .mjx-selected *,
+.ptx-content mjx-container .mjx-selected *,
+.ptx-content mjx-container [data-sre-highlight-1]:not([data-sre-enclosed], rect) *,
+.ptx-content .mjx-selected * {
+  color: var(--wt-white) !important;
+}
+
+.ptx-masthead a,
+.ptx-masthead h1,
+.ptx-masthead p,
+.ptx-masthead .byline,
+.ptx-masthead .subtitle,
+.ptx-masthead .heading,
+.ptx-navbar .button,
+.ptx-page-footer a,
+.ptx-content-footer a {
+  color: var(--wt-text);
+}
+
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead a,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead a:visited,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead h1,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead p,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead .byline,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead .title,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead .subtitle,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead .heading,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-content .frontmatter .author,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-content .frontmatter .author-info {
+  color: var(--wt-maroon) !important;
+}
+
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead .heading a:hover,
+html:not(.dark-mode):not([data-theme="dark"]):not(.dark) .ptx-masthead .heading a:focus-visible {
+  background: transparent !important;
+  color: var(--wt-maroon) !important;
+  outline: none;
+  text-decoration: inherit;
+}
+
+.ptx-masthead a:hover,
+.ptx-masthead a:focus-visible,
+.ptx-navbar .button:hover,
+.ptx-navbar .button:focus-visible,
+.ptx-page-footer a:hover,
+.ptx-page-footer a:focus-visible,
+.ptx-content-footer a:hover,
+.ptx-content-footer a:focus-visible {
+  background: var(--wt-maroon);
+  color: var(--wt-white);
+}
+
+html[data-theme="dark"] .ptx-masthead,
+html.dark-mode .ptx-masthead,
+html.dark .ptx-masthead,
+body.dark .ptx-masthead,
+.ptx-dark-mode .ptx-masthead {
+  border-top: 0.22rem solid var(--wt-maroon);
+  box-shadow: inset 0 -0.08rem 0 rgb(217 244 255 / 0.28);
+}
+
+html[data-theme="dark"] .ptx-content .theorem-like:not(.knowl__content, .born-hidden-knowl),
+html[data-theme="dark"] .ptx-content .definition-like:not(.knowl__content, .born-hidden-knowl),
+html[data-theme="dark"] .ptx-content .example-like:not(.knowl__content, .born-hidden-knowl),
+html[data-theme="dark"] .ptx-content .project-like:not(.knowl__content, .born-hidden-knowl),
+html[data-theme="dark"] .ptx-content .remark-like:not(.knowl__content, .born-hidden-knowl),
+html[data-theme="dark"] .ptx-content .openproblem-like:not(.knowl__content, .born-hidden-knowl),
+html[data-theme="dark"] .ptx-content .computation-like:not(.knowl__content, .born-hidden-knowl),
+html.dark-mode .ptx-content .theorem-like:not(.knowl__content, .born-hidden-knowl),
+html.dark-mode .ptx-content .definition-like:not(.knowl__content, .born-hidden-knowl),
+html.dark-mode .ptx-content .example-like:not(.knowl__content, .born-hidden-knowl),
+html.dark-mode .ptx-content .project-like:not(.knowl__content, .born-hidden-knowl),
+html.dark-mode .ptx-content .remark-like:not(.knowl__content, .born-hidden-knowl),
+html.dark-mode .ptx-content .openproblem-like:not(.knowl__content, .born-hidden-knowl),
+html.dark-mode .ptx-content .computation-like:not(.knowl__content, .born-hidden-knowl) {
+  border-left-color: var(--wt-accent-blue) !important;
+}
+
+html[data-theme="dark"] .ptx-content .theorem-like:not(.knowl__content, .born-hidden-knowl)::after,
+html[data-theme="dark"] .ptx-content .definition-like:not(.knowl__content, .born-hidden-knowl)::after,
+html[data-theme="dark"] .ptx-content .example-like:not(.knowl__content, .born-hidden-knowl)::after,
+html[data-theme="dark"] .ptx-content .project-like:not(.knowl__content, .born-hidden-knowl)::after,
+html[data-theme="dark"] .ptx-content .remark-like:not(.knowl__content, .born-hidden-knowl)::after,
+html[data-theme="dark"] .ptx-content .openproblem-like:not(.knowl__content, .born-hidden-knowl)::after,
+html[data-theme="dark"] .ptx-content .computation-like:not(.knowl__content, .born-hidden-knowl)::after,
+html.dark-mode .ptx-content .theorem-like:not(.knowl__content, .born-hidden-knowl)::after,
+html.dark-mode .ptx-content .definition-like:not(.knowl__content, .born-hidden-knowl)::after,
+html.dark-mode .ptx-content .example-like:not(.knowl__content, .born-hidden-knowl)::after,
+html.dark-mode .ptx-content .project-like:not(.knowl__content, .born-hidden-knowl)::after,
+html.dark-mode .ptx-content .remark-like:not(.knowl__content, .born-hidden-knowl)::after,
+html.dark-mode .ptx-content .openproblem-like:not(.knowl__content, .born-hidden-knowl)::after,
+html.dark-mode .ptx-content .computation-like:not(.knowl__content, .born-hidden-knowl)::after {
+  border-bottom-color: var(--wt-accent-blue) !important;
+}
+
+/* Override PreTeXt subtitle defaults that are otherwise too muted in dark mode. */
+.ptx-content .heading .subtitle,
+.ptx-content h1 .subtitle,
+.ptx-content h2 .subtitle,
+.ptx-content h3 .subtitle {
+  color: var(--wt-heading) !important;
+}
+
+/* PreTeXt's own dark-mode variables are emitted with high-specificity selectors;
+   keep our light and dark surfaces explicit so light mode stays light and dark
+   mode stays neutral gray rather than maroon/green tinted. */
+html:not(.dark-mode):not([data-theme="dark"]) body,
+html:not(.dark-mode):not([data-theme="dark"]) .ptx-page,
+html:not(.dark-mode):not([data-theme="dark"]) .ptx-content,
+html:not(.dark-mode):not([data-theme="dark"]) .ptx-main {
+  background-color: var(--wt-white) !important;
+  color: var(--wt-black) !important;
+}
+
+html.dark-mode body,
+html.dark-mode .ptx-page,
+html.dark-mode .ptx-content,
+html.dark-mode .ptx-main,
+html[data-theme="dark"] body,
+html[data-theme="dark"] .ptx-page,
+html[data-theme="dark"] .ptx-content,
+html[data-theme="dark"] .ptx-main {
+  background-color: var(--wt-charcoal-975) !important;
+  color: var(--wt-text) !important;
+}
+
+
+html[data-theme="dark"] .ptx-content .titlepage,
+html[data-theme="dark"] .ptx-content .frontmatter,
+html.dark-mode .ptx-content .titlepage,
+html.dark-mode .ptx-content .frontmatter {
+  background-color: var(--wt-charcoal-950) !important;
+  border-color: var(--wt-charcoal-900) !important;
+}
+
+html[data-theme="dark"] .ptx-content .frontmatter .author,
+html[data-theme="dark"] .ptx-content .frontmatter .author-info,
+html[data-theme="dark"] .ptx-content .frontmatter .date,
+html.dark-mode .ptx-content .frontmatter .author,
+html.dark-mode .ptx-content .frontmatter .author-info,
+html.dark-mode .ptx-content .frontmatter .date {
+  color: var(--wt-text) !important;
+}

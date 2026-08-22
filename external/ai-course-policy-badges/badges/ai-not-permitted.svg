@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="292" height="64" viewBox="0 0 292 64" role="img" aria-labelledby="ai-not-permitted-title ai-not-permitted-desc">
+  <title id="ai-not-permitted-title">AI Not Permitted</title>
+  <desc id="ai-not-permitted-desc">Students must complete the marked work without AI assistance.</desc>
+  <defs>
+    <filter id="shadow-ai-not-permitted" x="-5%" y="-20%" width="110%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect x="2" y="2" width="288" height="60" rx="13" fill="#F8FAFC" stroke="#C9D0D8" filter="url(#shadow-ai-not-permitted)"/>
+  <rect x="2" y="2" width="8" height="60" rx="4" fill="#7A1F2B"/>
+  <circle cx="40" cy="32" r="22" fill="#FFFFFF" stroke="#D8DEE6"/>
+  <g aria-hidden="true" transform="translate(0 -1.5)" stroke="#7A1F2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <rect x="28" y="30" width="24" height="19" rx="4" fill="#FFFFFF"/>
+          <path d="M32.5 30v-6.5a7.5 7.5 0 0 1 15 0V30"/>
+          <path d="M40 38v4.5"/>
+        </g>
+  <text x="76" y="28" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#4A5563">AI USE</text>
+  <text x="76" y="46" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827">AI Not Permitted</text>
+</svg>

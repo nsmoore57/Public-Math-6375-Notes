@@ -1,0 +1,195 @@
+{
+  "main": {
+    "id": "baa43c366e68e18e",
+    "type": "split",
+    "children": [
+      {
+        "id": "9da356b1571c6560",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b802e628004b19ae",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "video/VIDEO-PRODUCTION-KANBAN.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": []
+                }
+              },
+              "icon": "lucide-trello",
+              "title": "VIDEO-PRODUCTION-KANBAN"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "35b81878490dd925",
+    "type": "split",
+    "children": [
+      {
+        "id": "b90e704b98840dee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fb66c671235ccc93",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "38b29afa3b22d9ae",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "cd51fc6a8fe8e745",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3407cc135c867fca",
+    "type": "split",
+    "children": [
+      {
+        "id": "d3630c8f1a4cc249",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0fc6158c01bf60e1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "video/VIDEO-PRODUCTION-KANBAN.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for VIDEO-PRODUCTION-KANBAN"
+            }
+          },
+          {
+            "id": "7ad17f6e8a0e9e24",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "video/VIDEO-PRODUCTION-KANBAN.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from VIDEO-PRODUCTION-KANBAN"
+            }
+          },
+          {
+            "id": "ea5b110b70f75174",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d20cbeb6a71194c3",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "42a3e53b6b6afb93",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "video/VIDEO-PRODUCTION-KANBAN.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of VIDEO-PRODUCTION-KANBAN"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-kanban:Create new board": false
+    }
+  },
+  "active": "b802e628004b19ae",
+  "lastOpenFiles": [
+    "sales.csv",
+    "README.md",
+    "video/VIDEO-PRODUCTION-KANBAN.md"
+  ]
+}

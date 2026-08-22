@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html dir="ltr" lang="en-US">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:book="https://ogp.me/ns/book#" xmlns:og="http://ogp.me/ns#">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Introduction to Scikit-Learn</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="external/wtamu-pretext-theme/wtamu-theme.css" rel="stylesheet" type="text/css"/>
+<link href="external/ai-course-policy-badges/templates/pretext/ai-badge-problem-document.css" rel="stylesheet" type="text/css"/>
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta content="Authored in PreTeXt" name="Keywords"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="book" property="og:type"/>
+<meta content="Math 6375: Machine Learning I" name="twitter:title"/>
+<meta content="Math 6375: Machine Learning I" property="og:title"/>
+<meta content="Math 6375: Machine Learning I" property="book:title"/>
+<meta content="Fall 2026 Course Notes" name="twitter:description"/>
+<meta content="Fall 2026 Course Notes" property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.7';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.7d3f08d51c2b60f8.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bb5ac777721d4056.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
+<link href="_static/prefix-runestone.efe427683fc41f98.css" rel="stylesheet" type="text/css"/>
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script crossorigin="anonymous" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script><script async="" src="lunr-pretext-search-index.js"></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></h1>
+<p class="byline">Nicholas S. Moore, PhD</p>
+</div></div></header><nav class="ptx-navbar navbar" id="ptx-navbar"><div class="ptx-navbar-contents">
+<button aria-controls="ptx-sidebar" class="toc-toggle button" id="ptx-toc-toggle" title="Contents" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button class="ptx-search-button button" id="ptx-search-button" title="Search Book" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Search Book</span></button></div>
+<dialog class="ptx-dialog ptx-search-dialog" id="ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" class="ptx-search-terms" id="ptx-search-terms" name="terms" placeholder="Search terms" type="text"/><button aria-label="Close" class="ptx-search-close" id="ptx-search-close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div aria-atomic="true" aria-live="polite" class="ptx-search-status" id="ptx-search-status"></div>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
+<div class="ptx-search-empty" id="ptx-search-empty"><span>No results.</span></div>
+<ol class="ptx-search-results" id="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button class="ptx-embed-button button" id="ptx-embed-button" title="Embed this page"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Embed</span></button><dialog class="ptx-dialog ptx-embed-popup" id="ptx-embed-popup"><div class="ptx-embed-popup-controls">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<button class="ptx-embed-close-button button" id="ptx-embed-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-embed-code-container">
+<textarea aria-label="Embed" class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly="">&lt;iframe src="https://example.com/embed" width="100%" height="1000"&gt;&lt;/iframe&gt;</textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Copy</span></button>
+</div></dialog><button class="ptx-readability-options-button button" id="ptx-readability-options-button" title="Readability settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Line height</span><output for="ptx-readability-line-height" id="ptx-readability-line-height-value">1.35</output></label><input id="ptx-readability-line-height" max="3" min="1.10" step="0.05" type="range" value="1.35"/>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Content font size</span><output for="ptx-readability-font-size" id="ptx-readability-font-size-value">100%</output></label><input id="ptx-readability-font-size" max="1.5" min="0.8" step="0.05" type="range" value="1"/>
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input id="ptx-readability-theme-system" name="ptx-readability-theme" type="radio" value="system"/><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>System</span></label><label for="ptx-readability-theme-light"><input id="ptx-readability-theme-light" name="ptx-readability-theme" type="radio" value="light"/><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Light</span></label><label for="ptx-readability-theme-dark"><input id="ptx-readability-theme-dark" name="ptx-readability-theme" type="radio" value="dark"/><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input id="ptx-readability-accessible-permalinks" type="checkbox"/><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button class="ptx-readability-reset-button button" id="ptx-readability-reset-button" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="week-01-seaborn.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="up-button button" href="week-03-python-packages.html" title="Up"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Up</span></a><a class="next-button button" href="appendix-ai-use-policy.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></span>
+</div></nav><div class="hidden-content process-math" id="latex-macros" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div class="ptx-sidebar" id="ptx-sidebar" role="complementary"><nav aria-label="Contents" class="ptx-toc depth2 focused" data-max-levels="2" data-preexpanded-levels="0" id="ptx-toc" tabindex="-1"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a class="internal" href="frontmatter.html"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-01-python.html"><span class="title">Week 1: Python for Numerical Mathematics</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-python">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html"><span class="title">Introduction to Machine Learning</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-introduction-machine-learning">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-artificial-intelligence"><span class="title">What Is Artificial Intelligence?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-machine-learning"><span class="title">What Is Machine Learning?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#why-use-machine-learning"><span class="title">Why Use Machine Learning?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#categories-machine-learning"><span class="title">Categories of Machine Learning</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#introduction-wrap-up"><span class="title">Wrap Up</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-install-python-uv.html"><span class="title">Installing Python and uv</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html"><span class="title">Getting Started with Jupyter Notebooks</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-jupyter-basics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-3"><span class="title">How to Open a .ipynb File</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-4"><span class="title">Understanding the Interface and Running Code</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-python-basics.html"><span class="title">Python Basics</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-python-basics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-3"><span class="title">Variables and Basic Data Types</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-4"><span class="title">Mathematical Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-5"><span class="title">Lists</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-6"><span class="title">Tuples and Dictionaries in Python</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-7"><span class="title">Boolean Logic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-8"><span class="title">If Statements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-9"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-10"><span class="title">While Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-11"><span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-12"><span class="title">Help System in Jupyter Notebooks</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-13"><span class="title">Round-Off Error</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-14"><span class="title">Python Exceptions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-02-linear-algebra-essentials.html"><span class="title">Week 2: Linear Algebra Essentials</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-02-linear-algebra-essentials"><li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="review-essential-mathematics.html"><span class="title">Review of Essential Linear Algebra Knowledge</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-review-essential-mathematics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="review-essential-mathematics.html#linalg-review-matrices"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="review-essential-mathematics.html#linalg-review-matrix-ops"><span class="title">Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="review-essential-mathematics.html#linalg-review-inverses"><span class="title">Identity Matrix and Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="review-essential-mathematics.html#linalg-review-vectors"><span class="title">Vectors</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a class="internal" href="week-03-python-packages.html"><span class="title">Week 3: Lab: NumPy, Pandas, Plotly, and Scikit-Learn</span></a></div>
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-week-03-python-packages">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-numpy-basics.html"><span class="title">Introduction to NumPy</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-numpy-basics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-numpy-basics.html#week-01-numpy-basics-3"><span class="title">Basic Array Operations in NumPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-numpy-basics.html#week-01-numpy-basics-4"><span class="title">Indexing and Slicing in NumPy</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-numpy-matrices.html"><span class="title">Dot Products and Matrix Operations in NumPy</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-pandas.html"><span class="title">Introduction to Pandas</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-pandas">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-2"><span class="title">Pandas Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-3"><span class="title">Pandas DataFrames</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-4"><span class="title">Selecting and Filtering Data in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-5"><span class="title">Vectorized Operations in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-6"><span class="title">Removing Data in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-7"><span class="title">Reading and Writing CSV Format with Pandas</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-seaborn.html"><span class="title">Plotting with Seaborn</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a class="internal" href="week-01-scikit-learn.html"><span class="title">Introduction to Scikit-Learn</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="title">AI Use Policy</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="title">Troubleshooting</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="title">Author AI-Use Disclosure</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div class="ptx-content" id="ptx-content">
+<section class="section" id="week-01-scikit-learn">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction to Scikit-Learn</span>
+</h2>
+<div class="para" id="week-01-scikit-learn-2">
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-scikit-learn-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0038" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
+<div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-scikit-learn-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
+<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-01-scikit-learn-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Section: Introduction to Scikit-Learn"><a aria-label="Copy heading and permalink for Section: Introduction to Scikit-Learn" href="#week-01-scikit-learn" tabindex="-1" title="Copy heading and permalink for Section: Introduction to Scikit-Learn">🔗</a></div>
+</section>
+</div>
+<div class="ptx-content-footer" id="ptx-content-footer">
+<a class="previous-button button" href="week-01-seaborn.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Top</span></a><a class="next-button button" href="appendix-ai-use-policy.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer" id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg height="100%" role="img" viewbox="338 3000 8772 6866" xmlns="http://www.w3.org/2000/svg"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path d="M 4724,9448 A 4660 4660  0  0  1  8598  9259" style="stroke-width:126;stroke-linecap:butt;"></path><path d="M 4488,9685 A 4228 4228  0  0  0   472  9732" style="stroke-width:174;stroke-linecap:butt;"></path><path d="M 4724,3590 A 4241 4241  0  0  1  8598  3496" style="stroke-width:126;stroke-linecap:butt;"></path><path d="M 850,3496  A 4241 4241  0  0  1  4724  3590" style="stroke-width:126;stroke-linecap:round;"></path><path d="M 850,9259  A 4507 4507  0  0  1  4724  9448" style="stroke-width:126;stroke-linecap:round;"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path d="M 4960,9685 A 4228 4228  0  0  1  8976  9732" style="stroke-width:174;stroke-linecap:butt;"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img alt="Runstone Academy logo" class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"/></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img alt="MathJax logo" class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"/></a>
+</div>
+</body>
+</html>

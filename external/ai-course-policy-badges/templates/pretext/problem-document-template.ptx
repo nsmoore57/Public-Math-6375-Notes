@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  PreTeXt AI-badge problem document template.
+
+  Intended use:
+  1. Copy this file into a course PreTeXt source tree.
+  2. Make the badge SVGs available in the path used by the <image source="..."> elements.
+  3. Optionally add templates/pretext/ai-badge-problem-document.css as an extra HTML stylesheet.
+  4. Replace COURSE_CODE, DOCUMENT_TITLE, problem text, and point values.
+-->
+<pretext>
+  <article xml:id="ai-badge-problem-document-template">
+    <title>DOCUMENT_TITLE</title>
+    <subtitle>COURSE_CODE · AI-use badge problem document</subtitle>
+
+    <frontmatter>
+      <author>
+        <personname>INSTRUCTOR_NAME</personname>
+        <department>DEPARTMENT_OR_PROGRAM</department>
+        <institution>INSTITUTION_NAME</institution>
+      </author>
+    </frontmatter>
+
+    <section xml:id="ai-badge-policy-guide">
+      <title>How to read the AI-use badges</title>
+      <p xml:id="ai-badge-intro" custom-class="ai-badge-intro">
+        Each activity below has its own AI-use policy. The badge gives the quick visual cue,
+        but the written note below it is the authoritative instruction. When AI is permitted,
+        students are still responsible for checking, understanding, and explaining their
+        submitted work.
+      </p>
+    </section>
+
+    <section xml:id="example-problems-with-ai-badges">
+      <title>Example Problems</title>
+
+      <paragraphs xml:id="problem-ai-not-permitted" custom-class="ai-problem-card">
+        <title>Problem 1. PROBLEM_TITLE <nbsp/> <em>POINTS points</em></title>
+        <image source="PATH_TO_BADGES/ai-not-permitted.svg" width="35%" custom-class="ai-policy-badge">
+          <description>AI Not Permitted. Students must complete the marked work without AI assistance.</description>
+        </image>
+        <p custom-class="ai-policy-note">
+          <alert>AI Use: AI Not Permitted.</alert>
+            Complete this problem without AI assistance. Use this for unaided understanding,
+            foundational skills, or individual reasoning.
+        </p>
+        <p>PROBLEM_STATEMENT_GOES_HERE.</p>
+        <ol marker="a">
+          <li><p>FIRST_TASK.</p></li>
+          <li><p>SECOND_TASK.</p></li>
+          <li><p>THIRD_TASK.</p></li>
+        </ol>
+      </paragraphs>
+
+      <paragraphs xml:id="problem-ai-debugging-only" custom-class="ai-problem-card">
+        <title>Problem 2. PROBLEM_TITLE <nbsp/> <em>POINTS points</em></title>
+        <image source="PATH_TO_BADGES/ai-debugging-only.svg" width="35%" custom-class="ai-policy-badge">
+          <description>AI Debugging Only. Students may use AI to understand errors, diagnose problems, and ask guiding questions, but not to generate a full solution.</description>
+        </image>
+        <p custom-class="ai-policy-note">
+          <alert>AI Use: AI Debugging Only.</alert>
+            You may use AI to interpret error messages, diagnose bugs, or ask guiding questions.
+            Do not ask AI to write the full solution or complete the analysis for you.
+        </p>
+        <p>PROBLEM_STATEMENT_GOES_HERE.</p>
+        <program language="python">
+          <code>def example_function():
+    pass</code>
+        </program>
+        <ol marker="a">
+          <li><p>FIRST_TASK.</p></li>
+          <li><p>SECOND_TASK.</p></li>
+          <li><p>THIRD_TASK.</p></li>
+        </ol>
+      </paragraphs>
+
+      <paragraphs xml:id="problem-ai-permitted-disclosure" custom-class="ai-problem-card">
+        <title>Problem 3. PROBLEM_TITLE <nbsp/> <em>POINTS points</em></title>
+        <image source="PATH_TO_BADGES/ai-permitted-disclosure.svg" width="45%" custom-class="ai-policy-badge">
+          <description>AI Permitted with Disclosure. Students may use AI as a tutor, assistant, brainstorming partner, or reviewer, but must disclose its use and understand submitted work.</description>
+        </image>
+        <p custom-class="ai-policy-note">
+          <alert>AI Use: AI Permitted with Disclosure.</alert>
+            You may use AI as a tutor, coding assistant, brainstorming partner, or reviewer.
+            Disclose how you used it, and be prepared to explain every part of your submission.
+        </p>
+        <p>PROBLEM_STATEMENT_GOES_HERE.</p>
+        <ol marker="a">
+          <li><p>FIRST_TASK.</p></li>
+          <li><p>SECOND_TASK.</p></li>
+          <li><p>If you used AI, include a short disclosure note summarizing what you asked and how you checked the response.</p></li>
+        </ol>
+      </paragraphs>
+    </section>
+  </article>
+</pretext>

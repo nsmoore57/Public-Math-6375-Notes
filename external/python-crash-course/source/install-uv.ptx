@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="week-01-install-python-uv">
+  <title>Installing Python and uv</title>
+  <objectives>
+    <ul>
+      <li><p>Install <c>uv</c>, the tool used to manage the course Python environment.</p></li>
+      <li><p>Confirm that the terminal can find <c>uv</c> before syncing the course environment.</p></li>
+      <li><p>Sync the course environment and open jupyter lab</p></li>
+    </ul>
+  </objectives>
+  <p>If you already have <c>uv</c> installed, you do not need to reinstall it. You may still run the verification commands below. If a command reports that <c>uv</c> is not found, install <c>uv</c> first and then open a new terminal before continuing.</p>
+  <paragraphs>
+    <title>Video: Installing <c>uv</c> and Opening JupyterLab</title>
+    <p>This video demonstrates first-time setup: installing or verifying <c>uv</c>, installing the course Python version, synchronizing the course project environment, launching JupyterLab, and confirming the setup in the getting-started notebook.</p>
+    <interactive
+        iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a6a09c00-f966-494b-99a5-b4aa0136eaae"
+        aspect="1.778" />
+  </paragraphs>
+  <paragraphs>
+    <title>Step 1: Install uv</title>
+    <p>
+        First, go to the <c>uv</c> installation page at <a href="https://docs.astral.sh/uv/getting-started/installation/">https://astral.sh/uv/install</a>.
+        Close to the top of the page, you will see the installation command for your operating system. The command for Windows is shown below. For the macOS and Linux command, click the appropriate header right above the command.
+        <figure>
+            <caption>Windows installation command for uv.</caption>
+            <image source="uv-installer.png">
+                <description>
+                    A screenshot of the uv installer page with the Windows installation command.
+                </description>
+            </image>
+        </figure>
+    </p>
+    <p>On Windows, open <term>PowerShell</term>. On macOS or Linux, open <term>Terminal</term>. Then use the command for your operating system.</p>
+    <tabular>
+      <row>
+        <cell>Operating system</cell>
+        <cell>Command</cell>
+      </row>
+      <row>
+        <cell>Windows PowerShell</cell>
+        <cell><c>irm https://astral.sh/uv/install.ps1 | iex</c></cell>
+      </row>
+      <row>
+        <cell>macOS or Linux</cell>
+        <cell><c>curl -LsSf https://astral.sh/uv/install.sh | sh</c></cell>
+      </row>
+    </tabular>
+    <p>After the installer finishes, close the terminal and open a new one. This lets your operating system reload the command path.</p>
+  </paragraphs>
+  <paragraphs>
+    <title>Step 2: Verify uv</title>
+    <p>Run the following command in the new terminal.</p>
+    <console prompt="">
+      <input>uv --version</input>
+    </console>
+    <p>
+        If the command prints a version number, <c>uv</c> is installed. If it says that <c>uv</c> is not recognized or not found, restart the terminal once more. If it still fails, ask for help and include the exact error message.
+        <figure>
+            <caption>Successful uv installation version command. Your actual version number may be different.</caption>
+            <image source="uv-version.png">
+                <description>A screenshot of the uv version command output. The version is 0.11.31</description>
+            </image>
+        </figure>
+    </p>
+  </paragraphs>
+  <paragraphs>
+    <title>Step 3: Extract the course environment folder</title>
+    <p>Posted in Canvas will be a zip file containing the course environment folder. Extract it to your desired location. Remember this location for the next step.</p>
+  </paragraphs>
+  <paragraphs>
+    <title>Step 4: Start the Jupyter Lab Server and Environment</title>
+    <p>
+        If you are running Windows, double-click the <c>Start_Jupyter_Windows.bat</c> file to start the Jupyter Lab server and environment. If you are running macOS or Linux, use the <c>Start_Jupyter_Mac.command</c> script instead. This should install all the required packages for the course and open the Jupyter Lab interface in your web browser.
+        <figure>
+            <caption>The course environment folder with the <c>Start_Jupyter_Windows.bat</c> or <c>Start_Jupyter_Mac.command</c> script.</caption>
+            <image source="Start-Jupyter.png">
+                <description>A screenshot of the course environment folder with the <c>Start_Jupyter_Windows.bat</c> or <c>Start_Jupyter_Mac.command</c> script.</description>
+            </image>
+        </figure>
+    </p>
+  </paragraphs>
+  <paragraphs>
+    <title>Step 5: Jupyter Lab Should Be Running</title>
+    <p>
+        Once you have started the Jupyter Lab server and environment, you should see the Jupyter Lab interface in your web browser.
+        <figure>
+            <caption>The Jupyter Lab interface in your web browser.</caption>
+            <image source="Jupyter-Opening.png">
+                <description>A screenshot of the Jupyter Lab interface in your web browser.</description>
+            </image>
+        </figure>
+    </p>
+  </paragraphs>
+  <paragraphs>
+    <title>What to do if setup fails</title>
+    <p>
+        Do not delete random files or reinstall many tools at once. First copy the exact error message, check the troubleshooting appendix, and ask for help in the course help channel or office hours. Setup troubleshooting is something that AI can help with and you have permission to use it for troubleshooting the installation process.
+    </p>
+    <p>
+        When asking for help, either from an AI assistant or from me, include the command you ran, the folder where you ran it, your operating system, and the exact error text. A screenshot can be useful, but copied text is usually easier to search and diagnose.
+    </p>
+  </paragraphs>
+</section>

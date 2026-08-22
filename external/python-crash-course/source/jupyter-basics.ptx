@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="week-01-jupyter-basics">
+    <title>Getting Started with Jupyter Notebooks</title>
+    <introduction>
+    <p>
+        To start, we'll open a Jupyter Notebook and get familiar with the interface.
+        <interactive
+            iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6677af14-1a9f-48dd-9fa5-b4aa01362fcb"
+            aspect="1.778"
+        />
+    </p>
+    <p>
+    Imagine Jupyter Notebook as your personal science journal:
+    you write notes, do calculations, and see results right away, all in one digital book.
+    It’s perfect for numerical analysis because you can test ideas interactively, like trying different numbers in a formula and seeing the output instantly.
+    </p>
+    </introduction>
+    <subsection>
+        <title>How to Open a .ipynb File</title>
+        <p>
+            An <c>.ipynb</c> file is a file format associated with Jupyter Notebook.
+            After you launch Jupyter Notebook (Check previous page if you do not know how), your web browser (like Chrome or Firefox) will open automatically, showing a list of files and folders in current work directory.
+            It’s running on your computer, not the internet.
+        </p>
+        <p>In the browser, click on your .ipynb file. It opens like a webpage you can edit!</p>
+    </subsection>
+    <subsection>
+        <title>Understanding the Interface and Running Code</title>
+        <p>
+            Now that it’s open, let’s explore the screen together.
+            It’s not complicated—think of it as a notebook with pages you can write on.
+        </p>
+        <paragraphs><title>Manu Bar at the Top</title>
+            <p>
+                File for saving or opening, Edit for copying, View to hide/show parts, Insert to add sections, Cell to run things, Kernel to restart if something goes wrong (like turning off and on a calculator), and Help for tips.
+            </p>
+        </paragraphs>
+        <paragraphs><title>Toolbar Just Below</title>
+            <p>
+                Quick buttons! The floppy disk saves, the + adds a new section (cell), scissors cut, copy/paste for cells, the play button runs code, the square stops running code, arrows restart, and a dropdown changes cell type (Code for programming, Markdown for notes).
+            </p>
+        </paragraphs>
+        <paragraphs><title>Cells - The Main Part</title>
+            <p>
+                These are like blank pages in your journal.
+                <ul>
+                    <li><em>Code Cells:</em>
+                        For writing instructions to the computer. They have "[]:" on the left—the brackets show if you've run it (e.g., [1]: means first time).
+                    </li>
+                    <li><em>Markdown Cells:</em>
+                        For writing text, like explanations. Use # for big headings, ## for smaller, italics, bold, or - for bullet lists.
+                    </li>
+                    <li>When you click a cell, it gets a highlighted border.</li>
+                </ul>
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Output Area</title>
+            <p>After running a code cell, results appear below.</p>
+        </paragraphs>
+        <paragraphs>
+            <title>Kernel</title>
+            <p>This is the "brain" running in the background. If code gets stuck (infinite loop?), go to Kernel > Restart.</p>
+        </paragraphs>
+        <paragraphs>
+            <title>How to Run Code</title>
+            <ol>
+                <li>Click into a code cell—it turns highlighted.</li>
+                <li>Type a simple instruction, like <c>print("Hello, world!")</c>. (Don’t worry, we’ll explain this soon!)</li>
+                <li>To run: Hold Shift and press Enter. (Or Ctrl + Enter to stay in the cell, or click the play button.)</li>
+                <li>Watch: The kernel thinks (asterisk in brackets), then shows output: 5. 5. If it’s your first run, it starts the kernel automatically.</li>
+            </ol>
+        </paragraphs>
+    </subsection>
+</section>

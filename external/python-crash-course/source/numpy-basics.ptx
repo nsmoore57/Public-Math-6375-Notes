@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="week-01-numpy-basics">
+    <title>Introduction to NumPy</title>
+    <introduction>
+        <p><interactive
+            iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0027"
+            aspect="1.778"
+        /></p>
+    </introduction>
+    <subsection>
+        <title>Basic Array Operations in NumPy</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0028"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Indexing and Slicing in NumPy</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0029"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+</section>

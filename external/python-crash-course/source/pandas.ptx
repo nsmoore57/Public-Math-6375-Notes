@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="week-01-pandas">
+    <title>Introduction to Pandas</title>
+    <subsection>
+        <title>Pandas Series</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0032"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Pandas DataFrames</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0033"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Selecting and Filtering Data in Pandas</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0034"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Vectorized Operations in Pandas</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0035"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Removing Data in Pandas</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0036"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Reading and Writing CSV Format with Pandas</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0037"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+</section>

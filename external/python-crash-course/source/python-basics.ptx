@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="week-01-python-basics">
+    <title>Python Basics</title>
+    <introduction>
+        <p>
+            Here we learn the ABCs of Python: doing math, comparing things, and storing information.
+            Think of this as learning to use a calculator that can remember numbers and make decisions.
+        </p>
+    </introduction>
+    <subsection>
+        <title>Variables and Basic Data Types</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=818dc17f-75d6-4ac8-a682-b4aa0136500b"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Mathematical Operations</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d7fc9a23-4047-462f-8206-b4aa01367da0"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Lists</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ba3c5f49-f965-4a10-a680-b4aa0136aaef"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Tuples and Dictionaries in Python</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ddd408c3-e642-4a56-a759-b4aa01379042"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Boolean Logic</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=3ddf06e8-6028-423b-bc8a-b4aa0135e39e"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>If Statements</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ee974c23-d6e6-4238-b0c8-b4aa0135e43e"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>For Loops</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4e0a7cf5-2623-4c53-bf43-b4aa0135e3be"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>While Loops</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a57a2c85-6456-4edb-9d57-b4aa0137bd45"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Functions</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0023"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Help System in Jupyter Notebooks</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=79bf078d-8c06-4ba7-8c9d-b4aa0135e3f6"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Round-Off Error</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=79bf078d-8c06-4ba7-8c9d-b4aa0135e3f6"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+    <subsection>
+        <title>Python Exceptions</title>
+        <p>
+            <interactive
+                iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0025"
+                aspect="1.778"
+            />
+        </p>
+    </subsection>
+</section>
