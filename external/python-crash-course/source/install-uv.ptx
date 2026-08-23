@@ -65,7 +65,7 @@
   </paragraphs>
   <paragraphs>
     <title>Step 3: Extract the course environment folder</title>
-    <p>Posted in Canvas will be a zip file containing the course environment folder. Extract it to your desired location. Remember this location for the next step.</p>
+    <p>Remember that zip file containing the course environment folder from the introduction? Extract it to your desired location. This directory will be the place where you put the programming files for the course. Remember this location for the next step. Remember this location for the next step.</p>
   </paragraphs>
   <paragraphs>
     <title>Step 4: Start the Jupyter Lab Server and Environment</title>

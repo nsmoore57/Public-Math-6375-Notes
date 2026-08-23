@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="week-01-numpy-matrices">
     <title>Dot Products and Matrix Operations in NumPy</title>
+    <p>
+        Download the <dataurl href="http://nsmoore57.github.io/Public-Python-Crash-Course/Numpy_matrix_ops.ipynb">Numpy_matrix_ops.ipynb</dataurl> file and save it in the "demo" directory under the course environment directory. Then work through the notebook while watching the following videos.
+    </p>
     <p><interactive
         iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0030"
         aspect="1.778"

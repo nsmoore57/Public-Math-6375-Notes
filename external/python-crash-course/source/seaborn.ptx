@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="week-01-seaborn">
     <title>Plotting with Seaborn</title>
+    <p>
+        Download the <dataurl href="http://nsmoore57.github.io/Public-Python-Crash-Course/seaborn-plotting-introduction.ipynb">seaborn-plotting-introduction.ipynb</dataurl> file and save it in the "demo" directory under the course environment directory. Then work through the notebook while watching the following video.
+    </p>
     <p><interactive
         iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0031"
         aspect="1.778"
