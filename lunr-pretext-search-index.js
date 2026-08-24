@@ -178,7 +178,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "",
   "title": "Python Basics",
-  "body": " Python Basics   Here we learn the ABCs of Python: doing math, comparing things, and storing information. Think of this as learning to use a calculator that can remember numbers and make decisions. You should able to find the PythonTutorial.ipynb notebook in the course environment zip file. If not, you download it from here: PythonTutorial.ipynb and save it under the \"demo\" folder in the course environment folder.    Variables and Basic Data Types       Mathematical Operations       Lists       Tuples and Dictionaries in Python       Boolean Logic       If Statements       For Loops       While Loops       Functions       Help System in Jupyter Notebooks       Round-Off Error       Python Exceptions      "
+  "body": " Python Basics   Here we learn the ABCs of Python: doing math, comparing things, and storing information. Think of this as learning to use a calculator that can remember numbers and make decisions. You should be able to find the PythonTutorial.ipynb notebook in the course environment zip file. If not, you can download it from here: PythonTutorial.ipynb and save it under the \"demo\" folder in the course environment folder.    Variables and Basic Data Types       Mathematical Operations       Lists       Tuples and Dictionaries in Python       Boolean Logic       If Statements       For Loops       While Loops       Functions       Help System in Jupyter Notebooks       Round-Off Error       Python Exceptions      "
 },
 {
   "id": "appendix-ai-use-policy",

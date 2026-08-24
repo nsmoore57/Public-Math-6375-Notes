@@ -5,7 +5,7 @@
         <p>
             Here we learn the ABCs of Python: doing math, comparing things, and storing information.
             Think of this as learning to use a calculator that can remember numbers and make decisions.
-            You should able to find the <c>PythonTutorial.ipynb</c> notebook in the course environment zip file. If not, you download it from here:<dataurl href="http://nsmoore57.github.io/Public-Python-Crash-Course/PythonTutorial.ipynb">PythonTutorial.ipynb</dataurl> and save it under the "demo" folder in the course environment folder.
+            You should be able to find the <c>PythonTutorial.ipynb</c> notebook in the course environment zip file. If not, you can download it from here: <url href="https://github.com/nsmoore57/Public-Python-Crash-Course/raw/main/PythonTutorial.ipynb">PythonTutorial.ipynb</url> and save it under the "demo" folder in the course environment folder.
         </p>
     </introduction>
     <subsection>
