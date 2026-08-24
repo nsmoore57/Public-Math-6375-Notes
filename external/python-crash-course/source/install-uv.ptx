@@ -19,7 +19,7 @@
   <paragraphs>
     <title>Step 1: Install uv</title>
     <p>
-        First, go to the <c>uv</c> installation page at <a href="https://docs.astral.sh/uv/getting-started/installation/">https://astral.sh/uv/install</a>.
+        First, go to the <c>uv</c> installation page at <url href="https://docs.astral.sh/uv/getting-started/installation/">https://astral.sh/uv/install</url>.
         Close to the top of the page, you will see the installation command for your operating system. The command for Windows is shown below. For the macOS and Linux command, click the appropriate header right above the command.
         <figure>
             <caption>Windows installation command for uv.</caption>
