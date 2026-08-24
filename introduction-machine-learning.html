@@ -28,6 +28,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta content="Authored in PreTeXt" name="Keywords"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -38,7 +39,7 @@ htmlPresentation: false,
 <meta content="Fall 2026 Course Notes" name="twitter:description"/>
 <meta content="Fall 2026 Course Notes" property="og:description"/>
 <meta content="summary" name="twitter:card"/>
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -73,8 +74,8 @@ eBookConfig.enable_chatcodes =  false;
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></div>
 <p class="byline">Nicholas S. Moore, PhD</p>
 </div></div></header><nav class="ptx-navbar navbar" id="ptx-navbar"><div class="ptx-navbar-contents">
 <button aria-controls="ptx-sidebar" class="toc-toggle button" id="ptx-toc-toggle" title="Contents" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -93,6 +94,16 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="ptx-embed-code-container">
 <textarea aria-label="Embed" class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly="">&lt;iframe src="https://example.com/embed" width="100%" height="1000"&gt;&lt;/iframe&gt;</textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Copy</span></button>
+</div></dialog><button aria-expanded="false" class="ptx-read-aloud-button button" id="ptx-read-aloud-button" title="Read aloud"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Read aloud</span></button><div aria-label="Read aloud" class="ptx-read-aloud-player" hidden="hidden" id="ptx-read-aloud-player" role="group">
+<button class="button" id="ptx-read-aloud-prev" title="Previous sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><button class="ptx-read-aloud-toggle button" id="ptx-read-aloud-toggle" title="Play"><span class="ptx-read-aloud-icon-play"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span><span class="ptx-read-aloud-icon-pause"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span></button><button class="button" id="ptx-read-aloud-next" title="Next sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><a class="ptx-read-aloud-continue button" hidden="hidden" id="ptx-read-aloud-continue">Continue<span aria-hidden="true" class="icon material-symbols-outlined"></span></a><button class="ptx-read-aloud-settings-button button" id="ptx-read-aloud-settings-button" title="Reading settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Reading speed</span><output for="ptx-read-aloud-rate" id="ptx-read-aloud-rate-value">1×</output></label><input id="ptx-read-aloud-rate" max="2" min="0.5" step="0.1" type="range" value="1"/><label for="ptx-read-aloud-asides"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input checked="" id="ptx-read-aloud-autoscroll" type="checkbox"/><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input id="ptx-read-aloud-autocontinue" type="checkbox"/><span>Continue to the next page automatically</span></label>
 </div></dialog><button class="ptx-readability-options-button button" id="ptx-readability-options-button" title="Readability settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
@@ -111,7 +122,7 @@ eBookConfig.enable_chatcodes =  false;
 <legend>Assistive technologies</legend>
 <label for="ptx-readability-accessible-permalinks"><input id="ptx-readability-accessible-permalinks" type="checkbox"/><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button class="ptx-readability-reset-button button" id="ptx-readability-reset-button" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="week-01-python.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="up-button button" href="week-01-python.html" title="Up"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Up</span></a><a class="next-button button" href="week-01-install-python-uv.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></span>
+<div class="ptx-readability-options-group"><button class="ptx-readability-reset-button button" id="ptx-readability-reset-button" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="week-01-python-2.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="up-button button" href="week-01-python.html" title="Up"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Up</span></a><a class="next-button button" href="week-01-install-python-uv.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></span>
 </div></nav><div class="hidden-content process-math" id="latex-macros" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
@@ -126,10 +137,11 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-sidebar" id="ptx-sidebar" role="complementary"><nav aria-label="Contents" class="ptx-toc depth2 focused" data-max-levels="2" data-preexpanded-levels="0" id="ptx-toc" tabindex="-1"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a class="internal" href="frontmatter.html"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a class="internal" href="week-01-python.html"><span class="title">Week 1: Python for Numerical Mathematics</span></a></div>
+<div class="toc-title-box"><a class="internal" href="week-01-python.html"><span class="codenumber">1</span> <span class="title">Week 1: Python for Numerical Mathematics</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-week-01-python">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-01-python-2.html"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html"><span class="title">Introduction to Machine Learning</span></a></div>
+<div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html"><span class="codenumber">1.1</span> <span class="title">Introduction to Machine Learning</span></a></div>
 <ul class="structural toc-item-list active" id="ptx-toc-group-introduction-machine-learning">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-artificial-intelligence"><span class="title">What Is Artificial Intelligence?</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-machine-learning"><span class="title">What Is Machine Learning?</span></a></div></li>
@@ -138,16 +150,16 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#introduction-wrap-up"><span class="title">Wrap Up</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-install-python-uv.html"><span class="title">Installing Python and uv</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-install-python-uv.html"><span class="codenumber">1.2</span> <span class="title">Installing Python and uv</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html"><span class="title">Getting Started with Jupyter Notebooks</span></a></div>
+<div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html"><span class="codenumber">1.3</span> <span class="title">Getting Started with Jupyter Notebooks</span></a></div>
 <ul class="structural toc-item-list" id="ptx-toc-group-week-01-jupyter-basics">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-3"><span class="title">How to Open a .ipynb File</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-4"><span class="title">Understanding the Interface and Running Code</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a class="internal" href="week-01-python-basics.html"><span class="title">Python Basics</span></a></div>
+<div class="toc-title-box"><a class="internal" href="week-01-python-basics.html"><span class="codenumber">1.4</span> <span class="title">Python Basics</span></a></div>
 <ul class="structural toc-item-list" id="ptx-toc-group-week-01-python-basics">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-3"><span class="title">Variables and Basic Data Types</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-4"><span class="title">Mathematical Operations</span></a></div></li>
@@ -165,15 +177,15 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="title">AI Use Policy</span></a></div></li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="title">Troubleshooting</span></a></div></li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="title">Author AI-Use Disclosure</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="codenumber">A.</span> <span class="title">AI Use Policy</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="codenumber">B.</span> <span class="title">Troubleshooting</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="codenumber">C.</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div class="ptx-content" id="ptx-content">
 <section class="section" id="introduction-machine-learning">
-<h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction to Machine Learning</span>
-</h2>
+<h1 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction to Machine Learning</span>
+</h1>
 <section class="introduction" id="introduction-overview">
 <div class="para" id="introduction-overview-1">Artificial intelligence (AI) and machine learning have become ubiquitous topics in recent media, extending beyond tech-focused publications. The future they promise oscillates between dystopian and utopian visions: intelligent chatbots, autonomous vehicles, and virtual assistants on one hand; job scarcity and AI-dominated economies on the other.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#introduction-overview-1" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -202,9 +214,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="introduction-overview-5">Before delving into these inquiries, it’s essential to establish a clear understanding of artificial intelligence and machine learning. What do these terms mean? How are they interconnected? This lecture aims to provide the necessary context to explore these fundamental concepts and their implications for our future.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#introduction-overview-5" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="what-is-artificial-intelligence">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What Is Artificial Intelligence?</span>
-</h3>
+</h2>
 <div class="para" id="what-is-artificial-intelligence-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="what-is-artificial-intelligence-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6c099e3d-ccac-40f8-8586-b4aa0140ca7d" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="what-is-artificial-intelligence-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -213,32 +225,32 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="what-is-artificial-intelligence-3">Artificial intelligence emerged in the 1950s when a small group of computer science pioneers began exploring the idea of whether computers could be made to “think.” This question, with its profound implications, continues to be a subject of investigation today. AI can be succinctly defined as the pursuit of automating intellectual tasks that are typically performed by humans. This broad field includes machine learning but also encompasses various other approaches that do not involve learning. For example, early chess programs operated solely on hardcoded rules created by programmers, without any machine learning components. For quite some time, many experts believed that achieving human-level AI was possible by crafting an extensive set of explicit rules for knowledge manipulation, a method known as symbolic AI. This approach dominated the AI landscape from the 1950s until the late 1980s, reaching its zenith during the expert systems boom of the 1980s.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-artificial-intelligence-3" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="figure-relation-ai-machine-learning"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img alt="" class="contained" src="external/week-01/ai-ml-venn.svg"/></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The relation between AI and machine learning<div aria-hidden="true" class="autopermalink" data-description="Figure 1"><a aria-label="Copy heading and permalink for Figure 1" href="#figure-relation-ai-machine-learning" tabindex="-1" title="Copy heading and permalink for Figure 1">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The relation between AI and machine learning<div aria-hidden="true" class="autopermalink" data-description="Figure 1.1.1"><a aria-label="Copy heading and permalink for Figure 1.1.1" href="#figure-relation-ai-machine-learning" tabindex="-1" title="Copy heading and permalink for Figure 1.1.1">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="what-is-artificial-intelligence-5">While symbolic AI was effective for addressing well-defined, logical problems like chess, it struggled with more complex and ambiguous tasks, such as image classification, speech recognition, and language translation, where explicit rules proved difficult to define. This limitation led to the emergence of a new approach: <em class="emphasis">machine learning</em>, which began to take the place of symbolic AI.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-artificial-intelligence-5" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: What Is Artificial Intelligence?"><a aria-label="Copy heading and permalink for Subsection: What Is Artificial Intelligence?" href="#what-is-artificial-intelligence" tabindex="-1" title="Copy heading and permalink for Subsection: What Is Artificial Intelligence?">🔗</a></div>
 </section>
 <section class="subsection" id="what-is-machine-learning">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What Is Machine Learning?</span>
-</h3>
+</h2>
 <div class="para" id="what-is-machine-learning-2">In Victorian England, Lady Ada Lovelace collaborated closely with Charles Babbage, the inventor of the Analytical Engine, which is considered the first general-purpose mechanical computer. Although innovative and far ahead of its time, the Analytical Engine wasn’t originally conceived as a general-purpose computer when it was designed in the 1830s and 1840s because the idea of general-purpose computation had not yet been developed. Instead, it was intended to automate specific computations in mathematical analysis, hence the name “Analytical Engine.” In 1843, Ada Lovelace commented on this invention, stating, “The Analytical Engine has no pretensions whatever to originate anything. It can do whatever we know how to order it to perform.… Its province is to assist us in making available what we’re already acquainted with.”<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-machine-learning-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="figure-ada-charles"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img alt="Photographs of Lady Ada Lovelace and Charles Babbage" class="contained" src="external/inherited-images/ada_charles.jpg"/></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Lady Ada Lovelace and Charles Babbage<div aria-hidden="true" class="autopermalink" data-description="Figure 2"><a aria-label="Copy heading and permalink for Figure 2" href="#figure-ada-charles" tabindex="-1" title="Copy heading and permalink for Figure 2">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Lady Ada Lovelace and Charles Babbage<div aria-hidden="true" class="autopermalink" data-description="Figure 1.1.2"><a aria-label="Copy heading and permalink for Figure 1.1.2" href="#figure-ada-charles" tabindex="-1" title="Copy heading and permalink for Figure 1.1.2">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="what-is-machine-learning-4">This observation was later cited by AI pioneer Alan Turing in his seminal 1950 paper, “Computing Machinery and Intelligence,” where he referred to it as “Lady Lovelace’s objection.” Turing used Lovelace’s remark as a basis for considering whether general-purpose computers could achieve learning and originality, ultimately concluding that they could.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-machine-learning-4" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="figure-alan-turing"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img alt="A photograph of Alan Turing" class="contained" src="external/inherited-images/turing.jpg"/></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Alan Turing<div aria-hidden="true" class="autopermalink" data-description="Figure 3"><a aria-label="Copy heading and permalink for Figure 3" href="#figure-alan-turing" tabindex="-1" title="Copy heading and permalink for Figure 3">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Alan Turing<div aria-hidden="true" class="autopermalink" data-description="Figure 1.1.3"><a aria-label="Copy heading and permalink for Figure 1.1.3" href="#figure-alan-turing" tabindex="-1" title="Copy heading and permalink for Figure 1.1.3">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="what-is-machine-learning-6">Machine learning stems from this very question: could a computer transcend the limitations of “what we know how to order it to perform” and independently learn to execute a task? Could it exhibit behavior that surprises us? Instead of programmers manually creating rules for data processing, could a computer automatically learn these rules by analyzing data?<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-machine-learning-6" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="what-is-machine-learning-7">This inquiry leads to a new programming paradigm. In classical programming, which aligns with the symbolic AI approach, humans provide rules (a program) and data to be processed according to these rules, resulting in answers. With machine learning, however, humans supply data along with the expected outcomes, and the system generates the rules. These learned rules can then be applied to new data to produce original outcomes.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-machine-learning-7" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="figure-programming-paradigms"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img alt="Two flowcharts. The top flow chart represents classical programming, while the bottom flow chart represents machine learning. In classical programming, the programmer provides rules and data and the program produces answers. In machine learning, the programmer provides data and answers, and the system learns rules from this data." class="contained" src="external/week-01/classical-vs-ml-paths.svg"/></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Paradigms of classical programming and machine learning<div aria-hidden="true" class="autopermalink" data-description="Figure 4"><a aria-label="Copy heading and permalink for Figure 4" href="#figure-programming-paradigms" tabindex="-1" title="Copy heading and permalink for Figure 4">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Paradigms of classical programming and machine learning<div aria-hidden="true" class="autopermalink" data-description="Figure 1.1.4"><a aria-label="Copy heading and permalink for Figure 1.1.4" href="#figure-programming-paradigms" tabindex="-1" title="Copy heading and permalink for Figure 1.1.4">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="what-is-machine-learning-9">Consider, for instance, how you might develop a spam filter using traditional programming methods:<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-machine-learning-9" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -267,21 +279,21 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: What Is Machine Learning?"><a aria-label="Copy heading and permalink for Subsection: What Is Machine Learning?" href="#what-is-machine-learning" tabindex="-1" title="Copy heading and permalink for Subsection: What Is Machine Learning?">🔗</a></div>
 </section>
 <section class="subsection" id="why-use-machine-learning">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why Use Machine Learning?</span>
-</h3>
+</h2>
 <div class="para" id="why-use-machine-learning-2">Although machine learning began to gain significant momentum in the 1990s, it rapidly emerged as the most popular and successful branch of AI, a growth fueled by advancements in hardware and the availability of vast datasets. While machine learning is closely connected to mathematical statistics, it diverges from traditional statistics in several key aspects. Unlike classical statistical methods, such as Bayesian analysis, which may be impractical for handling large and complex datasets, machine learning is specifically designed to manage and analyze extensive datasets—such as those containing millions of images, each with tens of thousands of pixels.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#why-use-machine-learning-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="figure-fugaku"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img alt="A photograph of Fugaku, the world’s fastest supercomputer in 2020." class="contained" src="external/inherited-images/fugaku.jpeg"/></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Fugaku: the world’s fastest supercomputer in 2020<div aria-hidden="true" class="autopermalink" data-description="Figure 5"><a aria-label="Copy heading and permalink for Figure 5" href="#figure-fugaku" tabindex="-1" title="Copy heading and permalink for Figure 5">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Fugaku: the world’s fastest supercomputer in 2020<div aria-hidden="true" class="autopermalink" data-description="Figure 1.1.5"><a aria-label="Copy heading and permalink for Figure 1.1.5" href="#figure-fugaku" tabindex="-1" title="Copy heading and permalink for Figure 1.1.5">🔗</a></div></figcaption>
 </figure><div aria-hidden="true" class="autopermalink" data-description="Subsection: Why Use Machine Learning?"><a aria-label="Copy heading and permalink for Subsection: Why Use Machine Learning?" href="#why-use-machine-learning" tabindex="-1" title="Copy heading and permalink for Subsection: Why Use Machine Learning?">🔗</a></div>
 </section>
 <section class="subsection" id="categories-machine-learning">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Categories of Machine Learning</span>
-</h3>
+</h2>
 <div class="para" id="categories-machine-learning-2">
-<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="categories-machine-learning-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0049" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="categories-machine-learning-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d16067e4-c8ee-44dc-b11f-b4b000291480" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="categories-machine-learning-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#categories-machine-learning-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -291,50 +303,50 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="categories-machine-learning-5">Supervised learning focuses on modeling the relationship between the measured features of data and a corresponding label. Once this model is established, it can be used to predict labels for new, unseen data. Supervised learning is further broken down into <em class="emphasis">classification</em> and <em class="emphasis">regression</em> tasks. In classification, the labels are discrete categories, whereas in regression, the labels represent continuous values.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#categories-machine-learning-5" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="example-1-1"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<article class="example example-like" id="example-1-1"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
 <div class="para" id="example-1-1-1">The spam filter is a good example of classification: it is trained with many example emails along with their class (spam or ham), and it must learn how to classify new emails.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#example-1-1-1" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div aria-hidden="true" class="autopermalink" data-description="Example 6"><a aria-label="Copy heading and permalink for Example 6" href="#example-1-1" tabindex="-1" title="Copy heading and permalink for Example 6">🔗</a></div>
+<div aria-hidden="true" class="autopermalink" data-description="Example 1.1.6"><a aria-label="Copy heading and permalink for Example 1.1.6" href="#example-1-1" tabindex="-1" title="Copy heading and permalink for Example 1.1.6">🔗</a></div>
 </article>
-<article class="example example-like" id="example-1-2"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<article class="example example-like" id="example-1-2"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
 <div class="para" id="example-1-2-1">Predicting the price of a car is a good example of regression: To train the system, you need to give it many examples of cars, including both their features(mileage, age, brand, etc.) called predictors and their labels (i.e., their prices).<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#example-1-2-1" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div aria-hidden="true" class="autopermalink" data-description="Example 7"><a aria-label="Copy heading and permalink for Example 7" href="#example-1-2" tabindex="-1" title="Copy heading and permalink for Example 7">🔗</a></div>
+<div aria-hidden="true" class="autopermalink" data-description="Example 1.1.7"><a aria-label="Copy heading and permalink for Example 1.1.7" href="#example-1-2" tabindex="-1" title="Copy heading and permalink for Example 1.1.7">🔗</a></div>
 </article>
-<article class="note remark-like" id="regression-classification-note"><h4 class="heading">
-<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<article class="note remark-like" id="regression-classification-note"><h3 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
 <div class="para" id="regression-classification-note-1">Note that some regression algorithms can be used for classification as well, and vice versa. For example, <em class="emphasis">Logistic Regression</em> is commonly used for classification, as it can output a value that corresponds to the probability of belonging to a given class (e.g., 20% chance of being spam).<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#regression-classification-note-1" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div aria-hidden="true" class="autopermalink" data-description="Note 8"><a aria-label="Copy heading and permalink for Note 8" href="#regression-classification-note" tabindex="-1" title="Copy heading and permalink for Note 8">🔗</a></div>
+<div aria-hidden="true" class="autopermalink" data-description="Note 1.1.8"><a aria-label="Copy heading and permalink for Note 1.1.8" href="#regression-classification-note" tabindex="-1" title="Copy heading and permalink for Note 1.1.8">🔗</a></div>
 </article>
 <div class="para" id="categories-machine-learning-9">Unsupervised learning focuses on modeling the features of a dataset without relying on any labels, often described as “letting the dataset speak for itself.” This approach includes tasks like <em class="emphasis">clustering</em> and <em class="emphasis">dimensionality reduction</em>. Clustering algorithms work by identifying distinct groups or patterns within the data, while dimensionality reduction algorithms aim to find more compact and simplified representations of the data, reducing the number of variables while retaining essential information.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#categories-machine-learning-9" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="example-1-3"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<article class="example example-like" id="example-1-3"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
 <div class="para" id="example-1-3-1">Say you have a lot of data about your blog’s visitors. You may want to run a clustering algorithm to try to detect groups of similar visitors. At no point do you tell the algorithm which group a visitor belongs to: it finds those connections without your help. For example, it might notice that 40% of your visitors are males who love comic books and generally read your blog in the evening, while 20% are young sci-fi lovers who visit during the weekends, and so on.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#example-1-3-1" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div aria-hidden="true" class="autopermalink" data-description="Example 9"><a aria-label="Copy heading and permalink for Example 9" href="#example-1-3" tabindex="-1" title="Copy heading and permalink for Example 9">🔗</a></div>
+<div aria-hidden="true" class="autopermalink" data-description="Example 1.1.9"><a aria-label="Copy heading and permalink for Example 1.1.9" href="#example-1-3" tabindex="-1" title="Copy heading and permalink for Example 1.1.9">🔗</a></div>
 </article>
 <div class="para" id="categories-machine-learning-11">Additionally, there are <em class="emphasis">semi-supervised learning</em> methods, which bridge the gap between supervised and unsupervised learning. These methods are particularly useful when only partial or incomplete labels are available. For example, photo-hosting services like Google Photos often employ semi-supervised learning techniques to organize and categorize images, leveraging a mix of labeled and unlabeled data to improve accuracy and performance.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#categories-machine-learning-11" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="example-1-4"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+<article class="example example-like" id="example-1-4"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
 <div class="para" id="example-1-4-1">Once you upload all your family photos to the service, it automatically recognizes that the same person A shows up in photos 1, 5, and 11, while another person B shows up in photos 2, 5, and 7. This is the unsupervised part of the algorithm (clustering). Now all the system needs is for you to tell it who these people are. Just one label per person, and it is able to name everyone in every photo, which is useful for searching photos.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#example-1-4-1" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div aria-hidden="true" class="autopermalink" data-description="Example 10"><a aria-label="Copy heading and permalink for Example 10" href="#example-1-4" tabindex="-1" title="Copy heading and permalink for Example 10">🔗</a></div>
+<div aria-hidden="true" class="autopermalink" data-description="Example 1.1.10"><a aria-label="Copy heading and permalink for Example 1.1.10" href="#example-1-4" tabindex="-1" title="Copy heading and permalink for Example 1.1.10">🔗</a></div>
 </article><div aria-hidden="true" class="autopermalink" data-description="Subsection: Categories of Machine Learning"><a aria-label="Copy heading and permalink for Subsection: Categories of Machine Learning" href="#categories-machine-learning" tabindex="-1" title="Copy heading and permalink for Subsection: Categories of Machine Learning">🔗</a></div>
 </section>
 <section class="subsection" id="introduction-wrap-up">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Wrap Up</span>
-</h3>
+</h2>
 <div class="para" id="introduction-wrap-up-2">This lecture introduced artificial intelligence and machine learning. You are expected to be able to figure out the difference between the classical programming and machine learning, and capable to categorize the given machine learning examples into the proper types, i.e., supervised learning (classification or regression), unsupervised learning, and semi-supervised learning.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#introduction-wrap-up-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="introduction-wrap-up-3">This comprehensive introduction provides a solid foundation for understanding AI and machine learning. You should now be able to:<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#introduction-wrap-up-3" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -356,11 +368,11 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="introduction-wrap-up-5">As you delve deeper into machine learning, remember that this rapidly evolving field offers immense opportunities for innovation and impact across various domains. Stay curious, keep learning, and always strive to apply these powerful tools responsibly.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#introduction-wrap-up-5" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Wrap Up"><a aria-label="Copy heading and permalink for Subsection: Wrap Up" href="#introduction-wrap-up" tabindex="-1" title="Copy heading and permalink for Subsection: Wrap Up">🔗</a></div>
-</section><div aria-hidden="true" class="autopermalink" data-description="Section: Introduction to Machine Learning"><a aria-label="Copy heading and permalink for Section: Introduction to Machine Learning" href="#introduction-machine-learning" tabindex="-1" title="Copy heading and permalink for Section: Introduction to Machine Learning">🔗</a></div>
+</section><div aria-hidden="true" class="autopermalink" data-description="Section 1.1: Introduction to Machine Learning"><a aria-label="Copy heading and permalink for Section 1.1: Introduction to Machine Learning" href="#introduction-machine-learning" tabindex="-1" title="Copy heading and permalink for Section 1.1: Introduction to Machine Learning">🔗</a></div>
 </section>
 </div>
 <div class="ptx-content-footer" id="ptx-content-footer">
-<a class="previous-button button" href="week-01-python.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Top</span></a><a class="next-button button" href="week-01-install-python-uv.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a>
+<a class="previous-button button" href="week-01-python-2.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Top</span></a><a class="next-button button" href="week-01-install-python-uv.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a>
 </div></main>
 </div>
 <div class="ptx-page-footer" id="ptx-page-footer">

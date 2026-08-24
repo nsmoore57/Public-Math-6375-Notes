@@ -28,6 +28,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta content="Authored in PreTeXt" name="Keywords"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -38,7 +39,7 @@ htmlPresentation: false,
 <meta content="Fall 2026 Course Notes" name="twitter:description"/>
 <meta content="Fall 2026 Course Notes" property="og:description"/>
 <meta content="summary" name="twitter:card"/>
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -73,8 +74,8 @@ eBookConfig.enable_chatcodes =  false;
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></div>
 <p class="byline">Nicholas S. Moore, PhD</p>
 </div></div></header><nav class="ptx-navbar navbar" id="ptx-navbar"><div class="ptx-navbar-contents">
 <button aria-controls="ptx-sidebar" class="toc-toggle button" id="ptx-toc-toggle" title="Contents" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -93,6 +94,16 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="ptx-embed-code-container">
 <textarea aria-label="Embed" class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly="">&lt;iframe src="https://example.com/embed" width="100%" height="1000"&gt;&lt;/iframe&gt;</textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Copy</span></button>
+</div></dialog><button aria-expanded="false" class="ptx-read-aloud-button button" id="ptx-read-aloud-button" title="Read aloud"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Read aloud</span></button><div aria-label="Read aloud" class="ptx-read-aloud-player" hidden="hidden" id="ptx-read-aloud-player" role="group">
+<button class="button" id="ptx-read-aloud-prev" title="Previous sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><button class="ptx-read-aloud-toggle button" id="ptx-read-aloud-toggle" title="Play"><span class="ptx-read-aloud-icon-play"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span><span class="ptx-read-aloud-icon-pause"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span></button><button class="button" id="ptx-read-aloud-next" title="Next sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><a class="ptx-read-aloud-continue button" hidden="hidden" id="ptx-read-aloud-continue">Continue<span aria-hidden="true" class="icon material-symbols-outlined"></span></a><button class="ptx-read-aloud-settings-button button" id="ptx-read-aloud-settings-button" title="Reading settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Reading speed</span><output for="ptx-read-aloud-rate" id="ptx-read-aloud-rate-value">1×</output></label><input id="ptx-read-aloud-rate" max="2" min="0.5" step="0.1" type="range" value="1"/><label for="ptx-read-aloud-asides"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input checked="" id="ptx-read-aloud-autoscroll" type="checkbox"/><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input id="ptx-read-aloud-autocontinue" type="checkbox"/><span>Continue to the next page automatically</span></label>
 </div></dialog><button class="ptx-readability-options-button button" id="ptx-readability-options-button" title="Readability settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
@@ -126,10 +137,11 @@ eBookConfig.enable_chatcodes =  false;
 <div class="ptx-sidebar" id="ptx-sidebar" role="complementary"><nav aria-label="Contents" class="ptx-toc depth2 focused" data-max-levels="2" data-preexpanded-levels="0" id="ptx-toc" tabindex="-1"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter"><div class="toc-title-box"><a class="internal" href="frontmatter.html"><span class="title">Front Matter</span></a></div></li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a class="internal" href="week-01-python.html"><span class="title">Week 1: Python for Numerical Mathematics</span></a></div>
+<div class="toc-title-box"><a class="internal" href="week-01-python.html"><span class="codenumber">1</span> <span class="title">Week 1: Python for Numerical Mathematics</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-week-01-python">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-01-python-2.html"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html"><span class="title">Introduction to Machine Learning</span></a></div>
+<div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html"><span class="codenumber">1.1</span> <span class="title">Introduction to Machine Learning</span></a></div>
 <ul class="structural toc-item-list" id="ptx-toc-group-introduction-machine-learning">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-artificial-intelligence"><span class="title">What Is Artificial Intelligence?</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-machine-learning"><span class="title">What Is Machine Learning?</span></a></div></li>
@@ -138,16 +150,16 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#introduction-wrap-up"><span class="title">Wrap Up</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-install-python-uv.html"><span class="title">Installing Python and uv</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-install-python-uv.html"><span class="codenumber">1.2</span> <span class="title">Installing Python and uv</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html"><span class="title">Getting Started with Jupyter Notebooks</span></a></div>
+<div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html"><span class="codenumber">1.3</span> <span class="title">Getting Started with Jupyter Notebooks</span></a></div>
 <ul class="structural toc-item-list" id="ptx-toc-group-week-01-jupyter-basics">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-3"><span class="title">How to Open a .ipynb File</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-4"><span class="title">Understanding the Interface and Running Code</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a class="internal" href="week-01-python-basics.html"><span class="title">Python Basics</span></a></div>
+<div class="toc-title-box"><a class="internal" href="week-01-python-basics.html"><span class="codenumber">1.4</span> <span class="title">Python Basics</span></a></div>
 <ul class="structural toc-item-list active" id="ptx-toc-group-week-01-python-basics">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-3"><span class="title">Variables and Basic Data Types</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-4"><span class="title">Mathematical Operations</span></a></div></li>
@@ -165,22 +177,22 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="title">AI Use Policy</span></a></div></li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="title">Troubleshooting</span></a></div></li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="title">Author AI-Use Disclosure</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="codenumber">A.</span> <span class="title">AI Use Policy</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="codenumber">B.</span> <span class="title">Troubleshooting</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="codenumber">C.</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div class="ptx-content" id="ptx-content">
 <section class="section" id="week-01-python-basics">
-<h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Basics</span>
-</h2>
+<h1 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Basics</span>
+</h1>
 <section class="introduction" id="week-01-python-basics-2">
 <div class="para" id="week-01-python-basics-2-1">Here we learn the ABCs of Python: doing math, comparing things, and storing information. Think of this as learning to use a calculator that can remember numbers and make decisions. For this section, you should be able to find the <code class="code-inline tex2jax_ignore">PythonTutorial.ipynb</code> notebook in the <code class="code-inline tex2jax_ignore">demo</code> directory of the course environment folder.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-01-python-basics-2-1" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="week-01-python-basics-3">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Variables and Basic Data Types</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-3-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-3-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=818dc17f-75d6-4ac8-a682-b4aa0136500b" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-3-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -189,9 +201,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Variables and Basic Data Types"><a aria-label="Copy heading and permalink for Subsection: Variables and Basic Data Types" href="#week-01-python-basics-3" tabindex="-1" title="Copy heading and permalink for Subsection: Variables and Basic Data Types">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-4">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mathematical Operations</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-4-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-4-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d7fc9a23-4047-462f-8206-b4aa01367da0" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-4-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -200,9 +212,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Mathematical Operations"><a aria-label="Copy heading and permalink for Subsection: Mathematical Operations" href="#week-01-python-basics-4" tabindex="-1" title="Copy heading and permalink for Subsection: Mathematical Operations">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-5">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lists</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-5-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-5-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ba3c5f49-f965-4a10-a680-b4aa0136aaef" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-5-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -211,9 +223,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Lists"><a aria-label="Copy heading and permalink for Subsection: Lists" href="#week-01-python-basics-5" tabindex="-1" title="Copy heading and permalink for Subsection: Lists">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-6">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Tuples and Dictionaries in Python</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-6-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-6-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ddd408c3-e642-4a56-a759-b4aa01379042" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-6-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -222,9 +234,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Tuples and Dictionaries in Python"><a aria-label="Copy heading and permalink for Subsection: Tuples and Dictionaries in Python" href="#week-01-python-basics-6" tabindex="-1" title="Copy heading and permalink for Subsection: Tuples and Dictionaries in Python">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-7">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Boolean Logic</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-7-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-7-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=3ddf06e8-6028-423b-bc8a-b4aa0135e39e" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-7-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -233,9 +245,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Boolean Logic"><a aria-label="Copy heading and permalink for Subsection: Boolean Logic" href="#week-01-python-basics-7" tabindex="-1" title="Copy heading and permalink for Subsection: Boolean Logic">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-8">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">If Statements</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-8-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-8-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ee974c23-d6e6-4238-b0c8-b4aa0135e43e" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-8-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -244,9 +256,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: If Statements"><a aria-label="Copy heading and permalink for Subsection: If Statements" href="#week-01-python-basics-8" tabindex="-1" title="Copy heading and permalink for Subsection: If Statements">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-9">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">For Loops</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-9-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-9-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4e0a7cf5-2623-4c53-bf43-b4aa0135e3be" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-9-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -255,9 +267,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: For Loops"><a aria-label="Copy heading and permalink for Subsection: For Loops" href="#week-01-python-basics-9" tabindex="-1" title="Copy heading and permalink for Subsection: For Loops">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-10">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">While Loops</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-10-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-10-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a57a2c85-6456-4edb-9d57-b4aa0137bd45" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-10-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -266,20 +278,20 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: While Loops"><a aria-label="Copy heading and permalink for Subsection: While Loops" href="#week-01-python-basics-10" tabindex="-1" title="Copy heading and permalink for Subsection: While Loops">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-11">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-11-2">
-<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-11-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0023" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-11-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=17be6530-fec9-4cb3-81c7-b4b00024a2e1" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-11-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-01-python-basics-11-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Functions"><a aria-label="Copy heading and permalink for Subsection: Functions" href="#week-01-python-basics-11" tabindex="-1" title="Copy heading and permalink for Subsection: Functions">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-12">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Help System in Jupyter Notebooks</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-12-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-12-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=79bf078d-8c06-4ba7-8c9d-b4aa0135e3f6" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-12-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -288,9 +300,9 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Help System in Jupyter Notebooks"><a aria-label="Copy heading and permalink for Subsection: Help System in Jupyter Notebooks" href="#week-01-python-basics-12" tabindex="-1" title="Copy heading and permalink for Subsection: Help System in Jupyter Notebooks">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-13">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Round-Off Error</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-13-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-13-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=79bf078d-8c06-4ba7-8c9d-b4aa0135e3f6" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-13-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -299,16 +311,16 @@ eBookConfig.enable_chatcodes =  false;
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Round-Off Error"><a aria-label="Copy heading and permalink for Subsection: Round-Off Error" href="#week-01-python-basics-13" tabindex="-1" title="Copy heading and permalink for Subsection: Round-Off Error">🔗</a></div>
 </section>
 <section class="subsection" id="week-01-python-basics-14">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Python Exceptions</span>
-</h3>
+</h2>
 <div class="para" id="week-01-python-basics-14-2">
-<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-14-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0025" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="week-01-python-basics-14-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=0cb5fdd2-8843-4379-9a21-b4b00024a24a" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-01-python-basics-14-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-01-python-basics-14-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div aria-hidden="true" class="autopermalink" data-description="Subsection: Python Exceptions"><a aria-label="Copy heading and permalink for Subsection: Python Exceptions" href="#week-01-python-basics-14" tabindex="-1" title="Copy heading and permalink for Subsection: Python Exceptions">🔗</a></div>
-</section><div aria-hidden="true" class="autopermalink" data-description="Section: Python Basics"><a aria-label="Copy heading and permalink for Section: Python Basics" href="#week-01-python-basics" tabindex="-1" title="Copy heading and permalink for Section: Python Basics">🔗</a></div>
+</section><div aria-hidden="true" class="autopermalink" data-description="Section 1.4: Python Basics"><a aria-label="Copy heading and permalink for Section 1.4: Python Basics" href="#week-01-python-basics" tabindex="-1" title="Copy heading and permalink for Section 1.4: Python Basics">🔗</a></div>
 </section>
 </div>
 <div class="ptx-content-footer" id="ptx-content-footer">
