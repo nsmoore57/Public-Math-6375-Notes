@@ -2,7 +2,7 @@
 <section xml:id="week-01-plotly">
     <title>Plotting with Plotly</title>
     <p>
-        Download the <dataurl href="http://nsmoore57.github.io/Public-Python-Crash-Course/plotly-plotting-introduction.ipynb">plotly-plotting-introduction.ipynb</dataurl> file and save it in the "demo" directory under the course environment directory. Then work through the notebook while watching the following video.
+        For this section, you should be able to find the <c>plotly-plotting-introduction.ipynb</c> notebook in the <c>demo</c> directory of the course environment folder.
     </p>
     <p><interactive
         iframe="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=VID-2026-0039"

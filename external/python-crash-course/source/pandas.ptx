@@ -3,7 +3,7 @@
     <title>Introduction to Pandas</title>
     <introduction>
         <p>
-            Download the <dataurl href="http://nsmoore57.github.io/Public-Python-Crash-Course/introduction-to-pandas.ipynb">introduction-to-pandas.ipynb</dataurl> file and save it in the "demo" directory under the course environment directory. Then work through the notebook while watching the following videos.
+            For this section, you should be able to find the <c>introduction-to-pandas.ipynb</c> notebook in the <c>demo</c> directory of the course environment folder.
         </p>
     </introduction>
     <subsection>

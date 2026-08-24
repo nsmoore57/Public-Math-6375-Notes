@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE pretext [
-  <!ENTITY course-python-env-url "http://nsmoore57.github.io/Public-Math-4362-Notes/programming/Math4362_Python.zip">
-]>
 
 <pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
   <docinfo>
