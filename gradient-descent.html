@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gradient Descent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/wtamu-pretext-theme/wtamu-theme.css">
+<link rel="stylesheet" type="text/css" href="external/ai-course-policy-badges/templates/pretext/ai-badge-problem-document.css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Math 6375: Machine Learning I">
+<meta property="og:title" content="Math 6375: Machine Learning I">
+<meta property="book:title" content="Math 6375: Machine Learning I">
+<meta name="twitter:description" content="Fall 2026 Course Notes">
+<meta property="og:description" content="Fall 2026 Course Notes">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.7';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.7d3f08d51c2b60f8.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bb5ac777721d4056.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></h1>
+<p class="byline">Nicholas S. Moore, PhD</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="ptx-embed-button" class="ptx-embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><dialog class="ptx-dialog ptx-embed-popup" id="ptx-embed-popup"><div class="ptx-embed-popup-controls">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<button class="ptx-embed-close-button button" id="ptx-embed-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-embed-code-container">
+<textarea class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly aria-label="Embed"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="the-normal-equation.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="week-04-linear-regression.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="polynomial-regression.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="week-01-python.html" class="internal"><span class="codenumber">1</span> <span class="title">Week 1: Intro to Machine Learning and Python</span></a></div>
+<ul id="ptx-toc-group-week-01-python" class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="introduction-machine-learning.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Machine Learning</span></a></div>
+<ul id="ptx-toc-group-introduction-machine-learning" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction-machine-learning.html#what-is-artificial-intelligence" class="internal"><span class="title">What Is Artificial Intelligence?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction-machine-learning.html#what-is-machine-learning" class="internal"><span class="title">What Is Machine Learning?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction-machine-learning.html#why-use-machine-learning" class="internal"><span class="title">Why Use Machine Learning?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction-machine-learning.html#categories-machine-learning" class="internal"><span class="title">Categories of Machine Learning</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="introduction-machine-learning.html#introduction-wrap-up" class="internal"><span class="title">Wrap Up</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="week-01-install-python-uv.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Installing Python and uv</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="week-01-jupyter-basics.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Getting Started with Jupyter Notebooks</span></a></div>
+<ul id="ptx-toc-group-week-01-jupyter-basics" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-jupyter-basics.html#week-01-jupyter-basics-3" class="internal"><span class="title">How to Open a .ipynb File</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-jupyter-basics.html#week-01-jupyter-basics-4" class="internal"><span class="title">Understanding the Interface and Running Code</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="week-01-python-basics.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Python Basics</span></a></div>
+<ul id="ptx-toc-group-week-01-python-basics" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-3" class="internal"><span class="title">Variables and Basic Data Types</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-4" class="internal"><span class="title">Mathematical Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-5" class="internal"><span class="title">Lists</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-6" class="internal"><span class="title">Tuples and Dictionaries in Python</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-7" class="internal"><span class="title">Boolean Logic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-8" class="internal"><span class="title">If Statements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-9" class="internal"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-10" class="internal"><span class="title">While Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-11" class="internal"><span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-12" class="internal"><span class="title">Help System in Jupyter Notebooks</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-13" class="internal"><span class="title">Round-Off Error</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-python-basics.html#week-01-python-basics-14" class="internal"><span class="title">Python Exceptions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="week-02-linear-algebra-essentials.html" class="internal"><span class="codenumber">2</span> <span class="title">Week 2: Linear Algebra Essentials</span></a></div>
+<ul id="ptx-toc-group-week-02-linear-algebra-essentials" class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="review-essential-mathematics.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Review of Essential Linear Algebra Knowledge</span></a></div>
+<ul id="ptx-toc-group-review-essential-mathematics" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="review-essential-mathematics.html#linalg-review-matrices" class="internal"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="review-essential-mathematics.html#linalg-review-matrix-ops" class="internal"><span class="title">Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="review-essential-mathematics.html#linalg-review-inverses" class="internal"><span class="title">Identity Matrix and Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="review-essential-mathematics.html#linalg-review-vectors" class="internal"><span class="title">Vectors</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="week-03-python-packages.html" class="internal"><span class="codenumber">3</span> <span class="title">Week 3: Lab: NumPy, Pandas, Plotly, and Scikit-Learn</span></a></div>
+<ul id="ptx-toc-group-week-03-python-packages" class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="week-01-numpy-basics.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Introduction to NumPy</span></a></div>
+<ul id="ptx-toc-group-week-01-numpy-basics" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-numpy-basics.html#week-01-numpy-basics-3" class="internal"><span class="title">Basic Array Operations in NumPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-numpy-basics.html#week-01-numpy-basics-4" class="internal"><span class="title">Indexing and Slicing in NumPy</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="week-01-numpy-matrices.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Dot Products and Matrix Operations in NumPy</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="week-01-pandas.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Introduction to Pandas</span></a></div>
+<ul id="ptx-toc-group-week-01-pandas" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-pandas.html#week-01-pandas-3" class="internal"><span class="title">Pandas Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-pandas.html#week-01-pandas-4" class="internal"><span class="title">Pandas DataFrames</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-pandas.html#week-01-pandas-5" class="internal"><span class="title">Selecting and Filtering Data in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-pandas.html#week-01-pandas-6" class="internal"><span class="title">Vectorized Operations in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-pandas.html#week-01-pandas-7" class="internal"><span class="title">Removing Data in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="week-01-pandas.html#week-01-pandas-8" class="internal"><span class="title">Reading and Writing CSV Format with Pandas</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="week-01-seaborn.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Plotting with Seaborn</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="week-01-scikit-learn.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Introduction to Scikit-Learn</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="week-04-linear-regression.html" class="internal"><span class="codenumber">4</span> <span class="title">Week 4: Linear Regression</span></a></div>
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-week-04-linear-regression">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-regression-introduction.html" class="internal"><span class="codenumber">4.1</span> <span class="title">What is Linear Regression?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="the-normal-equation.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The Normal Equation</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="gradient-descent.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Gradient Descent</span></a></div>
+<ul class="structural toc-item-list active" id="ptx-toc-group-gradient-descent">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="gradient-descent.html#batch-gradient-descent" class="internal"><span class="title">Batch Gradient Descent</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="gradient-descent.html#stochastic-gradient-descent" class="internal"><span class="title">Stochastic Gradient Descent</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="polynomial-regression.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Polynomial Regression</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="overfitting-and-underfitting.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Overfitting and Underfitting</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="linear-regression-regularization.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Regularization</span></a></div>
+<ul id="ptx-toc-group-linear-regression-regularization" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-regression-regularization.html#ridge-regression" class="internal"><span class="title">Ridge Regression</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-regression-regularization.html#lasso-regression" class="internal"><span class="title">Lasso Regression</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="linear-regression-regularization.html#elastic-net" class="internal"><span class="title">Elastic Net</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-ai-use-policy.html" class="internal"><span class="codenumber">A</span> <span class="title">AI Use Policy</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-troubleshooting.html" class="internal"><span class="codenumber">B</span> <span class="title">Troubleshooting</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-author-ai-disclosure.html" class="internal"><span class="codenumber">C</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="gradient-descent">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gradient Descent</span>
+</h2>
+<section class="introduction" id="gradient-descent-introduction">
+<div class="para" id="gradient-descent-introduction-1">Now, let’s explore various methods to train a Linear Regression model, particularly useful when dealing with a large number of features or when the training dataset is too extensive to fit into memory.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="gradient-descent-introduction-2">
+<dfn class="terminology">Gradient Descent</dfn> is a versatile optimization algorithm capable of finding optimal solutions to many problems. The core idea of Gradient Descent is to iteratively adjust parameters to minimize a cost function. This involves measuring the local gradient of the error function with respect to the parameter vector <span class="process-math">\(\mathbf{w} \)</span> and moving in the direction of the descending gradient. The process continues until the gradient becomes zero, indicating a minimum has been reached.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="gradient-descent-introduction-3">The process of Gradient Descent starts with <dfn class="terminology">random initialization</dfn> of <span class="process-math">\(\mathbf{w} \text{,}\)</span> filling it with random values. The parameters are then gradually improved by taking small steps to reduce the cost function (e.g., the Mean Squared Error, MSE) until convergence to a minimum is achieved.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="gradient-descent-introduction-4">A critical parameter in Gradient Descent is the <dfn class="terminology">learning rate</dfn>, which determines the size of each step. If the learning rate is too small, the algorithm will take many iterations to converge, resulting in a lengthy process. Conversely, if the learning rate is too large, the algorithm might overshoot the minimum, potentially leading to divergence where values become increasingly large and fail to find an optimal solution. Additionally, not all cost functions resemble smooth, regular bowls; they might have irregular terrains with holes, ridges, and plateaus, making convergence challenging.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="gradient-descent-introduction-5">However, the MSE cost function for Linear Regression is a <dfn class="terminology">convex function</dfn>, meaning any line segment joining two points on the curve never crosses the curve itself. This implies the absence of local minima, with only one global minimum. Moreover, it is a continuous function with a consistent slope, ensuring that Gradient Descent will approach the global minimum.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="gradient-descent-introduction-6">The MSE cost function resembles a bowl shape, though it can become elongated if features have different scales. The figure below illustrates Gradient Descent on two training sets: one where features are on the same scale (left) and another where feature 1 has much larger values than feature 2 (right).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="figure-gradient-descent-feature-scaling"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/inherited-images/featurescaling.png" class="contained" alt="Gradient Descent with (left) and without (right) feature scaling."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Gradient Descent with (left) and without (right) feature scaling<div class="autopermalink" aria-hidden="true" data-description="Figure 4.3.1"><a tabindex="-1" href="#figure-gradient-descent-feature-scaling" title="Copy heading and permalink for Figure 4.3.1" aria-label="Copy heading and permalink for Figure 4.3.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="gradient-descent-introduction-8">On the left, Gradient Descent heads straight toward the minimum, achieving it quickly. On the right, it initially moves almost orthogonally to the direction of the global minimum, eventually making a prolonged descent down an almost flat valley. Though it will reach the minimum, this process takes considerably longer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="gradient-descent-introduction-9">This example highlights the importance of <dfn class="terminology">feature scaling</dfn> in Gradient Descent. By ensuring features have similar scales, the algorithm converges more efficiently, avoiding the pitfalls of elongated cost function shapes.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#gradient-descent-introduction-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="note remark-like" id="linear-regression-note-5"><h3 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="linear-regression-note-5-1">When using Gradient Descent, you should ensure that all features have a similar scale (e.g., using Scikit-Learn’s <code class="code-inline tex2jax_ignore">StandardScaler</code> class), or else it will take much longer to converge.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#linear-regression-note-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Note 4.3.2"><a tabindex="-1" href="#linear-regression-note-5" title="Copy heading and permalink for Note 4.3.2" aria-label="Copy heading and permalink for Note 4.3.2">🔗</a></div>
+</article></section>
+<section class="subsection" id="batch-gradient-descent">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Batch Gradient Descent</span>
+</h3>
+<div class="para logical" id="batch-gradient-descent-2">
+<div class="para">To implement Gradient Descent, you need to compute the gradient of the cost function with regards to each model parameter <span class="process-math">\(w_j\text{.}\)</span> In other words, you need to calculate how much the cost function will change if you change <span class="process-math">\(w_j\)</span> just a little bit, which is the <dfn class="terminology">partial derivative</dfn>. Eq <a href="gradient-descent.html#equation-mse-partial-derivative" class="xref" data-knowl="./knowl/xref/equation-mse-partial-derivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.3.1">(4.3.1)</a> computes the partial derivative of the cost function with regards to parameter <span class="process-math">\(w_j\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-mse-partial-derivative.html" id="equation-mse-partial-derivative">
+\begin{equation}
+\frac{\partial}{\partial w_j}\mathrm{MSE}(\mathbf{w})=\frac{2}{m}\sum_{i=1}^{m}\left(\mathbf{w}^T\mathbf{x}_i-y_i\right)x_{ij}\tag{4.3.1}
+\end{equation}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#batch-gradient-descent-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="batch-gradient-descent-3">
+<div class="para">Instead of computing these partial derivatives individually, you can use Eq <a href="gradient-descent.html#equation-mse-gradient" class="xref" data-knowl="./knowl/xref/equation-mse-gradient.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.3.2">(4.3.2)</a> to compute them all in one go. The gradient vector, noted <span class="process-math">\(\nabla_{\mathbf{w}}\mathrm{MSE}(\mathbf{w})\)</span> , contains all the partial derivatives of the cost function.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-mse-gradient.html" id="equation-mse-gradient">
+\begin{equation}
+\begin{split}
+\nabla_{\mathbf{w}}\mathrm{MSE}(\mathbf{w})=\begin{pmatrix}
+\frac{\partial}{\partial w_0}\mathrm{MSE}(\mathbf{w})\\
+\frac{\partial}{\partial w_1}\mathrm{MSE}(\mathbf{w})\\
+\vdots\\
+\frac{\partial}{\partial w_n}\mathrm{MSE}(\mathbf{w})
+\end{pmatrix}=\frac{2}{m}\mathbf{X}^T(\mathbf{X}\mathbf{w}-\mathbf{y})
+\end{split}\tag{4.3.2}
+\end{equation}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#batch-gradient-descent-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="batch-gradient-descent-4">
+<div class="para">Once you have the gradient vector, just go in the opposite direction to go to minimum. This means subtracting <span class="process-math">\(\nabla_{\mathbf{w}}\mathrm{MSE}(\mathbf{w})\)</span> from <span class="process-math">\(\mathbf{w}\text{.}\)</span> This is where the learning rate <span class="process-math">\(\eta\)</span> comes into play: multiply the gradient vector by <span class="process-math">\(\eta\)</span> to determine the size of step.</div>
+<div class="displaymath process-math" id="equation-gradient-descent-update">
+\begin{equation}
+\mathbf{w}^{(n+1)}=\mathbf{w}^{(n)}-\eta\nabla_{\mathbf{w}}\mathrm{MSE}(\mathbf{w}^{(n)})\tag{4.3.3}
+\end{equation}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#batch-gradient-descent-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="batch-gradient-descent-5">You may wonder how to set the number of iterations. If it is too low, you will still be far away from the optimal solution when the algorithm stops, but if it is too high, you will waste time while the model parameters do not change anymore. A simple solution is to set a very large number of iterations but to interrupt the algorithm when the gradient vector becomes tiny, that is, when its norm becomes smaller than a tiny number <span class="process-math">\(\varepsilon\)</span> (called the <dfn class="terminology">tolerance</dfn>)—because this happens when Gradient Descent has (almost) reached the minimum.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#batch-gradient-descent-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsection: Batch Gradient Descent"><a tabindex="-1" href="#batch-gradient-descent" title="Copy heading and permalink for Subsection: Batch Gradient Descent" aria-label="Copy heading and permalink for Subsection: Batch Gradient Descent">🔗</a></div>
+</section>
+<section class="subsection" id="stochastic-gradient-descent">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stochastic Gradient Descent</span>
+</h3>
+<div class="para" id="stochastic-gradient-descent-2">The primary drawback of Batch Gradient Descent is that it requires using the entire training set to compute the gradients at each step. This can make the algorithm quite slow, especially when dealing with large datasets. In contrast, <dfn class="terminology">Stochastic Gradient Descent (SGD)</dfn> takes a different approach by selecting a random instance from the training set at each step and computing the gradient based solely on that instance. This method is significantly faster because it only processes a small amount of data per iteration. Moreover, SGD’s efficiency allows it to handle enormous training sets, as it only needs to keep one instance in memory at any given time.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#stochastic-gradient-descent-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="stochastic-gradient-descent-3">However, the randomness inherent in SGD leads to less smooth convergence compared to Batch Gradient Descent. Instead of steadily decreasing towards the minimum, the cost function in SGD fluctuates, decreasing on average but bouncing up and down. While SGD will get close to the minimum, it typically never settles completely, as it continues to oscillate around it. This randomness, while a drawback in terms of precision, can actually be beneficial in certain situations. When the cost function has multiple local minima, SGD’s stochastic nature can help the algorithm escape these traps and move towards the global minimum, which is a significant advantage over Batch Gradient Descent.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#stochastic-gradient-descent-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="stochastic-gradient-descent-4">To balance the benefits of randomness with the need for convergence, a common technique is to gradually reduce the learning rate over time. Initially, larger steps help the algorithm make rapid progress and escape any local minima, but as the learning rate decreases, the steps become smaller, allowing the algorithm to hone in on the global minimum. This process is similar to <dfn class="terminology">simulated annealing</dfn>, a technique inspired by the physical process of slowly cooling molten metal to reduce defects. The rate at which the learning rate decreases is governed by a <dfn class="terminology">learning schedule</dfn>. If the learning rate drops too quickly, the algorithm might get stuck in a local minimum or halt progress prematurely. Conversely, if the learning rate decreases too slowly, the algorithm may continue to jump around the minimum for an extended period, potentially leading to a suboptimal solution if training is stopped too soon.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#stochastic-gradient-descent-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="stochastic-gradient-descent-5">To perform Linear Regression using SGD with Scikit-Learn, you can use the <code class="code-inline tex2jax_ignore">SGDRegressor</code> class, which defaults to optimizing the MSE cost function. The following code runs for maximum 1000 epochs (<code class="code-inline tex2jax_ignore">max_iter=1000</code>) or until the loss drops by less than 1e-3 during one epoch (<code class="code-inline tex2jax_ignore">tol=1e-3</code>), starting with a learning rate of 0.1 (<code class="code-inline tex2jax_ignore">eta0=0.1</code>), using the default learning schedule—inverse scaling (<code class="code-inline tex2jax_ignore">learning_rate='invscaling'</code>), and it does not use any regularization (<code class="code-inline tex2jax_ignore">penalty=None</code>): <div class="code-box"><pre class="program clipboardable"><code class="language-py">from sklearn.linear_model import SGDRegressor
+sgd_reg = SGDRegressor(max_iter=1000, tol=1e-3, penalty=None, eta0=0.1)
+sgd_reg.fit(X, y)
+</code></pre></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#stochastic-gradient-descent-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsection: Stochastic Gradient Descent"><a tabindex="-1" href="#stochastic-gradient-descent" title="Copy heading and permalink for Subsection: Stochastic Gradient Descent" aria-label="Copy heading and permalink for Subsection: Stochastic Gradient Descent">🔗</a></div>
+</section><div class="autopermalink" aria-hidden="true" data-description="Section 4.3: Gradient Descent"><a tabindex="-1" href="#gradient-descent" title="Copy heading and permalink for Section 4.3: Gradient Descent" aria-label="Copy heading and permalink for Section 4.3: Gradient Descent">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="the-normal-equation.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="polynomial-regression.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

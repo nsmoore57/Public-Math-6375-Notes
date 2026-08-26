@@ -30,7 +30,7 @@
             Now that it’s open, let’s explore the screen together.
             It’s not complicated—think of it as a notebook with pages you can write on.
         </p>
-        <paragraphs><title>Manu Bar at the Top</title>
+        <paragraphs><title>Menu Bar at the Top</title>
             <p>
                 File for saving or opening, Edit for copying, View to hide/show parts, Insert to add sections, Cell to run things, Kernel to restart if something goes wrong (like turning off and on a calculator), and Help for tips.
             </p>
@@ -45,10 +45,10 @@
                 These are like blank pages in your journal.
                 <ul>
                     <li><em>Code Cells:</em>
-                        For writing instructions to the computer. They have "[]:" on the left—the brackets show if you've run it (e.g., [1]: means first time).
+                        For writing instructions to the computer. They have <c>[]:</c> on the left—the brackets show if you've run it (e.g., <c>[1]:</c> means the first "run").
                     </li>
                     <li><em>Markdown Cells:</em>
-                        For writing text, like explanations. Use # for big headings, ## for smaller, italics, bold, or - for bullet lists.
+                        For writing text, like explanations. Use <c>#</c> for big headings, <c>##</c> for smaller, <c>*</c> for italics, <c>**</c> for bold, or <c>-</c> for bullet lists.
                     </li>
                     <li>When you click a cell, it gets a highlighted border.</li>
                 </ul>
@@ -68,7 +68,8 @@
                 <li>Click into a code cell—it turns highlighted.</li>
                 <li>Type a simple instruction, like <c>print("Hello, world!")</c>. (Don’t worry, we’ll explain this soon!)</li>
                 <li>To run: Hold Shift and press Enter. (Or Ctrl + Enter to stay in the cell, or click the play button.)</li>
-                <li>Watch: The kernel thinks (asterisk in brackets), then shows output: 5. 5. If it’s your first run, it starts the kernel automatically.</li>
+                <li>Watch: The kernel thinks (asterisk in brackets), then shows output.</li>
+                <li>If it’s your first run, it starts the kernel automatically.</li>
             </ol>
         </paragraphs>
     </subsection>
