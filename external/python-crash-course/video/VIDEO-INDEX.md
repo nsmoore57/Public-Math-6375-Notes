@@ -2,7 +2,7 @@
 
 This is the repository-side index of immutable video identities and confirmed live-recording artifact paths. The authoritative operational record is the **Video Production Ledger** (Notion), queried 2026-08-14. Operational workflow state, dates, priorities, and Panopto state belong only in that ledger.
 
-The ledger supplied no live-recording artifact paths for the records below. Consequently, this index deliberately records no inferred notebook, script, recording-reader, Panopto, or course-placement path. Add an artifact path only when the ledger provides a confirmed association.
+This index records a live-recording artifact path only when the ledger provides a confirmed association. It deliberately records no inferred notebook, script, recording-reader, Panopto, or course-placement path.
 
 ## Ledger reconciliation
 
@@ -35,6 +35,7 @@ The ledger supplied no live-recording artifact paths for the records below. Cons
 | VID-2026-0038 | Intro to Scikit-Learn | — (not recorded in ledger) |
 | VID-2026-0039 | Intro to Plotly | — (not recorded in ledger) |
 | VID-2026-0040 | Course AI Policy | — (not recorded in ledger) |
+| VID-2026-0137 | Python Basics | `PythonTutorial.ipynb` |
 
 ## Reconciliation concerns retained for follow-up
 

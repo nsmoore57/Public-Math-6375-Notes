@@ -181,6 +181,132 @@ var ptx_lunr_docs = [
   "body": " Python Basics   Here we learn the ABCs of Python: doing math, comparing things, and storing information. Think of this as learning to use a calculator that can remember numbers and make decisions. For this section, you should be able to find the PythonTutorial.ipynb notebook in the demo directory of the course environment folder.    Variables and Basic Data Types       Mathematical Operations       Lists       Tuples and Dictionaries in Python       Boolean Logic       If Statements       For Loops       While Loops       Functions       Help System in Jupyter Notebooks       Round-Off Error       Python Exceptions      "
 },
 {
+  "id": "week-02-review-essential-mathematics",
+  "level": "1",
+  "url": "week-02-review-essential-mathematics.html",
+  "type": "Section",
+  "number": "2.1",
+  "title": "Review of Essential Linear Algebra Knowledge",
+  "body": " Review of Essential Linear Algebra Knowledge   We will introduce the basic concepts of linear algebra which will be used in this course. Let’s start with some definitions.    Matrices    A matrix is a rectangular array of numbers. The numbers in the array are called the entries of the matrix.    The size of a matrix  is written in terms of the number of its rows and the number of its columns. A matrix has 2 rows and 3 columns. An matrix is also called a square matrix of order n , and the entries is said to be on the main diagonal of .    Main diagonal of matrix A   Main diagonal of matrix A.     The matrix with one row is called row matrix (or row vector). The matrix with one column is called column matrix (or column vector).   We will use capital bold letters to denote matrices and lowercase letters to denote numerical quantities. The entry that occurs in row i and column j of a matrix will be denoted by . Thus a general matrix might be written as   For row and column vectors, we will use boldface lowercase letters to denote, such as and     Matrix Operations   Matrix Addition  Matrix addition is performed by adding the corresponding entries of two matrices of the same size. In more formal notation, if both and are matrices, then is the matrix obtained by:    Scalar Multiplication  Scalar multiplication is performed by multiplying each entry of a matrix by a scalar. Thus, if is an matrix, then is the matrix obtained by multiplying each entry of by :    Matrix Multiplication   If is an matrix and is an matrix, then the product  is the matrix whose entries are determined as follows: To find the entry in row i and column j of , single out row i from the matrix and column j from the matrix . Multiply the corresponding entries from the row and column together, and then add up the resulting products.    The matrix product   The matrix product     Matrix Transpose   If is any matrix, then the transpose of , denoted by , is defined to be the matrix that results by interchanging the rows and columns of ; that is, the first column of is the first row of , the second column of is the second row of , and so forth.      Identity Matrix and Inverses   Identity Matrix   A square matrix with 1's on the main diagonal and zeros elsewhere is called an identity matrix .    Matrix Inverses   If is a square matrix, and if a matrix of the same size can be found such that , then is said to be invertible (or nonsingular ) and is called an inverse of , denoted by . If n such matrix can be found, then is said to be singular .      Vectors    In this course, vectors are denoted by lower case bold letters such as , and all vectors are assumed to be column vectors. Uppercase bold letters, such as , denote matrices. The notation denote a row vector, while the corresponding column vector is written as .    The  norm (also called Euclidean norm ) of the vector is denoted by , and is defined by   The  norm of is denoted by , and is defined by     Given two vectors and , the dot product (also called the Euclidean inner product ) of and is denoted by and is defined by     Note that .    "
+},
+{
+  "id": "definition-2-1",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-1",
+  "type": "Definition",
+  "number": "2.1.1",
+  "title": "",
+  "body": " A matrix is a rectangular array of numbers. The numbers in the array are called the entries of the matrix.  "
+},
+{
+  "id": "definition-2-2",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-2",
+  "type": "Definition",
+  "number": "2.1.2",
+  "title": "",
+  "body": " The size of a matrix  is written in terms of the number of its rows and the number of its columns. A matrix has 2 rows and 3 columns. An matrix is also called a square matrix of order n , and the entries is said to be on the main diagonal of .  "
+},
+{
+  "id": "figure-main-diagonal",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#figure-main-diagonal",
+  "type": "Figure",
+  "number": "2.1.3",
+  "title": "",
+  "body": " Main diagonal of matrix A   Main diagonal of matrix A.   "
+},
+{
+  "id": "definition-2-3",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-3",
+  "type": "Definition",
+  "number": "2.1.4",
+  "title": "",
+  "body": " The matrix with one row is called row matrix (or row vector). The matrix with one column is called column matrix (or column vector).  "
+},
+{
+  "id": "definition-2-5",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-5",
+  "type": "Definition",
+  "number": "2.1.5",
+  "title": "",
+  "body": " If is an matrix and is an matrix, then the product  is the matrix whose entries are determined as follows: To find the entry in row i and column j of , single out row i from the matrix and column j from the matrix . Multiply the corresponding entries from the row and column together, and then add up the resulting products.  "
+},
+{
+  "id": "figure-matrix-product",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#figure-matrix-product",
+  "type": "Figure",
+  "number": "2.1.6",
+  "title": "",
+  "body": " The matrix product   The matrix product   "
+},
+{
+  "id": "definition-2-7",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-7",
+  "type": "Definition",
+  "number": "2.1.7",
+  "title": "",
+  "body": " If is any matrix, then the transpose of , denoted by , is defined to be the matrix that results by interchanging the rows and columns of ; that is, the first column of is the first row of , the second column of is the second row of , and so forth.  "
+},
+{
+  "id": "definition-2-4",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-4",
+  "type": "Definition",
+  "number": "2.1.8",
+  "title": "",
+  "body": " A square matrix with 1's on the main diagonal and zeros elsewhere is called an identity matrix .  "
+},
+{
+  "id": "definition-2-6",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-6",
+  "type": "Definition",
+  "number": "2.1.9",
+  "title": "",
+  "body": " If is a square matrix, and if a matrix of the same size can be found such that , then is said to be invertible (or nonsingular ) and is called an inverse of , denoted by . If n such matrix can be found, then is said to be singular .  "
+},
+{
+  "id": "note-74",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#note-74",
+  "type": "Note",
+  "number": "2.1.10",
+  "title": "",
+  "body": " In this course, vectors are denoted by lower case bold letters such as , and all vectors are assumed to be column vectors. Uppercase bold letters, such as , denote matrices. The notation denote a row vector, while the corresponding column vector is written as .  "
+},
+{
+  "id": "definition-2-8",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-8",
+  "type": "Definition",
+  "number": "2.1.11",
+  "title": "",
+  "body": " The  norm (also called Euclidean norm ) of the vector is denoted by , and is defined by   The  norm of is denoted by , and is defined by   "
+},
+{
+  "id": "definition-2-9",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#definition-2-9",
+  "type": "Definition",
+  "number": "2.1.12",
+  "title": "",
+  "body": " Given two vectors and , the dot product (also called the Euclidean inner product ) of and is denoted by and is defined by   "
+},
+{
+  "id": "note-103",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#note-103",
+  "type": "Note",
+  "number": "2.1.13",
+  "title": "",
+  "body": " Note that .  "
+},
+{
   "id": "appendix-ai-use-policy",
   "level": "1",
   "url": "appendix-ai-use-policy.html",

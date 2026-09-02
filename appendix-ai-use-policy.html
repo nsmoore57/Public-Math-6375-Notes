@@ -28,6 +28,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta content="Authored in PreTeXt" name="Keywords"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -38,7 +39,7 @@ htmlPresentation: false,
 <meta content="Fall 2026 Course Notes" name="twitter:description"/>
 <meta content="Fall 2026 Course Notes" property="og:description"/>
 <meta content="summary" name="twitter:card"/>
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.52"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.52"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -60,21 +61,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.7';
+eBookConfig.runestone_version = '8.2.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.7d3f08d51c2b60f8.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.bb5ac777721d4056.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
 <link href="_static/prefix-runestone.efe427683fc41f98.css" rel="stylesheet" type="text/css"/>
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script crossorigin="anonymous" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script><script async="" src="lunr-pretext-search-index.js"></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></div>
 <p class="byline">Nicholas S. Moore, PhD</p>
 </div></div></header><nav class="ptx-navbar navbar" id="ptx-navbar"><div class="ptx-navbar-contents">
 <button aria-controls="ptx-sidebar" class="toc-toggle button" id="ptx-toc-toggle" title="Contents" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -93,6 +94,16 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="ptx-embed-code-container">
 <textarea aria-label="Embed" class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly="">&lt;iframe src="https://example.com/embed" width="100%" height="1000"&gt;&lt;/iframe&gt;</textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Copy</span></button>
+</div></dialog><button aria-expanded="false" class="ptx-read-aloud-button button" id="ptx-read-aloud-button" title="Read aloud"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Read aloud</span></button><div aria-label="Read aloud" class="ptx-read-aloud-player" hidden="hidden" id="ptx-read-aloud-player" role="group">
+<button class="button" id="ptx-read-aloud-prev" title="Previous sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><button class="ptx-read-aloud-toggle button" id="ptx-read-aloud-toggle" title="Play"><span class="ptx-read-aloud-icon-play"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span><span class="ptx-read-aloud-icon-pause"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span></button><button class="button" id="ptx-read-aloud-next" title="Next sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><a class="ptx-read-aloud-continue button" hidden="hidden" id="ptx-read-aloud-continue">Continue<span aria-hidden="true" class="icon material-symbols-outlined"></span></a><button class="ptx-read-aloud-settings-button button" id="ptx-read-aloud-settings-button" title="Reading settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Reading speed</span><output for="ptx-read-aloud-rate" id="ptx-read-aloud-rate-value">1×</output></label><input id="ptx-read-aloud-rate" max="2" min="0.5" step="0.1" type="range" value="1"/><label for="ptx-read-aloud-asides"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input checked="" id="ptx-read-aloud-autoscroll" type="checkbox"/><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input id="ptx-read-aloud-autocontinue" type="checkbox"/><span>Continue to the next page automatically</span></label>
 </div></dialog><button class="ptx-readability-options-button button" id="ptx-readability-options-button" title="Readability settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
@@ -111,7 +122,7 @@ eBookConfig.enable_chatcodes =  false;
 <legend>Assistive technologies</legend>
 <label for="ptx-readability-accessible-permalinks"><input id="ptx-readability-accessible-permalinks" type="checkbox"/><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button class="ptx-readability-reset-button button" id="ptx-readability-reset-button" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="week-01-python-basics.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="up-button button" href="root-1-2.html" title="Up"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Up</span></a><a class="next-button button" href="appendix-troubleshooting.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></span>
+<div class="ptx-readability-options-group"><button class="ptx-readability-reset-button button" id="ptx-readability-reset-button" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="week-02-review-essential-mathematics.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="up-button button" href="root-1-2.html" title="Up"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Up</span></a><a class="next-button button" href="appendix-troubleshooting.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></span>
 </div></nav><div class="hidden-content process-math" id="latex-macros" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
@@ -128,6 +139,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a class="internal" href="week-01-python.html"><span class="codenumber">1</span> <span class="title">Week 1: Intro to Machine Learning and Python</span></a></div>
 <ul class="structural toc-item-list" id="ptx-toc-group-week-01-python">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-01-python-2.html"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html"><span class="codenumber">1.1</span> <span class="title">Introduction to Machine Learning</span></a></div>
 <ul class="structural toc-item-list" id="ptx-toc-group-introduction-machine-learning">
@@ -165,15 +177,30 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
-<li class="toc-item toc-appendix active"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="codenumber">A</span> <span class="title">AI Use Policy</span></a></div></li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="codenumber">B</span> <span class="title">Troubleshooting</span></a></div></li>
-<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="codenumber">C</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-02-linear-algebra-essentials.html"><span class="codenumber">2</span> <span class="title">Week 2: Linear Algebra Essentials</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-02-linear-algebra-essentials">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-02-linear-algebra-essentials-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html"><span class="codenumber">2.1</span> <span class="title">Review of Essential Linear Algebra Knowledge</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-02-review-essential-mathematics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-matrices"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-matrix-ops"><span class="title">Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-inverses"><span class="title">Identity Matrix and Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-vectors"><span class="title">Vectors</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-appendix active"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="codenumber">A.</span> <span class="title">AI Use Policy</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="codenumber">B.</span> <span class="title">Troubleshooting</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="codenumber">C.</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div class="ptx-content" id="ptx-content">
 <section class="appendix" id="appendix-ai-use-policy">
-<h2 class="heading">
-<span class="type">Appendix</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">AI Use Policy</span>
-</h2>
+<h1 class="heading">
+<span class="type">Appendix</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">AI Use Policy</span>
+</h1>
 <div class="para" id="appendix-ai-use-policy-2">
 <div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="appendix-ai-use-policy-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b668587b-79f9-4ac6-a1eb-b4aa0138b324" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="appendix-ai-use-policy-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
@@ -181,7 +208,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="appendix-ai-use-policy-3">AI tools may be used in this course only according to the label attached to the activity or problem. The label text carries the meaning; colors or icons are only visual aids.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#appendix-ai-use-policy-3" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<section class="paragraphs" id="appendix-ai-use-policy-4"><h3 class="heading"><span class="title">Course labels.</span></h3>
+<section class="paragraphs" id="appendix-ai-use-policy-4"><h2 class="heading"><span class="title">Course labels.</span></h2>
 <ul class="disc" id="appendix-ai-use-policy-4-2">
 <li id="appendix-ai-use-policy-4-2-1">
 <div class="para" id="appendix-ai-use-policy-4-2-1-1">
@@ -216,12 +243,12 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraphs: Course labels"><a aria-label="Copy heading and permalink for Paragraphs: Course labels" href="#appendix-ai-use-policy-4" tabindex="-1" title="Copy heading and permalink for Paragraphs: Course labels">🔗</a></div>
 </section>
-<section class="paragraphs" id="appendix-ai-use-policy-5"><h3 class="heading"><span class="title">Required disclosure.</span></h3>
+<section class="paragraphs" id="appendix-ai-use-policy-5"><h2 class="heading"><span class="title">Required disclosure.</span></h2>
 <div class="para" id="appendix-ai-use-policy-5-2">Every submitted notebook must answer whether AI was used, what tool was used, what purpose it served, which problems were affected, the relevant prompt or conversation excerpt, and what you changed, verified, or rejected from the AI output.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#appendix-ai-use-policy-5-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraphs: Required disclosure"><a aria-label="Copy heading and permalink for Paragraphs: Required disclosure" href="#appendix-ai-use-policy-5" tabindex="-1" title="Copy heading and permalink for Paragraphs: Required disclosure">🔗</a></div>
 </section>
-<section class="paragraphs" id="appendix-ai-use-policy-6"><h3 class="heading"><span class="title">Responsibility.</span></h3>
+<section class="paragraphs" id="appendix-ai-use-policy-6"><h2 class="heading"><span class="title">Responsibility.</span></h2>
 <div class="para" id="appendix-ai-use-policy-6-2">Disclosure does not excuse incorrect or poorly understood work. You are responsible for understanding and being able to explain every piece of code and writing that you submit.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#appendix-ai-use-policy-6-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraphs: Responsibility"><a aria-label="Copy heading and permalink for Paragraphs: Responsibility" href="#appendix-ai-use-policy-6" tabindex="-1" title="Copy heading and permalink for Paragraphs: Responsibility">🔗</a></div>
@@ -229,7 +256,7 @@ eBookConfig.enable_chatcodes =  false;
 </section>
 </div>
 <div class="ptx-content-footer" id="ptx-content-footer">
-<a class="previous-button button" href="week-01-python-basics.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Top</span></a><a class="next-button button" href="appendix-troubleshooting.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a>
+<a class="previous-button button" href="week-02-review-essential-mathematics.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Top</span></a><a class="next-button button" href="appendix-troubleshooting.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a>
 </div></main>
 </div>
 <div class="ptx-page-footer" id="ptx-page-footer">
