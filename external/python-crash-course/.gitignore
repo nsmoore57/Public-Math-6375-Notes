@@ -17,3 +17,5 @@ generated-assets/
 logs/
 output/
 .cache/
+
+source/generated/
