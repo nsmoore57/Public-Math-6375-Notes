@@ -1,0 +1,49 @@
+name: Generate PNGs from SVGs
+
+on:
+  push:
+    paths:
+      - '**.svg'
+  workflow_dispatch:
+
+# Grants the default token permission to push commits
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+      - name: Convert SVGs to PNGs
+        run: |
+          echo "Finding and converting SVGs..."
+          for file in $(find . -type f -name "*.svg"); do
+            echo "Converting $file..."
+            convert "$file" "${file%.svg}.png"
+          done
+
+          echo "Listing all PNGs to verify they exist:"
+          find . -type f -name "*.png"
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git status
+
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: auto-generate PNGs from SVGs"
+            git push
+          else
+            echo "No changes detected."
+          fi

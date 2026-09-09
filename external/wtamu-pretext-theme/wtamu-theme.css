@@ -619,3 +619,25 @@ html.dark-mode .ptx-content .frontmatter .author-info,
 html.dark-mode .ptx-content .frontmatter .date {
   color: var(--wt-text) !important;
 }
+
+/* =========================================
+   MANIM ANIMATION LIGHT/DARK MODE TOGGLE
+   Requires xml:id ending in "-light" or "-dark"
+   ========================================= */
+
+/* 1. Hide all dark-mode animations by default (Light Mode) */
+[id$="-dark"] {
+  display: none !important;
+}
+
+/* 2. When Dark Mode is active, hide the light animations */
+body.dark-mode [id$="-light"],
+html.dark-mode [id$="-light"] {
+  display: none !important;
+}
+
+/* 3. When Dark Mode is active, show the dark animations */
+body.dark-mode [id$="-dark"],
+html.dark-mode [id$="-dark"] {
+  display: block !important;
+}

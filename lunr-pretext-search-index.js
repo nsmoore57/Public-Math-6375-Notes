@@ -187,7 +187,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Review of Essential Linear Algebra Knowledge",
-  "body": " Review of Essential Linear Algebra Knowledge   We will introduce the basic concepts of linear algebra which will be used in this course. Let’s start with some definitions.    Matrices    A matrix is a rectangular array of numbers. The numbers in the array are called the entries of the matrix.    The size of a matrix  is written in terms of the number of its rows and the number of its columns. A matrix has 2 rows and 3 columns. An matrix is also called a square matrix of order n , and the entries is said to be on the main diagonal of .    Main diagonal of matrix A   Main diagonal of matrix A.     The matrix with one row is called row matrix (or row vector). The matrix with one column is called column matrix (or column vector).   We will use capital bold letters to denote matrices and lowercase letters to denote numerical quantities. The entry that occurs in row i and column j of a matrix will be denoted by . Thus a general matrix might be written as   For row and column vectors, we will use boldface lowercase letters to denote, such as and     Matrix Operations   Matrix Addition  Matrix addition is performed by adding the corresponding entries of two matrices of the same size. In more formal notation, if both and are matrices, then is the matrix obtained by:    Scalar Multiplication  Scalar multiplication is performed by multiplying each entry of a matrix by a scalar. Thus, if is an matrix, then is the matrix obtained by multiplying each entry of by :    Matrix Multiplication   If is an matrix and is an matrix, then the product  is the matrix whose entries are determined as follows: To find the entry in row i and column j of , single out row i from the matrix and column j from the matrix . Multiply the corresponding entries from the row and column together, and then add up the resulting products.    The matrix product   The matrix product     Matrix Transpose   If is any matrix, then the transpose of , denoted by , is defined to be the matrix that results by interchanging the rows and columns of ; that is, the first column of is the first row of , the second column of is the second row of , and so forth.      Identity Matrix and Inverses   Identity Matrix   A square matrix with 1's on the main diagonal and zeros elsewhere is called an identity matrix .    Matrix Inverses   If is a square matrix, and if a matrix of the same size can be found such that , then is said to be invertible (or nonsingular ) and is called an inverse of , denoted by . If n such matrix can be found, then is said to be singular .      Vectors    In this course, vectors are denoted by lower case bold letters such as , and all vectors are assumed to be column vectors. Uppercase bold letters, such as , denote matrices. The notation denote a row vector, while the corresponding column vector is written as .    The  norm (also called Euclidean norm ) of the vector is denoted by , and is defined by   The  norm of is denoted by , and is defined by     Given two vectors and , the dot product (also called the Euclidean inner product ) of and is denoted by and is defined by     Note that .    "
+  "body": " Review of Essential Linear Algebra Knowledge   We will introduce the basic concepts of linear algebra which will be used in this course. Let’s start with some definitions.    Matrices    A matrix is a rectangular array of numbers. The numbers in the array are called the entries of the matrix.    The size of a matrix  is written in terms of the number of its rows and the number of its columns. A matrix has 2 rows and 3 columns. An matrix is also called a square matrix of order n , and the entries is said to be on the main diagonal of .    Main diagonal of matrix A   Main diagonal of matrix A.     The matrix with one row is called row matrix (or row vector). The matrix with one column is called column matrix (or column vector).   We will use capital bold letters to denote matrices and lowercase letters to denote numerical quantities. The entry that occurs in row i and column j of a matrix will be denoted by . Thus a general matrix might be written as   For row and column vectors, we will use boldface lowercase letters to denote, such as and     Matrix Operations   Matrix Addition  Matrix addition is performed by adding the corresponding entries of two matrices of the same size. In more formal notation, if both and are matrices, then is the matrix obtained by:    Scalar Multiplication  Scalar multiplication is performed by multiplying each entry of a matrix by a scalar. Thus, if is an matrix, then is the matrix obtained by multiplying each entry of by :    Matrix Multiplication   If is an matrix and is an matrix, then the product  is the matrix whose entries are determined as follows: To find the entry in row i and column j of , single out row i from the matrix and column j from the matrix . Multiply the corresponding entries from the row and column together, and then add up the resulting products.    Matrix Multiplication       Matrix Multiplication     Matrix Transpose   If is any matrix, then the transpose of , denoted by , is defined to be the matrix that results by interchanging the rows and columns of ; that is, the first column of is the first row of , the second column of is the second row of , and so forth.      Identity Matrix and Inverses   Identity Matrix   A square matrix with 1's on the main diagonal and zeros elsewhere is called an identity matrix .    Matrix Inverses   If is a square matrix, and if a matrix of the same size can be found such that , then is said to be invertible (or nonsingular ) and is called an inverse of , denoted by . If n such matrix can be found, then is said to be singular .      Vectors    In this course, vectors are denoted by lower case bold letters such as , and all vectors are assumed to be column vectors. Uppercase bold letters, such as , denote matrices. The notation denote a row vector, while the corresponding column vector is written as .    The  norm (also called Euclidean norm ) of the vector is denoted by , and is defined by   The  norm of is denoted by , and is defined by     Given two vectors and , the dot product (also called the Euclidean inner product ) of and is denoted by and is defined by     Note that .    "
 },
 {
   "id": "definition-2-1",
@@ -235,20 +235,29 @@ var ptx_lunr_docs = [
   "body": " If is an matrix and is an matrix, then the product  is the matrix whose entries are determined as follows: To find the entry in row i and column j of , single out row i from the matrix and column j from the matrix . Multiply the corresponding entries from the row and column together, and then add up the resulting products.  "
 },
 {
-  "id": "figure-matrix-product",
+  "id": "anim-matrix-multiplication-light",
   "level": "2",
-  "url": "week-02-review-essential-mathematics.html#figure-matrix-product",
+  "url": "week-02-review-essential-mathematics.html#anim-matrix-multiplication-light",
   "type": "Figure",
   "number": "2.1.6",
   "title": "",
-  "body": " The matrix product   The matrix product   "
+  "body": " Matrix Multiplication    "
+},
+{
+  "id": "anim-matrix-multiplication-dark",
+  "level": "2",
+  "url": "week-02-review-essential-mathematics.html#anim-matrix-multiplication-dark",
+  "type": "Figure",
+  "number": "2.1.7",
+  "title": "",
+  "body": " Matrix Multiplication   "
 },
 {
   "id": "definition-2-7",
   "level": "2",
   "url": "week-02-review-essential-mathematics.html#definition-2-7",
   "type": "Definition",
-  "number": "2.1.7",
+  "number": "2.1.8",
   "title": "",
   "body": " If is any matrix, then the transpose of , denoted by , is defined to be the matrix that results by interchanging the rows and columns of ; that is, the first column of is the first row of , the second column of is the second row of , and so forth.  "
 },
@@ -257,7 +266,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-02-review-essential-mathematics.html#definition-2-4",
   "type": "Definition",
-  "number": "2.1.8",
+  "number": "2.1.9",
   "title": "",
   "body": " A square matrix with 1's on the main diagonal and zeros elsewhere is called an identity matrix .  "
 },
@@ -266,7 +275,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-02-review-essential-mathematics.html#definition-2-6",
   "type": "Definition",
-  "number": "2.1.9",
+  "number": "2.1.10",
   "title": "",
   "body": " If is a square matrix, and if a matrix of the same size can be found such that , then is said to be invertible (or nonsingular ) and is called an inverse of , denoted by . If n such matrix can be found, then is said to be singular .  "
 },
@@ -275,7 +284,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-02-review-essential-mathematics.html#note-74",
   "type": "Note",
-  "number": "2.1.10",
+  "number": "2.1.11",
   "title": "",
   "body": " In this course, vectors are denoted by lower case bold letters such as , and all vectors are assumed to be column vectors. Uppercase bold letters, such as , denote matrices. The notation denote a row vector, while the corresponding column vector is written as .  "
 },
@@ -284,7 +293,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-02-review-essential-mathematics.html#definition-2-8",
   "type": "Definition",
-  "number": "2.1.11",
+  "number": "2.1.12",
   "title": "",
   "body": " The  norm (also called Euclidean norm ) of the vector is denoted by , and is defined by   The  norm of is denoted by , and is defined by   "
 },
@@ -293,7 +302,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-02-review-essential-mathematics.html#definition-2-9",
   "type": "Definition",
-  "number": "2.1.12",
+  "number": "2.1.13",
   "title": "",
   "body": " Given two vectors and , the dot product (also called the Euclidean inner product ) of and is denoted by and is defined by   "
 },
@@ -302,9 +311,54 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-02-review-essential-mathematics.html#note-103",
   "type": "Note",
-  "number": "2.1.13",
+  "number": "2.1.14",
   "title": "",
   "body": " Note that .  "
+},
+{
+  "id": "week-01-numpy-basics",
+  "level": "1",
+  "url": "week-01-numpy-basics.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "Introduction to NumPy",
+  "body": " Introduction to NumPy   For this section, you should be able to find the Numpy_tutorial.ipynb notebook in the demo directory of the course environment folder.     Basic Array Operations in NumPy       Indexing and Slicing in NumPy      "
+},
+{
+  "id": "week-01-numpy-matrices",
+  "level": "1",
+  "url": "week-01-numpy-matrices.html",
+  "type": "Section",
+  "number": "3.2",
+  "title": "Dot Products and Matrix Operations in NumPy",
+  "body": " Dot Products and Matrix Operations in NumPy  For this section, you should be able to find the Numpy_matrix_ops.ipynb notebook in the demo directory of the course environment folder.   "
+},
+{
+  "id": "week-01-pandas",
+  "level": "1",
+  "url": "week-01-pandas.html",
+  "type": "Section",
+  "number": "3.3",
+  "title": "Introduction to Pandas",
+  "body": " Introduction to Pandas   For this section, you should be able to find the introduction-to-pandas.ipynb notebook in the demo directory of the course environment folder.    Pandas Series       Pandas DataFrames       Selecting and Filtering Data in Pandas       Vectorized Operations in Pandas       Removing Data in Pandas       Reading and Writing CSV Format with Pandas      "
+},
+{
+  "id": "week-01-seaborn",
+  "level": "1",
+  "url": "week-01-seaborn.html",
+  "type": "Section",
+  "number": "3.4",
+  "title": "Plotting with Seaborn",
+  "body": " Plotting with Seaborn  For this section, you should be able to find the seaborn-plotting-introduction.ipynb notebook in the demo directory of the course environment folder.   "
+},
+{
+  "id": "week-01-scikit-learn",
+  "level": "1",
+  "url": "week-01-scikit-learn.html",
+  "type": "Section",
+  "number": "3.5",
+  "title": "Introduction to Scikit-Learn",
+  "body": " Introduction to Scikit-Learn  For this section, you should be able to find the introduction-to-scikit-learn.ipynb notebook in the demo directory of the course environment folder.   "
 },
 {
   "id": "appendix-ai-use-policy",
