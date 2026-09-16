@@ -361,6 +361,393 @@ var ptx_lunr_docs = [
   "body": " Introduction to Scikit-Learn  For this section, you should be able to find the introduction-to-scikit-learn.ipynb notebook in the demo directory of the course environment folder.   "
 },
 {
+  "id": "week-04-linear-regression-introduction",
+  "level": "1",
+  "url": "week-04-linear-regression-introduction.html",
+  "type": "Section",
+  "number": "4.1",
+  "title": "What is Linear Regression?",
+  "body": " What is Linear Regression?   Let’s consider a practical example. Suppose you’re curious about whether wealth influences happiness, so you decide to explore the relationship between a country’s GDP per capita and its citizens’ life satisfaction. To do this, you download the Better Life Index data from the OECD’s website and GDP per capita statistics from the IMF’s website. After merging these datasets, you plot the data for several randomly selected countries.  The relationship between life satisfaction and GDP per capita   The relationship between life satisfaction and GDP per capita.   Looking at the plot, you observe a noticeable trend. Despite the data being somewhat noisy, it appears that life satisfaction tends to increase more or less linearly as a country’s GDP per capita rises. Given this observation, you decide to model life satisfaction as a linear function of GDP per capita. Let’s denote life satisfaction by and GDP per capita by . This gives us a linear model to work with.   This model has two model parameters, and . By tweaking these parameters, you can make your model represent any linear function, as shown in .   A few possible linear models   A few possible linear models.    Before you can use your linear model, you need to determine the values for the parameters and . But how do you know which values will allow your model to perform optimally? To answer this, you must define a performance measure . You can either establish a utility function (also known as a fitness function ) to measure how well your model performs, or you can define a cost function to assess how poorly it performs. In linear regression problems, the cost function typically measures the distance between the model's predictions and the actual training examples, with the goal being to minimize this distance.  This is where the Linear Regression algorithm comes into play. You provide it with your training data, and it identifies the parameters that best fit the linear model to your data—a process known as training the model. In this particular case, the algorithm determines that the optimal parameter values are and .   The linear model that fits the training data best   The linear model that fits the training data best.    With these parameter values, you’re now ready to use the model to make predictions. For example, if you want to estimate the life satisfaction of people in Cyprus and the OECD data doesn’t provide this information, you can use your model to make a prediction. You would look up Cyprus’s GDP per capita, which is $22,587, and then apply your model: , resulting in a predicted life satisfaction score of approximately 5.96.  More generally, a linear model makes predictions by calculating a weighted sum of the input features, plus a constant known as the bias term (or intercept term). This relationship is expressed mathematically as: where is the predicted value, is the number of features, is the -th feature value, is the -th model parameter, and .   Note that is the model’s parameter vector, containing the bias term and the feature weights . And is the instance’s feature vector, containing with always equal to 1.   "
+},
+{
+  "id": "figure-gdp-life-satisfaction",
+  "level": "2",
+  "url": "week-04-linear-regression-introduction.html#figure-gdp-life-satisfaction",
+  "type": "Figure",
+  "number": "4.1.1",
+  "title": "",
+  "body": " The relationship between life satisfaction and GDP per capita   The relationship between life satisfaction and GDP per capita.   "
+},
+{
+  "id": "figure-linear-models",
+  "level": "2",
+  "url": "week-04-linear-regression-introduction.html#figure-linear-models",
+  "type": "Figure",
+  "number": "4.1.2",
+  "title": "",
+  "body": " A few possible linear models   A few possible linear models.   "
+},
+{
+  "id": "week-04-linear-regression-introduction-6",
+  "level": "2",
+  "url": "week-04-linear-regression-introduction.html#week-04-linear-regression-introduction-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "performance measure utility function fitness function cost function "
+},
+{
+  "id": "week-04-linear-regression-introduction-7",
+  "level": "2",
+  "url": "week-04-linear-regression-introduction.html#week-04-linear-regression-introduction-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "training "
+},
+{
+  "id": "figure-best-fit-linear-model",
+  "level": "2",
+  "url": "week-04-linear-regression-introduction.html#figure-best-fit-linear-model",
+  "type": "Figure",
+  "number": "4.1.3",
+  "title": "",
+  "body": " The linear model that fits the training data best   The linear model that fits the training data best.   "
+},
+{
+  "id": "week-04-linear-regression-introduction-10",
+  "level": "2",
+  "url": "week-04-linear-regression-introduction.html#week-04-linear-regression-introduction-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "bias intercept "
+},
+{
+  "id": "linear-regression-note-1",
+  "level": "2",
+  "url": "week-04-linear-regression-introduction.html#linear-regression-note-1",
+  "type": "Note",
+  "number": "4.1.4",
+  "title": "",
+  "body": " Note that is the model’s parameter vector, containing the bias term and the feature weights . And is the instance’s feature vector, containing with always equal to 1.  "
+},
+{
+  "id": "week-04-the-normal-equation",
+  "level": "1",
+  "url": "week-04-the-normal-equation.html",
+  "type": "Section",
+  "number": "4.2",
+  "title": "The Normal Equation",
+  "body": " The Normal Equation   Now that we’ve introduced the Linear Regression model, the next step is to train it. Training a model involves adjusting its parameters so that it best fits the training data. To do this, we need a way to measure how well—or how poorly—the model fits the data.  For regression problems, a common performance measure is the Root Mean Square Error (RMSE) . RMSE provides an estimate of the typical error made by the model in its predictions, with larger errors being penalized more heavily. This makes RMSE particularly useful, as it gives more weight to significant errors, offering a clear picture of the model's overall accuracy.  The RMSE is calculated by taking the square root of the average of the squared differences between the predicted values and the actual values in the training set. Mathematically, it is expressed as: where is the number of instances in the dataset you are measuring the RMSE on, is the predicted value for -th instance and is its label, i.e., the desired output value for that instance.   If we denote and , then RMSE corresponds to the Euclidean norm (also called norm), which is the Euclidean distance between and .    There are other measures, such as Mean Absolute Error (MAE) , and it corresponds to the norm:    The higher the norm index, the more it focuses on large values and neglects small ones. This is why the RMSE is more sensitive to outliers than the MAE. But when outliers are exponentially rare, the RMSE performs very well and is generally preferred.   Without loss of generality, let’s choose RMSE as the performance measure of a regression model, namely, the cost function of model. To train a Linear Regression model, you need to find the value of that minimizes the RMSE. In practice, it is simpler to minimize the Mean Square Error (MSE) than the RMSE, and it leads to the same result.   To find the value of that minimizes the cost function, there is a closed-form solution— in other words, a mathematical equation that gives the result directly. This is called the Normal Equation . where is a matrix containing all the feature values (excluding labels) of all instances in the dataset. There is one row per instance and the -th row is equal to the transpose of , i.e. .  Then the question ensues: The Normal Equation may not work if the matrix is not invertible, such as if or if some features are redundant. Practically, we use the pseudoinverse of (specifically the Moore-Penrose inverse), denoted by , to replace in Eq , which yields .  The pseudoinverse itself is computed using a standard matrix factorization technique called Singular Value Decomposition (SVD) that can decompose the training set matrix into the matrix multiplication of three matrices . The pseudoinverse is computed as . To compute the matrix , the algorithm takes and sets to zero all values smaller than a tiny threshold value, then it replaces all the non-zero values with their inverse, and finally it transposes the resulting matrix. This approach is more efficient and robust than computing the Normal Equation.  Performing linear regression using Scikit-Learn is quite simple: from sklearn.linear_model import LinearRegression lin_reg = LinearRegression() lin_reg.fit(X, y) lin_reg.intercept_, lin_reg.coef_ lin_reg.predict(X_new)    The LinearRegression class is based on the SVD approach. Both the Normal Equation and the SVD approach get very slow when the number of features grows large. On the positive side, both are linear with regards to the number of instances in the training set, so they handle large training sets efficiently, provided they can fit in memory.   "
+},
+{
+  "id": "week-04-the-normal-equation-4",
+  "level": "2",
+  "url": "week-04-the-normal-equation.html#week-04-the-normal-equation-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Root Mean Square Error (RMSE) "
+},
+{
+  "id": "linear-regression-note-2",
+  "level": "2",
+  "url": "week-04-the-normal-equation.html#linear-regression-note-2",
+  "type": "Note",
+  "number": "4.2.1",
+  "title": "",
+  "body": " If we denote and , then RMSE corresponds to the Euclidean norm (also called norm), which is the Euclidean distance between and .   "
+},
+{
+  "id": "week-04-the-normal-equation-7",
+  "level": "2",
+  "url": "week-04-the-normal-equation.html#week-04-the-normal-equation-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Mean Absolute Error (MAE) "
+},
+{
+  "id": "linear-regression-note-3",
+  "level": "2",
+  "url": "week-04-the-normal-equation.html#linear-regression-note-3",
+  "type": "Note",
+  "number": "4.2.2",
+  "title": "",
+  "body": " The higher the norm index, the more it focuses on large values and neglects small ones. This is why the RMSE is more sensitive to outliers than the MAE. But when outliers are exponentially rare, the RMSE performs very well and is generally preferred.  "
+},
+{
+  "id": "week-04-the-normal-equation-10",
+  "level": "2",
+  "url": "week-04-the-normal-equation.html#week-04-the-normal-equation-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Normal Equation "
+},
+{
+  "id": "week-04-the-normal-equation-12",
+  "level": "2",
+  "url": "week-04-the-normal-equation.html#week-04-the-normal-equation-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Singular Value Decomposition "
+},
+{
+  "id": "linear-regression-note-4",
+  "level": "2",
+  "url": "week-04-the-normal-equation.html#linear-regression-note-4",
+  "type": "Note",
+  "number": "4.2.3",
+  "title": "",
+  "body": " The LinearRegression class is based on the SVD approach. Both the Normal Equation and the SVD approach get very slow when the number of features grows large. On the positive side, both are linear with regards to the number of instances in the training set, so they handle large training sets efficiently, provided they can fit in memory.  "
+},
+{
+  "id": "week-04-gradient-descent",
+  "level": "1",
+  "url": "week-04-gradient-descent.html",
+  "type": "Section",
+  "number": "4.3",
+  "title": "Gradient Descent",
+  "body": " Gradient Descent   Now, let’s explore various methods to train a Linear Regression model, particularly useful when dealing with a large number of features or when the training dataset is too extensive to fit into memory.     How Does Gradient Descent Work?   Gradient Descent is a versatile optimization algorithm capable of finding optimal solutions to many problems. The core idea of Gradient Descent is to iteratively adjust parameters to minimize a cost function. This involves measuring the local gradient of the error function with respect to the parameter vector and moving in the direction of the descending gradient. The process continues until the gradient becomes zero, indicating a minimum has been reached.  The process of Gradient Descent starts with random initialization of , filling it with random values. The parameters are then gradually improved by taking small steps to reduce the cost function (e.g., the Mean Squared Error, MSE) until convergence to a minimum is achieved.  A critical parameter in Gradient Descent is the learning rate , which determines the size of each step. If the learning rate is too small, the algorithm will take many iterations to converge, resulting in a lengthy process. Conversely, if the learning rate is too large, the algorithm might overshoot the minimum, potentially leading to divergence where values become increasingly large and fail to find an optimal solution. Additionally, not all cost functions resemble smooth, regular bowls; they might have irregular terrains with holes, ridges, and plateaus, making convergence challenging.  However, the MSE cost function for Linear Regression is a convex function , meaning any line segment joining two points on the curve never crosses the curve itself. This implies the absence of local minima, with only one global minimum. Moreover, it is a continuous function with a consistent slope, ensuring that Gradient Descent will approach the global minimum.  The MSE cost function resembles a bowl shape, though it can become elongated if features have different scales. The figure below illustrates Gradient Descent on two training sets: one where features are on the same scale (left) and another where feature 1 has much larger values than feature 2 (right).   Gradient Descent with (left) and without (right) feature scaling   Gradient Descent with (left) and without (right) feature scaling.    On the left, Gradient Descent heads straight toward the minimum, achieving it quickly. On the right, it initially moves almost orthogonally to the direction of the global minimum, eventually making a prolonged descent down an almost flat valley. Though it will reach the minimum, this process takes considerably longer.  This example highlights the importance of feature scaling in Gradient Descent. By ensuring features have similar scales, the algorithm converges more efficiently, avoiding the pitfalls of elongated cost function shapes.   When using Gradient Descent, you should ensure that all features have a similar scale (e.g., using Scikit-Learn’s StandardScaler class), or else it will take much longer to converge.     Batch Gradient Descent  To implement Gradient Descent, you need to compute the gradient of the cost function with regards to each model parameter . In other words, you need to calculate how much the cost function will change if you change just a little bit, which is the partial derivative . We can compute the partial derivative of the cost function with respect to parameter :   Instead of computing these partial derivatives individually, you can use compute them all in one go using linear algebra. The gradient vector, denoted , contains all the partial derivatives of the cost function.   The gradient vector points \"uphill\", so once you calculate it, just go in the opposite direction to go towards the minimum. This means subtracting from . This is where the learning rate comes into play: multiply the gradient vector by to determine the size of the step:   You may wonder how to set the number of iterations. If it is too low, you will still be far away from the optimal solution when the algorithm stops, but if it is too high, you will waste time while the model parameters do not change anymore. A simple solution is to set a very large number of iterations but to interrupt the algorithm when the gradient vector becomes tiny, that is, when its norm becomes smaller than a tiny number (called the tolerance )—because this happens when Gradient Descent has (almost) reached the minimum.    Stochastic Gradient Descent  The primary drawback of Batch Gradient Descent is that it requires using the entire training set to compute the gradients at each step. This can make the algorithm quite slow, especially when dealing with large datasets. In contrast, Stochastic Gradient Descent (SGD) takes a different approach by selecting a random subset from the training set at each step and computing the gradient based solely on that subset. This method is significantly faster because it only processes a small amount of data per iteration. Moreover, SGD's efficiency allows it to handle enormous training sets, as it only needs to keep a subset of the dataset in memory at any given time.  However, the randomness inherent in SGD leads to less smooth convergence compared to Batch Gradient Descent. Instead of steadily decreasing towards the minimum, the cost function in SGD fluctuates, decreasing on average but bouncing up and down. While SGD will get close to the minimum, it typically never settles completely, as it continues to oscillate around it. This randomness, while a drawback in terms of precision, can actually be beneficial in certain situations. When the cost function has multiple local minima, SGD's stochastic nature can help the algorithm escape these traps and move towards the global minimum, which is a significant advantage over Batch Gradient Descent.  To balance the benefits of randomness with the need for convergence, a common technique is to gradually reduce the learning rate over time. Initially, larger steps help the algorithm make rapid progress and escape any local minima, but as the learning rate decreases, the steps become smaller, allowing the algorithm to hone in on the global minimum. This process is similar to simulated annealing , a technique inspired by the physical process of slowly cooling molten metal to reduce defects. The rate at which the learning rate decreases is governed by a learning schedule . If the learning rate drops too quickly, the algorithm might get stuck in a local minimum or halt progress prematurely. Conversely, if the learning rate decreases too slowly, the algorithm may continue to jump around the minimum for an extended period, potentially leading to a suboptimal solution if training is stopped too soon.  To perform Linear Regression using SGD with Scikit-Learn, you can use the SGDRegressor class, which defaults to optimizing the MSE cost function. The following code runs for maximum 1000 epochs ( max_iter=1000 ) or until the loss drops by less than 1e-3 during one epoch ( tol=1e-3 ), starting with a learning rate of 0.1 ( eta0=0.1 ), using the default learning schedule—inverse scaling ( learning_rate='invscaling' ), and it does not use any regularization ( penalty=None ): from sklearn.linear_model import SGDRegressor sgd_reg = SGDRegressor(max_iter=1000, tol=1e-3, penalty=None, eta0=0.1) sgd_reg.fit(X, y)    "
+},
+{
+  "id": "standard-gradient-descent-2",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#standard-gradient-descent-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Gradient Descent "
+},
+{
+  "id": "standard-gradient-descent-3",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#standard-gradient-descent-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "random initialization "
+},
+{
+  "id": "standard-gradient-descent-4",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#standard-gradient-descent-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "learning rate "
+},
+{
+  "id": "standard-gradient-descent-5",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#standard-gradient-descent-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "convex function "
+},
+{
+  "id": "figure-gradient-descent-feature-scaling",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#figure-gradient-descent-feature-scaling",
+  "type": "Figure",
+  "number": "4.3.1",
+  "title": "",
+  "body": " Gradient Descent with (left) and without (right) feature scaling   Gradient Descent with (left) and without (right) feature scaling.   "
+},
+{
+  "id": "standard-gradient-descent-9",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#standard-gradient-descent-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "feature scaling "
+},
+{
+  "id": "linear-regression-note-5",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#linear-regression-note-5",
+  "type": "Note",
+  "number": "4.3.2",
+  "title": "",
+  "body": " When using Gradient Descent, you should ensure that all features have a similar scale (e.g., using Scikit-Learn’s StandardScaler class), or else it will take much longer to converge.  "
+},
+{
+  "id": "batch-gradient-descent-2",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#batch-gradient-descent-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "partial derivative "
+},
+{
+  "id": "batch-gradient-descent-5",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#batch-gradient-descent-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "tolerance "
+},
+{
+  "id": "stochastic-gradient-descent-2",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#stochastic-gradient-descent-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Stochastic Gradient Descent (SGD) "
+},
+{
+  "id": "stochastic-gradient-descent-4",
+  "level": "2",
+  "url": "week-04-gradient-descent.html#stochastic-gradient-descent-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "simulated annealing learning schedule "
+},
+{
+  "id": "week-04-polynomial-regression",
+  "level": "1",
+  "url": "week-04-polynomial-regression.html",
+  "type": "Section",
+  "number": "4.4",
+  "title": "Polynomial Regression",
+  "body": " Polynomial Regression  What if your data is actually more complex than a simple straight line? Surprisingly, you can actually use a linear model to fit nonlinear data. A simple way to do this is to add powers of each feature as new features, then train a linear model on this extended set of features. This technique is called Polynomial Regression.   Let’s look at an example. First, let’s generate some nonlinear data, based on a simple quadratic equation (plus some noise; see ): m = 100 X = 6 * np.random.rand(m, 1) - 3 y = 0.5 * X**2 + X + 2 + np.random.randn(m, 1)   Generated nonlinear and noisy dataset   Generated nonlinear and noisy dataset.     Clearly, a straight line will never fit this data properly. So let’s use Scikit-Learn’s PolynomialFeatures class to transform our training data, adding the square (2nd-degree polynomial) of each feature in the training set as new features (in this case there is just one feature): from sklearn.preprocessing import PolynomialFeatures poly_features = PolynomialFeatures(degree=2, include_bias=False) X_poly = poly_features.fit_transform(X)  X_poly now contains the original feature of X plus the square of this feature. More concretely, the model structure now takes the form . Now you can fit a LinearRegression model to this extended training data ( ): lin_reg = LinearRegression() lin_reg.fit(X_poly, y) lin_reg.intercept_, lin_reg.coef_   Polynomial Regression model predictions   Polynomial Regression model predictions.     Note that when there are multiple features, Polynomial Regression is capable of finding relationships between features (which is something a plain Linear Regression model cannot do). This is made possible by the fact that PolynomialFeatures also adds all combinations of features up to the given degree. For example, if there were two features and , PolynomialFeatures with degree=3 would not only add the features and , but also the combinations and .    "
+},
+{
+  "id": "figure-quadratic-data",
+  "level": "2",
+  "url": "week-04-polynomial-regression.html#figure-quadratic-data",
+  "type": "Figure",
+  "number": "4.4.1",
+  "title": "",
+  "body": " Generated nonlinear and noisy dataset   Generated nonlinear and noisy dataset.   "
+},
+{
+  "id": "figure-polynomial-predictions",
+  "level": "2",
+  "url": "week-04-polynomial-regression.html#figure-polynomial-predictions",
+  "type": "Figure",
+  "number": "4.4.2",
+  "title": "",
+  "body": " Polynomial Regression model predictions   Polynomial Regression model predictions.   "
+},
+{
+  "id": "linear-regression-note-6",
+  "level": "2",
+  "url": "week-04-polynomial-regression.html#linear-regression-note-6",
+  "type": "Note",
+  "number": "4.4.3",
+  "title": "",
+  "body": " Note that when there are multiple features, Polynomial Regression is capable of finding relationships between features (which is something a plain Linear Regression model cannot do). This is made possible by the fact that PolynomialFeatures also adds all combinations of features up to the given degree. For example, if there were two features and , PolynomialFeatures with degree=3 would not only add the features and , but also the combinations and .  "
+},
+{
+  "id": "week-04-overfitting-and-underfitting",
+  "level": "1",
+  "url": "week-04-overfitting-and-underfitting.html",
+  "type": "Section",
+  "number": "4.5",
+  "title": "Overfitting and Underfitting",
+  "body": " Overfitting and Underfitting  If you perform high-degree Polynomial Regression, you will likely fit the training data much better than with plain Linear Regression. For example, applies a 300-degree polynomial model to the preceding training data, and compares the result with a pure linear model and a quadratic model (second-degree polynomial). Notice how the 300-degree polynomial model wiggles around to get as close as possible to the training instances.   High-degree Polynomial Regression   High-degree Polynomial Regression.     When working with models like Polynomial Regression, it’s important to balance the complexity of the model to avoid two key pitfalls: overfitting and underfitting. Overfitting occurs when a model is too complex and captures the noise in the training data, leading to excellent performance on the training set but poor generalization to new data. Underfitting, on the other hand, happens when the model is too simple to capture the underlying patterns in the data, resulting in poor performance on both the training and test sets.  In the case of a high-degree Polynomial Regression model, it may fit the training data almost perfectly but fail to generalize to unseen data, demonstrating overfitting. Conversely, a linear model might be too simplistic to capture the data’s structure, leading to underfitting. In this specific example, a quadratic model strikes the right balance, fitting the data well without being overly complex.  However, in practice, you won’t know the true function that generated the data, so determining the appropriate model complexity is challenging. To address this, you need to estimate how well your model will generalize to new data. The most reliable way to assess this is by testing the model on new, unseen cases.  One approach to evaluate generalization performance is to deploy the model in a real-world setting and monitor its performance over time. However, this method is risky—if the model performs poorly, it could lead to user dissatisfaction or other negative outcomes.  A safer and more common approach is to split your dataset into two parts: a training set and a test set . You train your model on the training set and then evaluate its performance on the test set. The error rate on the test set gives you an estimate of the model’s generalization error , or out-of-sample error . This metric indicates how well your model is likely to perform on data it has not encountered before.  If your model performs well on the training data but poorly on the test data, it’s a sign of overfitting. Conversely, if the model struggles on both the training and test sets, it’s likely underfitting. By carefully evaluating your model’s performance on the test set, you can fine-tune its complexity to achieve the best possible generalization to new data.  To split your data into training set and test set with Scikit-Learn, you can use the function train_test_split() in the module model_selection . The following code picks 20% of the dataset data randomly and set them in test_set , remaining in train_set .  from sklearn.model_selection import train_test_split train_set, test_set = train_test_split(data, test_size=0.2, random_state=42)  "
+},
+{
+  "id": "figure-high-degree-polynomials",
+  "level": "2",
+  "url": "week-04-overfitting-and-underfitting.html#figure-high-degree-polynomials",
+  "type": "Figure",
+  "number": "4.5.1",
+  "title": "",
+  "body": " High-degree Polynomial Regression   High-degree Polynomial Regression.   "
+},
+{
+  "id": "week-04-overfitting-and-underfitting-9",
+  "level": "2",
+  "url": "week-04-overfitting-and-underfitting.html#week-04-overfitting-and-underfitting-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "training set test set generalization error out-of-sample error "
+},
+{
+  "id": "week-04-linear-regression-regularization",
+  "level": "1",
+  "url": "week-04-linear-regression-regularization.html",
+  "type": "Section",
+  "number": "4.6",
+  "title": "Regularization",
+  "body": " Regularization   Regularization is a technique used to simplify a model and minimize the risk of overfitting by introducing constraints during the learning process. Overfitting occurs when a model becomes too complex and starts to capture the noise in the training data, leading to poor generalization on new data. Regularization addresses this by imposing penalties on the model’s complexity, encouraging it to remain simpler and more generalizable.  The degree of regularization is controlled by a hyperparameter . Unlike model parameters, which are learned during the training process, hyperparameters are set before training begins and remain fixed throughout. The regularization hyperparameter determines the strength of the constraint applied to the model. If set too high, the model may become too simple, potentially underfitting the data by failing to capture essential patterns.  In the context of linear models, regularization is typically applied by constraining the model’s weights. This can be achieved through various methods, each with its own approach to applying these constraints. We will now look at Ridge Regression, Lasso Regression, and Elastic Net, which implement three different ways to constrain the weights.    Ridge Regression   Ridge Regression (also called Tikhonov regularization) is a regularized version of Linear Regression: a regularization term equal to is added to the cost function. This forces the learning algorithm to not only fit the data but also keep the model weights as small as possible. Note that the regularization term should only be added to the cost function during training. Once the model is trained, you want to use the unregularized performance measure to evaluate the model’s performance.   It is quite common for the cost function used during training to be different from the performance measure used for testing. Apart from regularization, another reason they might be different is that a good training cost function should have optimization-friendly derivatives, while the performance measure used for testing should be as close as possible to the final objective.   The hyperparameter controls how much you want to regularize the model. If , then Ridge Regression is just Linear Regression. If is very large, then all weights end up very close to zero and the result is a flat line going through the data’s mean. presents the Ridge Regression cost function. Note that the bias term is not regularized.   A linear model (left) and a polynomial model (right), both with various levels of Ridge regularization   A linear model (left) and a polynomial model (right), both with various levels of Ridge regularization.     shows several Ridge models trained on some linear data using different values. On the left, plain Ridge models are used, leading to linear predictions. On the right, the data is first expanded using PolynomialFeatures(degree=10) , then it is scaled using a StandardScaler , and finally the Ridge models are applied to the resulting features: this is Polynomial Regression with Ridge regularization. Note how increasing leads to flatter (i.e., less extreme, more reasonable) predictions, thus reducing the model’s variance but increasing its bias.  To perform Ridge Regression with Scikit-Learn, use the following code: from sklearn.linear_model import Ridge ridge_reg = Ridge(alpha=1) ridge_reg.fit(X, y)   If you want to perform Ridge Regression using Stochastic Gradient Descent, use the following code: from sklearn.linear_model import SGDRegressor sgd_reg = SGDRegressor(penalty=\"l2\") sgd_reg.fit(X, y)     Lasso Regression    Least Absolute Shrinkage and Selection Operator Regression (usually simply called Lasso Regression ) is another regularized version of Linear Regression: just like Ridge Regression, it adds a regularization term to the cost function, but it uses the norm of the weight vector instead of half the square of the norm.   An important characteristic of Lasso Regression is that it tends to eliminate the weights of the least important features (i.e., set them to zero).  To perform Lasso Regression with Scikit-Learn, use the following code: from sklearn.linear_model import Lasso lasso_reg = Lasso(alpha=0.1) lasso_reg.fit(X, y)    Note that you could instead use SGDRegressor(penalty=\"l1\") if you want to perform stochastic gradient descent with Lasso regularization instead of batch gradient descent.     Elastic Net    Elastic Net is a middle ground between Ridge Regression and Lasso Regression. The regularization term is a simple mix of both Ridge and Lasso’s regularization terms, and you can control the mix ratio . When , Elastic Net is equivalent to Ridge Regression, and when , it is equivalent to Lasso Regression.   To perform Elastic Net with Scikit-Learn, use the following code: from sklearn.linear_model import ElasticNet elastic_net = ElasticNet(alpha=0.1, l1_ratio=0.5) elastic_net.fit(X, y)     Which Regularization do I Use?  When deciding which regression method to use—whether plain Linear Regression, Ridge Regression, Lasso Regression, or Elastic Net—it’s important to consider the nature of your data and the specific problem you’re trying to solve. Here’s a breakdown of when to use each method:  Plain Linear Regression :  When to Use : Rarely recommended, as it doesn’t include any regularization to prevent overfitting.  Why Avoid : Without regularization, the model may overfit the training data, especially when the dataset has a large number of features or if the features are noisy.    Ridge Regression (L2 Regularization) :  When to Use : A good default choice when you suspect that most features are useful, or when you want to prevent overfitting by penalizing large coefficients.  Why Use : Ridge Regression helps spread the influence across features more evenly, which is particularly useful when you have many features, all of which may contribute to the prediction.    Lasso Regression (L1 Regularization) :  When to Use : Preferable when you believe that only a few features are truly relevant, and you want to perform automatic feature selection by driving the weights of less important features to zero.  Why Use : Lasso can create a sparse model by eliminating irrelevant features, making it easier to interpret and reducing the complexity of the model.    Elastic Net (Combination of L1 and L2 Regularization) :  When to Use : A strong choice when you have many features and suspect that only a subset are relevant, especially if the features are highly correlated or if the number of features exceeds the number of training instances.  Why Use : Elastic Net combines the benefits of Ridge and Lasso Regression, providing more flexibility and stability. It tends to perform better in situations where Lasso might struggle, such as when features are correlated or when there are more features than observations.      By considering the characteristics of your dataset and the goals of your model, you can select the most appropriate regression technique to achieve optimal performance.   "
+},
+{
+  "id": "regularization-introduction-2",
+  "level": "2",
+  "url": "week-04-linear-regression-regularization.html#regularization-introduction-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperparameter "
+},
+{
+  "id": "ridge-regression-3",
+  "level": "2",
+  "url": "week-04-linear-regression-regularization.html#ridge-regression-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "regularization term "
+},
+{
+  "id": "linear-regression-note-7",
+  "level": "2",
+  "url": "week-04-linear-regression-regularization.html#linear-regression-note-7",
+  "type": "Note",
+  "number": "4.6.1",
+  "title": "",
+  "body": " It is quite common for the cost function used during training to be different from the performance measure used for testing. Apart from regularization, another reason they might be different is that a good training cost function should have optimization-friendly derivatives, while the performance measure used for testing should be as close as possible to the final objective.  "
+},
+{
+  "id": "figure-ridge-regularization",
+  "level": "2",
+  "url": "week-04-linear-regression-regularization.html#figure-ridge-regularization",
+  "type": "Figure",
+  "number": "4.6.2",
+  "title": "",
+  "body": " A linear model (left) and a polynomial model (right), both with various levels of Ridge regularization   A linear model (left) and a polynomial model (right), both with various levels of Ridge regularization.   "
+},
+{
+  "id": "lasso-regression-3",
+  "level": "2",
+  "url": "week-04-linear-regression-regularization.html#lasso-regression-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Lasso Regression "
+},
+{
+  "id": "linear-regression-note-8",
+  "level": "2",
+  "url": "week-04-linear-regression-regularization.html#linear-regression-note-8",
+  "type": "Note",
+  "number": "4.6.3",
+  "title": "",
+  "body": " Note that you could instead use SGDRegressor(penalty=\"l1\") if you want to perform stochastic gradient descent with Lasso regularization instead of batch gradient descent.  "
+},
+{
+  "id": "elastic-net-3",
+  "level": "2",
+  "url": "week-04-linear-regression-regularization.html#elastic-net-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Elastic Net "
+},
+{
   "id": "appendix-ai-use-policy",
   "level": "1",
   "url": "appendix-ai-use-policy.html",
