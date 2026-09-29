@@ -30,7 +30,7 @@ isReact: false,
 htmlPresentation: false,
 lang: "en-US",
 });
-</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta content="Authored in PreTeXt" name="Keywords"/>
+</script><script data-pretext-mathjax="true" defer="" onerror="this.dataset.loadFailed = 'true';" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta content="Authored in PreTeXt" name="Keywords"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="book" property="og:type"/>
 <meta content="Math 6375: Machine Learning I" name="twitter:title"/>
@@ -39,7 +39,7 @@ lang: "en-US",
 <meta content="Fall 2026 Course Notes" name="twitter:description"/>
 <meta content="Fall 2026 Course Notes" property="og:description"/>
 <meta content="summary" name="twitter:card"/>
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.52"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.52"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.54"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.54"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,15 +61,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
-<link href="_static/prefix-runestone.1bda041f5a098305.css" rel="stylesheet" type="text/css"/>
+<script src="_static/prefix-runtime.6ad113829064d43a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.02090e9f6a81e70e.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
+<link href="_static/prefix-runestone.347e2ecdeacfed99.css" rel="stylesheet" type="text/css"/>
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script crossorigin="anonymous" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js"></script><script crossorigin="anonymous" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js"></script><script crossorigin="anonymous" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script><script async="" src="lunr-pretext-search-index.js"></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -246,9 +246,40 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-06-logistic-regression.html"><span class="codenumber">5</span> <span class="title">Week 6: Logistic Regression</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-06-logistic-regression">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-06-logistic-regression-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-estimating-probabilities.html"><span class="codenumber">5.1</span> <span class="title">Estimating Probabilities</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-training-and-cost-function.html"><span class="codenumber">5.2</span> <span class="title">Training and Cost Function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-decision-boundaries.html"><span class="codenumber">5.3</span> <span class="title">Decision Boundaries</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html"><span class="codenumber">5.4</span> <span class="title">Softmax Regression</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-06-softmax-regression">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html#week-06-softmax-regression-2"><span class="title">What if there are multiple classes?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html#week-06-softmax-regression-3"><span class="title">Training a Softmax Regression Model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html#week-06-softmax-regression-4"><span class="title">Softmax Regression in Scikit Learn</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html"><span class="codenumber">5.5</span> <span class="title">Performance Measures</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-06-performance-measures">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#Logistic-Regression-MNIST"><span class="title">Logistic Regression on the MNIST Dataset</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#measuring-accuracy-using-cross-validation"><span class="title">Measuring Accuracy Using Cross-Validation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#confusion-matrix"><span class="title">Confusion Matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#precision-and-recall"><span class="title">Precision and Recall</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#precision-recall-trade-off"><span class="title">Precision/Recall Trade-off</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#the-roc-curve"><span class="title">The ROC Curve</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-softmax-in-llms.html"><span class="codenumber">5.6</span> <span class="title">Softmax in LLMs</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="codenumber">A.</span> <span class="title">AI Use Policy</span></a></div></li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="codenumber">B.</span> <span class="title">Troubleshooting</span></a></div></li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="codenumber">C.</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="instr-future-semester-changes.html"><span class="codenumber">D.</span> <span class="title">Changes for Future Semesters</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="instr-helpful-snippets.html"><span class="codenumber">E.</span> <span class="title">Helpful Snippets</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div class="ptx-content" id="ptx-content">
 <section class="section" id="introduction-machine-learning">
@@ -287,7 +318,7 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What Is Artificial Intelligence?</span>
 </h2>
 <div class="para" id="what-is-artificial-intelligence-2">
-<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="what-is-artificial-intelligence-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6c099e3d-ccac-40f8-8586-b4aa0140ca7d" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="what-is-artificial-intelligence-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6c099e3d-ccac-40f8-8586-b4aa0140ca7d" style="max-width: 100%; width: 100%; aspect-ratio:1.778" title="Panopto course video"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="what-is-artificial-intelligence-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#what-is-artificial-intelligence-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -362,7 +393,7 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Categories of Machine Learning</span>
 </h2>
 <div class="para" id="categories-machine-learning-2">
-<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="categories-machine-learning-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d16067e4-c8ee-44dc-b11f-b4b000291480" style="max-width: 100%; width: 100%; aspect-ratio:1.778"></iframe></div>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="categories-machine-learning-2-1" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d16067e4-c8ee-44dc-b11f-b4b000291480" style="max-width: 100%; width: 100%; aspect-ratio:1.778" title="Panopto course video"></iframe></div>
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="categories-machine-learning-2-1.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#categories-machine-learning-2" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

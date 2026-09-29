@@ -187,7 +187,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.1",
   "title": "Review of Essential Linear Algebra Knowledge",
-  "body": " Review of Essential Linear Algebra Knowledge   We will introduce the basic concepts of linear algebra which will be used in this course. Let’s start with some definitions.    Matrices    A matrix is a rectangular array of numbers. The numbers in the array are called the entries of the matrix.    The size of a matrix  is written in terms of the number of its rows and the number of its columns. A matrix has 2 rows and 3 columns. An matrix is also called a square matrix of order n , and the entries is said to be on the main diagonal of .    Main diagonal of matrix A   Main diagonal of matrix A.     The matrix with one row is called row matrix (or row vector). The matrix with one column is called column matrix (or column vector).   We will use capital bold letters to denote matrices and lowercase letters to denote numerical quantities. The entry that occurs in row i and column j of a matrix will be denoted by . Thus a general matrix might be written as   For row and column vectors, we will use boldface lowercase letters to denote, such as and     Matrix Operations   Matrix Addition  Matrix addition is performed by adding the corresponding entries of two matrices of the same size. In more formal notation, if both and are matrices, then is the matrix obtained by:    Scalar Multiplication  Scalar multiplication is performed by multiplying each entry of a matrix by a scalar. Thus, if is an matrix, then is the matrix obtained by multiplying each entry of by :    Matrix Multiplication   If is an matrix and is an matrix, then the product  is the matrix whose entries are determined as follows: To find the entry in row i and column j of , single out row i from the matrix and column j from the matrix . Multiply the corresponding entries from the row and column together, and then add up the resulting products.    Matrix Multiplication       Matrix Multiplication     Matrix Transpose   If is any matrix, then the transpose of , denoted by , is defined to be the matrix that results by interchanging the rows and columns of ; that is, the first column of is the first row of , the second column of is the second row of , and so forth.      Identity Matrix and Inverses   Identity Matrix   A square matrix with 1's on the main diagonal and zeros elsewhere is called an identity matrix .    Matrix Inverses   If is a square matrix, and if a matrix of the same size can be found such that , then is said to be invertible (or nonsingular ) and is called an inverse of , denoted by . If n such matrix can be found, then is said to be singular .      Vectors    In this course, vectors are denoted by lower case bold letters such as , and all vectors are assumed to be column vectors. Uppercase bold letters, such as , denote matrices. The notation denote a row vector, while the corresponding column vector is written as .    The  norm (also called Euclidean norm ) of the vector is denoted by , and is defined by   The  norm of is denoted by , and is defined by     Given two vectors and , the dot product (also called the Euclidean inner product ) of and is denoted by and is defined by     Note that .    "
+  "body": " Review of Essential Linear Algebra Knowledge   We will introduce the basic concepts of linear algebra which will be used in this course. Let’s start with some definitions.    Matrices    A matrix is a rectangular array of numbers. The numbers in the array are called the entries of the matrix.    The size of a matrix  is written in terms of the number of its rows and the number of its columns. A matrix has 2 rows and 3 columns. An matrix is also called a square matrix of order n , and the entries is said to be on the main diagonal of .    Main diagonal of matrix A   Main diagonal of matrix A.     The matrix with one row is called row matrix (or row vector). The matrix with one column is called column matrix (or column vector).   We will use capital bold letters to denote matrices and lowercase letters to denote numerical quantities. The entry that occurs in row i and column j of a matrix will be denoted by . Thus a general matrix might be written as   For row and column vectors, we will use boldface lowercase letters to denote, such as and     Matrix Operations   Matrix Addition  Matrix addition is performed by adding the corresponding entries of two matrices of the same size. In more formal notation, if both and are matrices, then is the matrix obtained by:    Scalar Multiplication  Scalar multiplication is performed by multiplying each entry of a matrix by a scalar. Thus, if is an matrix, then is the matrix obtained by multiplying each entry of by :    Matrix Multiplication   If is an matrix and is an matrix, then the product  is the matrix whose entries are determined as follows: To find the entry in row i and column j of , single out row i from the matrix and column j from the matrix . Multiply the corresponding entries from the row and column together, and then add up the resulting products.    Matrix Multiplication      Matrix Multiplication     Matrix Transpose   If is any matrix, then the transpose of , denoted by , is defined to be the matrix that results by interchanging the rows and columns of ; that is, the first column of is the first row of , the second column of is the second row of , and so forth.      Identity Matrix and Inverses   Identity Matrix   A square matrix with 1's on the main diagonal and zeros elsewhere is called an identity matrix .    Matrix Inverses   If is a square matrix, and if a matrix of the same size can be found such that , then is said to be invertible (or nonsingular ) and is called an inverse of , denoted by . If n such matrix can be found, then is said to be singular .      Vectors    In this course, vectors are denoted by lower case bold letters such as , and all vectors are assumed to be column vectors. Uppercase bold letters, such as , denote matrices. The notation denote a row vector, while the corresponding column vector is written as .    The  norm (also called Euclidean norm ) of the vector is denoted by , and is defined by   The  norm of is denoted by , and is defined by     Given two vectors and , the dot product (also called the Euclidean inner product ) of and is denoted by and is defined by     Note that .    "
 },
 {
   "id": "definition-2-1",
@@ -241,7 +241,7 @@ var ptx_lunr_docs = [
   "type": "Figure",
   "number": "2.1.6",
   "title": "",
-  "body": " Matrix Multiplication    "
+  "body": " Matrix Multiplication   "
 },
 {
   "id": "anim-matrix-multiplication-dark",
@@ -748,6 +748,384 @@ var ptx_lunr_docs = [
   "body": "Elastic Net "
 },
 {
+  "id": "week-06-estimating-probabilities",
+  "level": "1",
+  "url": "week-06-estimating-probabilities.html",
+  "type": "Section",
+  "number": "5.1",
+  "title": "Estimating Probabilities",
+  "body": " Estimating Probabilities   So, how does Logistic Regression work? Similar to a Linear Regression model, a Logistic Regression model calculates a weighted sum of the input features (plus a bias term). However, instead of directly outputting this result as Linear Regression does, Logistic Regression applies the logistic function to this sum:   The logistic, denoted , is a sigmoid function (i.e., S-shaped) that outputs a number between 0 and 1. It is defined as shown in and .    Logistic function   Logistic function.    Once the Logistic Regression model has estimated the probability that an instance belongs to the positive class, it can make its prediction easily. Notice that when , and when , so a Logistic Regression model predicts if is positive and if it is negative.   The score is often referred to as the logit . This term originates from the fact that the logit function, defined as , serves as the inverse of the logistic function. In fact, when you calculate the logit of the estimated probability , you obtain the value . The logit is also known as the log-odds because it represents the logarithm of the ratio between the estimated probability of the positive class and the estimated probability of the negative class.   "
+},
+{
+  "id": "week-06-estimating-probabilities-3",
+  "level": "2",
+  "url": "week-06-estimating-probabilities.html#week-06-estimating-probabilities-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "logistic "
+},
+{
+  "id": "figure-logisfig",
+  "level": "2",
+  "url": "week-06-estimating-probabilities.html#figure-logisfig",
+  "type": "Figure",
+  "number": "5.1.1",
+  "title": "",
+  "body": " Logistic function   Logistic function.   "
+},
+{
+  "id": "logistic-regression-note-1",
+  "level": "2",
+  "url": "week-06-estimating-probabilities.html#logistic-regression-note-1",
+  "type": "Note",
+  "number": "5.1.2",
+  "title": "",
+  "body": " The score is often referred to as the logit . This term originates from the fact that the logit function, defined as , serves as the inverse of the logistic function. In fact, when you calculate the logit of the estimated probability , you obtain the value . The logit is also known as the log-odds because it represents the logarithm of the ratio between the estimated probability of the positive class and the estimated probability of the negative class.  "
+},
+{
+  "id": "week-06-training-and-cost-function",
+  "level": "1",
+  "url": "week-06-training-and-cost-function.html",
+  "type": "Section",
+  "number": "5.2",
+  "title": "Training and Cost Function",
+  "body": " Training and Cost Function   Now you know how a Logistic Regression model estimates probabilities and makes predictions. But how is it trained? The objective of training is to set the parameter vector so that the model estimates high probabilities for positive instances ( ) and low probabilities for negative instances ( ). This idea is captured by the cost function shown in for a single training instance . . This cost function makes sense because grows very large when approaches , so the cost will be large if the model estimates a probability close to for a positive instance, and it will also be very large if the model estimates a probability close to for a negative instance. On the other hand, is close to when is close to , so the cost will be close to if the estimated probability is close to for a negative instance or close to for a positive instance, which is precisely what we want.  The cost function over the whole training set is the average cost over all training instances. It can be written in a single expression called the log loss : .  The bad news is that there is no known closed-form equation to compute the value of that minimizes this cost function (there is no equivalent of the Normal Equation). The good news is that this cost function is convex, so Gradient Descent (or any other optimization algorithm) is guaranteed to find the global minimum (if the learning rate is not too large and you wait long enough). The partial derivatives of the cost function with regard to the -th model parameter are given by . Once you have the gradient vector containing all the partial derivatives, you can use it in the Batch Gradient Descent algorithm or Stochastic Gradient Descent algorithm. That’s it: you now know how to train a Logistic Regression model.  "
+},
+{
+  "id": "week-06-training-and-cost-function-4",
+  "level": "2",
+  "url": "week-06-training-and-cost-function.html#week-06-training-and-cost-function-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "log loss "
+},
+{
+  "id": "week-06-decision-boundaries",
+  "level": "1",
+  "url": "week-06-decision-boundaries.html",
+  "type": "Section",
+  "number": "5.3",
+  "title": "Decision Boundaries",
+  "body": " Decision Boundaries   Let’s use the iris dataset to illustrate Logistic Regression. This is a famous dataset that contains the sepal and petal length and width of 150 iris flowers of three different species: Iris setosa, Iris versicolor, and Iris virginica.   Flowers of three iris plant species   Flowers of three iris plant species.    from sklearn import datasets iris = datasets.load_iris() X = iris[\"data\"][:, 3:] # petal width y = (iris[\"target\"] == 2).astype(np.int) # 1 if Iris virginica, else 0  Now let’s train a Logistic Regression model:  from sklearn.linear_model import LogisticRegression log_reg = LogisticRegression() log_reg.fit(X, y)  Let’s look at the model’s estimated probabilities for flowers with petal widths varying from 0 cm to 3 cm, see .  X_new = np.linspace(0, 3, 1000).reshape(-1, 1) y_proba = log_reg.predict_proba(X_new) plt.plot(X_new, y_proba[:, 1], \"g-\", label=\"Iris virginica\") plt.plot(X_new, y_proba[:, 0], \"b--\", label=\"Not Iris virginica\") # + more Matplotlib code to make the image look pretty   Estimated probabilities and decision boundary   Estimated probabilities and decision boundary.    The petal width of Iris virginica flowers (represented by triangles) varies from 1.4 cm to 2.5 cm, while other iris species (represented by squares) typically have smaller petal widths, ranging from 0.1 cm to 1.8 cm. There is some overlap between these ranges. When the petal width exceeds about 2 cm, the classifier is very confident that the flower is an Iris virginica , outputting a high probability for that class. Conversely, when the petal width is below 1 cm, the classifier is confident that the flower is not an Iris virginica (assigning a high probability to the “Not Iris virginica ” class). In the range between these extremes, the classifier is less certain. However, if you request a class prediction using the predict method (instead of the predict_proba method), the classifier will return the class it deems most likely. As a result, there is a decision boundary at approximately 1.6 cm, where the probabilities for both classes are equal at 50%. If the petal width is greater than 1.6 cm, the classifier will predict the flower as an Iris virginica ; otherwise, it will predict that it is not, even if its confidence is low.  In , the same dataset is shown, but this time with two features: petal width and length. After training, the Logistic Regression classifier can use these two features to estimate the probability that a new flower belongs to the Iris virginica species. The dashed line indicates the points where the model estimates a 50% probability, representing the model’s decision boundary. Notably, this boundary is linear. Each parallel line on the plot represents points where the model predicts a specific probability, ranging from 15% (bottom left) to 90% (top right). According to the model, any flowers located beyond the top-right line have more than a 90% chance of being classified as Iris virginica .   Linear decision boundary   Linear decision boundary.    Just like the other linear models, Logistic Regression models can be regularized using or penalties. Scikit-Learn actually adds an penalty by default.  The hyperparameter controlling the regularization strength of a Scikit-Learn LogisticRegression model is not alpha (as in other linear models), but its inverse: C . The higher the value of C , the less the model is regularized.  "
+},
+{
+  "id": "figure-iris-flowers",
+  "level": "2",
+  "url": "week-06-decision-boundaries.html#figure-iris-flowers",
+  "type": "Figure",
+  "number": "5.3.1",
+  "title": "",
+  "body": " Flowers of three iris plant species   Flowers of three iris plant species.   "
+},
+{
+  "id": "figure-decisionboundary",
+  "level": "2",
+  "url": "week-06-decision-boundaries.html#figure-decisionboundary",
+  "type": "Figure",
+  "number": "5.3.2",
+  "title": "",
+  "body": " Estimated probabilities and decision boundary   Estimated probabilities and decision boundary.   "
+},
+{
+  "id": "week-06-decision-boundaries-11",
+  "level": "2",
+  "url": "week-06-decision-boundaries.html#week-06-decision-boundaries-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "decision boundary "
+},
+{
+  "id": "figure-lindb",
+  "level": "2",
+  "url": "week-06-decision-boundaries.html#figure-lindb",
+  "type": "Figure",
+  "number": "5.3.3",
+  "title": "",
+  "body": " Linear decision boundary   Linear decision boundary.   "
+},
+{
+  "id": "logistic-regression-note-2",
+  "level": "2",
+  "url": "week-06-decision-boundaries.html#logistic-regression-note-2",
+  "type": "Note",
+  "number": "5.3.4",
+  "title": "",
+  "body": "The hyperparameter controlling the regularization strength of a Scikit-Learn LogisticRegression model is not alpha (as in other linear models), but its inverse: C . The higher the value of C , the less the model is regularized. "
+},
+{
+  "id": "week-06-softmax-regression",
+  "level": "1",
+  "url": "week-06-softmax-regression.html",
+  "type": "Section",
+  "number": "5.4",
+  "title": "Softmax Regression",
+  "body": " Softmax Regression  What if there are multiple classes?   Whereas binary classifiers distinguish between two classes, multiclass classifiers (also called multinomial classifiers) can distinguish between more than two classes.  One way to create a system that can classify the iris flowers into 3 classes is to train 3 binary classifiers, one for each class. Then when you want to classify a iris flower, you get the decision score from each classifier for that iris flower and you select the class whose classifier outputs the highest score. This is called the one-versus-the-rest (OvR) strategy (also called one-versus-all ).  Now let’s see a different way to generalize Logistic Regression to support multiple classes directly, without having to train and combine multiple binary classifiers. This is called Softmax Regression , or Multinomial Logistic Regression .  The idea is simple: when given an instance , the Softmax Regression model first computes a score for each class , then estimates the probability of each class by applying the softmax function (also called the normalized exponential ) to the scores. The equation to compute should look familiar, as it is just like the equation for Linear Regression prediction: . Note that each class has its own dedicated parameter vector . All these vectors are typically stored as rows in a parameter matrix .  Once you have computed the score of every class for the instance , you can estimate the probability that the instance belongs to class by running the scores through the softmax function, see . The function computes the exponential of every score, then normalizes them (dividing by the sum of all the exponentials). The scores are generally called logits or log-odds (although they are actually unnormalized log-odds). .  Just like the Logistic Regression classifier, the Softmax Regression classifier predicts the class with the highest estimated probability (which is simply the class with the highest score).  The Softmax Regression classifier predicts only one class at a time (i.e., it is multiclass, not multioutput), so it should be used only with mutually exclusive classes, such as different types of plants. You cannot use it to recognize multiple people in one picture.   Training a Softmax Regression Model   Now that you know how the model estimates probabilities and makes predictions, let’s take a look at training. The objective is to have a model that estimates a high probability for the target class (and consequently a low probability for the other classes). Minimizing the cost function shown in , called the cross entropy , should lead to this objective because it penalizes the model when it estimates a low probability for a target class. Cross entropy is frequently used to measure how well a set of estimated class probabilities matches the target classes. where is the target probability that the -th instance belongs to class . In general, it is either equal to or , depending on whether the instance belongs to the class or not.  Notice that when there are just two classes ( ), this cost function is equivalent to the Logistic Regression’s cost function, see .  The gradient vector of this cost function with regard to is   Now you can compute the gradient vector for every class, then use Gradient Descent (or any other optimization algorithm) to find the parameter matrix that minimizes the cost function.   Softmax Regression in Scikit Learn   Let’s use Softmax Regression to classify the iris flowers into all three classes. Scikit- Learn’s LogisticRegression uses one-versus-the-rest by default when you train it on more than two classes, but you can set the multi_class hyperparameter to \"multinomial\" to switch it to Softmax Regression. It also applies regularization by default, which you can control using the hyperparameter C : X = iris[\"data\"][:, (2, 3)] # petal length, petal width y = iris[\"target\"] softmax_reg = LogisticRegression(multi_class=\"multinomial\", C=10) softmax_reg.fit(X, y)   So the next time you find an iris with petals that are 5 cm long and 2 cm wide, you can ask your model to tell you what type of iris it is, and it will answer Iris virginica (class 2) with 94.2% probability: >>> softmax_reg.predict([[5, 2]]) array([2]) >>> softmax_reg.predict_proba([[5, 2]]) array([[6.38014896e-07, 5.74929995e-02, 9.42506362e-01]])    shows the resulting decision boundaries, represented by the background colors. Notice that the decision boundaries between any two classes are linear. The figure also shows the probabilities for the Iris versicolor class, represented by the curved lines (e.g., the line labeled with 0.450 represents the 45% probability boundary). Notice that the model can predict a class that has an estimated probability below 50%. For example, at the point where all decision boundaries meet, all classes have an equal estimated probability of 33%.   Softmax Regression decision boundaries   Softmax Regression decision boundaries.     "
+},
+{
+  "id": "week-06-softmax-regression-2-4",
+  "level": "2",
+  "url": "week-06-softmax-regression.html#week-06-softmax-regression-2-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "one-versus-the-rest one-versus-all "
+},
+{
+  "id": "week-06-softmax-regression-2-5",
+  "level": "2",
+  "url": "week-06-softmax-regression.html#week-06-softmax-regression-2-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Softmax Regression Multinomial Logistic Regression "
+},
+{
+  "id": "week-06-softmax-regression-2-6",
+  "level": "2",
+  "url": "week-06-softmax-regression.html#week-06-softmax-regression-2-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "softmax function normalized exponential "
+},
+{
+  "id": "week-06-softmax-regression-2-7",
+  "level": "2",
+  "url": "week-06-softmax-regression.html#week-06-softmax-regression-2-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "logits log-odds "
+},
+{
+  "id": "logistic-regression-note-3",
+  "level": "2",
+  "url": "week-06-softmax-regression.html#logistic-regression-note-3",
+  "type": "Note",
+  "number": "5.4.1",
+  "title": "",
+  "body": "The Softmax Regression classifier predicts only one class at a time (i.e., it is multiclass, not multioutput), so it should be used only with mutually exclusive classes, such as different types of plants. You cannot use it to recognize multiple people in one picture. "
+},
+{
+  "id": "week-06-softmax-regression-3-3",
+  "level": "2",
+  "url": "week-06-softmax-regression.html#week-06-softmax-regression-3-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cross entropy "
+},
+{
+  "id": "figure-srdb",
+  "level": "2",
+  "url": "week-06-softmax-regression.html#figure-srdb",
+  "type": "Figure",
+  "number": "5.4.2",
+  "title": "",
+  "body": " Softmax Regression decision boundaries   Softmax Regression decision boundaries.   "
+},
+{
+  "id": "week-06-performance-measures",
+  "level": "1",
+  "url": "week-06-performance-measures.html",
+  "type": "Section",
+  "number": "5.5",
+  "title": "Performance Measures",
+  "body": " Performance Measures   Evaluating a classifier is often significantly trickier than evaluating a regressor, so we will spend a large part on this topic. There are many performance measures available, so get ready to learn many new concepts and acronyms!   Logistic Regression on the MNIST Dataset   In this part, we will use another dataset, MNIST, to show the different performance measures on the binary classifier. MNIST is a set of 70,000 small images of digits handwritten by high school students and employees of the US Census Bureau. Each image is labeled with the digit it represents. This set has been studied so much that it is often called the “hello world” of Machine Learning: whenever people come up with a new classification algorithm they are curious to see how it will perform on MNIST, and anyone who learns Machine Learning tackles this dataset sooner or later.  Scikit-Learn provides many helper functions to download popular datasets. MNIST is one of them. The following code fetches the MNIST dataset: >>> from sklearn.datasets import fetch_openml >>> mnist = fetch_openml('mnist_784', version=1) >>> mnist.keys() dict_keys(['data', 'target', 'feature_names', 'DESCR', 'details', 'categories', 'url']) Datasets loaded by Scikit-Learn generally have a similar dictionary structure, including the following:  A DESCR key describing the dataset  A data key containing an array with one row per instance and one column per feature  A target key containing an array with the labels    Let’s look at these arrays: >>> X, y = mnist[\"data\"], mnist[\"target\"] >>> X.shape (70000, 784) >>> y.shape (70000,) There are 70,000 images, and each image has 784 features. This is because each image is 28 × 28 pixels, and each feature simply represents one pixel’s intensity, from 0 (white) to 255 (black). Let’s take a peek at one digit from the dataset. All you need to do is grab an instance’s feature vector, reshape it to a 28 × 28 array, and display it using Matplotlib’s imshow() function: import matplotlib as mpl import matplotlib.pyplot as plt some_digit = X[0] some_digit_image = some_digit.reshape(28, 28) plt.imshow(some_digit_image, cmap=\"binary\") plt.axis(\"off\") plt.show()   Image of number five   Image of number five.   This looks like a 5, and indeed that’s what the label tells us: >>> y[0] '5' Note that the label is a string. Most ML algorithms expect numbers, so let’s cast y to integer: >>> y = y.astype(np.uint8)   To give you a feel for the complexity of the classification task, shows a few more images from the MNIST dataset.   Digits from the MNIST dataset   Digits from the MNIST dataset.    But wait! You should always create a test set and set it aside before inspecting the data closely. The MNIST dataset is actually already split into a training set (the first 60,000 images) and a test set (the last 10,000 images): X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]   Let’s simplify the problem for now and only try to identify one digit—for example, the number 5. This “5-detector” will be an example of a binary classifier, capable of distinguishing between just two classes, 5 and not-5. Let’s create the target vectors for this classification task: y_train_5 = (y_train == 5) # True for all 5s, False for all other digits y_test_5 = (y_test == 5)   Now let’s use Logistic Regression to train it: from sklearn.linear_model import LogisticRegression log_reg = LogisticRegression(random_state=42) log_reg.fit(X_train, y_train_5)   Now we can use it to detect images of the number 5: >>> log_reg.predict([some_digit]) array([ True]) The Logistic Regression guesses that this image represents a 5 (True). Looks like it guessed right in this particular case! Now, let’s evaluate this model’s performance.    Measuring Accuracy Using Cross-Validation   A good way to evaluate a model is to use K-fold cross-validation . shows the idea of K-fold cross-validation: it randomly splits the data set into K distinct subsets called folds, then it trains and evaluates the model K times, picking a different fold for evaluation every time and training on the other folds.   K-fold cross-validation   K-fold cross-validation.    Let’s use the cross_val_score() function to evaluate our model with three folds: >>> from sklearn.model_selection import cross_val_score >>> cross_val_score(log_reg, X_train, y_train_5, cv=3, scoring=\"accuracy\") array([0.97525, 0.9732 , 0.9732 ]) Wow! Above 97% accuracy (ratio of correct predictions) on all cross-validation folds? This looks amazing, doesn’t it? Well, before you get too excited, let’s look at a very dumb classifier that just classifies every single image in the “not-5” class: from sklearn.base import BaseEstimator class Never5Classifier(BaseEstimator): def fit(self, X, y=None): return self def predict(self, X): return np.zeros((len(X), 1), dtype=bool)   Can you guess this model’s accuracy? Let’s find out: >>>never_5_clf = Never5Classifier() >>>cross_val_score(never_5_clf, X_train, y_train_5, cv=3, scoring=\"accuracy\") array([0.91125, 0.90855, 0.90915]) That’s right, it has over 90% accuracy! This is simply because only about 10% of the images are 5s, so if you always guess that an image is not a 5, you will be right about 90% of the time.  This demonstrates why accuracy is generally not the preferred performance measure for classifiers, especially when you are dealing with skewed datasets (i.e., when some classes are much more frequent than others).    Confusion Matrix   A much better way to evaluate the performance of a classifier is to look at the confusion matrix . The general idea is to count the number of times instances of class A are classified as class B. For example, to know the number of times the classifier confused images of 5s with 3s, you would look in the fifth row and third column of the confusion matrix.  To compute the confusion matrix, you first need to have a set of predictions so that they can be compared to the actual targets. You could make predictions on the test set, but let’s keep it untouched for now (remember that you want to use the test set only at the very end of your project, once you have a classifier that you are ready to launch). Instead, you can use the cross_val_predict() function: from sklearn.model_selection import cross_val_predict y_train_pred = cross_val_predict(log_reg, X_train, y_train_5, cv=3)   Just like the cross_val_score() function, cross_val_predict() performs K-fold cross-validation, but instead of returning the evaluation scores, it returns the predictions made on each test fold.  Now you are ready to get the confusion matrix using the confusion_matrix() function. Just pass it the target classes ( y_train_5 ) and the predicted classes ( y_train_pred ): >>> from sklearn.metrics import confusion_matrix >>> confusion_matrix(y_train_5, y_train_pred) array([[54038, 541], [ 1026, 4395]], dtype=int64)   Each row in a confusion matrix represents an actual class , while each column represents a predicted class . The first row of this matrix considers non-5 images (the negative class): 54,038 of them were correctly classified as non-5s (they are called true negatives ), while the remaining 541 were wrongly classified as 5s ( false positives ). The second row considers the images of 5s (the positive class ): 1,026 were wrongly classified as non-5s ( false negatives ), while the remaining 4,395 were correctly classified as 5s ( true positives ). A perfect classifier would have only true positives and true negatives, so its confusion matrix would have nonzero values only on its main diagonal (top left to bottom right).  If you are confused about the confusion matrix, may help.   An illustrated confusion matrix   An illustrated confusion matrix.      Precision and Recall   The confusion matrix gives you a lot of information, but sometimes you may prefer a more concise metric. An interesting one to look at is the accuracy of the positive predictions; this is called the precision of the classifier: where is the number of true positives, and is the number of false positives.  A trivial way to have perfect precision is to make one single positive prediction and ensure it is correct (precision = 1\/1 = 100%). But this would not be very useful, since the classifier would ignore all but one positive instance. So precision is typically used along with another metric named recall , also called sensitivity or the true positive rate (TPR): this is the ratio of positive instances that are correctly detected by the classifier: where is the number of false negatives.  Scikit-Learn provides several functions to compute classifier metrics, including precision and recall: >>> from sklearn.metrics import precision_score, recall_score >>> precision_score(y_train_5, y_train_pred) 0.8903970826580226 >>> recall_score(y_train_5, y_train_pred) 0.8107360265633647   Now your 5-detector does not look as shiny as it did when you looked at its accuracy. When it claims an image represents a 5, it is correct only 89% of the time. Moreover, it only detects 81% of the 5s.  It is often convenient to combine precision and recall into a single metric called the score , in particular if you need a simple way to compare two classifiers. The score is the harmonic mean of precision and recall (see ). Whereas the regular mean treats all values equally, the harmonic mean gives much more weight to low values. As a result, the classifier will only get a high score if both recall and precision are high.   To compute the F1 score, simply call the f1_score() function: >>> from sklearn.metrics import f1_score >>> f1_score(y_train_5, y_train_pred) 0.8487013613980882   The score favors classifiers that have similar precision and recall. This is not always what you want: in some contexts you mostly care about precision, and in other contexts you really care about recall. For example, if you trained a classifier to detect videos that are safe for kids, you would probably prefer a classifier that rejects many good videos (low recall) but keeps only safe ones (high precision), rather than a classifier that has a much higher recall but lets a few really bad videos show up in your product (in such cases, you may even want to add a human pipeline to check the classifier’s video selection). On the other hand, suppose you train a classifier to detect shoplifters in surveillance images: it is probably fine if your classifier has only 30% precision as long as it has 99% recall (sure, the security guards will get a few false alerts, but almost all shoplifters will get caught).  Unfortunately, you can’t have it both ways: increasing precision reduces recall, and vice versa. This is called the precision\/recall trade-off .    Precision\/Recall Trade-off  To understand this trade-off, let’s look at how the LogisticRegression makes its classification decisions. For each instance, it computes a score based on a decision function . If that score is greater than a threshold, it assigns the instance to the positive class; otherwise it assigns it to the negative class. shows a few digits positioned from the lowest score on the left to the highest score on the right. Suppose the decision threshold is positioned at the central arrow (between the two 5s): you will find 4 true positives (actual 5s) on the right of that threshold, and 1 false positive (actually a 6). Therefore, with that threshold, the precision is 80% (4 out of 5). But out of 6 actual 5s, the classifier only detects 4, so the recall is 67% (4 out of 6). If you raise the threshold (move it to the arrow on the right), the false positive (the 6) becomes a true negative, thereby increasing the precision (up to 100% in this case), but one true positive becomes a false negative, decreasing recall down to 50%. Conversely, lowering the threshold increases recall and reduces precision.   An illustrated precision\/recall trade-off   An illustrated precision\/recall trade-off.    Scikit-Learn does not let you set the threshold directly, but it does give you access to the decision scores that it uses to make predictions. Instead of calling the classifier’s predict() method, you can call its decision_function() method, which returns a score for each instance, and then use any threshold you want to make predictions based on those scores: >>> y_scores = log_reg.decision_function([some_digit]) >>> y_scores array([1.93837101]) >>> threshold = 0 >>> y_some_digit_pred = (y_scores > threshold) array([ True])   The LogisticRegression uses a threshold equal to 0, so the previous code returns the same result as the predict() method (i.e., True). Let’s raise the threshold: >>> threshold = 10 >>> y_some_digit_pred = (y_scores > threshold) >>> y_some_digit_pred array([False]) This confirms that raising the threshold decreases recall. The image actually represents a 5, and the classifier detects it when the threshold is 0, but it misses it when the threshold is increased to 10.  How do you decide which threshold to use? First, use the cross_val_predict() function to get the scores of all instances in the training set, but this time specify that you want to return decision scores instead of predictions: y_scores = cross_val_predict(log_reg, X_train, y_train_5, cv=3,method=\"decision_function\") With these scores, use the precision_recall_curve() function to compute precision and recall for all possible thresholds: from sklearn.metrics import precision_recall_curve precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores) Finally, use Matplotlib to plot precision and recall as functions of the threshold value: def plot_precision_recall_vs_threshold(precisions, recalls, thresholds): plt.plot(thresholds, precisions[:-1], \"b--\", label=\"Precision\") plt.plot(thresholds, recalls[:-1], \"g-\", label=\"Recall\") [...] # highlight the threshold and add the legend, axis label, and grid plot_precision_recall_vs_threshold(precisions, recalls, thresholds) plt.show()    Precision and recall versus the decision threshold   Precision and recall versus the decision threshold.    Another way to select a good precision\/recall trade-off is to plot precision directly against recall, as shown in .   Precision versus recall   Precision versus recall.    You can see that precision really starts to fall sharply around 90% recall. You will probably want to select a precision\/recall trade-off just before that drop—for example, at around 80% recall. But of course, the choice depends on your project.  Suppose you decide to aim for 95% precision. You look up the first plot and find that you need to use a threshold of about 1.5. To be more precise you can search for the lowest threshold that gives you at least 95% precision ( np.argmax() will give you the first index of the maximum value, which in this case means the first True value): threshold_95_precision = thresholds[np.argmax(precisions >= 0.95)] # ~ 1.5635   To make predictions (on the training set for now), instead of calling the classifier's predict() method, you can run this code: y_train_pred_95 = (y_scores >= threshold_95_precision) Let’s check these predictions’ precision and recall: >>> precision_score(y_train_5, y_train_pred_95) 0.95 >>> recall_score(y_train_5, y_train_pred_95) 0.6203652462645268   Great, you have a 95% precision classifier! As you can see, it is fairly easy to create a classifier with virtually any precision you want: just set a high enough threshold, and you’re done. But wait, not so fast. A high-precision classifier is not very useful if its recall is too low!   If someone says, “Let’s reach 99% precision,” you should ask, “At what recall?”     The ROC Curve   The receiver operating characteristic (ROC) curve is another common tool used with binary classifiers. It is very similar to the precision\/recall curve, but instead of plotting precision versus recall, the ROC curve plots the true positive rate (another name for recall) against the false positive rate (FPR). The FPR is the ratio of negative instances that are incorrectly classified as positive. It is equal to 1 – the true negative rate (TNR), which is the ratio of negative instances that are correctly classified as negative. The TNR is also called specificity . Hence, the ROC curve plots sensitivity (recall) versus 1 – specificity .  To plot the ROC curve, you first use the roc_curve() function to compute the TPR and FPR for various threshold values: from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)   Then you can plot the FPR against the TPR using Matplotlib. This code produces the plot in . def plot_roc_curve(fpr, tpr, label=None): plt.plot(fpr, tpr, linewidth=2, label=label) plt.plot([0, 1], [0, 1], 'k--') # Dashed diagonal [...] # Add axis labels and grid plot_roc_curve(fpr, tpr) plt.show()   ROC curve   ROC curve.     Once again there is a trade-off: the higher the recall (TPR), the more false positives (FPR) the classifier produces. The dotted line represents the ROC curve of a purely random classifier; a good classifier stays as far away from that line as possible (toward the top-left corner).  One way to compare classifiers is to measure the area under the curve (AUC). A perfect classifier will have a ROC AUC equal to 1, whereas a purely random classifier will have a ROC AUC equal to 0.5. Scikit-Learn provides a function to compute the ROC AUC: >>> from sklearn.metrics import roc_auc_score >>> roc_auc_score(y_train_5, y_scores) 0.9748674294141422   Since the ROC curve is so similar to the precision\/recall (PR) curve, you may wonder how to decide which one to use. As a rule of thumb, you should prefer the PR curve whenever the positive class is rare or when you care more about the false positives than the false negatives. Otherwise, use the ROC curve. For example, looking at the previous ROC curve (and the ROC AUC score), you may think that the classifier is really good. But this is mostly because there are few positives (5s) compared to the negatives (non-5s). In contrast, the PR curve makes it clear that the classifier has room for improvement (the curve could be closer to the topright corner).   "
+},
+{
+  "id": "figure-mnist-digit",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-mnist-digit",
+  "type": "Figure",
+  "number": "5.5.1",
+  "title": "",
+  "body": " Image of number five   Image of number five.   "
+},
+{
+  "id": "figure-mnist",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-mnist",
+  "type": "Figure",
+  "number": "5.5.2",
+  "title": "",
+  "body": " Digits from the MNIST dataset   Digits from the MNIST dataset.   "
+},
+{
+  "id": "measuring-accuracy-using-cross-validation-3",
+  "level": "2",
+  "url": "week-06-performance-measures.html#measuring-accuracy-using-cross-validation-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "K-fold cross-validation "
+},
+{
+  "id": "figure-kfold",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-kfold",
+  "type": "Figure",
+  "number": "5.5.3",
+  "title": "",
+  "body": " K-fold cross-validation   K-fold cross-validation.   "
+},
+{
+  "id": "confusion-matrix-3",
+  "level": "2",
+  "url": "week-06-performance-measures.html#confusion-matrix-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "confusion matrix "
+},
+{
+  "id": "confusion-matrix-7",
+  "level": "2",
+  "url": "week-06-performance-measures.html#confusion-matrix-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "actual class predicted class true negatives false positives positive class false negatives true positives "
+},
+{
+  "id": "figure-confusion",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-confusion",
+  "type": "Figure",
+  "number": "5.5.4",
+  "title": "",
+  "body": " An illustrated confusion matrix   An illustrated confusion matrix.   "
+},
+{
+  "id": "precision-and-recall-3",
+  "level": "2",
+  "url": "week-06-performance-measures.html#precision-and-recall-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "precision "
+},
+{
+  "id": "precision-and-recall-4",
+  "level": "2",
+  "url": "week-06-performance-measures.html#precision-and-recall-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "recall sensitivity true positive rate "
+},
+{
+  "id": "precision-and-recall-7",
+  "level": "2",
+  "url": "week-06-performance-measures.html#precision-and-recall-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "score "
+},
+{
+  "id": "precision-and-recall-10",
+  "level": "2",
+  "url": "week-06-performance-measures.html#precision-and-recall-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "precision\/recall trade-off "
+},
+{
+  "id": "precision-recall-trade-off-2",
+  "level": "2",
+  "url": "week-06-performance-measures.html#precision-recall-trade-off-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "decision function "
+},
+{
+  "id": "figure-tradeoff",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-tradeoff",
+  "type": "Figure",
+  "number": "5.5.5",
+  "title": "",
+  "body": " An illustrated precision\/recall trade-off   An illustrated precision\/recall trade-off.   "
+},
+{
+  "id": "figure-precision-recall-threshold",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-precision-recall-threshold",
+  "type": "Figure",
+  "number": "5.5.6",
+  "title": "",
+  "body": " Precision and recall versus the decision threshold   Precision and recall versus the decision threshold.   "
+},
+{
+  "id": "figure-pvr",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-pvr",
+  "type": "Figure",
+  "number": "5.5.7",
+  "title": "",
+  "body": " Precision versus recall   Precision versus recall.   "
+},
+{
+  "id": "logistic-regression-note-4",
+  "level": "2",
+  "url": "week-06-performance-measures.html#logistic-regression-note-4",
+  "type": "Note",
+  "number": "5.5.8",
+  "title": "",
+  "body": " If someone says, “Let’s reach 99% precision,” you should ask, “At what recall?”  "
+},
+{
+  "id": "the-roc-curve-3",
+  "level": "2",
+  "url": "week-06-performance-measures.html#the-roc-curve-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "receiver operating characteristic true positive rate false positive rate true negative rate specificity "
+},
+{
+  "id": "figure-roc",
+  "level": "2",
+  "url": "week-06-performance-measures.html#figure-roc",
+  "type": "Figure",
+  "number": "5.5.9",
+  "title": "",
+  "body": " ROC curve   ROC curve.   "
+},
+{
+  "id": "the-roc-curve-7",
+  "level": "2",
+  "url": "week-06-performance-measures.html#the-roc-curve-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "area under the curve "
+},
+{
+  "id": "logistic-regression-note-5",
+  "level": "2",
+  "url": "week-06-performance-measures.html#logistic-regression-note-5",
+  "type": "Note",
+  "number": "5.5.10",
+  "title": "",
+  "body": "Since the ROC curve is so similar to the precision\/recall (PR) curve, you may wonder how to decide which one to use. As a rule of thumb, you should prefer the PR curve whenever the positive class is rare or when you care more about the false positives than the false negatives. Otherwise, use the ROC curve. For example, looking at the previous ROC curve (and the ROC AUC score), you may think that the classifier is really good. But this is mostly because there are few positives (5s) compared to the negatives (non-5s). In contrast, the PR curve makes it clear that the classifier has room for improvement (the curve could be closer to the topright corner). "
+},
+{
+  "id": "week-06-softmax-in-llms",
+  "level": "1",
+  "url": "week-06-softmax-in-llms.html",
+  "type": "Section",
+  "number": "5.6",
+  "title": "Softmax in LLMs",
+  "body": " Softmax in LLMs   Since I am trying to drop in information when what we're doing intersects with Large Language Models, I want to point out that Large Language Models imploy a Softmax-type of approach when generating text. They do not use a Softmax regression or a Logistic regression like we've been discussing here, but they do use the softmax \"idea\" when deciding which token (word) to generate next. The model (which has a very complicated arcitecture that we won't get into here) takes input text and generates scores for all possible tokens that the LLM has in its vocabulary. Then, it uses the same softmax function that we've been using here to convert those scores into probabilities. Finally, instead of selecting the token with the highest probabillity (which is what Softmax regression does), the model randomly selects a token based on the probabilities. That is why you can use the exact same prompt multiple times and get different results each time. The scores define a probability distribution and then the model randomly selects a token based on that distribution. Different runs through the model mean different random tokens are selected each time, leading to different outputs. This is both a strength and a weakness of LLMs. Selecting a random token from the probability distribution makes the model sound more \"human\" and can prevent it from getting stuck in a loops where the same tokens get generated over and over again. On the other hand, it's this randomness that makes the model less predictable and harder to control; leading to the, now infamous, hallucinations that LLMs sometimes generate.  "
+},
+{
   "id": "appendix-ai-use-policy",
   "level": "1",
   "url": "appendix-ai-use-policy.html",
@@ -800,6 +1178,42 @@ var ptx_lunr_docs = [
   "number": "C",
   "title": "Author AI-Use Disclosure",
   "body": " Author AI-Use Disclosure  This document was prepared by Nicholas S. Moore, PhD with assistance from AI tools for drafting, editing, formatting, and checking course materials. The instructor reviewed the final content and remains responsible for the mathematical explanations, examples, policies, and instructional decisions.  "
+},
+{
+  "id": "instr-future-semester-changes",
+  "level": "1",
+  "url": "instr-future-semester-changes.html",
+  "type": "Appendix",
+  "number": "D",
+  "title": "Changes for Future Semesters",
+  "body": " Changes for Future Semesters   Change wording on last question of Week 2 Quiz. I think it's throwing students for a loop because it says to choose the statement that matches the formulas. They skip the \"Select all that apply\" part. Reword to make it clearer that students should select all statements that apply.  Switch to regular homework. I don't like the quiz model. Especially if they only get to take it once and they don't get to review their answers. It's tough for them to learn from their mistakes that way.  Week 3 Lab needs work, update it to use more Seaborn, more pandas, more numpy. Also consider adding some scikit learn stuff into it as well. I modified the notes and videos, but didn't modify the lab at all.   "
+},
+{
+  "id": "instr-helpful-snippets",
+  "level": "1",
+  "url": "instr-helpful-snippets.html",
+  "type": "Appendix",
+  "number": "E",
+  "title": "Helpful Snippets",
+  "body": " Helpful Snippets   Light\/Dark Mode Toggle  Use xml:id that ends in either -light or -dark to assign an element to the light or dark mode.  The following should change depending on the current theme:   TEST: Light Mode Animation is Active       TEST: Dark Mode Animation is Active      "
+},
+{
+  "id": "test-animation-light",
+  "level": "2",
+  "url": "instr-helpful-snippets.html#test-animation-light",
+  "type": "Figure",
+  "number": "E.0.1",
+  "title": "",
+  "body": " TEST: Light Mode Animation is Active    "
+},
+{
+  "id": "test-animation-dark",
+  "level": "2",
+  "url": "instr-helpful-snippets.html#test-animation-dark",
+  "type": "Figure",
+  "number": "E.0.2",
+  "title": "",
+  "body": " TEST: Dark Mode Animation is Active   "
 }
 ]
 

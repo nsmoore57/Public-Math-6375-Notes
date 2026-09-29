@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" width="100%" height="100%">
+  <defs>
+    <!-- Shadow filter for the fruits -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Lime Gradient (#009E73 Base) -->
+    <radialGradient id="limeGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#00D49A" />
+      <stop offset="60%" stop-color="#009E73" />
+      <stop offset="100%" stop-color="#00523C" />
+    </radialGradient>
+    
+    <!-- Plum Gradient (#CC79A7 Base) -->
+    <radialGradient id="plumGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#EAAACF" />
+      <stop offset="60%" stop-color="#CC79A7" />
+      <stop offset="100%" stop-color="#804164" />
+    </radialGradient>
+  </defs>
+
+  <!-- LEFT CRATE (ORANGE: #E69F00) -->
+  <g transform="translate(10, 0)">
+    <!-- Inside shadow/base -->
+    <rect x="15" y="15" width="170" height="170" fill="#7A5400" />
+    
+    <!-- Bottom slats (Darker Orange) -->
+    <rect x="25" y="15" width="30" height="170" fill="#B87F00" />
+    <rect x="65" y="15" width="30" height="170" fill="#B87F00" />
+    <rect x="105" y="15" width="30" height="170" fill="#B87F00" />
+    <rect x="145" y="15" width="30" height="170" fill="#B87F00" />
+    
+    <!-- Inner deep shadow for depth -->
+    <rect x="15" y="15" width="170" height="170" fill="transparent" stroke="rgba(0,0,0,0.3)" stroke-width="6" />
+    
+    <!-- Fruits: 6 Limes, 2 Plums -->
+    <g filter="url(#dropShadow)">
+      <!-- Top Row -->
+      <circle cx="50" cy="50" r="16" fill="url(#limeGrad)" />
+      <circle cx="100" cy="45" r="15" fill="url(#plumGrad)" />
+      <circle cx="145" cy="55" r="16" fill="url(#limeGrad)" />
+      
+      <!-- Middle Row -->
+      <circle cx="65" cy="100" r="16" fill="url(#limeGrad)" />
+      <circle cx="115" cy="105" r="16" fill="url(#limeGrad)" />
+      <circle cx="155" cy="100" r="16" fill="url(#limeGrad)" />
+      
+      <!-- Bottom Row -->
+      <circle cx="55" cy="145" r="16" fill="url(#limeGrad)" />
+      <circle cx="105" cy="155" r="15" fill="url(#plumGrad)" />
+    </g>
+    
+    <!-- Outer walls -->
+    <rect x="0" y="0" width="200" height="15" rx="2" fill="#E69F00" stroke="#B87F00" stroke-width="1.5" />
+    <rect x="0" y="185" width="200" height="15" rx="2" fill="#E69F00" stroke="#B87F00" stroke-width="1.5" />
+    <rect x="0" y="0" width="15" height="200" rx="2" fill="#E69F00" stroke="#B87F00" stroke-width="1.5" />
+    <rect x="185" y="0" width="15" height="200" rx="2" fill="#E69F00" stroke="#B87F00" stroke-width="1.5" />
+
+    <!-- Corner posts -->
+    <rect x="0" y="0" width="15" height="15" rx="1" fill="#FFB71A" stroke="#B87F00" stroke-width="1" />
+    <rect x="185" y="0" width="15" height="15" rx="1" fill="#FFB71A" stroke="#B87F00" stroke-width="1" />
+    <rect x="0" y="185" width="15" height="15" rx="1" fill="#FFB71A" stroke="#B87F00" stroke-width="1" />
+    <rect x="185" y="185" width="15" height="15" rx="1" fill="#FFB71A" stroke="#B87F00" stroke-width="1" />
+  </g>
+
+  <!-- RIGHT CRATE (SKY BLUE: #56B4E9) -->
+  <g transform="translate(210, 0)">
+    <!-- Inside shadow/base -->
+    <rect x="15" y="15" width="170" height="170" fill="#2C4050" />
+    
+    <!-- Bottom slats (Darker Blue) -->
+    <rect x="25" y="15" width="30" height="170" fill="#499BCB" />
+    <rect x="65" y="15" width="30" height="170" fill="#499BCB" />
+    <rect x="105" y="15" width="30" height="170" fill="#499BCB" />
+    <rect x="145" y="15" width="30" height="170" fill="#499BCB" />
+    
+    <!-- Inner deep shadow for depth -->
+    <rect x="15" y="15" width="170" height="170" fill="transparent" stroke="rgba(0,0,0,0.3)" stroke-width="6" />
+    
+    <!-- Fruits: 3 Plums, 1 Lime -->
+    <g filter="url(#dropShadow)">
+      <circle cx="65" cy="65" r="15" fill="url(#plumGrad)" />
+      <circle cx="145" cy="75" r="15" fill="url(#plumGrad)" />
+      <circle cx="100" cy="115" r="16" fill="url(#limeGrad)" />
+      <circle cx="75" cy="145" r="15" fill="url(#plumGrad)" />
+    </g>
+    
+    <!-- Outer walls -->
+    <rect x="0" y="0" width="200" height="15" rx="2" fill="#56B4E9" stroke="#3D8DBA" stroke-width="1.5" />
+    <rect x="0" y="185" width="200" height="15" rx="2" fill="#56B4E9" stroke="#3D8DBA" stroke-width="1.5" />
+    <rect x="0" y="0" width="15" height="200" rx="2" fill="#56B4E9" stroke="#3D8DBA" stroke-width="1.5" />
+    <rect x="185" y="0" width="15" height="200" rx="2" fill="#56B4E9" stroke="#3D8DBA" stroke-width="1.5" />
+
+    <!-- Corner posts -->
+    <rect x="0" y="0" width="15" height="15" rx="1" fill="#78C6F0" stroke="#3D8DBA" stroke-width="1" />
+    <rect x="185" y="0" width="15" height="15" rx="1" fill="#78C6F0" stroke="#3D8DBA" stroke-width="1" />
+    <rect x="0" y="185" width="15" height="15" rx="1" fill="#78C6F0" stroke="#3D8DBA" stroke-width="1" />
+    <rect x="185" y="185" width="15" height="15" rx="1" fill="#78C6F0" stroke="#3D8DBA" stroke-width="1" />
+  </g>
+</svg>
+ 
