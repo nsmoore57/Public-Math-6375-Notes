@@ -61,14 +61,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.3.2';
+eBookConfig.runestone_version = '8.3.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.6ad113829064d43a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.02090e9f6a81e70e.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
+<script src="_static/prefix-runtime.dd07797f77620576.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.11d27cdc38930c2c.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
 <link href="_static/prefix-runestone.347e2ecdeacfed99.css" rel="stylesheet" type="text/css"/>
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script crossorigin="anonymous" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js"></script><script crossorigin="anonymous" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js"></script><script crossorigin="anonymous" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script><script async="" src="lunr-pretext-search-index.js"></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -367,17 +367,21 @@ J(\mathbf{W})=-\frac{1}{m}\sum_{i=1}^m \sum_{k=1}^K y_{ik}\log\left(\hat{p}_{ik}
 <div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="week-06-softmax-regression-4-2.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
 <div class="para" id="week-06-softmax-regression-4-3">Let’s use Softmax Regression to classify the iris flowers into all three classes. Scikit- Learn’s <code class="code-inline tex2jax_ignore">LogisticRegression</code> uses one-versus-the-rest by default when you train it on more than two classes, but you can set the <code class="code-inline tex2jax_ignore">multi_class</code> hyperparameter to <code class="code-inline tex2jax_ignore">"multinomial"</code> to switch it to Softmax Regression. It also applies <span class="process-math">\(l_2\)</span> regularization by default, which you can control using the hyperparameter <code class="code-inline tex2jax_ignore">C</code>: <div class="code-box"><pre class="program clipboardable"><code class="language-py">X = iris["data"][:, (2, 3)] # petal length, petal width
 y = iris["target"]
-softmax_reg = LogisticRegression(multi_class="multinomial", C=10)
+# LogisticRegression automatically uses softmax for multiclass
+# classification when the y values are not binary
+softmax_reg = LogisticRegression(C=10)
 softmax_reg.fit(X, y)
 </code></pre></div>
 <div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-06-softmax-regression-4-3" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="week-06-softmax-regression-4-4">So the next time you find an iris with petals that are 5 cm long and 2 cm wide, you can ask your model to tell you what type of iris it is, and it will answer <em class="emphasis">Iris virginica</em> (class 2) with 94.2% probability: <div class="code-box"><pre class="program clipboardable"><code class="language-py">&gt;&gt;&gt; softmax_reg.predict([[5, 2]])
-array([2])
-&gt;&gt;&gt; softmax_reg.predict_proba([[5, 2]])
-array([[6.38014896e-07, 5.74929995e-02, 9.42506362e-01]])
+<div class="para" id="week-06-softmax-regression-4-4">So the next time you find an iris with petals that are 5 cm long and 2 cm wide, you can ask your model to tell you what type of iris it is, and it will answer <em class="emphasis">Iris virginica</em> (class 2) with 94.2% probability: <div class="code-box"><pre class="program clipboardable"><code class="language-py">print(f'prediction: {softmax_reg.predict([[5, 2]])}')
+print(f'probabilities: {softmax_reg.predict_proba([[5, 2]])}')
 </code></pre></div>
-<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-06-softmax-regression-4-4" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="assemblage assemblage-like" id="week-06-softmax-regression-4-4-3"><div class="code-box"><pre class="console clipboardable">prediction: [2]
+probabilities: [[6.21626370e-07 5.73689802e-02 9.42630398e-01]]
+</pre></div>
+<div aria-hidden="true" class="autopermalink" data-description="Assemblage"><a aria-label="Copy heading and permalink for Assemblage" href="#week-06-softmax-regression-4-4-3" tabindex="-1" title="Copy heading and permalink for Assemblage">🔗</a></div>
+</article><div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-06-softmax-regression-4-4" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="week-06-softmax-regression-4-5">
 <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/figure-srdb.html" data-reveal-label="Reveal" href="week-06-softmax-regression.html#figure-srdb" title="Figure 5.4.2">Figure 5.4.2</a> shows the resulting decision boundaries, represented by the background colors. Notice that the decision boundaries between any two classes are linear. The figure also shows the probabilities for the <em class="emphasis">Iris versicolor</em> class, represented by the curved lines (e.g., the line labeled with 0.450 represents the 45% probability boundary). Notice that the model can predict a class that has an estimated probability below 50%. For example, at the point where all decision boundaries meet, all classes have an equal estimated probability of 33%.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#week-06-softmax-regression-4-5" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
