@@ -1,0 +1,15 @@
+/* Match the generated PreTeXt iframe viewport to the Plotly document height.
+   The three bands retain a usable 3-D scene plus controls/keys in ordinary notes columns. */
+#iris-linearsvc-c100-interactive {
+  height: 720px;
+  aspect-ratio: auto !important;
+}
+@media (max-width: 760px) {
+  #iris-linearsvc-c100-interactive { height: 620px; }
+}
+@media (max-width: 520px) {
+  #iris-linearsvc-c100-interactive { height: 520px; }
+}
+@media (max-width: 420px) {
+  #iris-linearsvc-c100-interactive { height: 560px; }
+}

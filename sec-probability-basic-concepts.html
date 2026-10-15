@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html dir="ltr" lang="en-US">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:book="https://ogp.me/ns/book#" xmlns:og="http://ogp.me/ns#">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Basic Concepts of Probability</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="_static/pretext/fonts/material-symbols-outlined.css" rel="stylesheet"/>
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="external/wtamu-pretext-theme/wtamu-theme.css" rel="stylesheet" type="text/css"/>
+<link href="external/ai-course-policy-badges/templates/pretext/ai-badge-problem-document.css" rel="stylesheet" type="text/css"/>
+<link href="external/iris-svm-embed.css" rel="stylesheet" type="text/css"/>
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+lang: "en-US",
+});
+</script><script data-pretext-mathjax="true" defer="" onerror="this.dataset.loadFailed = 'true';" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta content="Authored in PreTeXt" name="Keywords"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="book" property="og:type"/>
+<meta content="Math 6375: Machine Learning I" name="twitter:title"/>
+<meta content="Math 6375: Machine Learning I" property="og:title"/>
+<meta content="Math 6375: Machine Learning I" property="book:title"/>
+<meta content="Fall 2026 Course Notes" name="twitter:description"/>
+<meta content="Fall 2026 Course Notes" property="og:description"/>
+<meta content="summary" name="twitter:card"/>
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.55"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.55"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.5';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.3adcbea95009347b.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.7a45395f326e122c.bundle.js"></script><link href="_static/prefix-926.229729d09512acc9.css" rel="stylesheet" type="text/css"/>
+<link href="_static/prefix-runestone.9963089870a016c8.css" rel="stylesheet" type="text/css"/>
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script crossorigin="anonymous" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js"></script><script crossorigin="anonymous" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js"></script><script crossorigin="anonymous" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script><script async="" src="lunr-pretext-search-index.js"></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header class="ptx-masthead" id="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Math 6375: Machine Learning I</span> <span class="subtitle">Fall 2026 Course Notes</span></a></div>
+<p class="byline">Nicholas S. Moore, PhD</p>
+</div></div></header><nav class="ptx-navbar navbar" id="ptx-navbar"><div class="ptx-navbar-contents">
+<button aria-controls="ptx-sidebar" class="toc-toggle button" id="ptx-toc-toggle" title="Contents" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button class="ptx-search-button button" id="ptx-search-button" title="Search Book" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Search Book</span></button></div>
+<dialog class="ptx-dialog ptx-search-dialog" id="ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" class="ptx-search-terms" id="ptx-search-terms" name="terms" placeholder="Search terms" type="text"/><button aria-label="Close" class="ptx-search-close" id="ptx-search-close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div aria-atomic="true" aria-live="polite" class="ptx-search-status" id="ptx-search-status"></div>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
+<div class="ptx-search-empty" id="ptx-search-empty"><span>No results.</span></div>
+<ol class="ptx-search-results" id="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button class="ptx-embed-button button" id="ptx-embed-button" title="Embed this page"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Embed</span></button><dialog class="ptx-dialog ptx-embed-popup" id="ptx-embed-popup"><div class="ptx-embed-popup-controls">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<button class="ptx-embed-close-button button" id="ptx-embed-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-embed-code-container">
+<textarea aria-label="Embed" class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly="">&lt;iframe src="https://example.com/embed" width="100%" height="1000"&gt;&lt;/iframe&gt;</textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Copy</span></button>
+</div></dialog><button aria-expanded="false" class="ptx-read-aloud-button button" id="ptx-read-aloud-button" title="Read aloud"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Read aloud</span></button><div aria-label="Read aloud" class="ptx-read-aloud-player" hidden="hidden" id="ptx-read-aloud-player" role="group">
+<button class="button" id="ptx-read-aloud-prev" title="Previous sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><button class="ptx-read-aloud-toggle button" id="ptx-read-aloud-toggle" title="Play"><span class="ptx-read-aloud-icon-play"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span><span class="ptx-read-aloud-icon-pause"><span aria-hidden="true" class="icon material-symbols-outlined"></span></span></button><button class="button" id="ptx-read-aloud-next" title="Next sentence"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button><a class="ptx-read-aloud-continue button" hidden="hidden" id="ptx-read-aloud-continue">Continue<span aria-hidden="true" class="icon material-symbols-outlined"></span></a><button class="ptx-read-aloud-settings-button button" id="ptx-read-aloud-settings-button" title="Reading settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Reading speed</span><output for="ptx-read-aloud-rate" id="ptx-read-aloud-rate-value">1×</output></label><input id="ptx-read-aloud-rate" max="2" min="0.5" step="0.1" type="range" value="1"/><label for="ptx-read-aloud-asides"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input checked="" id="ptx-read-aloud-autoscroll" type="checkbox"/><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input id="ptx-read-aloud-autocontinue" type="checkbox"/><span>Continue to the next page automatically</span></label>
+</div></dialog><button class="ptx-readability-options-button button" id="ptx-readability-options-button" title="Readability settings"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span aria-hidden="true" class="icon material-symbols-outlined"></span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Line height</span><output for="ptx-readability-line-height" id="ptx-readability-line-height-value">1.35</output></label><input id="ptx-readability-line-height" max="3" min="1.10" step="0.05" type="range" value="1.35"/>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Content font size</span><output for="ptx-readability-font-size" id="ptx-readability-font-size-value">100%</output></label><input id="ptx-readability-font-size" max="1.5" min="0.8" step="0.05" type="range" value="1"/>
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input id="ptx-readability-theme-system" name="ptx-readability-theme" type="radio" value="system"/><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>System</span></label><label for="ptx-readability-theme-light"><input id="ptx-readability-theme-light" name="ptx-readability-theme" type="radio" value="light"/><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Light</span></label><label for="ptx-readability-theme-dark"><input id="ptx-readability-theme-dark" name="ptx-readability-theme" type="radio" value="dark"/><span aria-hidden="true" class="icon material-symbols-outlined"></span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input id="ptx-readability-accessible-permalinks" type="checkbox"/><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button class="ptx-readability-reset-button button" id="ptx-readability-reset-button" type="button"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="week-08-probability-theory-2.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="up-button button" href="week-08-probability-theory.html" title="Up"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Up</span></a><a class="next-button button" href="sec-probability-densities.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></span>
+</div></nav><div class="hidden-content process-math" id="latex-macros" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div class="ptx-sidebar" id="ptx-sidebar" role="complementary"><nav aria-label="Contents" class="ptx-toc depth2 focused" data-max-levels="2" data-preexpanded-levels="0" id="ptx-toc" tabindex="-1"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a class="internal" href="frontmatter.html"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-01-python.html"><span class="codenumber">1</span> <span class="title">Intro to Machine Learning and Python</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-python">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-01-python-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html"><span class="codenumber">1.1</span> <span class="title">Introduction to Machine Learning</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-introduction-machine-learning">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-artificial-intelligence"><span class="title">What Is Artificial Intelligence?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#what-is-machine-learning"><span class="title">What Is Machine Learning?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#why-use-machine-learning"><span class="title">Why Use Machine Learning?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#categories-machine-learning"><span class="title">Categories of Machine Learning</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="introduction-machine-learning.html#introduction-wrap-up"><span class="title">Wrap Up</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-install-python-uv.html"><span class="codenumber">1.2</span> <span class="title">Installing Python and uv</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html"><span class="codenumber">1.3</span> <span class="title">Getting Started with Jupyter Notebooks</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-jupyter-basics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-3"><span class="title">How to Open a .ipynb File</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-jupyter-basics.html#week-01-jupyter-basics-4"><span class="title">Understanding the Interface and Running Code</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-python-basics.html"><span class="codenumber">1.4</span> <span class="title">Python Basics</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-python-basics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-3"><span class="title">Variables and Basic Data Types</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-4"><span class="title">Mathematical Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-5"><span class="title">Lists</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-6"><span class="title">Tuples and Dictionaries in Python</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-7"><span class="title">Boolean Logic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-8"><span class="title">If Statements</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-9"><span class="title">For Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-10"><span class="title">While Loops</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-11"><span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-12"><span class="title">Help System in Jupyter Notebooks</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-13"><span class="title">Round-Off Error</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-python-basics.html#week-01-python-basics-14"><span class="title">Python Exceptions</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-02-linear-algebra-essentials.html"><span class="codenumber">2</span> <span class="title">Linear Algebra Essentials</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-02-linear-algebra-essentials">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-02-linear-algebra-essentials-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html"><span class="codenumber">2.1</span> <span class="title">Review of Essential Linear Algebra Knowledge</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-02-review-essential-mathematics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-matrices"><span class="title">Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-matrix-ops"><span class="title">Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-inverses"><span class="title">Identity Matrix and Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-02-review-essential-mathematics.html#linalg-review-vectors"><span class="title">Vectors</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-03-python-packages.html"><span class="codenumber">3</span> <span class="title">Lab: NumPy, Pandas, Plotly, and Scikit-Learn</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-03-python-packages">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-03-python-packages-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-numpy-basics.html"><span class="codenumber">3.1</span> <span class="title">Introduction to NumPy</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-numpy-basics">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-numpy-basics.html#week-01-numpy-basics-3"><span class="title">Basic Array Operations in NumPy</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-numpy-basics.html#week-01-numpy-basics-4"><span class="title">Indexing and Slicing in NumPy</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-numpy-matrices.html"><span class="codenumber">3.2</span> <span class="title">Dot Products and Matrix Operations in NumPy</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-01-pandas.html"><span class="codenumber">3.3</span> <span class="title">Introduction to Pandas</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-01-pandas">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-3"><span class="title">Pandas Series</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-4"><span class="title">Pandas DataFrames</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-5"><span class="title">Selecting and Filtering Data in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-6"><span class="title">Vectorized Operations in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-7"><span class="title">Removing Data in Pandas</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-01-pandas.html#week-01-pandas-8"><span class="title">Reading and Writing CSV Format with Pandas</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-seaborn.html"><span class="codenumber">3.4</span> <span class="title">Plotting with Seaborn</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-01-scikit-learn.html"><span class="codenumber">3.5</span> <span class="title">Introduction to Scikit-Learn</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-04-linear-regression.html"><span class="codenumber">4</span> <span class="title">Linear Regression</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-04-linear-regression">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-04-linear-regression-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-04-linear-regression-introduction.html"><span class="codenumber">4.1</span> <span class="title">What is Linear Regression?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-04-the-normal-equation.html"><span class="codenumber">4.2</span> <span class="title">The Normal Equation</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-04-gradient-descent.html"><span class="codenumber">4.3</span> <span class="title">Gradient Descent</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-04-gradient-descent">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-04-gradient-descent.html#standard-gradient-descent"><span class="title">How Does Gradient Descent Work?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-04-gradient-descent.html#batch-gradient-descent"><span class="title">Batch Gradient Descent</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-04-gradient-descent.html#stochastic-gradient-descent"><span class="title">Stochastic Gradient Descent</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-04-polynomial-regression.html"><span class="codenumber">4.4</span> <span class="title">Polynomial Regression</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-04-overfitting-and-underfitting.html"><span class="codenumber">4.5</span> <span class="title">Overfitting and Underfitting</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-04-linear-regression-regularization.html"><span class="codenumber">4.6</span> <span class="title">Regularization</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-04-linear-regression-regularization">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-04-linear-regression-regularization.html#ridge-regression"><span class="title">Ridge Regression</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-04-linear-regression-regularization.html#lasso-regression"><span class="title">Lasso Regression</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-04-linear-regression-regularization.html#elastic-net"><span class="title">Elastic Net</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-04-linear-regression-regularization.html#which-regularization-to-use"><span class="title">Which Regularization do I Use?</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a class="internal" href="root-1-2-8.html"><span class="codenumber">5</span> <span class="title">Lab: Data Preprocessing and Predicting Bicycle Traffic</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-06-logistic-regression.html"><span class="codenumber">6</span> <span class="title">Logistic Regression</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-06-logistic-regression">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-06-logistic-regression-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-estimating-probabilities.html"><span class="codenumber">6.1</span> <span class="title">Estimating Probabilities</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-training-and-cost-function.html"><span class="codenumber">6.2</span> <span class="title">Training and Cost Function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-decision-boundaries.html"><span class="codenumber">6.3</span> <span class="title">Decision Boundaries</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html"><span class="codenumber">6.4</span> <span class="title">Softmax Regression</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-06-softmax-regression">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html#week-06-softmax-regression-2"><span class="title">What if there are multiple classes?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html#week-06-softmax-regression-3"><span class="title">Training a Softmax Regression Model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-softmax-regression.html#week-06-softmax-regression-4"><span class="title">Softmax Regression in Scikit Learn</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html"><span class="codenumber">6.5</span> <span class="title">Performance Measures</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-06-performance-measures">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#Logistic-Regression-MNIST"><span class="title">Logistic Regression on the MNIST Dataset</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#measuring-accuracy-using-cross-validation"><span class="title">Measuring Accuracy Using Cross-Validation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#confusion-matrix"><span class="title">Confusion Matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#precision-and-recall"><span class="title">Precision and Recall</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#precision-recall-trade-off"><span class="title">Precision/Recall Trade-off</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="week-06-performance-measures.html#the-roc-curve"><span class="title">The ROC Curve</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="week-06-softmax-in-llms.html"><span class="codenumber">6.6</span> <span class="title">Softmax in LLMs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a class="internal" href="root-1-2-10.html"><span class="codenumber">7</span> <span class="title">Lab: Titanic</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a class="internal" href="week-08-probability-theory.html"><span class="codenumber">8</span> <span class="title">Probability Theory</span></a></div>
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-week-08-probability-theory">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-08-probability-theory-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a class="internal" href="sec-probability-basic-concepts.html"><span class="codenumber">8.1</span> <span class="title">Basic Concepts of Probability</span></a></div>
+<ul class="structural toc-item-list active" id="ptx-toc-group-sec-probability-basic-concepts">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-probability-basic-concepts.html#ssec-basic-definitions"><span class="title">Basic Definitions of Probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-probability-basic-concepts.html#ssec-joint-probability"><span class="title">Joint Probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-probability-basic-concepts.html#ssec-conditional-probability"><span class="title">Conditional Probability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-probability-basic-concepts.html#ssec-notation-and-summary"><span class="title">Notation and Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="sec-probability-densities.html"><span class="codenumber">8.2</span> <span class="title">Probability Densities</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="sec-expectations-and-covariances.html"><span class="codenumber">8.3</span> <span class="title">Expectations and Covariances</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-sec-expectations-and-covariances">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-expectations-and-covariances.html#ssec-expectation"><span class="title">Expectation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-expectations-and-covariances.html#ssec-variance"><span class="title">Variance</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-expectations-and-covariances.html#ssec-covariance"><span class="title">Covariance</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="sec-correlation-and-dependence.html"><span class="codenumber">8.4</span> <span class="title">Correlation and Dependence</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="sec-bayes-theorem.html"><span class="codenumber">8.5</span> <span class="title">Bayes’ Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a class="internal" href="week-09-bayesian-classification.html"><span class="codenumber">9</span> <span class="title">Bayesian Classification</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-week-09-bayesian-classification">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a class="internal" href="week-09-bayesian-classification-2.html"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a class="internal" href="sec-probabilistic-model.html"><span class="codenumber">9.1</span> <span class="title">Probabilistic Model</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="sec-probability-distributions.html"><span class="codenumber">9.2</span> <span class="title">Probability Distributions</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-sec-probability-distributions">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-probability-distributions.html#ssec-gaussian-distribution"><span class="title">Gaussian Distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-probability-distributions.html#ssec-bernoulli-distribution"><span class="title">Bernoulli Distribution</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-probability-distributions.html#ssec-multinomial-distribution"><span class="title">Multinomial Distribution</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a class="internal" href="sec-naive-bayes-classifiers.html"><span class="codenumber">9.3</span> <span class="title">Naive Bayes Classifiers in Scikit-Learn</span></a></div>
+<ul class="structural toc-item-list" id="ptx-toc-group-sec-naive-bayes-classifiers">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-naive-bayes-classifiers.html#ssec-gaussian-naive-bayes"><span class="title">Gaussian Naive Bayes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-naive-bayes-classifiers.html#ssec-multinomial-naive-bayes"><span class="title">Multinomial Naive Bayes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="sec-naive-bayes-classifiers.html#ssec-bernoulli-naive-bayes"><span class="title">Bernoulli Naive Bayes</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="codenumber">A.</span> <span class="title">AI Use Policy</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="codenumber">B.</span> <span class="title">Troubleshooting</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="codenumber">C.</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="instr-future-semester-changes.html"><span class="codenumber">D.</span> <span class="title">Changes for Future Semesters</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="instr-helpful-snippets.html"><span class="codenumber">E.</span> <span class="title">Helpful Snippets</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div class="ptx-content" id="ptx-content">
+<section class="section" id="sec-probability-basic-concepts">
+<h1 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Basic Concepts of Probability</span>
+</h1>
+<section class="subsection" id="ssec-basic-definitions">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Basic Definitions of Probability</span>
+</h2>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="ssec-basic-definitions-2" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=527b4bc6-1369-4154-88b7-b4e30130ca4a" style="max-width: 100%; width: 100%; aspect-ratio:1.778" title="Panopto course video"></iframe></div>
+<div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="ssec-basic-definitions-2.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
+<div class="para" id="ssec-basic-definitions-3">To introduce the basic concepts of probability theory, let’s consider a simple example. Imagine we have two boxes: one red and one blue. The red box contains 2 apples and 6 oranges, while the blue box holds 3 apples and 1 orange, as illustrated in <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/figure-fruit-boxes.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#figure-fruit-boxes" title="Figure 8.1.1">Figure 8.1.1</a>. Now, suppose we randomly select one of the boxes and then randomly pick a piece of fruit from it. After observing the type of fruit, we return it to the box from which it was taken. We could repeat this process many times. Let’s assume that in this scenario, we choose the red box 40% of the time and the blue box 60% of the time. Additionally, when selecting a piece of fruit from a box, each piece has an equal chance of being chosen.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-basic-definitions-3" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="figure-fruit-boxes"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img alt="Two coloured boxes: red (left) and blue (right), each containing fruit (apples shown in green and oranges shown in orange)." class="contained" src="external/Box.svg"/></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two coloured boxes: red (left) and blue (right), each containing fruit (apples shown in green and oranges shown in orange).<div aria-hidden="true" class="autopermalink" data-description="Figure 8.1.1"><a aria-label="Copy heading and permalink for Figure 8.1.1" href="#figure-fruit-boxes" tabindex="-1" title="Copy heading and permalink for Figure 8.1.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ssec-basic-definitions-5">In this example, the identity of the box that will be chosen is a random variable, which we shall denote by <span class="process-math">\(B\text{.}\)</span> This random variable can take one of two possible values, namely <span class="process-math">\(r\)</span> (corresponding to the red box) or <span class="process-math">\(b\)</span> (corresponding to the blue box). Similarly, the identity of the fruit is also a random variable and will be denoted by <span class="process-math">\(F\text{.}\)</span> It can take either of the values <span class="process-math">\(a\)</span> (for apple) or <span class="process-math">\(o\)</span> (for orange).<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-basic-definitions-5" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ssec-basic-definitions-6">To begin with, we shall define the probability of an event to be the fraction of times that event occurs out of the total number of trials, in the limit that the total number of trials goes to infinity. Thus the probability of selecting the red box is <span class="process-math">\(4/10\)</span> and the probability of selecting the blue box is <span class="process-math">\(6/10\text{.}\)</span> We write these probabilities as <span class="process-math">\(P(B = r) = 4/10\)</span> and <span class="process-math">\(P(B = b) = 6/10\text{.}\)</span> Note that, by definition, probabilities must lie in the interval <span class="process-math">\([0, 1]\text{.}\)</span> Also, if the events are mutually exclusive and if they include all possible outcomes (for instance, in this example the box must be either red or blue), then we see that the probabilities for those events must sum to one.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-basic-definitions-6" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ssec-basic-definitions-7">We can now ask questions such as: “What is the overall probability that the selection procedure will pick an apple?”, or “Given that we have chosen an orange, what is the probability that the box we chose was the blue one?”. We can answer questions such as these, and indeed much more complex questions associated with problems in machine learning, once we have equipped ourselves with the two elementary rules of probability, known as the <dfn class="terminology">sum rule</dfn> and the <dfn class="terminology">product rule</dfn>.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-basic-definitions-7" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Subsection: Basic Definitions of Probability"><a aria-label="Copy heading and permalink for Subsection: Basic Definitions of Probability" href="#ssec-basic-definitions" tabindex="-1" title="Copy heading and permalink for Subsection: Basic Definitions of Probability">🔗</a></div>
+</section>
+<section class="subsection" id="ssec-joint-probability">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Joint Probability</span>
+</h2>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="ssec-joint-probability-2" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=eb63bf26-0d5a-4710-952d-b4e30131411f" style="max-width: 100%; width: 100%; aspect-ratio:1.778" title="Panopto course video"></iframe></div>
+<div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="ssec-joint-probability-2.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
+<figure class="figure figure-like" id="figure-random-variable-grid"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img alt="Two random variables X and Y." class="contained" src="external/inherited-images/grid.png"/></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two random variables <em class="emphasis">X</em> and <em class="emphasis">Y</em>.<div aria-hidden="true" class="autopermalink" data-description="Figure 8.1.2"><a aria-label="Copy heading and permalink for Figure 8.1.2" href="#figure-random-variable-grid" tabindex="-1" title="Copy heading and permalink for Figure 8.1.2">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ssec-joint-probability-4">In order to derive the rules of probability, consider the slightly more general example shown in <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/figure-random-variable-grid.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#figure-random-variable-grid" title="Figure 8.1.2">Figure 8.1.2</a> involving two random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> (which could for instance be the Box and Fruit variables considered above). We shall suppose that <span class="process-math">\(X\)</span> can take any of the values <span class="process-math">\(x_i\)</span> where <span class="process-math">\(i = 1, \ldots , M\text{,}\)</span> and <span class="process-math">\(Y\)</span> can take the values <span class="process-math">\(y_j\)</span> where <span class="process-math">\(j = 1, \ldots, L\text{.}\)</span> Consider a total of <span class="process-math">\(N\)</span> trials in which we sample both of the variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> , and let the number of such trials in which <span class="process-math">\(X = x_i\)</span> and <span class="process-math">\(Y = y_j\)</span> be <span class="process-math">\(n_{ij}\text{.}\)</span> Also, let the number of trials in which <span class="process-math">\(X\)</span> takes the value <span class="process-math">\(x_i\)</span> (irrespective of the value that <span class="process-math">\(Y\)</span> takes) be denoted by <span class="process-math">\(c_i\text{,}\)</span> and similarly let the number of trials in which <span class="process-math">\(Y\)</span> takes the value <span class="process-math">\(y_j\)</span> be denoted by <span class="process-math">\(r_j\text{.}\)</span><div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-joint-probability-4" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ssec-joint-probability-5">
+<div class="para">The probability that <span class="process-math">\(X\)</span> will take the value <span class="process-math">\(x_i\)</span> and <span class="process-math">\(Y\)</span> will take the value <span class="process-math">\(y_j\)</span> is written <span class="process-math">\(P(X = x_i, Y = y_j)\)</span> and is called the <dfn class="terminology">joint probability</dfn> of <span class="process-math">\(X = x_i\)</span> and <span class="process-math">\(Y = y_j\text{.}\)</span> It is given by the number of points falling in the cell <span class="process-math">\(i,j\)</span> as a fraction of the total number of points, and hence</div>
+<div class="displaymath process-math" id="equation-joint-probability">
+\begin{equation}
+P(X = x_i, Y = y_j)=\frac{n_{ij}}{N}\tag{8.1.1}
+\end{equation}
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-joint-probability-5" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ssec-joint-probability-6">
+<div class="para">Here we are implicitly considering the limit <span class="process-math">\(N \to \infty\text{.}\)</span> Similarly, the probability that <span class="process-math">\(X\)</span> takes the value <span class="process-math">\(x_i\)</span> irrespective of the value of <span class="process-math">\(Y\)</span> is written as <span class="process-math">\(P(X = x_i)\)</span> and is given by the fraction of the total number of points that fall in column <span class="process-math">\(i\text{,}\)</span> so that</div>
+<div class="displaymath process-math" id="equation-prob-xi">
+\begin{equation}
+P(X = x_i)=\frac{c_{i}}{N}\tag{8.1.2}
+\end{equation}
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-joint-probability-6" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ssec-joint-probability-7">
+<div class="para">Because the number of instances in column <span class="process-math">\(i\)</span> in <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/figure-random-variable-grid.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#figure-random-variable-grid" title="Figure 8.1.2">Figure 8.1.2</a> is just the sum of the number of instances in each cell of that column, we have <span class="process-math">\(c_i=\sum_j n_{ij}\)</span> and therefore, from <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/equation-joint-probability.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#equation-joint-probability" title="Equation 8.1.1">(8.1.1)</a> and <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/equation-prob-xi.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#equation-prob-xi" title="Equation 8.1.2">(8.1.2)</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure-random-variable-grid.html ./knowl/xref/equation-joint-probability.html ./knowl/xref/equation-prob-xi.html" id="equation-sum-rule-expanded">
+\begin{equation}
+P(X = x_i)=\sum_{j=1}^{L} P(X = x_i, Y = y_j)\tag{8.1.3}
+\end{equation}
+</div>
+<div class="para">which is the <dfn class="terminology">sum rule</dfn> of probability. Note that <span class="process-math">\(P(X = x_i)\)</span> is sometimes called the <dfn class="terminology">marginal</dfn> probability, because it is obtained by marginalizing, or summing out, the other variables (in this case <span class="process-math">\(Y\)</span>).</div>
+<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-joint-probability-7" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Subsection: Joint Probability"><a aria-label="Copy heading and permalink for Subsection: Joint Probability" href="#ssec-joint-probability" tabindex="-1" title="Copy heading and permalink for Subsection: Joint Probability">🔗</a></div>
+</section>
+<section class="subsection" id="ssec-conditional-probability">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conditional Probability</span>
+</h2>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="ssec-conditional-probability-2" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e243d162-dc5c-4c16-b8a2-b4e30130ca9c" style="max-width: 100%; width: 100%; aspect-ratio:1.778" title="Panopto course video"></iframe></div>
+<div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="ssec-conditional-probability-2.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
+<div class="para logical" id="ssec-conditional-probability-3">
+<div class="para">If we consider only those instances for which <span class="process-math">\(X = x_i\text{,}\)</span> then the fraction of such instances for which <span class="process-math">\(Y = y_j\)</span> is written <span class="process-math">\(P(Y = y_j |X = x_i)\)</span> and is called the <dfn class="terminology">conditional probability</dfn> of <span class="process-math">\(Y = y_j\)</span> given <span class="process-math">\(X = x_i\text{.}\)</span> It is obtained by finding the fraction of those points in column <span class="process-math">\(i\)</span> that fall in cell <span class="process-math">\(i,j\)</span> and hence is given by</div>
+<div class="displaymath process-math" id="equation-conditional-probability">
+\begin{equation}
+P(Y = y_j |X = x_i)=\frac{n_{ij}}{c_i}\tag{8.1.4}
+\end{equation}
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-conditional-probability-3" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ssec-conditional-probability-4">
+<div class="para">From <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/equation-joint-probability.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#equation-joint-probability" title="Equation 8.1.1">(8.1.1)</a>, <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/equation-prob-xi.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#equation-prob-xi" title="Equation 8.1.2">(8.1.2)</a>, and <a class="xref" data-close-label="Close" data-knowl="./knowl/xref/equation-conditional-probability.html" data-reveal-label="Reveal" href="sec-probability-basic-concepts.html#equation-conditional-probability" title="Equation 8.1.4">(8.1.4)</a>, we can then derive the following relationship</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/equation-joint-probability.html ./knowl/xref/equation-prob-xi.html ./knowl/xref/equation-conditional-probability.html" id="equation-product-rule-derived">
+\begin{equation}
+\begin{split}
+P(X = x_i, Y = y_j)&amp;=\frac{n_{ij}}{N}=\frac{n_{ij}}{c_i}\cdot \frac{c_{i}}{N}\\
+&amp;=P(Y = y_j |X = x_i)\cdot P(X = x_i)
+\end{split}\tag{8.1.5}
+\end{equation}
+</div>
+<div class="para">which is the <dfn class="terminology">product rule</dfn> of probability.</div>
+<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-conditional-probability-4" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Subsection: Conditional Probability"><a aria-label="Copy heading and permalink for Subsection: Conditional Probability" href="#ssec-conditional-probability" tabindex="-1" title="Copy heading and permalink for Subsection: Conditional Probability">🔗</a></div>
+</section>
+<section class="subsection" id="ssec-notation-and-summary">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Notation and Summary</span>
+</h2>
+<div class="interactive-iframe-container"><iframe allow="fullscreen" allowfullscreen="" id="ssec-notation-and-summary-2" src="https://wtamu.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=c866e586-28f8-4f37-afa3-b4e30133a266" style="max-width: 100%; width: 100%; aspect-ratio:1.778" title="Panopto course video"></iframe></div>
+<div class="interactive-iframe-container__opener"><a aria-label="Open in new tab" href="ssec-notation-and-summary-2.html" target="_blank" title="Open in new tab"><span aria-hidden="true" class="icon material-symbols-outlined"></span></a></div>
+<div class="para" id="ssec-notation-and-summary-3">So far we have been quite careful to make a distinction between a random variable, such as the box <span class="process-math">\(B\)</span> in the fruit example, and the values that the random variable can take, for example <span class="process-math">\(r\)</span> if the box were the red one. Thus the probability that <span class="process-math">\(B\)</span> takes the value <span class="process-math">\(r\)</span> is denoted <span class="process-math">\(P(B = r)\text{.}\)</span> Although this helps to avoid ambiguity, it leads to a rather cumbersome notation, and in many cases there will be no need for such pedantry. Instead, we may simply write <span class="process-math">\(P(B)\)</span> to denote a distribution over the random variable <span class="process-math">\(B\text{,}\)</span> or <span class="process-math">\(P(r)\)</span> to denote the distribution evaluated for the particular value <span class="process-math">\(r\text{,}\)</span> provided that the interpretation is clear from the context<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-notation-and-summary-3" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ssec-notation-and-summary-4">With this more compact notation, we can write the two fundamental rules of probability theory in the following form.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-notation-and-summary-4" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="theorem-rules-of-probability"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Rules of Probability.</span>
+</h3>
+<div class="displaymath process-math" id="equation-probability-sum-rule">
+\begin{equation}
+P(X)=\sum_Y P(X,Y)\tag{8.1.6}
+\end{equation}
+</div>
+<div class="displaymath process-math" id="equation-probabiliy-product-rule">
+\begin{equation}
+P(X,Y)=P(Y|X)P(X)\tag{8.1.7}
+\end{equation}
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Theorem 8.1.3: The Rules of Probability"><a aria-label="Copy heading and permalink for Theorem 8.1.3: The Rules of Probability" href="#theorem-rules-of-probability" tabindex="-1" title="Copy heading and permalink for Theorem 8.1.3: The Rules of Probability">🔗</a></div>
+</article>
+<div class="para" id="ssec-notation-and-summary-6">Here <span class="process-math">\(P(X, Y)\)</span> is a joint probability and is verbalized as “the probability of <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span>”. Similarly, the quantity <span class="process-math">\(P(Y |X)\)</span> is a conditional probability and is verbalized as “the probability of <span class="process-math">\(Y\)</span> given <span class="process-math">\(X\)</span>”, whereas the quantity <span class="process-math">\(P(X)\)</span> is a marginal probability and is simply “the probability of <span class="process-math">\(X\)</span>”.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-notation-and-summary-6" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ssec-notation-and-summary-7">We note that if the joint distribution of two variables factorizes into the product of the marginals, so that <span class="process-math">\(P(X, Y) = P(X)P(Y)\text{,}\)</span> then <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are said to be independent. From the product rule, we see that <span class="process-math">\(P(Y |X) = P(Y)\text{,}\)</span> and so the conditional distribution of <span class="process-math">\(Y\)</span> given <span class="process-math">\(X\)</span> is indeed independent of the value of <span class="process-math">\(X\text{.}\)</span> For instance, in our boxes of fruit example, if each box contained the same fraction of apples and oranges, then <span class="process-math">\(P(F|B) = P(F)\text{,}\)</span> so that the probability of selecting, say, an apple is independent of which box is chosen.<div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#ssec-notation-and-summary-7" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div aria-hidden="true" class="autopermalink" data-description="Subsection: Notation and Summary"><a aria-label="Copy heading and permalink for Subsection: Notation and Summary" href="#ssec-notation-and-summary" tabindex="-1" title="Copy heading and permalink for Subsection: Notation and Summary">🔗</a></div>
+</section><div aria-hidden="true" class="autopermalink" data-description="Section 8.1: Basic Concepts of Probability"><a aria-label="Copy heading and permalink for Section 8.1: Basic Concepts of Probability" href="#sec-probability-basic-concepts" tabindex="-1" title="Copy heading and permalink for Section 8.1: Basic Concepts of Probability">🔗</a></div>
+</section>
+</div>
+<div class="ptx-content-footer" id="ptx-content-footer">
+<a class="previous-button button" href="week-08-probability-theory-2.html" title="Previous"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span aria-hidden="true" class="icon material-symbols-outlined"></span><span class="name">Top</span></a><a class="next-button button" href="sec-probability-densities.html" title="Next"><span class="name">Next</span><span aria-hidden="true" class="icon material-symbols-outlined"></span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer" id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg height="100%" role="img" viewbox="338 3000 8772 6866" xmlns="http://www.w3.org/2000/svg"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path d="M 4724,9448 A 4660 4660  0  0  1  8598  9259" style="stroke-width:126;stroke-linecap:butt;"></path><path d="M 4488,9685 A 4228 4228  0  0  0   472  9732" style="stroke-width:174;stroke-linecap:butt;"></path><path d="M 4724,3590 A 4241 4241  0  0  1  8598  3496" style="stroke-width:126;stroke-linecap:butt;"></path><path d="M 850,3496  A 4241 4241  0  0  1  4724  3590" style="stroke-width:126;stroke-linecap:round;"></path><path d="M 850,9259  A 4507 4507  0  0  1  4724  9448" style="stroke-width:126;stroke-linecap:round;"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path d="M 4960,9685 A 4228 4228  0  0  1  8976  9732" style="stroke-width:174;stroke-linecap:butt;"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img alt="Runestone Academy logo" class="logo" src="data:image/png;base64,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"/></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img alt="MathJax logo" class="logo" src="data:image/png;base64,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"/></a>
+</div>
+</body>
+</html>

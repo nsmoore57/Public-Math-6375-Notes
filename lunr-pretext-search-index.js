@@ -619,7 +619,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.4",
   "title": "Polynomial Regression",
-  "body": " Polynomial Regression  What if your data is actually more complex than a simple straight line? Surprisingly, you can actually use a linear model to fit nonlinear data. A simple way to do this is to add powers of each feature as new features, then train a linear model on this extended set of features. This technique is called Polynomial Regression.   Let’s look at an example. First, let’s generate some nonlinear data, based on a simple quadratic equation (plus some noise; see ): m = 100 X = 6 * np.random.rand(m, 1) - 3 y = 0.5 * X**2 + X + 2 + np.random.randn(m, 1) sns.scatterplot(x=X.flatten(), y=y.flatten()).set( title=\"Scatter Plot of X vs y\", xlabel=\"X\", ylabel=\"y\" )   Generated nonlinear and noisy dataset   Generated nonlinear and noisy dataset     Clearly, a straight line will never fit this data properly. So let’s use Scikit-Learn’s PolynomialFeatures class to transform our training data, adding the square (2nd-degree polynomial) of each feature in the training set as new features (in this case there is just one feature): from sklearn.preprocessing import PolynomialFeatures poly_features = PolynomialFeatures(degree=2, include_bias=False) X_poly = poly_features.fit_transform(X)  X_poly now contains the original feature of X plus the square of this feature. More concretely, the model structure now takes the form . Now you can fit a LinearRegression model to this extended training data ( ): lin_reg = LinearRegression() lin_reg.fit(X_poly, y) print(f'intercept: {lin_reg.intercept_}, coef: {lin_reg.coef_}')    intercept: [1.92270541], coef: [[1.00730203 0.52949463]]   We can now plot the model predictions over the original data: X_new = np.linspace(-3, 3, 100).reshape(100, 1) X_new_poly = poly_features.transform(X_new) y_new = lin_reg.predict(X_new_poly) sns.scatterplot(x=X.flatten(), y=y.flatten(), color=\"blue\", marker=\".\") sns.lineplot(x=X_new.flatten(), y=y_new.flatten(), color=\"red\", linewidth=2, label=\"Predictions\").set( xlim=(-3, 3), ylim=(0, 10) ) plt.xlabel(\"$x_1$\", fontsize=18) plt.ylabel(\"$y$\", rotation=0, fontsize=18) plt.legend(loc=\"upper left\", fontsize=14) plt.show()   Polynomial Regression model predictions   Polynomial Regression model predictions     Note that when there are multiple features, Polynomial Regression is capable of finding relationships between features (which is something a plain Linear Regression model cannot do). This is made possible by the fact that PolynomialFeatures also adds all combinations of features up to the given degree. For example, if there were two features and , PolynomialFeatures with degree=3 would not only add the features and , but also the combinations and .     "
+  "body": " Polynomial Regression  What if your data is actually more complex than a simple straight line? Surprisingly, you can actually use a linear model to fit nonlinear data. A simple way to do this is to add powers of each feature as new features, then train a linear model on this extended set of features. This technique is called Polynomial Regression.   Let’s look at an example. First, let’s generate some nonlinear data, based on a simple quadratic equation (plus some noise; see ): m = 100 X = 6 * np.random.rand(m, 1) - 3 y = 0.5 * X**2 + X + 2 + np.random.randn(m, 1) sns.scatterplot(x=X.flatten(), y=y.flatten()).set( title=\"Scatter Plot of X vs y\", xlabel=\"X\", ylabel=\"y\" )   Generated nonlinear and noisy dataset   Generated nonlinear and noisy dataset     Clearly, a straight line will never fit this data properly. So let’s use Scikit-Learn’s PolynomialFeatures class to transform our training data, adding the square (2nd-degree polynomial) of each feature in the training set as new features (in this case there is just one feature): from sklearn.preprocessing import PolynomialFeatures poly_features = PolynomialFeatures(degree=2, include_bias=False) X_poly = poly_features.fit_transform(X)  X_poly now contains the original feature of X plus the square of this feature. More concretely, the model structure now takes the form . Now you can fit a LinearRegression model to this extended training data ( ): lin_reg = LinearRegression() lin_reg.fit(X_poly, y) print(f'intercept: {lin_reg.intercept_}, coef: {lin_reg.coef_}')    intercept: [1.96173584], coef: [[0.97239806 0.51710471]]   We can now plot the model predictions over the original data: X_new = np.linspace(-3, 3, 100).reshape(100, 1) X_new_poly = poly_features.transform(X_new) y_new = lin_reg.predict(X_new_poly) sns.scatterplot(x=X.flatten(), y=y.flatten(), color=\"blue\", marker=\".\") sns.lineplot(x=X_new.flatten(), y=y_new.flatten(), color=\"red\", linewidth=2, label=\"Predictions\").set( xlim=(-3, 3), ylim=(0, 10) ) plt.xlabel(\"$x_1$\", fontsize=18) plt.ylabel(\"$y$\", rotation=0, fontsize=18) plt.legend(loc=\"upper left\", fontsize=14) plt.show()   Polynomial Regression model predictions   Polynomial Regression model predictions     Note that when there are multiple features, Polynomial Regression is capable of finding relationships between features (which is something a plain Linear Regression model cannot do). This is made possible by the fact that PolynomialFeatures also adds all combinations of features up to the given degree. For example, if there were two features and , PolynomialFeatures with degree=3 would not only add the features and , but also the combinations and .     "
 },
 {
   "id": "figure-quadratic-data",
@@ -748,11 +748,20 @@ var ptx_lunr_docs = [
   "body": "Elastic Net "
 },
 {
+  "id": "root-1-2-8",
+  "level": "1",
+  "url": "root-1-2-8.html",
+  "type": "Week",
+  "number": "5",
+  "title": "Lab: Data Preprocessing and Predicting Bicycle Traffic",
+  "body": " Lab: Data Preprocessing and Predicting Bicycle Traffic  No new material this week, work on the lab assignment.  "
+},
+{
   "id": "week-06-estimating-probabilities",
   "level": "1",
   "url": "week-06-estimating-probabilities.html",
   "type": "Section",
-  "number": "5.1",
+  "number": "6.1",
   "title": "Estimating Probabilities",
   "body": " Estimating Probabilities   So, how does Logistic Regression work? Similar to a Linear Regression model, a Logistic Regression model calculates a weighted sum of the input features (plus a bias term). However, instead of directly outputting this result as Linear Regression does, Logistic Regression applies the logistic function to this sum:   The logistic, denoted , is a sigmoid function (i.e., S-shaped) that outputs a number between 0 and 1. It is defined as shown in and .    Logistic function   Logistic function.    Once the Logistic Regression model has estimated the probability that an instance belongs to the positive class, it can make its prediction easily. Notice that when , and when , so a Logistic Regression model predicts if is positive and if it is negative.   The score is often referred to as the logit . This term originates from the fact that the logit function, defined as , serves as the inverse of the logistic function. In fact, when you calculate the logit of the estimated probability , you obtain the value . The logit is also known as the log-odds because it represents the logarithm of the ratio between the estimated probability of the positive class and the estimated probability of the negative class.   "
 },
@@ -770,7 +779,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-estimating-probabilities.html#figure-logisfig",
   "type": "Figure",
-  "number": "5.1.1",
+  "number": "6.1.1",
   "title": "",
   "body": " Logistic function   Logistic function.   "
 },
@@ -779,7 +788,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-estimating-probabilities.html#logistic-regression-note-1",
   "type": "Note",
-  "number": "5.1.2",
+  "number": "6.1.2",
   "title": "",
   "body": " The score is often referred to as the logit . This term originates from the fact that the logit function, defined as , serves as the inverse of the logistic function. In fact, when you calculate the logit of the estimated probability , you obtain the value . The logit is also known as the log-odds because it represents the logarithm of the ratio between the estimated probability of the positive class and the estimated probability of the negative class.  "
 },
@@ -788,7 +797,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "week-06-training-and-cost-function.html",
   "type": "Section",
-  "number": "5.2",
+  "number": "6.2",
   "title": "Training and Cost Function",
   "body": " Training and Cost Function   Now you know how a Logistic Regression model estimates probabilities and makes predictions. But how is it trained? The objective of training is to set the parameter vector so that the model estimates high probabilities for positive instances ( ) and low probabilities for negative instances ( ). This idea is captured by the cost function shown in for a single training instance . . This cost function makes sense because grows very large when approaches , so the cost will be large if the model estimates a probability close to for a positive instance, and it will also be very large if the model estimates a probability close to for a negative instance. On the other hand, is close to when is close to , so the cost will be close to if the estimated probability is close to for a negative instance or close to for a positive instance, which is precisely what we want.  The cost function over the whole training set is the average cost over all training instances. It can be written in a single expression called the log loss : .  The bad news is that there is no known closed-form equation to compute the value of that minimizes this cost function (there is no equivalent of the Normal Equation). The good news is that this cost function is convex, so Gradient Descent (or any other optimization algorithm) is guaranteed to find the global minimum (if the learning rate is not too large and you wait long enough). The partial derivatives of the cost function with regard to the -th model parameter are given by . Once you have the gradient vector containing all the partial derivatives, you can use it in the Batch Gradient Descent algorithm or Stochastic Gradient Descent algorithm. That’s it: you now know how to train a Logistic Regression model.  "
 },
@@ -806,7 +815,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "week-06-decision-boundaries.html",
   "type": "Section",
-  "number": "5.3",
+  "number": "6.3",
   "title": "Decision Boundaries",
   "body": " Decision Boundaries   Let’s use the iris dataset to illustrate Logistic Regression. This is a famous dataset that contains the sepal and petal length and width of 150 iris flowers of three different species: Iris setosa, Iris versicolor, and Iris virginica.   Flowers of three iris plant species   Flowers of three iris plant species.    from sklearn import datasets iris = datasets.load_iris() X = iris[\"data\"][:, 3:] # petal width y = (iris[\"target\"] == 2).astype(int) # 1 if Iris virginica, else 0  Now let’s train a Logistic Regression model:  from sklearn.linear_model import LogisticRegression log_reg = LogisticRegression() log_reg.fit(X, y)  Let’s look at the model’s estimated probabilities for flowers with petal widths varying from 0 cm to 3 cm, see .  X_new = np.linspace(0, 3, 1000).reshape(-1, 1) y_proba = log_reg.predict_proba(X_new) plt.plot(X_new, y_proba[:, 1], \"g-\", label=\"Iris virginica\") plt.plot(X_new, y_proba[:, 0], \"b--\", label=\"Not Iris virginica\") # + more Matplotlib code to make the image look pretty   Estimated probabilities and decision boundary   Estimated probabilities and decision boundary.    The petal width of Iris virginica flowers (represented by triangles) varies from 1.4 cm to 2.5 cm, while other iris species (represented by squares) typically have smaller petal widths, ranging from 0.1 cm to 1.8 cm. There is some overlap between these ranges. When the petal width exceeds about 2 cm, the classifier is very confident that the flower is an Iris virginica , outputting a high probability for that class. Conversely, when the petal width is below 1 cm, the classifier is confident that the flower is not an Iris virginica (assigning a high probability to the “Not Iris virginica ” class). In the range between these extremes, the classifier is less certain. However, if you request a class prediction using the predict method (instead of the predict_proba method), the classifier will return the class it deems most likely. As a result, there is a decision boundary at approximately 1.6 cm, where the probabilities for both classes are equal at 50%. If the petal width is greater than 1.6 cm, the classifier will predict the flower as an Iris virginica ; otherwise, it will predict that it is not, even if its confidence is low.  In , the same dataset is shown, but this time with two features: petal width and length. After training, the Logistic Regression classifier can use these two features to estimate the probability that a new flower belongs to the Iris virginica species. The dashed line indicates the points where the model estimates a 50% probability, representing the model’s decision boundary. Notably, this boundary is linear. Each parallel line on the plot represents points where the model predicts a specific probability, ranging from 15% (bottom left) to 90% (top right). According to the model, any flowers located beyond the top-right line have more than a 90% chance of being classified as Iris virginica .   Linear decision boundary   Linear decision boundary.    Just like the other linear models, Logistic Regression models can be regularized using or penalties. Scikit-Learn actually adds an penalty by default.  The hyperparameter controlling the regularization strength of a Scikit-Learn LogisticRegression model is not alpha (as in other linear models), but its inverse: C . The higher the value of C , the less the model is regularized.  "
 },
@@ -815,7 +824,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-decision-boundaries.html#figure-iris-flowers",
   "type": "Figure",
-  "number": "5.3.1",
+  "number": "6.3.1",
   "title": "",
   "body": " Flowers of three iris plant species   Flowers of three iris plant species.   "
 },
@@ -824,7 +833,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-decision-boundaries.html#figure-decisionboundary",
   "type": "Figure",
-  "number": "5.3.2",
+  "number": "6.3.2",
   "title": "",
   "body": " Estimated probabilities and decision boundary   Estimated probabilities and decision boundary.   "
 },
@@ -842,7 +851,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-decision-boundaries.html#figure-lindb",
   "type": "Figure",
-  "number": "5.3.3",
+  "number": "6.3.3",
   "title": "",
   "body": " Linear decision boundary   Linear decision boundary.   "
 },
@@ -851,7 +860,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-decision-boundaries.html#logistic-regression-note-2",
   "type": "Note",
-  "number": "5.3.4",
+  "number": "6.3.4",
   "title": "",
   "body": "The hyperparameter controlling the regularization strength of a Scikit-Learn LogisticRegression model is not alpha (as in other linear models), but its inverse: C . The higher the value of C , the less the model is regularized. "
 },
@@ -860,9 +869,9 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "week-06-softmax-regression.html",
   "type": "Section",
-  "number": "5.4",
+  "number": "6.4",
   "title": "Softmax Regression",
-  "body": " Softmax Regression  What if there are multiple classes?   Whereas binary classifiers distinguish between two classes, multiclass classifiers (also called multinomial classifiers) can distinguish between more than two classes.  One way to create a system that can classify the iris flowers into 3 classes is to train 3 binary classifiers, one for each class. Then when you want to classify a iris flower, you get the decision score from each classifier for that iris flower and you select the class whose classifier outputs the highest score. This is called the one-versus-the-rest (OvR) strategy (also called one-versus-all ).  Now let’s see a different way to generalize Logistic Regression to support multiple classes directly, without having to train and combine multiple binary classifiers. This is called Softmax Regression , or Multinomial Logistic Regression .  The idea is simple: when given an instance , the Softmax Regression model first computes a score for each class , then estimates the probability of each class by applying the softmax function (also called the normalized exponential ) to the scores. The equation to compute should look familiar, as it is just like the equation for Linear Regression prediction: . Note that each class has its own dedicated parameter vector . All these vectors are typically stored as rows in a parameter matrix .  Once you have computed the score of every class for the instance , you can estimate the probability that the instance belongs to class by running the scores through the softmax function, see . The function computes the exponential of every score, then normalizes them (dividing by the sum of all the exponentials). The scores are generally called logits or log-odds (although they are actually unnormalized log-odds). .  Just like the Logistic Regression classifier, the Softmax Regression classifier predicts the class with the highest estimated probability (which is simply the class with the highest score).  The Softmax Regression classifier predicts only one class at a time (i.e., it is multiclass, not multioutput), so it should be used only with mutually exclusive classes, such as different types of plants. You cannot use it to recognize multiple people in one picture.   Training a Softmax Regression Model   Now that you know how the model estimates probabilities and makes predictions, let’s take a look at training. The objective is to have a model that estimates a high probability for the target class (and consequently a low probability for the other classes). Minimizing the cost function shown in , called the cross entropy , should lead to this objective because it penalizes the model when it estimates a low probability for a target class. Cross entropy is frequently used to measure how well a set of estimated class probabilities matches the target classes. where is the target probability that the -th instance belongs to class . In general, it is either equal to or , depending on whether the instance belongs to the class or not.  Notice that when there are just two classes ( ), this cost function is equivalent to the Logistic Regression’s cost function, see .  The gradient vector of this cost function with regard to is   Now you can compute the gradient vector for every class, then use Gradient Descent (or any other optimization algorithm) to find the parameter matrix that minimizes the cost function.   Softmax Regression in Scikit Learn   Let’s use Softmax Regression to classify the iris flowers into all three classes. Scikit- Learn’s LogisticRegression uses one-versus-the-rest by default when you train it on more than two classes, but you can set the multi_class hyperparameter to \"multinomial\" to switch it to Softmax Regression. It also applies regularization by default, which you can control using the hyperparameter C : X = iris[\"data\"][:, (2, 3)] # petal length, petal width y = iris[\"target\"] # LogisticRegression automatically uses softmax for multiclass # classification when the y values are not binary softmax_reg = LogisticRegression(C=10) softmax_reg.fit(X, y)   So the next time you find an iris with petals that are 5 cm long and 2 cm wide, you can ask your model to tell you what type of iris it is, and it will answer Iris virginica (class 2) with 94.2% probability: print(f'prediction: {softmax_reg.predict([[5, 2]])}') print(f'probabilities: {softmax_reg.predict_proba([[5, 2]])}')    prediction: [2] probabilities: [[6.21626370e-07 5.73689802e-02 9.42630398e-01]]      shows the resulting decision boundaries, represented by the background colors. Notice that the decision boundaries between any two classes are linear. The figure also shows the probabilities for the Iris versicolor class, represented by the curved lines (e.g., the line labeled with 0.450 represents the 45% probability boundary). Notice that the model can predict a class that has an estimated probability below 50%. For example, at the point where all decision boundaries meet, all classes have an equal estimated probability of 33%.   Softmax Regression decision boundaries   Softmax Regression decision boundaries.     "
+  "body": " Softmax Regression  What if there are multiple classes?   Whereas binary classifiers distinguish between two classes, multiclass classifiers (also called multinomial classifiers) can distinguish between more than two classes.  One way to create a system that can classify the iris flowers into 3 classes is to train 3 binary classifiers, one for each class. Then when you want to classify a iris flower, you get the decision score from each classifier for that iris flower and you select the class whose classifier outputs the highest score. This is called the one-versus-the-rest (OvR) strategy (also called one-versus-all ).  Now let’s see a different way to generalize Logistic Regression to support multiple classes directly, without having to train and combine multiple binary classifiers. This is called Softmax Regression , or Multinomial Logistic Regression .  The idea is simple: when given an instance , the Softmax Regression model first computes a score for each class , then estimates the probability of each class by applying the softmax function (also called the normalized exponential ) to the scores. The equation to compute should look familiar, as it is just like the equation for Linear Regression prediction: . Note that each class has its own dedicated parameter vector . All these vectors are typically stored as rows in a parameter matrix .  Once you have computed the score of every class for the instance , you can estimate the probability that the instance belongs to class by running the scores through the softmax function, see . The function computes the exponential of every score, then normalizes them (dividing by the sum of all the exponentials). The scores are generally called logits or log-odds (although they are actually unnormalized log-odds). .  Just like the Logistic Regression classifier, the Softmax Regression classifier predicts the class with the highest estimated probability (which is simply the class with the highest score).  The Softmax Regression classifier predicts only one class at a time (i.e., it is multiclass, not multioutput), so it should be used only with mutually exclusive classes, such as different types of plants. You cannot use it to recognize multiple people in one picture.   Training a Softmax Regression Model   Now that you know how the model estimates probabilities and makes predictions, let’s take a look at training. The objective is to have a model that estimates a high probability for the target class (and consequently a low probability for the other classes). Minimizing the cost function shown in , called the cross entropy , should lead to this objective because it penalizes the model when it estimates a low probability for a target class. Cross entropy is frequently used to measure how well a set of estimated class probabilities matches the target classes. where is the target probability that the -th instance belongs to class . In general, it is either equal to or , depending on whether the instance belongs to the class or not.  Notice that when there are just two classes ( ), this cost function is equivalent to the Logistic Regression’s cost function, see .  The gradient vector of this cost function with regard to is   Now you can compute the gradient vector for every class, then use Gradient Descent (or any other optimization algorithm) to find the parameter matrix that minimizes the cost function.   Softmax Regression in Scikit Learn   Let’s use Softmax Regression to classify the iris flowers into all three classes. Scikit- Learn’s LogisticRegression uses one-versus-the-rest by default when you train it on more than two classes, but you can set the multi_class hyperparameter to \"multinomial\" to switch it to Softmax Regression. It also applies regularization by default, which you can control using the hyperparameter C : X = iris[\"data\"][:, (2, 3)] # petal length, petal width y = iris[\"target\"] # LogisticRegression automatically uses softmax for multiclass # classification when the y values are not binary softmax_reg = LogisticRegression(C=10) softmax_reg.fit(X, y)   So the next time you find an iris with petals that are 5 cm long and 2 cm wide, you can ask your model to tell you what type of iris it is, and it will answer Iris virginica (class 2) with 94.2% probability: print(f'prediction: {softmax_reg.predict([[5, 2]])}') print(f'probabilities: {softmax_reg.predict_proba([[5, 2]])}')    prediction: [2] probabilities: [[6.21626373e-07 5.73689802e-02 9.42630398e-01]]      shows the resulting decision boundaries, represented by the background colors. Notice that the decision boundaries between any two classes are linear. The figure also shows the probabilities for the Iris versicolor class, represented by the curved lines (e.g., the line labeled with 0.450 represents the 45% probability boundary). Notice that the model can predict a class that has an estimated probability below 50%. For example, at the point where all decision boundaries meet, all classes have an equal estimated probability of 33%.   Softmax Regression decision boundaries   Softmax Regression decision boundaries.     "
 },
 {
   "id": "week-06-softmax-regression-2-4",
@@ -905,7 +914,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-softmax-regression.html#logistic-regression-note-3",
   "type": "Note",
-  "number": "5.4.1",
+  "number": "6.4.1",
   "title": "",
   "body": "The Softmax Regression classifier predicts only one class at a time (i.e., it is multiclass, not multioutput), so it should be used only with mutually exclusive classes, such as different types of plants. You cannot use it to recognize multiple people in one picture. "
 },
@@ -923,7 +932,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-softmax-regression.html#figure-srdb",
   "type": "Figure",
-  "number": "5.4.2",
+  "number": "6.4.2",
   "title": "",
   "body": " Softmax Regression decision boundaries   Softmax Regression decision boundaries.   "
 },
@@ -932,16 +941,16 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "week-06-performance-measures.html",
   "type": "Section",
-  "number": "5.5",
+  "number": "6.5",
   "title": "Performance Measures",
-  "body": " Performance Measures   Evaluating a classifier is often significantly trickier than evaluating a regressor, so we will spend a large part on this topic. There are many performance measures available, so get ready to learn many new concepts and acronyms!   Logistic Regression on the MNIST Dataset   In this part, we will use another dataset, MNIST, to show the different performance measures on the binary classifier. MNIST is a set of 70,000 small images of digits handwritten by high school students and employees of the US Census Bureau. Each image is labeled with the digit it represents. This set has been studied so much that it is often called the “hello world” of Machine Learning: whenever people come up with a new classification algorithm they are curious to see how it will perform on MNIST, and anyone who learns Machine Learning tackles this dataset sooner or later.  Scikit-Learn provides many helper functions to download popular datasets. MNIST is one of them. The following code fetches the MNIST dataset: import numpy as np from sklearn.datasets import fetch_openml mnist = fetch_openml('mnist_784', version=1) print(mnist.keys())    dict_keys(['data', 'target', 'frame', 'categories', 'feature_names', 'target_names', 'DESCR', 'details', 'url'])   Datasets loaded by Scikit-Learn generally have a similar dictionary structure, including the following:  A DESCR key describing the dataset  A data key containing an array with one row per instance and one column per feature  A target key containing an array with the labels    Let’s look at these arrays: X, y = np.array(mnist[\"data\"]), np.array(mnist[\"target\"]) print(f'X.shape = {X.shape}') print(f'y.shape = {y.shape}')    X.shape = (70000, 784) y.shape = (70000,)   There are 70,000 images, and each image has 784 features. This is because each image is 28 × 28 pixels, and each feature simply represents one pixel’s intensity, from 0 (white) to 255 (black). Let’s take a peek at one digit from the dataset. All you need to do is grab an instance’s feature vector, reshape it to a 28 × 28 array, and display it using Matplotlib’s imshow() function: import matplotlib as mpl import matplotlib.pyplot as plt some_digit = X[0] some_digit_image = some_digit.reshape(28, 28) plt.imshow(some_digit_image, cmap=\"binary\") plt.axis(\"off\") plt.show()   Image of number five   Image of number five   This looks like a 5, and indeed that’s what the label tells us: print(y[0])    5   Note that the label is a string. Most ML algorithms expect numbers, so let’s cast y to integer: y = y.astype(np.uint8)   To give you a feel for the complexity of the classification task, shows a few more images from the MNIST dataset.   Digits from the MNIST dataset   Digits from the MNIST dataset.    But wait! You should always create a test set and set it aside before inspecting the data closely. The MNIST dataset is actually already split into a training set (the first 60,000 images) and a test set (the last 10,000 images): X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]   Let’s simplify the problem for now and only try to identify one digit—for example, the number 5. This “5-detector” will be an example of a binary classifier, capable of distinguishing between just two classes, 5 and not-5. Let’s create the target vectors for this classification task: y_train_5 = (y_train == 5) # True for all 5s, False for all other digits y_test_5 = (y_test == 5)   Now let’s use Logistic Regression to train it: from sklearn.linear_model import LogisticRegression log_reg = LogisticRegression(random_state=42) log_reg.fit(X_train, y_train_5)   Now we can use it to detect images of the number 5: print(log_reg.predict([some_digit]))    [ True]   The Logistic Regression guesses that this image represents a 5 (True). Looks like it guessed right in this particular case! Now, let’s evaluate this model’s performance.    Measuring Accuracy Using Cross-Validation   A good way to evaluate a model is to use K-fold cross-validation . shows the idea of K-fold cross-validation: it randomly splits the data set into K distinct subsets called folds, then it trains and evaluates the model K times, picking a different fold for evaluation every time and training on the other folds.   K-fold cross-validation   K-fold cross-validation.    Let’s use the cross_val_score() function to evaluate our model with three folds: from sklearn.model_selection import cross_val_score print(cross_val_score(log_reg, X_train, y_train_5, cv=3, scoring=\"accuracy\"))    [0.97525 0.9732 0.9732 ]   Wow! Above 97% accuracy (ratio of correct predictions) on all cross-validation folds? This looks amazing, doesn’t it? Well, before you get too excited, let’s look at a very dumb classifier that just classifies every single image in the “not-5” class: from sklearn.base import BaseEstimator class Never5Classifier(BaseEstimator): def fit(self, X, y=None): return self def predict(self, X): return np.zeros((len(X), 1), dtype=bool)   Can you guess this model’s accuracy? Let’s find out: never_5_clf = Never5Classifier() print(cross_val_score(never_5_clf, X_train, y_train_5, cv=3, scoring=\"accuracy\"))    [0.91125 0.90855 0.90915]   That’s right, it has over 90% accuracy! This is simply because only about 10% of the images are 5s, so if you always guess that an image is not a 5, you will be right about 90% of the time.  This demonstrates why accuracy is generally not the preferred performance measure for classifiers, especially when you are dealing with skewed datasets (i.e., when some classes are much more frequent than others).    Confusion Matrix   A much better way to evaluate the performance of a classifier is to look at the confusion matrix . The general idea is to count the number of times instances of class A are classified as class B. For example, to know the number of times the classifier confused images of 5s with 3s, you would look in the fifth row and third column of the confusion matrix.  To compute the confusion matrix, you first need to have a set of predictions so that they can be compared to the actual targets. You could make predictions on the test set, but let’s keep it untouched for now (remember that you want to use the test set only at the very end of your project, once you have a classifier that you are ready to launch). Instead, you can use the cross_val_predict() function: from sklearn.model_selection import cross_val_predict y_train_pred = cross_val_predict(log_reg, X_train, y_train_5, cv=3)   Just like the cross_val_score() function, cross_val_predict() performs K-fold cross-validation, but instead of returning the evaluation scores, it returns the predictions made on each test fold.  Now you are ready to get the confusion matrix using the confusion_matrix() function. Just pass it the target classes ( y_train_5 ) and the predicted classes ( y_train_pred ): from sklearn.metrics import confusion_matrix cm = confusion_matrix(y_train_5, y_train_pred) print(cm)    [[54038 541] [ 1026 4395]]   Using seaborn, you can plot the heatmap of this confusion matrix, which helps with the visualization: import seaborn as sns import matplotlib.pyplot as plt sns.heatmap(cm, annot=True, fmt='d', cmap='Blues') plt.xlabel('Predicted') plt.ylabel('Actual') plt.show()   Generated plot from default   A dynamically generated mathematical plot.     Each row in a confusion matrix represents an actual class , while each column represents a predicted class . The first row of this matrix considers non-5 images (the negative class): 54,038 of them were correctly classified as non-5s (they are called true negatives ), while the remaining 541 were wrongly classified as 5s ( false positives ). The second row considers the images of 5s (the positive class ): 1,026 were wrongly classified as non-5s ( false negatives ), while the remaining 4,395 were correctly classified as 5s ( true positives ). A perfect classifier would have only true positives and true negatives, so its confusion matrix would have nonzero values only on its main diagonal (top left to bottom right).  If you are confused about the confusion matrix, may help.   An illustrated confusion matrix   An illustrated confusion matrix.      Precision and Recall   The confusion matrix gives you a lot of information, but sometimes you may prefer a more concise metric. An interesting one to look at is the accuracy of the positive predictions; this is called the precision of the classifier: where is the number of true positives, and is the number of false positives.  A trivial way to have perfect precision is to make one single positive prediction and ensure it is correct (precision = 1\/1 = 100%). But this would not be very useful, since the classifier would ignore all but one positive instance. So precision is typically used along with another metric named recall , also called sensitivity or the true positive rate (TPR): this is the ratio of positive instances that are correctly detected by the classifier: where is the number of false negatives.  Scikit-Learn provides several functions to compute classifier metrics, including precision and recall: from sklearn.metrics import precision_score, recall_score print('precision: ', precision_score(y_train_5, y_train_pred)) print('recall: ', recall_score(y_train_5, y_train_pred))    precision: 0.8903970826580226 recall: 0.8107360265633647     Now your 5-detector does not look as shiny as it did when you looked at its accuracy. When it claims an image represents a 5, it is correct only 89% of the time. Moreover, it only detects 81% of the 5s.  It is often convenient to combine precision and recall into a single metric called the score , in particular if you need a simple way to compare two classifiers. The score is the harmonic mean of precision and recall (see ). Whereas the regular mean treats all values equally, the harmonic mean gives much more weight to low values. As a result, the classifier will only get a high score if both recall and precision are high.   To compute the F1 score, simply call the f1_score() function: from sklearn.metrics import f1_score print('f1 score: ', f1_score(y_train_5, y_train_pred))    f1 score: 0.8487013613980883     The score favors classifiers that have similar precision and recall. This is not always what you want: in some contexts you mostly care about precision, and in other contexts you really care about recall. For example, if you trained a classifier to detect videos that are safe for kids, you would probably prefer a classifier that rejects many good videos (low recall) but keeps only safe ones (high precision), rather than a classifier that has a much higher recall but lets a few really bad videos show up in your product (in such cases, you may even want to add a human pipeline to check the classifier’s video selection). On the other hand, suppose you train a classifier to detect shoplifters in surveillance images: it is probably fine if your classifier has only 30% precision as long as it has 99% recall (sure, the security guards will get a few false alerts, but almost all shoplifters will get caught).  Unfortunately, you can’t have it both ways: increasing precision reduces recall, and vice versa. This is called the precision\/recall trade-off .    Precision\/Recall Trade-off  To understand this trade-off, let’s look at how the LogisticRegression makes its classification decisions. For each instance, it computes a score based on a decision function . If that score is greater than a threshold, it assigns the instance to the positive class; otherwise it assigns it to the negative class. shows a few digits positioned from the lowest score on the left to the highest score on the right. Suppose the decision threshold is positioned at the central arrow (between the two 5s): you will find 4 true positives (actual 5s) on the right of that threshold, and 1 false positive (actually a 6). Therefore, with that threshold, the precision is 80% (4 out of 5). But out of 6 actual 5s, the classifier only detects 4, so the recall is 67% (4 out of 6). If you raise the threshold (move it to the arrow on the right), the false positive (the 6) becomes a true negative, thereby increasing the precision (up to 100% in this case), but one true positive becomes a false negative, decreasing recall down to 50%. Conversely, lowering the threshold increases recall and reduces precision.   An illustrated precision\/recall trade-off   An illustrated precision\/recall trade-off.    Scikit-Learn does not let you set the threshold directly, but it does give you access to the decision scores that it uses to make predictions. Instead of calling the classifier’s predict() method, you can call its decision_function() method, which returns a score for each instance, and then use any threshold you want to make predictions based on those scores: # The index of zero below is used because we've only # selected one digit so we only have 1 score and 1 prediction y_scores = log_reg.decision_function([some_digit]) print('y_scores: ', y_scores[0]) threshold = 0 y_some_digit_pred = (y_scores > threshold) print('predicted: ', y_some_digit_pred[0])    y_scores: 1.9383711710342175 predicted: True     The LogisticRegression uses a threshold equal to 0, so the previous code returns the same result as the predict() method (i.e., True). Let’s raise the threshold: threshold = 10 y_some_digit_pred = (y_scores > threshold) print('predicted: ', y_some_digit_pred[0])    predicted: False   This confirms that raising the threshold decreases recall. The image actually represents a 5, and the classifier detects it when the threshold is 0, but it misses it when the threshold is increased to 10.  How do you decide which threshold to use? First, use the cross_val_predict() function to get the scores of all instances in the training set, but this time specify that you want to return decision scores instead of predictions: y_scores = cross_val_predict(log_reg, X_train, y_train_5, cv=3,method=\"decision_function\") With these scores, use the precision_recall_curve() function to compute precision and recall for all possible thresholds: from sklearn.metrics import precision_recall_curve precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores) Finally, use Matplotlib to plot precision and recall as functions of the threshold value: def plot_precision_recall_vs_threshold(precisions, recalls, thresholds): plt.plot(thresholds, precisions[:-1], \"b--\", label=\"Precision\") plt.plot(thresholds, recalls[:-1], \"g-\", label=\"Recall\") # highlight the threshold and add the legend, axis label, and grid plot_precision_recall_vs_threshold(precisions, recalls, thresholds) plt.show()    Precision and recall versus the decision threshold   Precision and recall versus the decision threshold.    Another way to select a good precision\/recall trade-off is to plot precision directly against recall, as shown in .   Precision versus recall   Precision versus recall.    You can see that precision really starts to fall sharply around 90% recall. You will probably want to select a precision\/recall trade-off just before that drop—for example, at around 80% recall. But of course, the choice depends on your project.  Suppose you decide to aim for 95% precision. You look up the first plot and find that you need to use a threshold of about 1.5. To be more precise you can search for the lowest threshold that gives you at least 95% precision ( np.argmax() will give you the first index of the maximum value, which in this case means the first True value): threshold_95_precision = thresholds[np.argmax(precisions >= 0.95)] # ~ 1.5635   To make predictions (on the training set for now), instead of calling the classifier's predict() method, you can run this code: y_train_pred_95 = (y_scores >= threshold_95_precision) Let’s check these predictions’ precision and recall: print('precision: ', precision_score(y_train_5, y_train_pred_95)) print('recall: ', recall_score(y_train_5, y_train_pred_95))    precision: 0.9502121640735502 recall: 0.6196273750230584     Great, you have a 95% precision classifier! As you can see, it is fairly easy to create a classifier with virtually any precision you want: just set a high enough threshold, and you’re done. But wait, not so fast. A high-precision classifier is not very useful if its recall is too low!   If someone says, “Let’s reach 99% precision,” you should ask, “At what recall?”     The ROC Curve   The receiver operating characteristic (ROC) curve is another common tool used with binary classifiers. It is very similar to the precision\/recall curve, but instead of plotting precision versus recall, the ROC curve plots the true positive rate (another name for recall) against the false positive rate (FPR). The FPR is the ratio of negative instances that are incorrectly classified as positive. It is equal to 1 – the true negative rate (TNR), which is the ratio of negative instances that are correctly classified as negative. The TNR is also called specificity . Hence, the ROC curve plots sensitivity (recall) versus 1 – specificity .  To plot the ROC curve, you first use the roc_curve() function to compute the TPR and FPR for various threshold values: from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)   Then you can plot the FPR against the TPR using Matplotlib. This code produces the plot in . def plot_roc_curve(fpr, tpr, label=None): plt.plot(fpr, tpr, linewidth=2, label=label) plt.plot([0, 1], [0, 1], 'k--') # Dashed diagonal # Add axis labels and grid plot_roc_curve(fpr, tpr) plt.show()   ROC curve   ROC curve.     Once again there is a trade-off: the higher the recall (TPR), the more false positives (FPR) the classifier produces. The dotted line represents the ROC curve of a purely random classifier; a good classifier stays as far away from that line as possible (toward the top-left corner).  One way to compare classifiers is to measure the area under the curve (AUC). A perfect classifier will have a ROC AUC equal to 1, whereas a purely random classifier will have a ROC AUC equal to 0.5. Scikit-Learn provides a function to compute the ROC AUC: from sklearn.metrics import roc_auc_score print(roc_auc_score(y_train_5, y_scores))    0.9748672232444352     Since the ROC curve is so similar to the precision\/recall (PR) curve, you may wonder how to decide which one to use. As a rule of thumb, you should prefer the PR curve whenever the positive class is rare or when you care more about the false positives than the false negatives. Otherwise, use the ROC curve. For example, looking at the previous ROC curve (and the ROC AUC score), you may think that the classifier is really good. But this is mostly because there are few positives (5s) compared to the negatives (non-5s). In contrast, the PR curve makes it clear that the classifier has room for improvement (the curve could be closer to the topright corner).   "
+  "body": " Performance Measures   Evaluating a classifier is often significantly trickier than evaluating a regressor, so we will spend a large part on this topic. There are many performance measures available, so get ready to learn many new concepts and acronyms!   Logistic Regression on the MNIST Dataset   In this part, we will use another dataset, MNIST, to show the different performance measures on the binary classifier. MNIST is a set of 70,000 small images of digits handwritten by high school students and employees of the US Census Bureau. Each image is labeled with the digit it represents. This set has been studied so much that it is often called the “hello world” of Machine Learning: whenever people come up with a new classification algorithm they are curious to see how it will perform on MNIST, and anyone who learns Machine Learning tackles this dataset sooner or later.  Scikit-Learn provides many helper functions to download popular datasets. MNIST is one of them. The following code fetches the MNIST dataset: import numpy as np from sklearn.datasets import fetch_openml mnist = fetch_openml('mnist_784', version=1) print(mnist.keys())    dict_keys(['data', 'target', 'frame', 'categories', 'feature_names', 'target_names', 'DESCR', 'details', 'url'])   Datasets loaded by Scikit-Learn generally have a similar dictionary structure, including the following:  A DESCR key describing the dataset  A data key containing an array with one row per instance and one column per feature  A target key containing an array with the labels    Let’s look at these arrays: X, y = np.array(mnist[\"data\"]), np.array(mnist[\"target\"]) print(f'X.shape = {X.shape}') print(f'y.shape = {y.shape}')    X.shape = (70000, 784) y.shape = (70000,)   There are 70,000 images, and each image has 784 features. This is because each image is 28 × 28 pixels, and each feature simply represents one pixel’s intensity, from 0 (white) to 255 (black). Let’s take a peek at one digit from the dataset. All you need to do is grab an instance’s feature vector, reshape it to a 28 × 28 array, and display it using Matplotlib’s imshow() function: import matplotlib as mpl import matplotlib.pyplot as plt some_digit = X[0] some_digit_image = some_digit.reshape(28, 28) plt.imshow(some_digit_image, cmap=\"binary\") plt.axis(\"off\") plt.show()   Image of number five   Image of number five   This looks like a 5, and indeed that’s what the label tells us: print(y[0])    5   Note that the label is a string. Most ML algorithms expect numbers, so let’s cast y to integer: y = y.astype(np.uint8)   To give you a feel for the complexity of the classification task, shows a few more images from the MNIST dataset.   Digits from the MNIST dataset   Digits from the MNIST dataset.    But wait! You should always create a test set and set it aside before inspecting the data closely. The MNIST dataset is actually already split into a training set (the first 60,000 images) and a test set (the last 10,000 images): X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]   Let’s simplify the problem for now and only try to identify one digit—for example, the number 5. This “5-detector” will be an example of a binary classifier, capable of distinguishing between just two classes, 5 and not-5. Let’s create the target vectors for this classification task: y_train_5 = (y_train == 5) # True for all 5s, False for all other digits y_test_5 = (y_test == 5)   Now let’s use Logistic Regression to train it: from sklearn.linear_model import LogisticRegression log_reg = LogisticRegression(random_state=42) log_reg.fit(X_train, y_train_5)   Now we can use it to detect images of the number 5: print(log_reg.predict([some_digit]))    [ True]   The Logistic Regression guesses that this image represents a 5 (True). Looks like it guessed right in this particular case! Now, let’s evaluate this model’s performance.    Measuring Accuracy Using Cross-Validation   A good way to evaluate a model is to use K-fold cross-validation . shows the idea of K-fold cross-validation: it randomly splits the data set into K distinct subsets called folds, then it trains and evaluates the model K times, picking a different fold for evaluation every time and training on the other folds.   K-fold cross-validation   K-fold cross-validation.    Let’s use the cross_val_score() function to evaluate our model with three folds: from sklearn.model_selection import cross_val_score print(cross_val_score(log_reg, X_train, y_train_5, cv=3, scoring=\"accuracy\"))    [0.97525 0.9732 0.9732 ]   Wow! Above 97% accuracy (ratio of correct predictions) on all cross-validation folds? This looks amazing, doesn’t it? Well, before you get too excited, let’s look at a very dumb classifier that just classifies every single image in the “not-5” class: from sklearn.base import BaseEstimator class Never5Classifier(BaseEstimator): def fit(self, X, y=None): return self def predict(self, X): return np.zeros((len(X), 1), dtype=bool)   Can you guess this model’s accuracy? Let’s find out: never_5_clf = Never5Classifier() print(cross_val_score(never_5_clf, X_train, y_train_5, cv=3, scoring=\"accuracy\"))    [0.91125 0.90855 0.90915]   That’s right, it has over 90% accuracy! This is simply because only about 10% of the images are 5s, so if you always guess that an image is not a 5, you will be right about 90% of the time.  This demonstrates why accuracy is generally not the preferred performance measure for classifiers, especially when you are dealing with skewed datasets (i.e., when some classes are much more frequent than others).    Confusion Matrix   A much better way to evaluate the performance of a classifier is to look at the confusion matrix . The general idea is to count the number of times instances of class A are classified as class B. For example, to know the number of times the classifier confused images of 5s with 3s, you would look in the fifth row and third column of the confusion matrix.  To compute the confusion matrix, you first need to have a set of predictions so that they can be compared to the actual targets. You could make predictions on the test set, but let’s keep it untouched for now (remember that you want to use the test set only at the very end of your project, once you have a classifier that you are ready to launch). Instead, you can use the cross_val_predict() function: from sklearn.model_selection import cross_val_predict y_train_pred = cross_val_predict(log_reg, X_train, y_train_5, cv=3)   Just like the cross_val_score() function, cross_val_predict() performs K-fold cross-validation, but instead of returning the evaluation scores, it returns the predictions made on each test fold.  Now you are ready to get the confusion matrix using the confusion_matrix() function. Just pass it the target classes ( y_train_5 ) and the predicted classes ( y_train_pred ): from sklearn.metrics import confusion_matrix cm = confusion_matrix(y_train_5, y_train_pred) print(cm)    [[54038 541] [ 1026 4395]]   Using seaborn, you can plot the heatmap of this confusion matrix, which helps with the visualization: import seaborn as sns import matplotlib.pyplot as plt sns.heatmap(cm, annot=True, fmt='d', cmap='Blues') plt.xlabel('Predicted') plt.ylabel('Actual') plt.show()   Generated plot from default   A dynamically generated mathematical plot.     Each row in a confusion matrix represents an actual class , while each column represents a predicted class . The first row of this matrix considers non-5 images (the negative class): 54,038 of them were correctly classified as non-5s (they are called true negatives ), while the remaining 541 were wrongly classified as 5s ( false positives ). The second row considers the images of 5s (the positive class ): 1,026 were wrongly classified as non-5s ( false negatives ), while the remaining 4,395 were correctly classified as 5s ( true positives ). A perfect classifier would have only true positives and true negatives, so its confusion matrix would have nonzero values only on its main diagonal (top left to bottom right).  If you are confused about the confusion matrix, may help.   An illustrated confusion matrix   An illustrated confusion matrix.      Precision and Recall   The confusion matrix gives you a lot of information, but sometimes you may prefer a more concise metric. An interesting one to look at is the accuracy of the positive predictions; this is called the precision of the classifier: where is the number of true positives, and is the number of false positives.  A trivial way to have perfect precision is to make one single positive prediction and ensure it is correct (precision = 1\/1 = 100%). But this would not be very useful, since the classifier would ignore all but one positive instance. So precision is typically used along with another metric named recall , also called sensitivity or the true positive rate (TPR): this is the ratio of positive instances that are correctly detected by the classifier: where is the number of false negatives.  Scikit-Learn provides several functions to compute classifier metrics, including precision and recall: from sklearn.metrics import precision_score, recall_score print('precision: ', precision_score(y_train_5, y_train_pred)) print('recall: ', recall_score(y_train_5, y_train_pred))    precision: 0.8903970826580226 recall: 0.8107360265633647     Now your 5-detector does not look as shiny as it did when you looked at its accuracy. When it claims an image represents a 5, it is correct only 89% of the time. Moreover, it only detects 81% of the 5s.  It is often convenient to combine precision and recall into a single metric called the score , in particular if you need a simple way to compare two classifiers. The score is the harmonic mean of precision and recall (see ). Whereas the regular mean treats all values equally, the harmonic mean gives much more weight to low values. As a result, the classifier will only get a high score if both recall and precision are high.   To compute the F1 score, simply call the f1_score() function: from sklearn.metrics import f1_score print('f1 score: ', f1_score(y_train_5, y_train_pred))    f1 score: 0.8487013613980883     The score favors classifiers that have similar precision and recall. This is not always what you want: in some contexts you mostly care about precision, and in other contexts you really care about recall. For example, if you trained a classifier to detect videos that are safe for kids, you would probably prefer a classifier that rejects many good videos (low recall) but keeps only safe ones (high precision), rather than a classifier that has a much higher recall but lets a few really bad videos show up in your product (in such cases, you may even want to add a human pipeline to check the classifier’s video selection). On the other hand, suppose you train a classifier to detect shoplifters in surveillance images: it is probably fine if your classifier has only 30% precision as long as it has 99% recall (sure, the security guards will get a few false alerts, but almost all shoplifters will get caught).  Unfortunately, you can’t have it both ways: increasing precision reduces recall, and vice versa. This is called the precision\/recall trade-off .    Precision\/Recall Trade-off  To understand this trade-off, let’s look at how the LogisticRegression makes its classification decisions. For each instance, it computes a score based on a decision function . If that score is greater than a threshold, it assigns the instance to the positive class; otherwise it assigns it to the negative class. shows a few digits positioned from the lowest score on the left to the highest score on the right. Suppose the decision threshold is positioned at the central arrow (between the two 5s): you will find 4 true positives (actual 5s) on the right of that threshold, and 1 false positive (actually a 6). Therefore, with that threshold, the precision is 80% (4 out of 5). But out of 6 actual 5s, the classifier only detects 4, so the recall is 67% (4 out of 6). If you raise the threshold (move it to the arrow on the right), the false positive (the 6) becomes a true negative, thereby increasing the precision (up to 100% in this case), but one true positive becomes a false negative, decreasing recall down to 50%. Conversely, lowering the threshold increases recall and reduces precision.   An illustrated precision\/recall trade-off   An illustrated precision\/recall trade-off.    Scikit-Learn does not let you set the threshold directly, but it does give you access to the decision scores that it uses to make predictions. Instead of calling the classifier’s predict() method, you can call its decision_function() method, which returns a score for each instance, and then use any threshold you want to make predictions based on those scores: # The index of zero below is used because we've only # selected one digit so we only have 1 score and 1 prediction y_scores = log_reg.decision_function([some_digit]) print('y_scores: ', y_scores[0]) threshold = 0 y_some_digit_pred = (y_scores > threshold) print('predicted: ', y_some_digit_pred[0])    y_scores: 1.9383711978287734 predicted: True     The LogisticRegression uses a threshold equal to 0, so the previous code returns the same result as the predict() method (i.e., True). Let’s raise the threshold: threshold = 10 y_some_digit_pred = (y_scores > threshold) print('predicted: ', y_some_digit_pred[0])    predicted: False   This confirms that raising the threshold decreases recall. The image actually represents a 5, and the classifier detects it when the threshold is 0, but it misses it when the threshold is increased to 10.  How do you decide which threshold to use? First, use the cross_val_predict() function to get the scores of all instances in the training set, but this time specify that you want to return decision scores instead of predictions: y_scores = cross_val_predict(log_reg, X_train, y_train_5, cv=3,method=\"decision_function\") With these scores, use the precision_recall_curve() function to compute precision and recall for all possible thresholds: from sklearn.metrics import precision_recall_curve precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores) Finally, use Matplotlib to plot precision and recall as functions of the threshold value: def plot_precision_recall_vs_threshold(precisions, recalls, thresholds): plt.plot(thresholds, precisions[:-1], \"b--\", label=\"Precision\") plt.plot(thresholds, recalls[:-1], \"g-\", label=\"Recall\") # highlight the threshold and add the legend, axis label, and grid plot_precision_recall_vs_threshold(precisions, recalls, thresholds) plt.show()    Precision and recall versus the decision threshold   Precision and recall versus the decision threshold.    Another way to select a good precision\/recall trade-off is to plot precision directly against recall, as shown in .   Precision versus recall   Precision versus recall.    You can see that precision really starts to fall sharply around 90% recall. You will probably want to select a precision\/recall trade-off just before that drop—for example, at around 80% recall. But of course, the choice depends on your project.  Suppose you decide to aim for 95% precision. You look up the first plot and find that you need to use a threshold of about 1.5. To be more precise you can search for the lowest threshold that gives you at least 95% precision ( np.argmax() will give you the first index of the maximum value, which in this case means the first True value): threshold_95_precision = thresholds[np.argmax(precisions >= 0.95)] # ~ 1.5635   To make predictions (on the training set for now), instead of calling the classifier's predict() method, you can run this code: y_train_pred_95 = (y_scores >= threshold_95_precision) Let’s check these predictions’ precision and recall: print('precision: ', precision_score(y_train_5, y_train_pred_95)) print('recall: ', recall_score(y_train_5, y_train_pred_95))    precision: 0.9502121640735502 recall: 0.6196273750230584     Great, you have a 95% precision classifier! As you can see, it is fairly easy to create a classifier with virtually any precision you want: just set a high enough threshold, and you’re done. But wait, not so fast. A high-precision classifier is not very useful if its recall is too low!   If someone says, “Let’s reach 99% precision,” you should ask, “At what recall?”     The ROC Curve   The receiver operating characteristic (ROC) curve is another common tool used with binary classifiers. It is very similar to the precision\/recall curve, but instead of plotting precision versus recall, the ROC curve plots the true positive rate (another name for recall) against the false positive rate (FPR). The FPR is the ratio of negative instances that are incorrectly classified as positive. It is equal to 1 – the true negative rate (TNR), which is the ratio of negative instances that are correctly classified as negative. The TNR is also called specificity . Hence, the ROC curve plots sensitivity (recall) versus 1 – specificity .  To plot the ROC curve, you first use the roc_curve() function to compute the TPR and FPR for various threshold values: from sklearn.metrics import roc_curve fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)   Then you can plot the FPR against the TPR using Matplotlib. This code produces the plot in . def plot_roc_curve(fpr, tpr, label=None): plt.plot(fpr, tpr, linewidth=2, label=label) plt.plot([0, 1], [0, 1], 'k--') # Dashed diagonal # Add axis labels and grid plot_roc_curve(fpr, tpr) plt.show()   ROC curve   ROC curve.     Once again there is a trade-off: the higher the recall (TPR), the more false positives (FPR) the classifier produces. The dotted line represents the ROC curve of a purely random classifier; a good classifier stays as far away from that line as possible (toward the top-left corner).  One way to compare classifiers is to measure the area under the curve (AUC). A perfect classifier will have a ROC AUC equal to 1, whereas a purely random classifier will have a ROC AUC equal to 0.5. Scikit-Learn provides a function to compute the ROC AUC: from sklearn.metrics import roc_auc_score print(roc_auc_score(y_train_5, y_scores))    0.974867270562073     Since the ROC curve is so similar to the precision\/recall (PR) curve, you may wonder how to decide which one to use. As a rule of thumb, you should prefer the PR curve whenever the positive class is rare or when you care more about the false positives than the false negatives. Otherwise, use the ROC curve. For example, looking at the previous ROC curve (and the ROC AUC score), you may think that the classifier is really good. But this is mostly because there are few positives (5s) compared to the negatives (non-5s). In contrast, the PR curve makes it clear that the classifier has room for improvement (the curve could be closer to the topright corner).   "
 },
 {
   "id": "figure-mnist-digit",
   "level": "2",
   "url": "week-06-performance-measures.html#figure-mnist-digit",
   "type": "Figure",
-  "number": "5.5.1",
+  "number": "6.5.1",
   "title": "",
   "body": " Image of number five   Image of number five   "
 },
@@ -950,7 +959,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#figure-mnist",
   "type": "Figure",
-  "number": "5.5.2",
+  "number": "6.5.2",
   "title": "",
   "body": " Digits from the MNIST dataset   Digits from the MNIST dataset.   "
 },
@@ -968,7 +977,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#figure-kfold",
   "type": "Figure",
-  "number": "5.5.3",
+  "number": "6.5.3",
   "title": "",
   "body": " K-fold cross-validation   K-fold cross-validation.   "
 },
@@ -986,7 +995,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#confusion-matrix-6-7",
   "type": "Figure",
-  "number": "5.5.4",
+  "number": "6.5.4",
   "title": "",
   "body": " Generated plot from default   A dynamically generated mathematical plot.   "
 },
@@ -1004,7 +1013,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#figure-confusion",
   "type": "Figure",
-  "number": "5.5.5",
+  "number": "6.5.5",
   "title": "",
   "body": " An illustrated confusion matrix   An illustrated confusion matrix.   "
 },
@@ -1058,7 +1067,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#figure-tradeoff",
   "type": "Figure",
-  "number": "5.5.6",
+  "number": "6.5.6",
   "title": "",
   "body": " An illustrated precision\/recall trade-off   An illustrated precision\/recall trade-off.   "
 },
@@ -1067,7 +1076,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#figure-precision-recall-threshold",
   "type": "Figure",
-  "number": "5.5.7",
+  "number": "6.5.7",
   "title": "",
   "body": " Precision and recall versus the decision threshold   Precision and recall versus the decision threshold.   "
 },
@@ -1076,7 +1085,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#figure-pvr",
   "type": "Figure",
-  "number": "5.5.8",
+  "number": "6.5.8",
   "title": "",
   "body": " Precision versus recall   Precision versus recall.   "
 },
@@ -1085,7 +1094,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#logistic-regression-note-4",
   "type": "Note",
-  "number": "5.5.9",
+  "number": "6.5.9",
   "title": "",
   "body": " If someone says, “Let’s reach 99% precision,” you should ask, “At what recall?”  "
 },
@@ -1103,7 +1112,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#figure-roc",
   "type": "Figure",
-  "number": "5.5.10",
+  "number": "6.5.10",
   "title": "",
   "body": " ROC curve   ROC curve.   "
 },
@@ -1121,7 +1130,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "week-06-performance-measures.html#logistic-regression-note-5",
   "type": "Note",
-  "number": "5.5.11",
+  "number": "6.5.11",
   "title": "",
   "body": "Since the ROC curve is so similar to the precision\/recall (PR) curve, you may wonder how to decide which one to use. As a rule of thumb, you should prefer the PR curve whenever the positive class is rare or when you care more about the false positives than the false negatives. Otherwise, use the ROC curve. For example, looking at the previous ROC curve (and the ROC AUC score), you may think that the classifier is really good. But this is mostly because there are few positives (5s) compared to the negatives (non-5s). In contrast, the PR curve makes it clear that the classifier has room for improvement (the curve could be closer to the topright corner). "
 },
@@ -1130,9 +1139,387 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "week-06-softmax-in-llms.html",
   "type": "Section",
-  "number": "5.6",
+  "number": "6.6",
   "title": "Softmax in LLMs",
   "body": " Softmax in LLMs   Since I am trying to drop in information when what we're doing intersects with Large Language Models, I want to point out that Large Language Models imploy a Softmax-type of approach when generating text. They do not use a Softmax regression or a Logistic regression like we've been discussing here, but they do use the softmax \"idea\" when deciding which token (word) to generate next. The model (which has a very complicated arcitecture that we won't get into here) takes input text and generates scores for all possible tokens that the LLM has in its vocabulary. Then, it uses the same softmax function that we've been using here to convert those scores into probabilities. Finally, instead of selecting the token with the highest probabillity (which is what Softmax regression does), the model randomly selects a token based on the probabilities. That is why you can use the exact same prompt multiple times and get different results each time. The scores define a probability distribution and then the model randomly selects a token based on that distribution. Different runs through the model mean different random tokens are selected each time, leading to different outputs. This is both a strength and a weakness of LLMs. Selecting a random token from the probability distribution makes the model sound more \"human\" and can prevent it from getting stuck in a loops where the same tokens get generated over and over again. On the other hand, it's this randomness that makes the model less predictable and harder to control; leading to the, now infamous, hallucinations that LLMs sometimes generate.  "
+},
+{
+  "id": "root-1-2-10",
+  "level": "1",
+  "url": "root-1-2-10.html",
+  "type": "Week",
+  "number": "7",
+  "title": "Lab: Titanic",
+  "body": " Lab: Titanic  No new material this week, work on the lab assignment.  "
+},
+{
+  "id": "sec-probability-basic-concepts",
+  "level": "1",
+  "url": "sec-probability-basic-concepts.html",
+  "type": "Section",
+  "number": "8.1",
+  "title": "Basic Concepts of Probability",
+  "body": " Basic Concepts of Probability   Basic Definitions of Probability   To introduce the basic concepts of probability theory, let’s consider a simple example. Imagine we have two boxes: one red and one blue. The red box contains 2 apples and 6 oranges, while the blue box holds 3 apples and 1 orange, as illustrated in . Now, suppose we randomly select one of the boxes and then randomly pick a piece of fruit from it. After observing the type of fruit, we return it to the box from which it was taken. We could repeat this process many times. Let’s assume that in this scenario, we choose the red box 40% of the time and the blue box 60% of the time. Additionally, when selecting a piece of fruit from a box, each piece has an equal chance of being chosen.   Two coloured boxes: red (left) and blue (right), each containing fruit (apples shown in green and oranges shown in orange).   Two coloured boxes: red (left) and blue (right), each containing fruit (apples shown in green and oranges shown in orange).    In this example, the identity of the box that will be chosen is a random variable, which we shall denote by . This random variable can take one of two possible values, namely (corresponding to the red box) or (corresponding to the blue box). Similarly, the identity of the fruit is also a random variable and will be denoted by . It can take either of the values (for apple) or (for orange).  To begin with, we shall define the probability of an event to be the fraction of times that event occurs out of the total number of trials, in the limit that the total number of trials goes to infinity. Thus the probability of selecting the red box is and the probability of selecting the blue box is . We write these probabilities as and . Note that, by definition, probabilities must lie in the interval . Also, if the events are mutually exclusive and if they include all possible outcomes (for instance, in this example the box must be either red or blue), then we see that the probabilities for those events must sum to one.  We can now ask questions such as: “What is the overall probability that the selection procedure will pick an apple?”, or “Given that we have chosen an orange, what is the probability that the box we chose was the blue one?”. We can answer questions such as these, and indeed much more complex questions associated with problems in machine learning, once we have equipped ourselves with the two elementary rules of probability, known as the sum rule and the product rule .    Joint Probability    Two random variables X and Y .   Two random variables X and Y.    In order to derive the rules of probability, consider the slightly more general example shown in involving two random variables and (which could for instance be the Box and Fruit variables considered above). We shall suppose that can take any of the values where , and can take the values where . Consider a total of trials in which we sample both of the variables and , and let the number of such trials in which and be . Also, let the number of trials in which takes the value (irrespective of the value that takes) be denoted by , and similarly let the number of trials in which takes the value be denoted by .  The probability that will take the value and will take the value is written and is called the joint probability of and . It is given by the number of points falling in the cell as a fraction of the total number of points, and hence   Here we are implicitly considering the limit . Similarly, the probability that takes the value irrespective of the value of is written as and is given by the fraction of the total number of points that fall in column , so that   Because the number of instances in column in is just the sum of the number of instances in each cell of that column, we have and therefore, from and , we have which is the sum rule of probability. Note that is sometimes called the marginal probability, because it is obtained by marginalizing, or summing out, the other variables (in this case ).    Conditional Probability   If we consider only those instances for which , then the fraction of such instances for which is written and is called the conditional probability of given . It is obtained by finding the fraction of those points in column that fall in cell and hence is given by   From , , and , we can then derive the following relationship which is the product rule of probability.    Notation and Summary   So far we have been quite careful to make a distinction between a random variable, such as the box in the fruit example, and the values that the random variable can take, for example if the box were the red one. Thus the probability that takes the value is denoted . Although this helps to avoid ambiguity, it leads to a rather cumbersome notation, and in many cases there will be no need for such pedantry. Instead, we may simply write to denote a distribution over the random variable , or to denote the distribution evaluated for the particular value , provided that the interpretation is clear from the context  With this more compact notation, we can write the two fundamental rules of probability theory in the following form.   The Rules of Probability     Here is a joint probability and is verbalized as “the probability of and ”. Similarly, the quantity is a conditional probability and is verbalized as “the probability of given ”, whereas the quantity is a marginal probability and is simply “the probability of ”.  We note that if the joint distribution of two variables factorizes into the product of the marginals, so that , then and are said to be independent. From the product rule, we see that , and so the conditional distribution of given is indeed independent of the value of . For instance, in our boxes of fruit example, if each box contained the same fraction of apples and oranges, then , so that the probability of selecting, say, an apple is independent of which box is chosen.   "
+},
+{
+  "id": "figure-fruit-boxes",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#figure-fruit-boxes",
+  "type": "Figure",
+  "number": "8.1.1",
+  "title": "",
+  "body": " Two coloured boxes: red (left) and blue (right), each containing fruit (apples shown in green and oranges shown in orange).   Two coloured boxes: red (left) and blue (right), each containing fruit (apples shown in green and oranges shown in orange).   "
+},
+{
+  "id": "ssec-basic-definitions-7",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#ssec-basic-definitions-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sum rule product rule "
+},
+{
+  "id": "figure-random-variable-grid",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#figure-random-variable-grid",
+  "type": "Figure",
+  "number": "8.1.2",
+  "title": "",
+  "body": " Two random variables X and Y .   Two random variables X and Y.   "
+},
+{
+  "id": "ssec-joint-probability-5",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#ssec-joint-probability-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "joint probability "
+},
+{
+  "id": "ssec-joint-probability-7",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#ssec-joint-probability-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sum rule marginal "
+},
+{
+  "id": "ssec-conditional-probability-3",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#ssec-conditional-probability-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "conditional probability "
+},
+{
+  "id": "ssec-conditional-probability-4",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#ssec-conditional-probability-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "product rule "
+},
+{
+  "id": "theorem-rules-of-probability",
+  "level": "2",
+  "url": "sec-probability-basic-concepts.html#theorem-rules-of-probability",
+  "type": "Theorem",
+  "number": "8.1.3",
+  "title": "The Rules of Probability.",
+  "body": " The Rules of Probability    "
+},
+{
+  "id": "sec-probability-densities",
+  "level": "1",
+  "url": "sec-probability-densities.html",
+  "type": "Section",
+  "number": "8.2",
+  "title": "Probability Densities",
+  "body": " Probability Densities   As well as considering probabilities defined over discrete sets of events, we also wish to consider probabilities with respect to continuous variables. We shall limit ourselves to a relatively informal discussion. If the probability of a real-valued variable falling in the interval is given by for , then is called the probability density and probability density function (PDF) over . This is illustrated in . The probability that will lie in an interval is then given by    Probability density over a continuous variable .   Probability density p(x) over a continuous variable x.    Because probabilities are nonnegative, and because the value of must lie somewhere on the real axis, the probability density must satisfy the two conditions    Note that if is a discrete variable, then is sometimes called a probability mass function (PMF) because it can be regarded as a set of ‘probability masses’ concentrated at the allowed values of .  The sum and product rules of probability apply equally to the case of probability densities, or to combinations of discrete and continuous variables. For instance, if and are two real variables, then the sum rule and product rule take the form    "
+},
+{
+  "id": "sec-probability-densities-3",
+  "level": "2",
+  "url": "sec-probability-densities.html#sec-probability-densities-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "probability density probability density function (PDF) "
+},
+{
+  "id": "figure-probability-density",
+  "level": "2",
+  "url": "sec-probability-densities.html#figure-probability-density",
+  "type": "Figure",
+  "number": "8.2.1",
+  "title": "",
+  "body": " Probability density over a continuous variable .   Probability density p(x) over a continuous variable x.   "
+},
+{
+  "id": "sec-probability-densities-6",
+  "level": "2",
+  "url": "sec-probability-densities.html#sec-probability-densities-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "probability mass function (PMF) "
+},
+{
+  "id": "sec-probability-densities-7",
+  "level": "2",
+  "url": "sec-probability-densities.html#sec-probability-densities-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sum rule product rule "
+},
+{
+  "id": "sec-expectations-and-covariances",
+  "level": "1",
+  "url": "sec-expectations-and-covariances.html",
+  "type": "Section",
+  "number": "8.3",
+  "title": "Expectations and Covariances",
+  "body": " Expectations and Covariances   Expectation   One of the most important operations involving probabilities is that of finding weighted averages of functions. The average value of some function under a probability distribution is called the expectation of and will be denoted by . For a discrete distribution, it is given by so that the average is weighted by the relative probabilities of the different values of . In the case of continuous variables, expectations are expressed in terms of an integration with respect to the corresponding probability density   Sometimes we will be considering expectations of functions of several variables, in which case we can use a subscript to indicate which variable is being averaged over, so that for instance denotes the average of the function with respect to the distribution of . Note that will be a function of .  We can also consider a conditional expectation with respect to a conditional distribution, so that with an analogous definition for continuous variables.    Variance   The variance of is defined by and provides a measure of how much variability there is in around its mean value . Expanding out the square, we see that the variance can also be written in terms of the expectations of and    In particular, we can consider the variance of the variable itself, which is given by   Another common measure of variability is standard deviation , represented by , which is the square root of the variance, namely,     Covariance  For two random variables and , the covariance is defined by which expresses the extent to which and vary together. If and are independent, then their covariance vanishes.  In the case of two vectors of random variables and , the covariance is a matrix   If we consider the covariance of the components of a vector with each other, then we use a slightly simpler notation .   "
+},
+{
+  "id": "ssec-expectation-3",
+  "level": "2",
+  "url": "sec-expectations-and-covariances.html#ssec-expectation-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "expectation "
+},
+{
+  "id": "ssec-variance-3",
+  "level": "2",
+  "url": "sec-expectations-and-covariances.html#ssec-variance-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "variance "
+},
+{
+  "id": "ssec-variance-5",
+  "level": "2",
+  "url": "sec-expectations-and-covariances.html#ssec-variance-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard deviation "
+},
+{
+  "id": "sec-correlation-and-dependence",
+  "level": "1",
+  "url": "sec-correlation-and-dependence.html",
+  "type": "Section",
+  "number": "8.4",
+  "title": "Correlation and Dependence",
+  "body": " Correlation and Dependence   In statistics, correlation or dependence refers to any statistical relationship between two random variables or bivariate data, whether or not the relationship is causal. Broadly, correlation encompasses any statistical association between variables, though it is often specifically used to describe the extent to which two variables are linearly related. Common examples of correlated phenomena include the relationship between the heights of parents and their children, and the correlation between the price of a good and the quantity consumers are willing to buy, as represented by the demand curve.  Correlations are valuable because they can indicate a predictive relationship that can be practically exploited. For instance, an electrical utility might produce less power on a mild day due to the correlation between electricity demand and weather conditions. In this case, the correlation reflects a causal relationship, as extreme weather directly influences electricity usage for heating or cooling. However, it is important to remember that correlation alone does not imply causation; the presence of a correlation does not necessarily indicate that one variable causes the other. One of my favorite websites for demonstrating this point is which brute-force searches through many databases finding unrelated datasets which are nonetheless highly correlated. For example, shows a high correlation ( , ) between the number of Master's degrees awarded in Psychology and the Popularity of the first name \"Benny\" between 2012 and 2021. This is a high degree of correlation, but obviously is not a causal relationship.   A figure showing a high correlation between the number of Master's degrees awarded in Psychology and the Popularity of the first name \"Benny\"   A figure showing a high correlation between the number of Master's degrees awarded in Psychology and the Popularity of the first name \"Benny\" (Source: )    Formally, random variables are considered dependent if they do not satisfy the condition of probabilistic independence. In everyday language, correlation is often used interchangeably with dependence. However, in a technical context, correlation refers to specific mathematical operations that quantify the relationship between variables and their expected values. Essentially, correlation measures how closely two or more variables are related to one another. Several correlation coefficients exist to quantify this relationship, typically denoted by or . The most widely used is the Pearson correlation coefficient, which measures the degree of linear relationship between two variables, even if one variable is a nonlinear function of the other. The correlation coefficient between two random variables and is defined as    shows several sets of points, with the Pearson correlation coefficient of and for each set. The correlation reflects the noisiness and direction of a linear relationship (top row), but not the slope of that relationship (middle), nor many aspects of nonlinear relationships (bottom).   Several sets of points, with the Pearson correlation coefficient of and for each set.   Several sets of (x, y) points, with the Pearson correlation coefficient of x and y for each set.     The figure in the center has a slope of but in that case the correlation coefficient is undefined because the variance of is zero.   "
+},
+{
+  "id": "sec-correlation-and-dependence-3",
+  "level": "2",
+  "url": "sec-correlation-and-dependence.html#sec-correlation-and-dependence-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "correlation dependence "
+},
+{
+  "id": "figure-spurious-correlation",
+  "level": "2",
+  "url": "sec-correlation-and-dependence.html#figure-spurious-correlation",
+  "type": "Figure",
+  "number": "8.4.1",
+  "title": "",
+  "body": "  A figure showing a high correlation between the number of Master's degrees awarded in Psychology and the Popularity of the first name \"Benny\"   A figure showing a high correlation between the number of Master's degrees awarded in Psychology and the Popularity of the first name \"Benny\" (Source: )  "
+},
+{
+  "id": "figure-correlation",
+  "level": "2",
+  "url": "sec-correlation-and-dependence.html#figure-correlation",
+  "type": "Figure",
+  "number": "8.4.2",
+  "title": "",
+  "body": " Several sets of points, with the Pearson correlation coefficient of and for each set.   Several sets of (x, y) points, with the Pearson correlation coefficient of x and y for each set.   "
+},
+{
+  "id": "sec-correlation-and-dependence-8",
+  "level": "2",
+  "url": "sec-correlation-and-dependence.html#sec-correlation-and-dependence-8",
+  "type": "Note",
+  "number": "8.4.3",
+  "title": "",
+  "body": " The figure in the center has a slope of but in that case the correlation coefficient is undefined because the variance of is zero.  "
+},
+{
+  "id": "sec-bayes-theorem",
+  "level": "1",
+  "url": "sec-bayes-theorem.html",
+  "type": "Section",
+  "number": "8.5",
+  "title": "Bayes’ Theorem",
+  "body": "Bayes' Theorem   Recall the two fundamental rules of probability theory in (note: you can click on the reference to see the theorem inline here in the notes). From the product rule, together with the symmetry property , we immediately obtain the following relationship between conditional probabilities which is called Bayes’ theorem .  Using the sum rule, the denominator in Bayes’ theorem can be expressed in terms of the quantities appearing in the numerator We can view the denominator in Bayes’ theorem as being the normalization constant required to ensure that the sum of the conditional probability on the left-hand side of over all values of equals one.  Let us now return to our example involving boxes of fruit.   Two coloured boxes each containing fruit (apples shown in green and oranges shown in orange)   Two coloured boxes each containing fruit (apples shown in green and oranges shown in orange).    Recall We have seen that the probabilities of selecting either the red or the blue boxes are given by And also we can write out all four conditional probabilities for the type of fruit, given the selected box   Suppose we are told that a piece of fruit has been selected and it is an orange, and we would like to know which box it came from. This requires that we evaluate the probability distribution over boxes conditioned on the identity of the fruit, whereas the probabilities in give the probability distribution over the fruit conditioned on the identity of the box. We can solve the problem of reversing the conditional probability by using Bayes’ theorem to give The probabilities in the numerator are given in and , now let’s find the probability in the denominator: Plugging in yields From the sum rule, it then follows that .  We can provide an important interpretation of Bayes’ theorem as follows: If we had been asked which box had been chosen before being told the identity of the selected item of fruit, then the most complete information we have available is provided by the probability . We call this the prior probability because it is the probability available before we observe the identity of the fruit. Once we are told that the fruit is an orange, we can then use Bayes’ theorem to compute the probability , which we shall call the posterior probability because it is the probability obtained after we have observed . The quantity on the right-hand side of is evaluated for the observed data set and can be viewed as a function of the parameter , in which case it is called the likelihood function . Note that in this example, the prior probability of selecting the red box was , so that we were more likely to select the blue box than the red one. However, once we have observed that the piece of selected fruit is an orange, we find that the posterior probability of the red box is now , so that it is now more likely that the box we selected was in fact the red one. This result accords with our intuition, as the proportion of oranges is much higher in the red box than it is in the blue box, and so the observation that the fruit was an orange provides significant evidence favouring the red box. In fact, the evidence is sufficiently strong that it outweighs the prior and makes it more likely that the red box was chosen rather than the blue one.  "
+},
+{
+  "id": "sec-bayes-theorem-3",
+  "level": "2",
+  "url": "sec-bayes-theorem.html#sec-bayes-theorem-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Bayes’ theorem "
+},
+{
+  "id": "figure-box",
+  "level": "2",
+  "url": "sec-bayes-theorem.html#figure-box",
+  "type": "Figure",
+  "number": "8.5.1",
+  "title": "",
+  "body": " Two coloured boxes each containing fruit (apples shown in green and oranges shown in orange)   Two coloured boxes each containing fruit (apples shown in green and oranges shown in orange).   "
+},
+{
+  "id": "sec-bayes-theorem-9",
+  "level": "2",
+  "url": "sec-bayes-theorem.html#sec-bayes-theorem-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "prior probability posterior probability likelihood function "
+},
+{
+  "id": "sec-probabilistic-model",
+  "level": "1",
+  "url": "sec-probabilistic-model.html",
+  "type": "Section",
+  "number": "9.1",
+  "title": "Probabilistic Model",
+  "body": "Probabilistic Model   Naive Bayes classifiers are a family of classifiers that are quite similar to the linear models discussed in the previous section. However, they tend to be even faster in training. The price paid for this efficiency is that naive Bayes models often provide generalization performance that is slightly worse than that of linear classifiers like LogisticRegression.  Naive Bayes Classifiers work using . Refresh yourself on that material briefly so that you can expand on that idea in the coming sections.   Now we can set up the probabilistic model for Naive Bayes classifiers. Abstractly, naive Bayes is a conditional probability model: given a problem instance to be classified, represented by a vector representing some features (independent variables), it assigns to this instance probabilities for each of possible outcomes or classes . Using Bayes’ theorem, the conditional probability can be decomposed as   In plain English, using Bayesian probability terminology, the above equation can be written as In practice, there is interest only in the numerator of that fraction, because the denominator does not depend on and the values of the features are given, so that the denominator is effectively constant.  To simplify the formula, the “naive” conditional independence assumptions come into play: assume that all features in are mutually independent, conditional on the category . Under this assumption, The is simplified to where denotes proportionality.  The discussion so far has derived the independent feature model, that is, the naive Bayes probability model. The naive Bayes classifier combines this model with a decision rule. One common rule is to pick the hypothesis that is most probable; this is known as the maximum a posteriori or MAP decision rule. The corresponding classifier, a Bayes classifier, is the function that assigns a class label for some as follows:   "
+},
+{
+  "id": "sec-probabilistic-model-6",
+  "level": "2",
+  "url": "sec-probabilistic-model.html#sec-probabilistic-model-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "maximum a posteriori MAP "
+},
+{
+  "id": "sec-probability-distributions",
+  "level": "1",
+  "url": "sec-probability-distributions.html",
+  "type": "Section",
+  "number": "9.2",
+  "title": "Probability Distributions",
+  "body": "Probability Distributions   A class’s prior may be calculated by assuming equiprobable classes (i.e., ), or by calculating an estimate for the class probability from the training set (i.e., ). Scikit-Learn estimates it using the second way, i.e. the relative frequency of class in the training set.  The assumptions on distributions of features are called the “event model” of the naive Bayes classifier. When dealing with continuous data, a typical assumption is that the continuous values associated with each class are distributed according to a normal (or Gaussian) distribution. For discrete features like the ones encountered in document classification (include spam filtering), multinomial and Bernoulli distributions are popular.   Gaussian Distribution  For the case of a single real-valued variable , the Gaussian distribution is defined by where is the mean and is the variance.   Single Variable Gaussian Distribution       Matrix Multiplication    Because we are assuming each conditional probability is mutually indepedent from all the others, when you extend the Gaussian distribution into multiple dimensions, the joint probability distribution is the product of the individual conditional distributions. In other words, there is a separate Gaussian distribution for each dimension. A two-dimensional Gaussian distribution is shown below.   Bivariable Gaussian Distribution      Bivariable Gaussian Distribution    In Naive Bayes classifiers, suppose the training data contains a continuous attribute, . We first segment the data by the class, and then compute the mean and variance of in each class. Let be the mean and be the variance of the values in associated with class . Suppose we have collected some observation value . Then, the probability distribution of given a class , , can be computed by    Bernoulli Distribution  The Bernoulli distribution is defined by where is a single binary random variable, namely, or , and denotes the probability of .  In Naive Bayes classifiers, this model is popular for document classification tasks. If is a binary expressing the occurrence or absence of the -th term from the vocabulary, the probability distribution of given a class , , can be computed by where is the probability of class generating the term . This event model is especially popular for classifying short texts. It has the benefit of explicitly modelling the absence of terms.   Multinomial Distribution  The multinomial distribution is defined by where is the number of times event was observed in a particular instance, is the sum of all , and is the probability that event i occurs.  In Naive Bayes classifiers, the likelihood of a feature vector is given by where is the probability of event in the class .  If a given class and feature value never occur together in the training data, then the frequency-based probability estimate will be zero, because the probability estimate is directly proportional to the number of occurrences of a feature’s value. This is problematic because it will wipe out all information in the other probabilities when they are multiplied. Therefore, it is often desirable to incorporate a small-sample correction, called pseudocount, in all probability estimates such that no probability is ever set to be exactly zero: where is the number of times feature appears in a sample of class in the training set, and is the total count of all features for class . is the pseudocount. This way of regularizing naive Bayes is called Laplace smoothing when the , and Lidstone smoothing in the general case.   "
+},
+{
+  "id": "anim-gaussian-1D-light",
+  "level": "2",
+  "url": "sec-probability-distributions.html#anim-gaussian-1D-light",
+  "type": "Figure",
+  "number": "9.2.1",
+  "title": "",
+  "body": " Single Variable Gaussian Distribution    "
+},
+{
+  "id": "anim-gaussian-1D-dark",
+  "level": "2",
+  "url": "sec-probability-distributions.html#anim-gaussian-1D-dark",
+  "type": "Figure",
+  "number": "9.2.2",
+  "title": "",
+  "body": " Matrix Multiplication   "
+},
+{
+  "id": "anim-gaussian-2D-light",
+  "level": "2",
+  "url": "sec-probability-distributions.html#anim-gaussian-2D-light",
+  "type": "Figure",
+  "number": "9.2.3",
+  "title": "",
+  "body": " Bivariable Gaussian Distribution   "
+},
+{
+  "id": "anim-gaussian-2D-dark",
+  "level": "2",
+  "url": "sec-probability-distributions.html#anim-gaussian-2D-dark",
+  "type": "Figure",
+  "number": "9.2.4",
+  "title": "",
+  "body": " Bivariable Gaussian Distribution   "
+},
+{
+  "id": "ssec-multinomial-distribution-4",
+  "level": "2",
+  "url": "sec-probability-distributions.html#ssec-multinomial-distribution-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Laplace smoothing Lidstone smoothing "
+},
+{
+  "id": "sec-naive-bayes-classifiers",
+  "level": "1",
+  "url": "sec-naive-bayes-classifiers.html",
+  "type": "Section",
+  "number": "9.3",
+  "title": "Naive Bayes Classifiers in Scikit-Learn",
+  "body": "Naive Bayes Classifiers in Scikit-Learn   There are three kinds of naive Bayes classifiers implemented in scikit-learn: GaussianNB , BernoulliNB , and MultinomialNB . GaussianNB can be applied to any continuous data, while BernoulliNB assumes binary data and MultinomialNB assumes count data (that is, that each feature represents an integer count of something, like how often a word appears in a sentence). BernoulliNB and MultinomialNB are mostly used in text data classification.  We begin with the standard imports: import numpy as np import matplotlib.pyplot as plt import seaborn as sns; sns.set()    Gaussian Naive Bayes  In this classifier, the assumption is that data from each label is drawn from a simple Gaussian distribution. Imagine that you have the following data: from sklearn.datasets import make_blobs X, y = make_blobs(100, 2, centers=2, random_state=2, cluster_std=1.5) plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='RdBu');   Two groups of blobs   Two groups of blobs     One extremely fast way to create a simple model is to assume that the data is described by a Gaussian distribution with no covariance between dimensions. This model can be fit by simply finding the mean and standard deviation of the points within each label, which is all you need to define such a distribution. The result of this naive Gaussian assumption is shown in the following figure:  The result of the naive Gaussian assumption   The result of the naive Gaussian assumption.     The ellipses here represent the Gaussian generative model for each label, with larger probability toward the center of the ellipses. With this generative model in place for each class, we have a simple recipe to compute the likelihood for any data point, and thus we can quickly compute the posterior and determine which label is the most probable for a given point.  This procedure is implemented in Scikit-Learn’s sklearn.naive_bayes.GaussianNB estimator: from sklearn.naive_bayes import GaussianNB model = GaussianNB() model.fit(X, y);   Now let’s generate some new data and predict the label: rng = np.random.RandomState(0) Xnew = [-6, -14] + [14, 18] * rng.rand(2000, 2) ynew = model.predict(Xnew) Now we can plot this new data to get an idea of where the decision boundary is: plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='RdBu') lim = plt.axis() plt.scatter(Xnew[:, 0], Xnew[:, 1], c=ynew, s=20, cmap='RdBu', alpha=0.1) plt.axis(lim);   Decision boundary of the Gaussian naive Bayes classifier   Decision boundary of the Gaussian naive Bayes classifier     We see a slightly curved boundary in the classifications—in general, the boundary in Gaussian naive Bayes is quadratic.  A nice piece of this Bayesian formalism is that it naturally allows for probabilistic classification, which we can compute using the predict_proba method() : yprob = model.predict_proba(Xnew) print(yprob[-8:].round(2))    [[0.89 0.11] [1. 0. ] [1. 0. ] [1. 0. ] [1. 0. ] [1. 0. ] [0. 1. ] [0.15 0.85]]     The columns give the posterior probabilities of the first and second label, respectively. If you are looking for estimates of uncertainty in your classification, Bayesian approaches like this can be a useful approach.  Of course, the final classification will only be as good as the model assumptions that lead to it, which is why Gaussian naive Bayes often does not produce very good results. Still, in many cases—especially as the number of features becomes large—this assumption is not detrimental enough to prevent Gaussian naive Bayes from being a useful method.   Multinomial Naive Bayes  In this classifier, we model the data distribution with a best-fit multinomial distribution. One place where multinomial naive Bayes is often used is in text classification, where the features are related to word counts or frequencies within the documents to be classified. Here we will use the sparse word count features from the 20 Newsgroups corpus to show how we might classify these short documents into categories.  Let’s download the data and take a look at the target names: from sklearn.datasets import fetch_20newsgroups data = fetch_20newsgroups() # We'll print 1-by-1 here to keep a reasonable line width for name in data.target_names: print(name)    alt.atheism comp.graphics comp.os.ms-windows.misc comp.sys.ibm.pc.hardware comp.sys.mac.hardware comp.windows.x misc.forsale rec.autos rec.motorcycles rec.sport.baseball rec.sport.hockey sci.crypt sci.electronics sci.med sci.space soc.religion.christian talk.politics.guns talk.politics.mideast talk.politics.misc talk.religion.misc   For simplicity here, we will select just a few of these categories, and download the training and testing set: categories = ['talk.religion.misc', 'soc.religion.christian', 'sci.space', 'comp.graphics'] train = fetch_20newsgroups(subset='train', categories=categories) test = fetch_20newsgroups(subset='test', categories=categories)   Here is a representative entry from the data: print(train.data[5])    From: dmcgee@uluhe.soest.hawaii.edu (Don McGee) Subject: Federal Hearing Originator: dmcgee@uluhe Organization: School of Ocean and Earth Science and Technology Distribution: usa Lines: 10 Fact or rumor....? Madalyn Murray O'Hare an atheist who eliminated the use of the bible reading and prayer in public schools 15 years ago is now going to appear before the FCC with a petition to stop the reading of the Gospel on the airways of America. And she is also campaigning to remove Christmas programs, songs, etc from the public schools. If it is true then mail to Federal Communications Commission 1919 H Street Washington DC 20054 expressing your opposition to her request. Reference Petition number 2493.     In order to use this data for machine learning, we need to be able to convert the content of each string into a vector of numbers. For this we will use the CountVectorizer in the module sklearn.feature_extraction.text . Count vectorizer converts a collection of text documents to a matrix of token counts. For example, from sklearn.feature_extraction.text import CountVectorizer corpus = [ 'This is the first document.', 'This document is the second document.', 'And this is the third one.', 'Is this the first document?', ] vectorizer = CountVectorizer() X = vectorizer.fit_transform(corpus) The code above converts the corpus to matrix of some features. To know what the features are, run the code below: print(vectorizer.get_feature_names_out())    ['and' 'document' 'first' 'is' 'one' 'second' 'the' 'third' 'this']   So we have 9 features totally. Then we can see the converted matrix: print(X.toarray())    [[0 1 1 1 0 0 1 0 1] [0 2 0 1 0 1 1 0 1] [1 0 0 1 1 0 1 1 1] [0 1 1 1 0 0 1 0 1]]     There are some issues with this approach, however: the raw word counts lead to features which put too much weight on words that appear very frequently, and this can be sub-optimal in some classification algorithms. One approach to fix this is known as term frequency-inverse document frequency (TF–IDF) which weights the word counts by a measure of how often they appear in the documents. The module sklearn.feature_extraction.text has this built-in utility TfidfVectorizer . You will use it in the lab assignment of next week. For now, let’s keep using the simple one. The next step is to create a pipeline that attaches CountVectorizer to a multinomial naive Bayes classifier: from sklearn.feature_extraction.text import CountVectorizer from sklearn.naive_bayes import MultinomialNB from sklearn.pipeline import make_pipeline model = make_pipeline(CountVectorizer(), MultinomialNB())   With this pipeline, we can apply the model to the training data, and predict labels for the test data: model.fit(train.data, train.target) labels = model.predict(test.data)   Now that we have predicted the labels for the test data, we can evaluate them to learn about the performance of the estimator. For example, here is the confusion matrix between the true and predicted labels for the test data: from sklearn.metrics import confusion_matrix mat = confusion_matrix(test.target, labels) sns.heatmap(mat, square=True, annot=True, fmt='d', cbar=False,cmap=\"YlGnBu\", xticklabels=train.target_names, yticklabels=train.target_names) plt.xlabel('Predicted label') plt.ylabel('Actual label') plt.show()   Confusion matrix of the example   Confusion matrix of the example     Evidently, even this very simple classifier can successfully separate space talk from computer talk, but it gets confused between talk about religion and talk about Christianity. This is perhaps an expected area of confusion!    Bernoulli Naive Bayes  In this classifier, we model the data distribution with a Bernoulli distribution. The syntax is similar to Multinomial Naive Bayes, so we will skip the details. from sklearn.naive_bayes import BernoulliNB     GaussianNB can be applied to any continuous data, while BernoulliNB assumes binary data and MultinomialNB assumes count data. BernoulliNB and MultinomialNB are mostly used in text data classification. MultinomialNB and BernoulliNB have a single parameter, alpha , which controls model complexity. A large alpha means more smoothing, resulting in less complex models. The algorithm’s performance is relatively robust to the setting of alpha , meaning that setting alpha is not critical for good performance. However, tuning it usually improves accuracy somewhat. GaussianNB is mostly used on very high-dimensional data, while the other two variants of naive Bayes are widely used for sparse count data such as text. MultinomialNB usually performs better than BernoulliNB , particularly on datasets with a relatively large number of nonzero features (i.e., large documents). Naive Bayes models are great baseline models and are often used on very large datasets, where training even a linear model might take too long.    "
+},
+{
+  "id": "figure-two-blobs",
+  "level": "2",
+  "url": "sec-naive-bayes-classifiers.html#figure-two-blobs",
+  "type": "Figure",
+  "number": "9.3.1",
+  "title": "",
+  "body": " Two groups of blobs   Two groups of blobs   "
+},
+{
+  "id": "figure-gaussian-nb",
+  "level": "2",
+  "url": "sec-naive-bayes-classifiers.html#figure-gaussian-nb",
+  "type": "Figure",
+  "number": "9.3.2",
+  "title": "",
+  "body": " The result of the naive Gaussian assumption   The result of the naive Gaussian assumption.   "
+},
+{
+  "id": "figure-gaussian-boundary",
+  "level": "2",
+  "url": "sec-naive-bayes-classifiers.html#figure-gaussian-boundary",
+  "type": "Figure",
+  "number": "9.3.3",
+  "title": "",
+  "body": " Decision boundary of the Gaussian naive Bayes classifier   Decision boundary of the Gaussian naive Bayes classifier   "
+},
+{
+  "id": "figure-confusion-matrix",
+  "level": "2",
+  "url": "sec-naive-bayes-classifiers.html#figure-confusion-matrix",
+  "type": "Figure",
+  "number": "9.3.4",
+  "title": "",
+  "body": " Confusion matrix of the example   Confusion matrix of the example   "
+},
+{
+  "id": "naive-bayes-note",
+  "level": "2",
+  "url": "sec-naive-bayes-classifiers.html#naive-bayes-note",
+  "type": "Note",
+  "number": "9.3.5",
+  "title": "",
+  "body": "  GaussianNB can be applied to any continuous data, while BernoulliNB assumes binary data and MultinomialNB assumes count data. BernoulliNB and MultinomialNB are mostly used in text data classification. MultinomialNB and BernoulliNB have a single parameter, alpha , which controls model complexity. A large alpha means more smoothing, resulting in less complex models. The algorithm’s performance is relatively robust to the setting of alpha , meaning that setting alpha is not critical for good performance. However, tuning it usually improves accuracy somewhat. GaussianNB is mostly used on very high-dimensional data, while the other two variants of naive Bayes are widely used for sparse count data such as text. MultinomialNB usually performs better than BernoulliNB , particularly on datasets with a relatively large number of nonzero features (i.e., large documents). Naive Bayes models are great baseline models and are often used on very large datasets, where training even a linear model might take too long.  "
 },
 {
   "id": "appendix-ai-use-policy",
