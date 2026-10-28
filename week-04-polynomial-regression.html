@@ -327,6 +327,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a class="internal" href="root-1-2-13.html"><span class="codenumber">10</span> <span class="title">Lab: Email Spam Filter</span></a></div></li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-ai-use-policy.html"><span class="codenumber">A.</span> <span class="title">AI Use Policy</span></a></div></li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-troubleshooting.html"><span class="codenumber">B.</span> <span class="title">Troubleshooting</span></a></div></li>
 <li class="toc-item toc-appendix"><div class="toc-title-box"><a class="internal" href="appendix-author-ai-disclosure.html"><span class="codenumber">C.</span> <span class="title">Author AI-Use Disclosure</span></a></div></li>
@@ -370,7 +371,7 @@ X_poly = poly_features.fit_transform(X)
 lin_reg.fit(X_poly, y)
 print(f'intercept: {lin_reg.intercept_}, coef: {lin_reg.coef_}')
 </code></pre></div>
-<article class="assemblage assemblage-like" id="week-04-polynomial-regression-5-9"><div class="code-box"><pre class="console clipboardable">intercept: [2.04088555], coef: [[1.02315746 0.48247123]]
+<article class="assemblage assemblage-like" id="week-04-polynomial-regression-5-9"><div class="code-box"><pre class="console clipboardable">intercept: [2.06855221], coef: [[0.90417996 0.49937716]]
 </pre></div>
 <div aria-hidden="true" class="autopermalink" data-description="Assemblage"><a aria-label="Copy heading and permalink for Assemblage" href="#week-04-polynomial-regression-5-9" tabindex="-1" title="Copy heading and permalink for Assemblage">🔗</a></div>
 </article> We can now plot the model predictions over the original data: <div class="code-box"><pre class="program clipboardable"><code class="language-py">X_new = np.linspace(-3, 3, 100).reshape(100, 1)
