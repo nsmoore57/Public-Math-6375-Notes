@@ -1531,6 +1531,294 @@ var ptx_lunr_docs = [
   "body": " Lab: Email Spam Filter  No new material this week, work on the lab assignment.  "
 },
 {
+  "id": "sec-linear-svm-classification",
+  "level": "1",
+  "url": "sec-linear-svm-classification.html",
+  "type": "Section",
+  "number": "11.1",
+  "title": "Linear SVM Classification",
+  "body": "Linear SVM Classification    A Support Vector Machine (SVM) is a robust and versatile Machine Learning model that can handle linear and nonlinear classification, regression, and even outlier detection. As one of the most widely used models in Machine Learning, it’s an essential tool for anyone working in the field. SVMs are especially effective for classifying complex datasets of small to medium size.   The fundamental concept behind SVMs is best illustrated with visual examples. depicts a portion of the iris dataset that we discussed in the context of Logistic Regression. In this dataset, the two classes can be clearly separated with a straight line, indicating that they are linearly separable. The left plot shows the decision boundaries of three different linear classifiers. The model with the dashed decision boundary performs poorly, failing to separate the classes correctly. The other two models perfectly classify the training set, but their decision boundaries are so close to the data points that they might not generalize well to new data.  In contrast, the solid line in the right plot represents the decision boundary of an SVM classifier. This boundary not only separates the two classes but also maintains the maximum possible distance from the nearest training instances. An SVM classifier can be visualized as finding the widest possible “street” (represented by the parallel dashed lines) between the classes. This approach is known as large margin classification .   Large margin classification   Large margin classification.    Notice that adding more training instances “off the street” will not affect the decision boundary at all: it is fully determined (or “supported”) by the instances located on the edge of the street. These instances are called the support vectors (they are highlighted in ).  SVMs are sensitive to the feature scales, as you can see in : in the left plot, the vertical scale is much larger than the horizontal scale, so the widest possible street is close to horizontal. After feature scaling (e.g., using Scikit-Learn’s StandardScaler ), the decision boundary in the right plot looks much better.   Sensitivity to feature scales   Sensitivity to feature scales    If we strictly impose that all instances must be off the street and on the correct side, this is called hard margin classification . There are two main issues with hard margin classification. First, it only works if the data is linearly separable. Second, it is sensitive to outliers. shows the iris dataset with just one additional outlier: on the left, it is impossible to find a hard margin; on the right, the decision boundary ends up very different from the one we saw without the outlier, and it will probably not generalize as well.   Hard margin sensitivity to outliers   Hard margin sensitivity to outliers    To avoid these issues, use a more flexible model. The objective is to find a good balance between keeping the street as large as possible and limiting the margin violations (i.e., instances that end up in the middle of the street or even on the wrong side). This is called soft margin classification . When creating an SVM model using Scikit-Learn, we can specify a number of hyperparameters. C is one of those hyperparameters. If we set it to a low value, then we end up with the model on the left of . With a high value, we get the model on the right. Margin violations are bad. It’s usually better to have few of them. However, in this case the model on the left has a lot of margin violations but will probably generalize better.   Large margin (left) versus fewer margin violations (right)   Large margin (left) versus fewer margin violations (right)     If your SVM model is overfitting, you can try regularizing it by reducing C .    The following Scikit-Learn code loads the iris dataset, scales the features, and then trains a linear SVM model (using the LinearSVC class with C=1 and the hinge loss function, described shortly) to detect Iris virginica flowers: import numpy as np from sklearn import datasets from sklearn.pipeline import Pipeline from sklearn.preprocessing import StandardScaler from sklearn.svm import LinearSVC iris = datasets.load_iris() X = iris[\"data\"][:, (2, 3)] # petal length, petal width y = (iris[\"target\"] == 2).astype(np.float64) # Iris virginica svm_clf = Pipeline([ (\"scaler\", StandardScaler()), (\"linear_svc\", LinearSVC(C=1, loss=\"hinge\")), ]) svm_clf.fit(X, y) The resulting model is represented on the left in .  Then, as usual, you can use the model to make predictions. Remember that this is a binary classifier so the predict method will return either 0 or 1 , whichever value cooresponds to the predicted class. print(svm_clf.predict([[5.5, 1.7]]))    [1.]      Unlike Logistic Regression classifiers, SVM classifiers do not output probabilities for each class.   The LinearSVC class regularizes the bias term, so you should center the training set first by subtracting its mean. This is automatic if you scale the data using the StandardScaler . Also make sure you set the loss hyperparameter to “hinge”, as it is not the default value. Finally, for better performance, you should set the dual hyperparameter to False , unless there are more features than training instances (we will discuss duality later).  Instead of using the LinearSVC class, we could use the SVC class with a linear kernel. When creating the SVC model, we would write SVC(kernel=\"linear\", C=1) .  "
+},
+{
+  "id": "sec-linear-svm-classification-2-2",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#sec-linear-svm-classification-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Support Vector Machine (SVM) "
+},
+{
+  "id": "sec-linear-svm-classification-4",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#sec-linear-svm-classification-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "large margin classification "
+},
+{
+  "id": "figure-large-margin-classification",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#figure-large-margin-classification",
+  "type": "Figure",
+  "number": "11.1.1",
+  "title": "",
+  "body": " Large margin classification   Large margin classification.   "
+},
+{
+  "id": "sec-linear-svm-classification-6",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#sec-linear-svm-classification-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "support vectors "
+},
+{
+  "id": "figure-sensitivity-feature-scales",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#figure-sensitivity-feature-scales",
+  "type": "Figure",
+  "number": "11.1.2",
+  "title": "",
+  "body": " Sensitivity to feature scales   Sensitivity to feature scales   "
+},
+{
+  "id": "sec-linear-svm-classification-9",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#sec-linear-svm-classification-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hard margin classification "
+},
+{
+  "id": "figure-hard-margin-outliers",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#figure-hard-margin-outliers",
+  "type": "Figure",
+  "number": "11.1.3",
+  "title": "",
+  "body": " Hard margin sensitivity to outliers   Hard margin sensitivity to outliers   "
+},
+{
+  "id": "sec-linear-svm-classification-11",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#sec-linear-svm-classification-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "soft margin classification "
+},
+{
+  "id": "figure-regularization",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#figure-regularization",
+  "type": "Figure",
+  "number": "11.1.4",
+  "title": "",
+  "body": " Large margin (left) versus fewer margin violations (right)   Large margin (left) versus fewer margin violations (right)   "
+},
+{
+  "id": "svm-note-1",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#svm-note-1",
+  "type": "Note",
+  "number": "11.1.5",
+  "title": "",
+  "body": " If your SVM model is overfitting, you can try regularizing it by reducing C .  "
+},
+{
+  "id": "svm-note-2",
+  "level": "2",
+  "url": "sec-linear-svm-classification.html#svm-note-2",
+  "type": "Note",
+  "number": "11.1.6",
+  "title": "",
+  "body": " Unlike Logistic Regression classifiers, SVM classifiers do not output probabilities for each class.  "
+},
+{
+  "id": "sec-nonlinear-svm-classification",
+  "level": "1",
+  "url": "sec-nonlinear-svm-classification.html",
+  "type": "Section",
+  "number": "11.2",
+  "title": "Nonlinear SVM Classification",
+  "body": "Nonlinear SVM Classification   Although linear SVM classifiers are efficient and work surprisingly well in many cases, many datasets are not even close to being linearly separable. One approach to handling nonlinear datasets is to add more features, such as polynomial features; in some cases this can result in a linearly separable dataset. Consider the left plot in : it represents a simple dataset with just one feature, . This dataset is not linearly separable, as you can see. But if you add a second feature , the resulting 2D dataset is perfectly linearly separable.   Adding features to make a dataset linearly separable.   Adding features to make a dataset linearly separable.     Implementing the Polynomial Kernel   To implement this idea using Scikit-Learn, create a Pipeline containing a PolynomialFeatures transformer, followed by a StandardScaler and a LinearSVC . Let’s test this on the moons dataset: this is a toy dataset for binary classification in which the data points are shaped as two interleaving half circles. You can generate this dataset using the make_moons() function: from sklearn.datasets import make_moons from sklearn.pipeline import Pipeline from sklearn.preprocessing import PolynomialFeatures X, y = make_moons(n_samples=100, noise=0.15) polynomial_svm_clf = Pipeline([ (\"poly_features\", PolynomialFeatures(degree=3)), (\"scaler\", StandardScaler()), (\"svm_clf\", LinearSVC(C=10, loss=\"hinge\")) ]) polynomial_svm_clf.fit(X, y)   Adding polynomial features is simple to implement and can work great with all sorts of Machine Learning algorithms (not just SVMs). That said, at a low polynomial degree, this method cannot deal with very complex datasets, and with a high polynomial degree it creates a huge number of features, making the model too slow.  Fortunately, when using SVMs you can apply an almost miraculous mathematical technique called the kernel trick (explained in a moment). The kernel trick makes it possible to get the same result as if you had added many polynomial features, even with very high-degree polynomials, without actually having to add them. So there is no combinatorial explosion of the number of features because you don’t actually add any features. This trick is implemented by the SVC class. Let’s test it on the moons dataset: from sklearn.svm import SVC poly_kernel_svm_clf = Pipeline([ (\"scaler\", StandardScaler()), (\"svm_clf\", SVC(kernel=\"poly\", degree=3, coef0=1, C=5)) ]) poly_kernel_svm_clf.fit(X, y)   This code trains an SVM classifier using a third-degree polynomial kernel. It is represented on the left in . On the right is another SVM classifier using a 10th degree polynomial kernel. Obviously, if your model is overfitting, you might want to reduce the polynomial degree. Conversely, if it is underfitting, you can try increasing it. The hyperparameter coef0 controls how much the model is influenced by high degree polynomials versus low-degree polynomials.   SVM classifiers with a polynomial kernel   SVM classifiers with a polynomial kernel    A common approach to finding the right hyperparameter values is to use grid search (Will be introduced in the lab of next week). It is often faster to first do a very coarse grid search, then a finer grid search around the best values found. Having a good sense of what each hyperparameter actually does can also help you search in the right part of the hyperparameter space.    Similarity Features and Gaussian RBF Kernel  Another technique to tackle nonlinear problems is to add features computed using a similarity function , which measures how much each instance resembles a particular landmark . For example, let's take the 1D dataset discussed earlier and add two landmarks to it at and (see the left plot in ). Next, let's define the similarity function to be the Gaussian Radial Basis Function (RBF) with . This is a bell-shaped function varying from (very far away from the landmark) to (at the landmark). Now we are ready to compute the new features. For example, let’s look at the instance : it is located at a distance of from the first landmark and from the second landmark. Therefore its new features are and . The plot on the right in shows the transformed dataset (dropping the original features). As you can see, it is now linearly separable.   Similarity features using the Gaussian RBF.   Similarity features using the Gaussian RBF.    You may wonder how to select the landmarks. The simplest approach is to create a landmark at the location of each and every instance in the dataset. Doing that creates many dimensions and thus increases the chances that the transformed training set will be linearly separable. The downside is that a training set with instances and features gets transformed into a training set with instances and features (assuming you drop the original features). If your training set is very large, you end up with an equally large number of features.   Just like the polynomial features method, the similarity features method can be useful with any Machine Learning algorithm, but it may be computationally expensive to compute all the additional features, especially on large training sets. Once again the kernel trick does its SVM magic, making it possible to obtain a similar result as if you had added many similarity features. Let's try the SVC class with the Gaussian RBF kernel: rbf_kernel_svm_clf = Pipeline([ (\"scaler\", StandardScaler()), (\"svm_clf\", SVC(kernel=\"rbf\", gamma=5, C=0.001)) ]) rbf_kernel_svm_clf.fit(X, y) This model is represented at the bottom left in . The other plots show models trained with different values of hyperparameters gamma ( ) and C . Increasing gamma makes the bell-shaped curve narrower. As a result, each instance’s range of influence is smaller: the decision boundary ends up being more irregular, wiggling around individual instances. Conversely, a small gamma value makes the bell-shaped curve wider: instances have a larger range of influence, and the decision boundary ends up smoother. So acts like a regularization hyperparameter: if your model is overfitting, you should reduce it; if it is underfitting, you should increase it (similar to the C hyperparameter).   SVM classifiers using an RBF kernel.   SVM classifiers using an RBF kernel.    Other kernels exist but are used much more rarely. Some kernels are specialized for specific data structures. String kernels are sometimes used when classifying text documents or DNA sequences. We will not discuss them here.  With so many kernels to choose from, how can you decide which one to use? As a rule of thumb, you should always try the linear kernel first ( LinearSVC is much faster than SVC(kernel=\"linear\") ), especially if the training set is very large or if it has plenty of features. If the training set is not too large, you should also try the Gaussian RBF kernel; it works well in most cases. Then if you have spare time and computing power, you can experiment with a few other kernels, using cross-validation and grid search. You'd want to experiment like that especially if there are kernels specialized for your training set's data structure.   "
+},
+{
+  "id": "figure-higher-dimensions",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#figure-higher-dimensions",
+  "type": "Figure",
+  "number": "11.2.1",
+  "title": "",
+  "body": " Adding features to make a dataset linearly separable.   Adding features to make a dataset linearly separable.   "
+},
+{
+  "id": "ssec-implementing-polynomial-kernel-5",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#ssec-implementing-polynomial-kernel-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "kernel trick "
+},
+{
+  "id": "figure-polynomial-kernel",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#figure-polynomial-kernel",
+  "type": "Figure",
+  "number": "11.2.2",
+  "title": "",
+  "body": " SVM classifiers with a polynomial kernel   SVM classifiers with a polynomial kernel   "
+},
+{
+  "id": "ssec-similarity-features-and-gaussian-rbf-kernel-2",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#ssec-similarity-features-and-gaussian-rbf-kernel-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "similarity function landmark Radial Basis Function (RBF) "
+},
+{
+  "id": "figure-similarity-features-gaussian-rbf",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#figure-similarity-features-gaussian-rbf",
+  "type": "Figure",
+  "number": "11.2.3",
+  "title": "",
+  "body": " Similarity features using the Gaussian RBF.   Similarity features using the Gaussian RBF.   "
+},
+{
+  "id": "figure-rbf-kernel",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#figure-rbf-kernel",
+  "type": "Figure",
+  "number": "11.2.4",
+  "title": "",
+  "body": " SVM classifiers using an RBF kernel.   SVM classifiers using an RBF kernel.   "
+},
+{
+  "id": "ssec-similarity-features-and-gaussian-rbf-kernel-8",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#ssec-similarity-features-and-gaussian-rbf-kernel-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "String kernels "
+},
+{
+  "id": "svm-note-3",
+  "level": "2",
+  "url": "sec-nonlinear-svm-classification.html#svm-note-3",
+  "type": "Note",
+  "number": "11.2.5",
+  "title": "",
+  "body": "With so many kernels to choose from, how can you decide which one to use? As a rule of thumb, you should always try the linear kernel first ( LinearSVC is much faster than SVC(kernel=\"linear\") ), especially if the training set is very large or if it has plenty of features. If the training set is not too large, you should also try the Gaussian RBF kernel; it works well in most cases. Then if you have spare time and computing power, you can experiment with a few other kernels, using cross-validation and grid search. You'd want to experiment like that especially if there are kernels specialized for your training set's data structure. "
+},
+{
+  "id": "svm-regression",
+  "level": "1",
+  "url": "svm-regression.html",
+  "type": "Section",
+  "number": "11.3",
+  "title": "SVM Regression",
+  "body": "SVM Regression   As mentioned earlier, the SVM algorithm is versatile: not only does it support linear and nonlinear classification, but it also supports linear and nonlinear regression. To use SVMs for regression instead of classification, the trick is to reverse the objective: instead of trying to fit the largest possible street between two classes while limiting margin violations, SVM Regression tries to fit as many instances as possible on the street while limiting margin violations (i.e., instances off the street). The width of the street is controlled by a hyperparameter, . shows two linear SVM Regression models trained on some random linear data, one with a large margin ( ) and the other with a small margin ( ).   SVM Regression   SVM Regression    Adding more training instances within the margin does not affect the model’s predictions; thus, the model is said to be -insensitive.   You can use Scikit-Learn’s LinearSVR class to perform linear SVM Regression. The following code produces the model represented on the left in (the training data should be scaled and centered first): from sklearn.svm import LinearSVR svm_reg = LinearSVR(epsilon=1.5) svm_reg.fit(X, y)   To tackle nonlinear regression tasks, you can use a kernelized SVM model. shows SVM Regression on a random quadratic training set, using a second-degree polynomial kernel. There is little regularization in the left plot (i.e., a large C value), and much more regularization in the right plot (i.e., a small C value).   SVM Regression using a second-degree polynomial kernel   SVM Regression using a second-degree polynomial kernel    The following code uses Scikit-Learn’s SVR class (which supports the kernel trick) to produce the model represented on the left in : from sklearn.svm import SVR svm_poly_reg = SVR(kernel=\"poly\", degree=2, C=100, epsilon=0.1) svm_poly_reg.fit(X, y) The SVR class is the regression equivalent of the SVC class, and the LinearSVR class is the regression equivalent of the LinearSVC class. The LinearSVR class scales linearly with the size of the training set (just like the LinearSVC class), while the SVR class gets much too slow when the training set grows large (just like the SVC class).  "
+},
+{
+  "id": "svm-regression-3",
+  "level": "2",
+  "url": "svm-regression.html#svm-regression-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "SVM Regression "
+},
+{
+  "id": "figure-svm-regression",
+  "level": "2",
+  "url": "svm-regression.html#figure-svm-regression",
+  "type": "Figure",
+  "number": "11.3.1",
+  "title": "",
+  "body": " SVM Regression   SVM Regression   "
+},
+{
+  "id": "figure-svm-polynomial-regression",
+  "level": "2",
+  "url": "svm-regression.html#figure-svm-polynomial-regression",
+  "type": "Figure",
+  "number": "11.3.2",
+  "title": "",
+  "body": " SVM Regression using a second-degree polynomial kernel   SVM Regression using a second-degree polynomial kernel   "
+},
+{
+  "id": "dive-into-svms",
+  "level": "1",
+  "url": "dive-into-svms.html",
+  "type": "Section",
+  "number": "11.4",
+  "title": "Dive into SVMs",
+  "body": "Dive into SVMs   This section explains how SVMs make predictions and how their training algorithms work, starting with linear SVM classifiers. First, a word about notations. In Linear Regression we used the convention of putting all the model parameters in one vector , including the bias term and the input feature weights to , and adding a bias input to all instances. In this section we will use a convention that is more convenient (and more common) when dealing with SVMs: the bias term will be called , and the vector contains only feature weights. No bias feature will be added to the input feature vectors.   Decision Function and Predictions   The linear SVM classifier model predicts the class of a new instance by simply computing the decision function . If the result is positive, the predicted class is the positive class ( ), and otherwise it is the negative class ( ):   shows the decision function that corresponds to the model in the left in : it is a 2D plane because this dataset has two features (petal width and petal length). The decision boundary is the set of points where the decision function is equal to : it is the intersection of two planes, which is a straight line (represented by the thick solid line). The dashed lines represent the points where the decision function is equal to 1 or -1: they are parallel and at equal distance to the decision boundary, and they form a margin around it. Training a linear SVM classifier means finding the values of and that make this margin as wide as possible while avoiding margin violations (hard margin) or limiting them (soft margin). Note that the Decision Function is shown in an interactive plot. You can rotate, zoom, etc to get a better view. Also, by clicking the \"Top View\" button, you'll see the same 2D figure that we have in .    Iris LinearSVC Decision Function    Training Objective  Consider the slope of the decision function: it is equal to the norm of the weight vector, . If we divide this slope by , the points where the decision function is equal to are going to be twice as far away from the decision boundary. In other words, dividing the slope by will multiply the margin by . This may be easier to visualize in 2D, as shown in . The smaller the weight vector , the larger the margin.   A smaller weight vector results in a larger margin   A smaller weight vector results in a larger margint    So we want to minimize to get a large margin. If we also want to avoid any margin violations (hard margin), then we need the decision function to be greater than 1 for all positive training instances and lower than for negative training instances. If we define for negative instances (if ) and for positive instances (if ), then we can express this constraint as for all instances.  We can therefore express the hard margin linear SVM classifier objective as the following constrained optimization problem:   We are minimizing , which is equal to , rather than minimizing . Indeed, has a nice, simple derivative (it is just ), while is not differentiable at . Optimization algorithms work much better on differentiable functions.  To get the soft margin objective, we need to introduce a slack variable for each instance: measures how much the -th instance is allowed to violate the margin. We now have two conflicting objectives: make the slack variables as small as possible to reduce the margin violations, and make as small as possible to increase the margin. This is where the C hyperparameter comes in: it allows us to define the tradeoff between these two objectives. This gives us the updated constrained optimization problem:    Quadratic Programming  The hard margin and soft margin problems are both convex quadratic optimization problems with linear constraints. Such problems are known as Quadratic Programming (QP) problems. Many off-the-shelf solvers are available to solve QP problems by using a variety of techniques that are outside the scope of this course.  The general problem formulation is given by where is an -dimensional vector ( is the number of parameters), is an matrix, is an -dimensional vector, is an matrix ( is the number of constraints), and is an -dimensional vector.  You can easily verify that if you set the QP parameters in the following way, you get the hard margin linear SVM classifier objective:  , where is the number of features ( is for the bias term).  , where is the number of training instances.  is the identity matrix, except with a zero in the top-left cell (to ignore the bias term).    The -th row of matrix is .    One way to train a hard margin linear SVM classifier is to use an off-the-shelf QP solver and pass it the preceding parameters. The resulting vector will contain the bias term and the feature weights for . Similarly, you can use a QP solver to solve the soft margin problem.  To use the kernel trick, we are going to look at a different constrained optimization problem.   The Dual Problem  Given a constrained optimization problem, known as the primal problem, it is possible to express a different but closely related problem, called its dual problem . The solution to the dual problem typically gives a lower bound to the solution of the primal problem, but under some conditions it can have the same solution as the primal problem. Luckily, the SVM problem happens to meet these conditions, so you can choose to solve the primal problem or the dual problem; both will have the same solution. shows the dual form of the linear SVM objective.   Once you find the vector that minimizes this equation (using a QP solver), use to compute and that minimize the primal problem. where is the number of positive .  The dual problem is faster to solve than the primal one when the number of training instances is smaller than the number of features. More importantly, the dual problem makes the kernel trick possible, while the primal does not. So what is this kernel trick, anyway?   Kernelized SVMs  Suppose you want to apply a second-degree polynomial transformation to a two-dimensional training set (such as the moons training set), then train a linear SVM classifier on the transformed training set. shows the second-degree polynomial mapping function that you want to apply. Notice that the transformed vector is 3D instead of 2D. Now let’s look at what happens to a couple of 2D vectors, and , if we apply this second-degree polynomial mapping and then compute the dot product of the transformed vectors: The dot product of the transformed vectors is equal to the square of the dot product of the original vectors: .  Here is the key insight: if you apply the transformation to all training instances, then the dual problem (see ) will contain the dot product . But if is the second-degree polynomial transformation defined in , then you can replace this dot product of transformed vectors simply by . So, you don’t need to transform the training instances at all; just replace the dot product by its square in . The result will be strictly the same as if you had gone through the trouble of transforming the training set then fitting a linear SVM algorithm, but this trick makes the whole process much more computationally efficient.  The function is a second-degree polynomial kernel. In Machine Learning, a kernel is a function capable of computing the dot product , based only on the original vectors and , without having to compute (or even to know about) the transformation . lists some of the most commonly used kernels.   Once the optimization problem is solved, the output of decision function for a given sample becomes: and the predicted class correspond to its sign. We only need to sum over the support vectors (i.e. the samples that lie within the margin) because the dual coefficients are zero for the other samples.   Hinge Loss for LinearSVC   can be equivalently formulated as where we make use of the hinge loss , see the solid blue line in . This is the form that is directly optimized by LinearSVC , but unlike the dual form, this one does not involve inner products between samples, so the famous kernel trick cannot be applied. This is why only the linear kernel is supported by LinearSVC .   Hinge loss and squared hinge loss   Hinge loss and squared hinge loss    Suppose that you need to draw a very fine decision boundary. In that case, you wish to punish larger errors more significantly than smaller errors. Squared hinge loss may then be what you are looking for. Squared hinge loss is nothing else but a square of the output of the hinge loss function. It generates a loss function as illustrated by red dashed line in , compared to regular hinge loss. As you can see, larger errors are punished more significantly than with traditional hinge, whereas smaller errors are punished slightly lighter.   "
+},
+{
+  "id": "figure-small-weight-large-margin",
+  "level": "2",
+  "url": "dive-into-svms.html#figure-small-weight-large-margin",
+  "type": "Figure",
+  "number": "11.4.1",
+  "title": "",
+  "body": " A smaller weight vector results in a larger margin   A smaller weight vector results in a larger margint   "
+},
+{
+  "id": "svm-note-4",
+  "level": "2",
+  "url": "dive-into-svms.html#svm-note-4",
+  "type": "Note",
+  "number": "11.4.2",
+  "title": "",
+  "body": "We are minimizing , which is equal to , rather than minimizing . Indeed, has a nice, simple derivative (it is just ), while is not differentiable at . Optimization algorithms work much better on differentiable functions. "
+},
+{
+  "id": "quadratic-programming-2",
+  "level": "2",
+  "url": "dive-into-svms.html#quadratic-programming-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Quadratic Programming (QP) "
+},
+{
+  "id": "ssec-svm-dual-problem-2",
+  "level": "2",
+  "url": "dive-into-svms.html#ssec-svm-dual-problem-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "dual problem "
+},
+{
+  "id": "ssec-hinge-loss-for-linearsvc-2",
+  "level": "2",
+  "url": "dive-into-svms.html#ssec-hinge-loss-for-linearsvc-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hinge loss "
+},
+{
+  "id": "figure-hinge-loss",
+  "level": "2",
+  "url": "dive-into-svms.html#figure-hinge-loss",
+  "type": "Figure",
+  "number": "11.4.3",
+  "title": "",
+  "body": " Hinge loss and squared hinge loss   Hinge loss and squared hinge loss   "
+},
+{
   "id": "appendix-ai-use-policy",
   "level": "1",
   "url": "appendix-ai-use-policy.html",
