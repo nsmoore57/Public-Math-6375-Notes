@@ -364,7 +364,8 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list" id="ptx-toc-group-term-project-requirements">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="term-project-requirements.html#term-project-requirements-3"><span class="title">Project Topic</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="term-project-requirements.html#term-project-requirements-4"><span class="title">Outcomes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="term-project-requirements.html#term-project-requirements-5"><span class="title">Deliverables Format</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="term-project-requirements.html#term-project-requirements-5"><span class="title">Allowed AI Usage</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="term-project-requirements.html#term-project-requirements-6"><span class="title">Deliverables Format</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a class="internal" href="term-project-requirements.html#term-project-rubric"><span class="title">Grading Rubric</span></a></div></li>
 </ul>
 </li>
@@ -649,7 +650,7 @@ threshold = 0
 y_some_digit_pred = (y_scores &gt; threshold)
 print('predicted: ', y_some_digit_pred[0])
 </code></pre></div>
-<article class="assemblage assemblage-like" id="precision-recall-trade-off-4-4"><div class="code-box"><pre class="console clipboardable">y_scores:  1.9383711710342175
+<article class="assemblage assemblage-like" id="precision-recall-trade-off-4-4"><div class="code-box"><pre class="console clipboardable">y_scores:  1.9383711978287734
 predicted:  True
 </pre></div>
 <div aria-hidden="true" class="autopermalink" data-description="Assemblage"><a aria-label="Copy heading and permalink for Assemblage" href="#precision-recall-trade-off-4-4" tabindex="-1" title="Copy heading and permalink for Assemblage">🔗</a></div>
@@ -741,7 +742,7 @@ plt.show()
 <div class="para" id="the-roc-curve-7">One way to compare classifiers is to measure the <dfn class="terminology">area under the curve</dfn> (AUC). A perfect classifier will have a ROC AUC equal to 1, whereas a purely random classifier will have a ROC AUC equal to 0.5. Scikit-Learn provides a function to compute the ROC AUC: <div class="code-box"><pre class="program clipboardable"><code class="language-py">from sklearn.metrics import roc_auc_score
 print(roc_auc_score(y_train_5, y_scores))
 </code></pre></div>
-<article class="assemblage assemblage-like" id="the-roc-curve-7-3"><div class="code-box"><pre class="console clipboardable">0.9748672232444352
+<article class="assemblage assemblage-like" id="the-roc-curve-7-3"><div class="code-box"><pre class="console clipboardable">0.974867270562073
 </pre></div>
 <div aria-hidden="true" class="autopermalink" data-description="Assemblage"><a aria-label="Copy heading and permalink for Assemblage" href="#the-roc-curve-7-3" tabindex="-1" title="Copy heading and permalink for Assemblage">🔗</a></div>
 </article><div aria-hidden="true" class="autopermalink" data-description="Paragraph"><a aria-label="Copy heading and permalink for Paragraph" href="#the-roc-curve-7" tabindex="-1" title="Copy heading and permalink for Paragraph">🔗</a></div>
