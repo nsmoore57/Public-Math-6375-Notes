@@ -427,7 +427,7 @@ X_poly = poly_features.fit_transform(X)
 lin_reg.fit(X_poly, y)
 print(f'intercept: {lin_reg.intercept_}, coef: {lin_reg.coef_}')
 </code></pre></div>
-<article class="assemblage assemblage-like" id="week-04-polynomial-regression-5-9"><div class="code-box"><pre class="console clipboardable">intercept: [1.96173584], coef: [[0.97239806 0.51710471]]
+<article class="assemblage assemblage-like" id="week-04-polynomial-regression-5-9"><div class="code-box"><pre class="console clipboardable">intercept: [2.06855221], coef: [[0.90417996 0.49937716]]
 </pre></div>
 <div aria-hidden="true" class="autopermalink" data-description="Assemblage"><a aria-label="Copy heading and permalink for Assemblage" href="#week-04-polynomial-regression-5-9" tabindex="-1" title="Copy heading and permalink for Assemblage">🔗</a></div>
 </article> We can now plot the model predictions over the original data: <div class="code-box"><pre class="program clipboardable"><code class="language-py">X_new = np.linspace(-3, 3, 100).reshape(100, 1)
